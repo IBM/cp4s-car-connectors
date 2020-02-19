@@ -1,0 +1,10 @@
+
+# Kill running instance fist! 
+# docker ps
+# docker kill <instance id>
+
+
+docker rmi asset-server
+docker build --tag asset-server .
+docker run -d --rm -p 8000:8000 asset-server
+
