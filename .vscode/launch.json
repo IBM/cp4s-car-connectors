@@ -2,12 +2,37 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Connector",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/connector/connector.py",
             "console": "integratedTerminal",
-            "args": [ "-server=http://gleb-isc1.fyre.ibm.com:8000", "-username=admin", "-password=admin", "-car-service=http://gleb-isc1.fyre.ibm.com:3000/car/api" ],
+            "args": [
+                "-server=http://gleb-isc1.fyre.ibm.com:8000",
+                "-username=admin",
+                "-password=admin",
+                "-car-service=http://gleb-isc1.fyre.ibm.com:3000/car/api"
+            ],
+        },
+        {
+            "name": "Connector Local",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/connector/connector.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-server=http://127.0.0.1:8000",
+                "-username=admin",
+                "-password=admin",
+                "-car-service=http://gleb-isc1.fyre.ibm.com:3000/car/api"
+            ],
         },
         {
             "name": "Server",

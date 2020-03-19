@@ -1,11 +1,14 @@
-import requests, json
+import requests, json, urllib
 from util import get_json, Status, SUCCESS, FAILURE, IN_PROGRESS, DB_FAILURE, DB_READY
 
 IMPORT_RESOURCE = '/imports'
 STATUS_RESOURCE = '/importstatus'
 DATABASE_RESOURCE = '/databases'
 JOBSTATUS_RESOURCE = '/jobstatus'
+SOURCE_RESOURCE = '/source'
+
 FULL_IMPORT_IN_PROGRESS_ENDPOINT = '/full-import-in-progress'
+MODEL_STATE_ID = 'model_state_id'
 max_wait_time = 60
 
 
@@ -17,6 +20,22 @@ class CarService(object):
         self.status_url = context.args.car_service + STATUS_RESOURCE
         self.job_status_url = context.args.car_service + JOBSTATUS_RESOURCE
         self.headers =  {'Accept' : 'application/json', 'Content-Type' : 'application/json'}
+
+
+    def get_last_model_state_id(self):
+        url = '%s/source/%s/graph' % (self.context.args.car_service, urllib.parse.quote_plus(self.context.source))
+        resp = requests.get(url, headers=self.headers)
+        if resp.status_code != 200:
+            return None
+        json_data = resp.json()
+        return json_data.get('result') and json_data.get('result').get(MODEL_STATE_ID)
+
+
+    def save_new_model_state_id(self, new_model_state_id):
+        data = json.dumps({ MODEL_STATE_ID: new_model_state_id })
+        resp = requests.patch(self.context.args.car_service + SOURCE_RESOURCE, data=data, params={ 'key': self.context.source }, headers=self.headers)
+        if resp.status_code != 200:
+            raise Exception('Error when trying to save a save point: %d' % resp.status_code)
 
 
     def import_data(self, data):
@@ -86,8 +105,8 @@ class CarService(object):
         
 
     def delete(self, resource, ids):
-        url = '%s/source/%s/%s?external_ids=%s' % (self.base_url, self.source, resource, ids)
-        r = self.communicator.send_delete_request(url)
+        url = '%s/source/%s/%s?external_ids=%s' % (self.context.args.car_service, self.context.source, resource, ids)
+        r = requests.delete(url, headers=self.headers)
         return r.status_code
 
 

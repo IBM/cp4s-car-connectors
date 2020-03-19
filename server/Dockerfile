@@ -6,6 +6,7 @@ WORKDIR /asset-server
 
 RUN pip install django
 RUN pip install djangorestframework
+RUN pip install django-filter
 
 EXPOSE 8000
 

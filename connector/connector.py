@@ -1,6 +1,8 @@
 import sys, argparse, traceback
 from context import Context
 from example_full_import import ExampleFullImport
+from incremental_import import IncrementalImport, Status
+from server import AssetServer
 
 
 version = '1.0.1'
@@ -17,6 +19,13 @@ def main():
         args = parser.parse_args()
 
         context = Context(args, 'ExampleAssetModel')
+        AssetServer(context)
+
+        importer = IncrementalImport(context)
+        status = importer.run()
+        if status in (Status.SUCCESS, Status.FAILURE):
+            return
+
         importer = ExampleFullImport(context)
         importer.run()
 

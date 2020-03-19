@@ -89,3 +89,9 @@ class AssetModelSize(models.Model):
         populate(self.size)
     class Meta:
         verbose_name_plural = "Asset Model Size"
+
+
+class ChangeLog(models.Model):
+    model = models.CharField(max_length=80)
+    uid = models.IntegerField()
+    deleted = models.BooleanField(default=False)

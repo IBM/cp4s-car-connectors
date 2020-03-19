@@ -1,8 +1,6 @@
 
 
-def get_json(response):
-    try: return response.json()
-    except: return {}
+BATCH_SIZE = 20
 
 FAILURE = 0
 IN_PROGRESS = 1
@@ -10,6 +8,12 @@ SUCCESS = 2
 
 DB_FAILURE = 0
 DB_READY = 1
+
+
+def get_json(response):
+    try: return response.json()
+    except: return {}
+
 
 class Status(dict):
     def __init__(self):
