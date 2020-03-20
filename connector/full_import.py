@@ -1,40 +1,37 @@
-from util import DB_READY, FAILURE
-from base_import import BaseImport
+from car_framework.full_import import BaseFullImport
+from data_handler import DataHandler, endpoint_mapping
+from car_framework.context import context
 
 
-
-class FullImport(BaseImport):
-    def __init__(self, context):
-        super().__init__(context)
-        self.statuses = []
-
-
-    def init(self):
-        db_status = self.context.car_service.get_db_status()
-        if db_status != DB_READY:
-            print('Database is not ready.')
-            exit(1)
-        source_report_data = self.create_source_report_object()
-        status = self.context.car_service.import_data(source_report_data)
-        if status.status == FAILURE:
-            print('Error: ' + status.error)
-            exit(1)
-        self.statuses.append(status)
-        self.wait_for_completion_of_import_jobs()
-        self.context.car_service.enter_full_import_in_progress_state()
-        self.new_model_state_id = self.get_new_model_state_id()
+class FullImport(BaseFullImport):
+    def __init__(self):
+        super().__init__()
+        self.data_handler = DataHandler(context().asset_server.get_collection('xrefproperties'))
 
 
-    def complete(self):
-        self.context.car_service.exit_full_import_in_progress_state()
-        self.save_new_model_state_id(self.new_model_state_id)
-        print('Done.')
+    def create_source_report_object(self):
+        return {'source': self.data_handler.source, 'report': self.data_handler.report, 'source_report': self.data_handler.source_report}
 
 
-    def run(self):
-        self.init()
-        self.import_vertices()
-        self.wait_for_completion_of_import_jobs()
-        self.import_edges()
-        self.wait_for_completion_of_import_jobs()
-        self.complete()
+    def import_collection(self, asset_server_endpoint, name):
+        collection = context().asset_server.get_collection(asset_server_endpoint)
+        data = []
+        for obj in collection:
+            res = eval('self.data_handler.handle_%s(obj)' % asset_server_endpoint.lower())
+            if res: data.append(res)
+        if name:
+            self.send_data(name, data)
+
+
+    def get_new_model_state_id(self):
+        return context().asset_server.get_model_state_id()
+
+
+    def import_vertices(self):
+        for asset_server_endpoint, data_name in endpoint_mapping.items():
+            self.import_collection(asset_server_endpoint, data_name)
+
+
+    def import_edges(self):
+        for name, data in self.data_handler.edges.items():
+            self.send_data(name, data)
