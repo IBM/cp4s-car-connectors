@@ -1,0 +1,4 @@
+[submodule "connector/car_framework"]
+	path = connector/car_framework
+	url = ssh://git@github.ibm.com/security-secops/car-connector-framework.git
+	branch = develop
