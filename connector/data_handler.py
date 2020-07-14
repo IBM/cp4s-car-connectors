@@ -7,7 +7,7 @@ endpoint_mapping = \
     {'vulnerabilities' : 'vulnerability', 'assets' : 'asset', 'ip_addresses' : 'ipaddress', 
     'mac_addresses' : 'macaddress', 'hosts' : 'hostname', 'apps' : 'application', 'ports' : 'port'}
 
-
+# helper functions
 def extract_id(url):
     m = re.search(r'/(\d+)/$', url)
     return int(m.group(1))
@@ -40,26 +40,27 @@ class DataHandler(object):
         self.edges = {}
         self.xrefproperties = xrefproperties
 
+        # create source, report and source_report entry and it is compuslory for each imports API call
         now = get_report_time()
         self.source = {'_key': context().source, 'name': context().args.server, 'description': 'Reference Asset server'}
         self.report = {'_key': str(now), 'timestamp' : now, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
         self.source_report = [{'active': True, '_from': 'source/' + self.source['_key'], '_to': 'report/' + self.report['_key'], 'timestamp': self.report['timestamp']}]
 
-
+    # Copies the source object to CAR data model object if attribute have same name
     def copy_fields(self, obj, *fields):
         res = {}
         for field in fields:
             res[field] = obj[field]
         return res
 
-
+    # Adds the edge between two vertices
     def add_edge(self, name, object):
         objects = self.edges.get(name)
         if not objects:
             objects = []; self.edges[name] = objects
         objects.append(object)
 
-
+    # Create vulnerability Object as per CAR data model from data source
     def handle_vulnerabilities(self, obj):
         res = self.copy_fields(obj, 'name', 'published_on', 'disclosed_on', 'updated_on', 'vcvssbmid', 'base_score', )
         res['external_id'] = str(obj['pk'])
@@ -69,7 +70,7 @@ class DataHandler(object):
             res['xref_properties'].append(filter_out(find_by_id(self.xrefproperties, xref), 'pk'))
         return res
 
-
+    # Create asset Object as per CAR data model from data source
     def handle_assets(self, obj):
         res = self.copy_fields(obj, 'name', )
         res['external_id'] = str(obj['pk'])
@@ -85,7 +86,7 @@ class DataHandler(object):
 
         return res
 
-
+    # Create ipaddress Object as per CAR data model from data source
     def handle_ip_addresses(self, obj):
         res = {}
         res['external_id'] = str(obj['pk'])
@@ -96,7 +97,7 @@ class DataHandler(object):
             'timestamp': self.report['timestamp'], 'source': context().source, 'report': self.report['_key'], 'active': True})
         return res
 
-
+    # Create mac address Object as per CAR data model from data source
     def handle_mac_addresses(self, obj):
         res = {}
         res['external_id'] = str(obj['pk'])
@@ -105,7 +106,7 @@ class DataHandler(object):
             'timestamp': self.report['timestamp'], 'source': context().source, 'report': self.report['_key'], 'active': True})
         return res
 
-
+    # Create hostname Object as per CAR data model from data source
     def handle_hosts(self, obj):
         res = {}
         res['external_id'] = str(obj['pk'])
@@ -114,7 +115,7 @@ class DataHandler(object):
             'timestamp': self.report['timestamp'], 'source': context().source, 'report': self.report['_key'], 'active': True})
         return res
 
-
+    # Create application Object as per CAR data model from data source
     def handle_apps(self, obj):
         res = self.copy_fields(obj, 'name', )
         res['external_id'] = str(obj['pk'])
@@ -129,7 +130,7 @@ class DataHandler(object):
 
         return res
 
-
+    # Create port Object as per CAR data model from data source
     def handle_ports(self, obj):
         res = self.copy_fields(obj, 'port_number', 'layer7application', 'protocol', )
         res['external_id'] = str(obj['pk'])
