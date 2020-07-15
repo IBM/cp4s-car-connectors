@@ -19,13 +19,6 @@ class App(BaseApp):
         self.parser.add_argument('-username', dest='username', type=str, required=True, help='The user name for the Asset data server')
         self.parser.add_argument('-password', dest='password', type=str, required=True, help='The password for the Asset data server')
 
-        # source id to uniquely identify each data source
-        self.parser.add_argument('-source', dest='source', type=str, required=True, help='Unique source id for the data source')
-
-    def source(self):
-        return context().args.source
-
-
     def setup(self):
         super().setup()
         context().asset_server = AssetServer()
