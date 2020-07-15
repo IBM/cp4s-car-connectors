@@ -14,14 +14,10 @@ version = '1.0.1'
 class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
+        # Add parameters need to connect data source
         self.parser.add_argument('-server', dest='server', type=str, required=True, help='The url of the Asset data server')
         self.parser.add_argument('-username', dest='username', type=str, required=True, help='The user name for the Asset data server')
         self.parser.add_argument('-password', dest='password', type=str, required=True, help='The password for the Asset data server')
-
-
-    def source(self):
-        return 'ReferenceConnectorAssetModel'
-
 
     def setup(self):
         super().setup()
