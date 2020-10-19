@@ -1,5 +1,5 @@
 from car_framework.full_import import BaseFullImport
-from data_handler import DataHandler, endpoint_mapping
+from connector.data_handler import DataHandler, endpoint_mapping
 from car_framework.context import context
 
 

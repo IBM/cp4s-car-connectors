@@ -3,9 +3,9 @@ import sys, argparse, traceback
 from car_framework.context import context
 from car_framework.app import BaseApp
 
-from server_access import AssetServer
-from full_import import FullImport
-from inc_import import IncrementalImport
+from connector.server_access import AssetServer
+from connector.full_import import FullImport
+from connector.inc_import import IncrementalImport
 
 
 version = '1.0.1'
