@@ -1,1 +1,1 @@
-car-connector-framework==0.0.11
+car-connector-framework
