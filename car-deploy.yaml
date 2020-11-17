@@ -1,0 +1,37 @@
+version: '2.2'
+services:
+  arangodb:
+    image: "arangodb/arangodb:3.7.3"
+    environment:
+      ARANGO_ROOT_PASSWORD: root
+    ports:
+      - '8529:8529'
+  redis:
+    image: "redis:5.0.3-alpine"
+  car:
+    image: "quay.io/omkargurav/car-ft:v1.0"
+    container_name: car
+    cpu_quota: 60000
+    mem_limit: 512m
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'arangodb'
+      - 'redis'
+    volumes:
+      - /tmp/node_profile:/tmp/node_profile
+    environment:
+      PERF_LOGGING: '/tmp/node_profile/'
+      CAR_MICROSERVICE_RUNS_LOCALLY: 'True'
+      CAR_TEST_ACCOUNT_ID: 'car-ft'
+      ARANGO_URI: 'http://arangodb:8529'
+      ARANGO_UNAME: 'root'
+      ARANGO_PASS: 'root'
+      ARANGO_DBNAME: 'assets-car-ft'
+      REDIS_UNAME: 'admin'
+      REDIS_PORT: 6379
+      REDIS_HOST: 'redis'
+      REDIS_PASS: ''
+      REDIS_IS_SSL: ''
+      REDIS_SSL: 'false'
+      CAR_PLATFORM: 'OCP'
