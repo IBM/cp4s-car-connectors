@@ -30,9 +30,9 @@ Set the "size" to some number and click "Save" button.
 
 ## Connector
 
-Make sure that the car-framework git submodule is initialized:
+Install python dependances from "connector" folder
 ```
-git submodule update --init --recursive --remote -f
+pip install -r requirements.txt
 ```
 
 Running the connector:
