@@ -1,13 +1,13 @@
 1. Identify asset data and the relationships between those identifiers.  CAR-connector-schema.xls file can be helpful to figure out the mapping between CAR data model and source data structure.
 2. Get local instance of CAR running. [CAR-service](https://github.ibm.com/CAR/UDA-Import) repo needs to be cloned. It has all the tools required to run local instance of CAR with detailed steps use this repo in [README](https://github.ibm.com/CAR/UDA-Import/blob/develop/functional-test/readme.md) file.
-3. Get the reference CAR connector running. car-reference-connector has a server (dummy data-source) can started by following steps listed in README of that repository. Once the server is running, we can execute the reference connector with command as mentioned in the README file. While running the reference connector make sure the variables car-service-url car-service-key and car-service-password is for the CAR env setup in Step 2.
+3. Get the reference CAR connector running. car-reference-connector has a server (dummy data-source) can started by following the steps listed in README of that repository. Once the server is running, we can execute the reference connector with command as mentioned in the README file. While running the reference connector, make sure that the variables `car-service-url` `car-service-key` and `car-service-password` are for the CAR env setup in Step 2.
 5. Verify that data is successfully imported in CAR by calling any endpoints as mentioned in CAR documentation.
 6. Update the reference connector to call desired data source.
 
 
 
 # Update reference connector
-1. Delete the dummy server
+1. Delete the dummy server folder
 2. `app.py`
     - Update  the arguments  required to connect to data source in `__init__`
     - Add logic for source id in `source` function
