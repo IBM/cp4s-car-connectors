@@ -60,6 +60,8 @@ class DataHandler(object):
             objects = []; self.edges[name] = objects
         objects.append(object)
 
+    # Each endpoint defined in the above endpoint_mapping object should have a handle_* method
+
     # Create vulnerability Object as per CAR data model from data source
     def handle_vulnerabilities(self, obj):
         res = self.copy_fields(obj, 'name', 'published_on', 'disclosed_on', 'updated_on', 'vcvssbmid', 'base_score', )

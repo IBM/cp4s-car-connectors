@@ -1,0 +1,59 @@
+{
+    "connection": {
+        "name": {
+            "label": "Connector name",
+            "description": "Assign a name to uniquely identify the data source connection"
+        },
+        "description": {
+            "label": "Connector Description",
+            "description": "Write a description to indicate the purpose of the data source connection"
+        },
+        "frequency": {
+            "label": {
+                "5m"    : "5 minutes",
+                "10m"   : "10 minutes",
+                "15m"   : "15 minutes",
+                "30m"   : "30 minutes",
+                "1h"    : "1 hour",
+                "2h"    : "2 hour",
+                "5h"    : "4 hour",
+                "10h"   : "6 hour",
+                "12h"   : "12 hour",
+                "daily" : "Daily"
+            },
+            "description": "Set how frequently the connectors will pull data from the data source"
+        },
+        "time": {
+            "label": "Time",
+            "description": "Set the time to run connector to pull data from data source"
+        },
+        "help": {
+            "label": "Help",
+            "description": "More details on the data source setting can be found in the specified link"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "username": {
+                "label": "Username",
+                "description": "Username required for data source authentication"
+            },
+            "password": {
+                "label": "Password",
+                "description": "Password required for data source authentication"
+            }
+        },
+        "parameter": {
+            "<required_parameter>": {
+                "label": "<label_for_parameter_field>",
+                "placeholder": "<placeholder_text_for_parameter_field>",
+                "description": "<description_of_parameter>"
+            },
+            "<optional_parameter>": {
+                "label": "<label_for_parameter_field>",
+                "placeholder": "<placeholder_text_for_parameter_field>",
+                "description": "<description_of_parameter>"
+            }
+        }
+    }
+}
