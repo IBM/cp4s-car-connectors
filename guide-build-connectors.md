@@ -1,22 +1,4 @@
 # Developing a CAR connector
-
-
-<!-- Requires local car service, can add back in once we have the service hosted -->
-
-<!-- 2. Get local instance of CAR running. [CAR-service](https://github.ibm.com/CAR/UDA-Import) repo needs to be cloned. It has all the tools required to run local instance of CAR with detailed steps use this repo in [README](https://github.ibm.com/CAR/UDA-Import/blob/develop/functional-test/readme.md) file. -->
-
-<!-- 3. Run the CAR reference connector. The reference connector includes a local server that implements a simple dummy asset model.
-
-
-
- can started by following the steps listed in README of that repository. Once the server is running, we can execute the reference connector with command as mentioned in the README file. While running the reference connector, make sure that the variables `car-service-url` `car-service-key` and `car-service-password` are for the CAR env setup in Step 2. -->
-
-<!-- Requires local car service, can add back in once we have the service hosted -->
-
-<!-- 5. Verify that data is successfully imported in CAR by calling any endpoints as mentioned in CAR documentation. -->
-
-
-
 ## Copy the reference connector
 The `cp4s-car-reference-connector` project should first be copied to your local development environment. This can be done by either cloning or downloading a ZIP archive of this project. 
 
@@ -152,7 +134,7 @@ The following example contains the appropriate parameters for `config.json`:
 - `frequency`: Defines the frequency options used to determine how often CAR's data import job is run. This object should be left as is.
 - `time`: Defines in UTC time when the initial import job is run. Change this to your desired time.
 - `help`: Defines a help URL where a user can get more information about a connector. This would typically be an IBM Knowledge Center page outlining the connector configuration options.
-<!-- - `image`: NEED TO ASK ABOUT THIS -->
+- `image`: Used by the CAR config service, the `image_link` is automatically populated by the Kubernetes custom resource. This object should be left as is.
 
 #### `configuration`
 
@@ -230,7 +212,7 @@ The following example contains the appropriate parameters for `lang.json`:
 Only the `configuration` object needs to be updated to reflect the `auth` and `parameter` objects defined in `config.json`.
 
 
-### Dockerfile
+### `Dockerfile`
 
 Update  the `LABEL` in the `Dockerfile` 
 
@@ -246,8 +228,12 @@ LABEL name="<connector_name>-isc-car-connector" \
 - The `cp4s_version` should be the latest version of Cloud Pak for Security (ex. `1.6.0.0`).
 - The `connector_summary` and `connector_description` can be the same, or a longer description may be added.
 
-### README.md
+### `README.md`
 
-Update the readme to include an overview of the target data source and any setup information  
+Update `README.md` to include an overview of the target data source and any setup information.  
+
+## Testing your connector
+
+Download the [CAR import project](https://github.ibm.com/CAR/UDA-Import) and follow the [instructions](https://github.ibm.com/CAR/UDA-Import/tree/develop/functional-test) for running the CAR service locally. After running your new connector's full import, verify that data is successfully imported in CAR by calling the endpoints listed in the [CAR documentation](https://github.ibm.com/CAR/UDA-Import/blob/develop/README.md).
 
 
