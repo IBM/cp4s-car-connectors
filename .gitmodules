@@ -1,4 +1,0 @@
-[submodule "connector/car_framework"]
-	path = connector/car_framework
-	url = ssh://git@github.com:IBM/cp4s-car-connector-framework.git
-	branch = develop
