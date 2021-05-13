@@ -124,7 +124,7 @@ class DataHandler(object):
         for asset_url in obj.get('assets', []):
             asset = context().asset_server.get_object(asset_url)
             for vuln in asset.get('vulnerabilities', []):
-                self.add_edge('app_vuln', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln)),
+                self.add_edge('application_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln)),
                     'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
 
         return res
@@ -135,7 +135,7 @@ class DataHandler(object):
         res['external_id'] = str(obj['pk'])
 
         for app in obj.get('apps', []):
-            self.add_edge('app_port', {'_from_external_id': str(extract_id(app)), '_to_external_id': res['external_id'],
+            self.add_edge('application_port', {'_from_external_id': str(extract_id(app)), '_to_external_id': res['external_id'],
                 'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
 
         ids = []        
