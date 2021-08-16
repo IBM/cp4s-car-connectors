@@ -14,10 +14,10 @@ class IncrementalImport(BaseIncrementalImport):
     def get_new_model_state_id(self):
         return context().asset_server.get_model_state_id()
 
-    # Create source, report and source_report entry.
+    # Create source entry.
     def create_source_report_object(self):
         # Can be left as it is if they are populated in data handler constructor
-        return {'source': self.data_handler.source, 'report': self.data_handler.report, 'source_report': self.data_handler.source_report}
+        return {'source': self.data_handler.source}
 
     # Gather information to get data from last save point and new save point
     def get_data_for_delta(self, last_model_state_id, new_model_state_id):
