@@ -13,7 +13,7 @@ class FullImport(BaseFullImport):
     # Create source entry.
     def create_source_report_object(self):
         # Can be left as it is if they are populated in data handler constructor
-        return {'source': self.data_handler.source}
+        return {'source': self.data_handler.source, 'report': self.data_handler.report}
 
     # Logic to import a collection; called by import_vertices
     def import_collection(self, asset_server_endpoint, name):

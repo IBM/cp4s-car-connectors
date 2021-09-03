@@ -27,14 +27,21 @@ def filter_out(source, *fields):
             res[key] = str(source[key])
     return res
 
+def get_report_time():
+    delta = datetime.datetime.utcnow() - datetime.datetime(1970, 1, 1)
+    milliseconds = delta.total_seconds() * 1000
+    return milliseconds
+
 class DataHandler(object):
 
     def __init__(self, xrefproperties):
         self.edges = {}
         self.xrefproperties = xrefproperties
 
+        now = get_report_time()
         # create source entry and it is compuslory for each imports API call
         self.source = {'_key': context().args.source, 'name': context().args.server, 'description': 'Reference Asset server'}
+        self.report = {'_key': str(now), 'timestamp' : now, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
 
     # Copies the source object to CAR data model object if attribute have same name
     def copy_fields(self, obj, *fields):

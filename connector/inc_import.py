@@ -17,7 +17,7 @@ class IncrementalImport(BaseIncrementalImport):
     # Create source entry.
     def create_source_report_object(self):
         # Can be left as it is if they are populated in data handler constructor
-        return {'source': self.data_handler.source}
+        return {'source': self.data_handler.source, 'report': self.data_handler.report}
 
     # Gather information to get data from last save point and new save point
     def get_data_for_delta(self, last_model_state_id, new_model_state_id):
