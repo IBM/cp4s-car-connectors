@@ -31,7 +31,7 @@ Identify the asset data and their relationships you wish to import from your tar
 endpoint_mapping = {'ip_addresses': 'ipaddress'}
 ```
 
-- The reference connector includes several sample helper functions: `extract_id`, `find_by_id`, `filter_out`, and `get_report_time`. You may edit or delete these functions, or add new ones depending on the needs of the target data source.
+- The reference connector includes several sample helper functions: `extract_id`, `find_by_id`, and `filter_out`. You may edit or delete these functions, or add new ones depending on the needs of the target data source.
 
 - Each element in the `endpoint_mapping` object must have a corresponding `handle_*` function for creating an object to be ingested by the CAR service. You can use the  `copy_fields` function to quickly create such an object if the data source endpoint has the same name as the target CAR property. Edit, delete, and add `handle_*` functions as needed.
 
@@ -41,7 +41,7 @@ endpoint_mapping = {'ip_addresses': 'ipaddress'}
 The `FullImport` class is responsible for the initial import of data into the CAR service.
 
 - Update the `__init__` method to initialize the data handler. If the data handler does not pull any enum from the source, `None` can be sent as the parameter.
-- If the data handler initializes `source`, `report`, and `source_report`; the `create_source_report_object` method can be left as is.
+- If the data handler initializes `source`; the `create_source_report_object` method can be left as is.
 - Update the `import_collection` method to add logic required by the data source to import a single collection.
 - Update `get_new_model_state_id` to get a new save point from the data source server. If the data source does not support save points, the current time should be returned.
 - The `import_vertices` method should be left unchanged.

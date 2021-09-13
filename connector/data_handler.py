@@ -27,12 +27,10 @@ def filter_out(source, *fields):
             res[key] = str(source[key])
     return res
 
-
 def get_report_time():
     delta = datetime.datetime.utcnow() - datetime.datetime(1970, 1, 1)
     milliseconds = delta.total_seconds() * 1000
     return milliseconds
-
 
 class DataHandler(object):
 
@@ -40,11 +38,10 @@ class DataHandler(object):
         self.edges = {}
         self.xrefproperties = xrefproperties
 
-        # create source, report and source_report entry and it is compuslory for each imports API call
         now = get_report_time()
+        # create source entry and it is compuslory for each imports API call
         self.source = {'_key': context().args.source, 'name': context().args.server, 'description': 'Reference Asset server'}
         self.report = {'_key': str(now), 'timestamp' : now, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
-        self.source_report = [{'active': True, '_from': 'source/' + self.source['_key'], '_to': 'report/' + self.report['_key'], 'timestamp': self.report['timestamp']}]
 
     # Copies the source object to CAR data model object if attribute have same name
     def copy_fields(self, obj, *fields):
@@ -79,12 +76,9 @@ class DataHandler(object):
         res['assetid'] = str(obj['pk'])
         res['asset_type'] = str(obj['type'])
 
-        self.add_edge('report_asset', {'active': True, 'source': context().args.source, '_from': 'report/' + self.report['_key'], 
-            '_to_external_id': res['external_id'], 'timestamp': self.report['timestamp']})
-
         for vuln in obj.get('vulnerabilities', []):
             self.add_edge('asset_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln)),
-                'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+                 'source': context().args.source})
 
         return res
 
@@ -93,9 +87,7 @@ class DataHandler(object):
         res = {}
         res['_key'] = str(obj['address'])
         self.add_edge('asset_ipaddress', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'ipaddress/' + res['_key'], 
-            'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
-        self.add_edge('report_ipaddress', {'_from': 'report/' + self.report['_key'], '_to': 'ipaddress/' + res['_key'], 
-            'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+            'source': context().args.source})
         return res
 
     # Create mac address Object as per CAR data model from data source
@@ -103,7 +95,7 @@ class DataHandler(object):
         res = {}
         res['_key'] = str(obj['address'])
         self.add_edge('asset_macaddress', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'macaddress/' + res['_key'], 
-            'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+            'source': context().args.source})
         return res
 
     # Create hostname Object as per CAR data model from data source
@@ -111,21 +103,19 @@ class DataHandler(object):
         res = {}
         res['_key'] = str(obj['host'])
         self.add_edge('asset_hostname', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'hostname/' + res['_key'], 
-            'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+            'source': context().args.source})
         return res
 
     # Create application Object as per CAR data model from data source
     def handle_apps(self, obj):
         res = self.copy_fields(obj, 'name', )
         res['external_id'] = str(obj['pk'])
-        self.add_edge('report_application', {'_from': 'report/' + self.report['_key'], '_to_external_id': res['external_id'], 
-            'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
-
+        
         for asset_url in obj.get('assets', []):
             asset = context().asset_server.get_object(asset_url)
             for vuln in asset.get('vulnerabilities', []):
                 self.add_edge('application_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln)),
-                    'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+                    'source': context().args.source})
 
         return res
 
@@ -136,7 +126,7 @@ class DataHandler(object):
 
         for app in obj.get('apps', []):
             self.add_edge('application_port', {'_from_external_id': str(extract_id(app)), '_to_external_id': res['external_id'],
-                'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+                'source': context().args.source})
 
         ids = []        
         for ip_ref in obj.get('ip_addresses', []):
@@ -144,6 +134,6 @@ class DataHandler(object):
 
         for ip in context().asset_server.get_objects('ip_addresses', ids):
             self.add_edge('ipaddress_port', {'_from': 'ipaddress/' + str(ip['address']), '_to_external_id': res['external_id'],
-                'timestamp': self.report['timestamp'], 'source': context().args.source, 'report': self.report['_key'], 'active': True})
+                'source': context().args.source})
 
         return res
