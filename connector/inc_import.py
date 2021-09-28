@@ -9,6 +9,7 @@ class IncrementalImport(BaseIncrementalImport):
         # initialize the data handler.
         # If data source doesn't have external reference property None can be supplied as parameter.
         self.data_handler = DataHandler(context().asset_server.get_collection('xrefproperties'))
+        self.create_source_report_object()
 
     # Pulls the save point for last import
     def get_new_model_state_id(self):
@@ -16,8 +17,7 @@ class IncrementalImport(BaseIncrementalImport):
 
     # Create source entry.
     def create_source_report_object(self):
-        # Can be left as it is if they are populated in data handler constructor
-        return {'source': self.data_handler.source, 'report': self.data_handler.report}
+        return self.data_handler.create_source_report_object()
 
     # Gather information to get data from last save point and new save point
     def get_data_for_delta(self, last_model_state_id, new_model_state_id):
@@ -32,13 +32,9 @@ class IncrementalImport(BaseIncrementalImport):
         updates = self.delta.get(asset_server_endpoint) and self.delta.get(asset_server_endpoint).get('updates') or None
         if updates:
             collection = context().asset_server.get_objects(asset_server_endpoint, updates)
-            data = []
             for obj in collection:
                 updates.remove(obj['pk'])
-                res = eval('self.data_handler.handle_%s(obj)' % asset_server_endpoint.lower())
-                if res: data.append(res)
-            if car_resource_name and data:
-                self.send_data(car_resource_name, data)
+                eval('self.data_handler.handle_%s(obj)' % asset_server_endpoint.lower())
 
             # If some resources cannot be loaded then they are deleted.
             self.add_deletions(asset_server_endpoint, updates)
@@ -49,15 +45,23 @@ class IncrementalImport(BaseIncrementalImport):
         for asset_server_endpoint, car_resource_name in endpoint_mapping.items():
             self.import_collection(asset_server_endpoint, car_resource_name)
 
+        self.data_handler.send_collections(self)
+
     # Imports edges for all collection
     def import_edges(self):
         # can be be left as it is if data handler manages the add edge logic
-        for name, data in self.data_handler.edges.items():
-            self.send_data(name, data)
+        self.data_handler.send_edges(self)
+        
 
     # Delete vertices that are deleted in data source
     def delete_vertices(self):
+        delete_data = {}
         for asset_server_endpoint, car_resource_name in endpoint_mapping.items():
             deletions = self.delta.get(asset_server_endpoint) and self.delta.get(asset_server_endpoint).get('deletions') or None
             if deletions:
                 context().car_service.delete(car_resource_name, deletions)
+                delete_data[car_resource_name] = len(deletions)
+
+        context().logger.info('Deleting vertices done: %s', {key: value for key, value in delete_data})
+        
+        self.data_handler.printData()
