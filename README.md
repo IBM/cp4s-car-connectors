@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 Running the connector:
 ```
-python3 app.py -server=http://localhost:8000 -username=admin -password=admin -car-service-url=<car-service-url> -car-service-key=<car-service-key> -car-service-password=<car-service-password>
+python3 app.py -server=http://localhost:8000 -username=admin -password=admin -car-service-url=<car-service-url> -car-service-key=<car-service-key> -car-service-password=<car-service-password> -source=<source>
 
 ```
 
