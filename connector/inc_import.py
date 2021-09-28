@@ -62,6 +62,6 @@ class IncrementalImport(BaseIncrementalImport):
                 context().car_service.delete(car_resource_name, deletions)
                 delete_data[car_resource_name] = len(deletions)
 
-        context().logger.info('Deleting vertices done: %s', {key: value for key, value in delete_data})
+        context().logger.info('Deleting vertices done: %s', {key: value for key, value in delete_data.items()})
         
         self.data_handler.printData()
