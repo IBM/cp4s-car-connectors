@@ -12,18 +12,15 @@ class FullImport(BaseFullImport):
 
     # Create source entry.
     def create_source_report_object(self):
-        # Can be left as it is if they are populated in data handler constructor
-        return {'source': self.data_handler.source, 'report': self.data_handler.report}
+        return self.data_handler.create_source_report_object()
 
     # Logic to import a collection; called by import_vertices
     def import_collection(self, asset_server_endpoint, name):
         collection = context().asset_server.get_collection(asset_server_endpoint)
         data = []
         for obj in collection:
-            res = eval('self.data_handler.handle_%s(obj)' % asset_server_endpoint.lower())
-            if res: data.append(res)
-        if name:
-            self.send_data(name, data)
+            eval('self.data_handler.handle_%s(obj)' % asset_server_endpoint.lower())
+            
 
     # GEt save point from server
     def get_new_model_state_id(self):
@@ -37,8 +34,10 @@ class FullImport(BaseFullImport):
         for asset_server_endpoint, data_name in endpoint_mapping.items():
             self.import_collection(asset_server_endpoint, data_name)
 
+        self.data_handler.send_collections(self)
+
     # Imports edges for all collection
     def import_edges(self):
         # can be be left as it is if data handler manages the add edge logic
-        for name, data in self.data_handler.edges.items():
-            self.send_data(name, data)
+        self.data_handler.send_edges(self)
+        self.data_handler.printData()
