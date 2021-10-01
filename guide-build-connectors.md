@@ -23,9 +23,9 @@ This is where the data source APIs are implemented to fetch that data that will 
 
 ### `connector/data_handler.py`
 
-Identify the asset data and their relationships you wish to import from your target data source. The data that can be imported into the CAR service is defined in the [CAR schema](https://raw.githubusercontent.com/IBM/cp4s-car-schema/master/doc/generated/importSchema.json). There is also a UML detailing the edges and nodes of the [Asset Model](https://github.com/IBM/cp4s-car-schema/blob/master/doc/generated/assetModel.png).
+Identify the asset data and their relationships you wish to import from your target data source. The data that can be imported into the CAR service is defined in the [CAR schema](https://github.com/IBM/cp4s-car-schema). There is also a UML detailing the edges and nodes of the [Asset Model](https://github.com/IBM/cp4s-car-schema/blob/master/doc/generated/assetModel.png).
 
-- Edit the `endpoint_mapping` object to map data source endpoints to CAR fields defined in the [schema](https://raw.githubusercontent.com/IBM/cp4s-car-schema/master/doc/generated/importSchema.json). For each element in this object, the key is the data source endpoint and the value is the corresponding CAR field. As an example, if a data source has an `ip_addresses` endpoint that is to be mapped to the CAR `ipaddress` field, you would need to add it to the `endpoint_mapping` object:
+- Edit the `endpoint_mapping` object to map data source endpoints to CAR fields defined in the [schema](https://github.com/IBM/cp4s-car-schema). For each element in this object, the key is the data source endpoint and the value is the corresponding CAR field. As an example, if a data source has an `ip_addresses` endpoint that is to be mapped to the CAR `ipaddress` field, you would need to add it to the `endpoint_mapping` object:
 
 ```python
 endpoint_mapping = {'ip_addresses': 'ipaddress'}
