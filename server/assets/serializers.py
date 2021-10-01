@@ -1,4 +1,4 @@
-from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port
+from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port, Site
 from rest_framework import serializers
 
 
@@ -14,10 +14,16 @@ class VulnerabilitySerializer(serializers.HyperlinkedModelSerializer):
         fields = ['pk', 'name', 'published_on', 'disclosed_on', 'updated_on', 'vcvssbmid', 'base_score', 'xref_properties']
 
 
+class SiteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Site
+        fields = ['pk', 'name', 'address']
+
+
 class AssetSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Asset
-        fields = ['pk', 'name', 'type', 'vulnerabilities']
+        fields = ['pk', 'name', 'type', 'initial_value', 'site', 'vulnerabilities']
 
 
 class IPAddressSerializer(serializers.HyperlinkedModelSerializer):

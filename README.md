@@ -7,7 +7,8 @@ The server part is a Python Django application which implements a simple Asset m
 Server setup:
 
 ```
-pip install -r requirements.txt
+cd server
+pip3 install -r requirements.txt
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')"
@@ -31,9 +32,9 @@ Set the "size" to some number and click "Save" button.
 ## Connector
 
 Install python dependencies from the `connector` directory
-```	
-pip install -r requirements.txt
-```	
+```
+pip3 install -r requirements.txt
+```
 
 Running the connector:
 ```

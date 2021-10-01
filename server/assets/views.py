@@ -1,5 +1,5 @@
 from django.db.models import Max
-from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port, ChangeLog
+from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port, ChangeLog, Site
 from rest_framework import viewsets, permissions
 from assets import serializers
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotFound
@@ -24,6 +24,12 @@ class VulnerabilityViewSet(ModelViewSet_WithPkFiltering):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Vulnerability.objects.all()
     serializer_class = serializers.VulnerabilitySerializer
+
+
+class SiteViewSet(ModelViewSet_WithPkFiltering):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Site.objects.all()
+    serializer_class = serializers.SiteSerializer
 
 
 class AssetViewSet(ModelViewSet_WithPkFiltering):
@@ -65,7 +71,7 @@ def model_state_id(request):
     sp = ChangeLog.objects.aggregate(Max('pk'))['pk__max']
     return JsonResponse({'model_state_id' : str(sp)})
 
-model_to_endpoint_map = {'App': 'apps', 'Asset': 'assets', 'Host': 'hosts', 'IPAddress': 'ip_addresses', 'MACAddress': 'mac_addresses', 'Port': '', 'Vulnerability': 'vulnerabilities', 'Port': 'ports', 'XRefProperty': 'xrefproperties'}
+model_to_endpoint_map = {'App': 'apps', 'Asset': 'assets', 'Host': 'hosts', 'IPAddress': 'ip_addresses', 'MACAddress': 'mac_addresses', 'Port': '', 'Vulnerability': 'vulnerabilities', 'Port': 'ports', 'XRefProperty': 'xrefproperties', 'Site': 'sites'}
 
 def delta(request):
     _from = request.GET.get('from')

@@ -1,10 +1,8 @@
 
-# Kill running instance fist! 
-# docker ps
-# docker kill <instance id>
-
+# Kill running instance fist
+docker ps --format '{{.Names}}' | grep "asset-server" | awk '{print $1}' | xargs -I {} docker kill {}
 
 docker rmi asset-server
 docker build --tag asset-server .
-docker run -d --rm -p 8000:8000 asset-server
+docker run --name asset-server -d --rm -p 8000:8000 asset-server
 

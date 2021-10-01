@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from assets import views, change_log
+from assets import views
 
 
 router = routers.DefaultRouter()
@@ -13,6 +13,7 @@ router.register('mac_addresses', views.MACAddressViewSet)
 router.register('hosts', views.HostViewSet)
 router.register('ports', views.PortViewSet)
 router.register('apps', views.AppViewSet)
+router.register('sites', views.SiteViewSet)
 
 
 urlpatterns = [
