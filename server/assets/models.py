@@ -26,9 +26,18 @@ class Vulnerability(models.Model):
         verbose_name_plural = "Vulnerabilities"
 
 
+class Site(models.Model):
+    name = models.CharField(max_length=80)
+    address = models.CharField(max_length=80)
+    def __str__(self):
+        return self.name
+
+
 class Asset(models.Model):
     name = models.CharField(max_length=80)
     type = models.CharField(max_length=80, default='Other')
+    initial_value = models.FloatField(default=0)
+    site = models.ForeignKey(Site, related_name='assets', on_delete=models.CASCADE, null=True)
     vulnerabilities = models.ManyToManyField(Vulnerability, blank=True)
     def __str__(self):
         return self.name

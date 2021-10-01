@@ -5,7 +5,7 @@ from car_framework.data_handler import BaseDataHandler
 
 # maps asset-server endpoints to CAR service endpoints
 endpoint_mapping = \
-    {'vulnerabilities' : 'vulnerability', 'assets' : 'asset', 'ip_addresses' : 'ipaddress', 
+    {'vulnerabilities' : 'vulnerability', 'sites' : 'site', 'assets' : 'asset', 'ip_addresses' : 'ipaddress',
     'mac_addresses' : 'macaddress', 'hosts' : 'hostname', 'apps' : 'application', 'ports' : 'port'}
 
 # helper functions
@@ -70,13 +70,17 @@ class DataHandler(BaseDataHandler):
 
     # Create asset Object as per CAR data model from data source
     def handle_assets(self, obj):
-        res = self.copy_fields(obj, 'name', )
+        res = self.copy_fields(obj, 'name', 'initial_value', )
         res['external_id'] = str(obj['pk'])
         res['assetid'] = str(obj['pk'])
         res['asset_type'] = str(obj['type'])
 
         for vuln in obj.get('vulnerabilities', []):
             self.add_edge('asset_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln))})
+
+        if (obj.get('site')):
+            self.add_edge('site_asset', {'_from_external_id': str(extract_id(obj['site'])), '_to_external_id': res['external_id'],
+                'source': context().args.source})
 
         self.add_collection('asset', res, 'external_id')
 
@@ -105,7 +109,7 @@ class DataHandler(BaseDataHandler):
     def handle_apps(self, obj):
         res = self.copy_fields(obj, 'name', )
         res['external_id'] = str(obj['pk'])
-        
+
         for asset_url in obj.get('assets', []):
             asset = context().asset_server.get_object(asset_url)
             for vuln in asset.get('vulnerabilities', []):
@@ -121,7 +125,7 @@ class DataHandler(BaseDataHandler):
         for app in obj.get('apps', []):
             self.add_edge('application_port', {'_from_external_id': str(extract_id(app)), '_to_external_id': res['external_id']})
 
-        ids = []        
+        ids = []
         for ip_ref in obj.get('ip_addresses', []):
             ids.append(extract_id(ip_ref))
 
@@ -129,3 +133,8 @@ class DataHandler(BaseDataHandler):
             self.add_edge('ipaddress_port', {'_from': 'ipaddress/' + str(ip['address']), '_to_external_id': res['external_id']})
 
         self.add_collection('port', res, 'external_id')
+
+    def handle_sites(self, obj):
+        res = self.copy_fields(obj, 'name', 'address', )
+        res['external_id'] = str(obj['pk'])
+        self.add_collection('site', res, 'external_id')

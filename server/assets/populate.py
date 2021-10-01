@@ -1,8 +1,9 @@
-import socket, struct
-from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port
+import socket, struct, random
+from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port, Site
 
 NUMBER_OF_ASSETS = 10
 assets = None
+sites = []
 
 def create_XRefProps():
     print('generating XREF props')
@@ -22,12 +23,28 @@ def create_vulns():
         for xref in XRefProperty.objects.all()[:3]:
             v.xref_properties.add(xref)
 
+def create_sites():
+    print('generating sites')
+    site1 = Site()
+    site1.name = 'Ottawa'
+    site1.address = '100 Main St, Ottawa'
+    site1.save()
+    sites.append(site1)
+
+    site2 = Site()
+    site2.name = 'Markham'
+    site2.address = '200 Main St, Markham'
+    site2.save()
+    sites.append(site2)
+
 def create_assets():
     print('generating assets')
     vulns = Vulnerability.objects.all()
     for i in range(NUMBER_OF_ASSETS):
         asset = Asset()
         asset.name = 'asset%d.domain.com' % i
+        asset.site = random.choice(sites)
+        asset.initial_value = 2000
         asset.save()
         asset.vulnerabilities.add(vulns[i * 2])
         asset.vulnerabilities.add(vulns[i * 2 + 1])
@@ -91,6 +108,7 @@ def reset_db():
     Host.objects.all().delete()
     App.objects.all().delete()
     Port.objects.all().delete()
+    Site.objects.all().delete()
 
 def populate(size):
     global NUMBER_OF_ASSETS, assets
@@ -99,6 +117,7 @@ def populate(size):
     print('Populating db...')
     create_XRefProps()
     create_vulns()
+    create_sites()
     create_assets()
     assets = Asset.objects.all()
     create_ip_addresses()

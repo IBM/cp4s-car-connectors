@@ -2,7 +2,7 @@ from django.db.models.signals import post_save, post_delete, m2m_changed
 from django.dispatch import receiver
 from .models import App, ChangeLog
 
-models = ['XRefProperty', 'Vulnerability', 'Asset', 'IPAddress', 'MACAddress', 'Host', 'App', 'Port']
+models = ['XRefProperty', 'Vulnerability', 'Asset', 'IPAddress', 'MACAddress', 'Host', 'App', 'Port', 'Site']
 
 
 def log_change(model, id, deleted=False):
