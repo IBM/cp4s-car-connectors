@@ -1,0 +1,32 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "<CONNECTOR_NAME>"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "url": {
+                "type": "text"
+            },
+            "username": {
+                "type": "text"
+            },
+            "password": {
+                "type": "password"
+            }
+        },
+        "parameter":{
+            "type": "fields",
+        	"<required_parameter>": {
+                "type": "text"
+            },
+            "<optional_parameter>": {
+                "type": "text",
+                "optional": true
+            }
+        }
+    }
+}
