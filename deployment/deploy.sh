@@ -19,7 +19,7 @@ validate_arg () {
 
 CONNECTOR=$1
 REGISTRY_IMAGE_PATH=$2
-CP4S_VER_PREFIX=$3
+CONNECTOR_VERSION=$3
 NAMESPACE=$4
 
 TIMESTAMP=`date '+%Y%m%d%H%M%S'`
@@ -31,7 +31,7 @@ TIMESTAMP=`date '+%Y%m%d%H%M%S'`
 
 validate_arg "$CONNECTOR" "first" "connector name" "E.g. 'azure'"
 validate_arg "$REGISTRY_IMAGE_PATH" "second" "image url" "e.g.: docker.io/cp4s-connectors/isc-car-connector-azure:Dev_1.0.0.0 with format: <REGISTRY_DOMAIN>/<IMAGE_PATH>/isc-car-connector-<CONNECTOR_NAME>:<TAG>"
-validate_arg "$CP4S_VER_PREFIX" "third" "connector version" "e.g.: 1.0.0.0"
+validate_arg "$CONNECTOR_VERSION" "third" "connector version" "e.g.: 1.0.0.0"
 
 echo "Checking Prerequisites ... "
 validate_cmd kubectl
@@ -53,7 +53,7 @@ metadata:
   name: car-${CONNECTOR}
 spec:
   type: "CAR"
-  version: "${CP4S_VER_PREFIX}"
+  version: "${CONNECTOR_VERSION}"
   creator: "IBM"
   image: "${REGISTRY_IMAGE_PATH}"
 EOL

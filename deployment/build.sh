@@ -2,7 +2,7 @@
 
 
 TAG="Test"
-CP4S_VER_PREFIX="1.1.0.0"
+CONNECTOR_VERSION="1.0.0.0"
 REGISTRY=""
 DEPLOY=""
 
@@ -37,12 +37,12 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     -v) 
-      CP4S_VER_PREFIX="$2"
+      CONNECTOR_VERSION="$2"
       shift
       shift
       ;;
     -v=*) 
-      CP4S_VER_PREFIX="${1#*=}"
+      CONNECTOR_VERSION="${1#*=}"
       shift
       ;;
     -r) 
@@ -82,14 +82,14 @@ MODE=$1
 CONNECTOR=$2
 IMAGE="isc-car-connector-$CONNECTOR"
 
-echo "MODE              $MODE"
-echo "CONNECTOR         $CONNECTOR"
-echo "IMAGE             $IMAGE"
-echo "TAG               $TAG"
-echo "CP4S_VER_PREFIX   $CP4S_VER_PREFIX"
-echo "REGISTRY          $REGISTRY"
-echo "NAMESPACE         $NAMESPACE"
-echo "DEPLOY            $DEPLOY"
+# echo "MODE                $MODE"
+# echo "CONNECTOR           $CONNECTOR"
+# echo "IMAGE               $IMAGE"
+# echo "TAG                 $TAG"
+# echo "CONNECTOR_VERSION   $CONNECTOR_VERSION"
+# echo "REGISTRY            $REGISTRY"
+# echo "NAMESPACE           $NAMESPACE"
+# echo "DEPLOY              $DEPLOY"
 
 validate_arg "$MODE" "first" "mode type" "'local' or 'remote'"
 validate_arg "$CONNECTOR" "second" "connector name" "E.g. 'azure'"
@@ -174,7 +174,7 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
     # Build Docker file
     cp "$DEPLOYMENT_HOME/Dockerfile.part" "$CONNECTOR_BUILD_FOLDER/Dockerfile"
     sed -i'.bak' "s/{CONNECTOR}/${CONNECTOR}/g" "$CONNECTOR_BUILD_FOLDER/Dockerfile"
-    sed -i'.bak' "s/{RELEASE}/${CP4S_VER_PREFIX}/g" "$CONNECTOR_BUILD_FOLDER/Dockerfile"
+    sed -i'.bak' "s/{RELEASE}/${CONNECTOR_VERSION}/g" "$CONNECTOR_BUILD_FOLDER/Dockerfile"
     sed -i'.bak' "s/{TAG}/${TAG}/g" "$CONNECTOR_BUILD_FOLDER/Dockerfile"
     rm -f "$CONNECTOR_BUILD_FOLDER/Dockerfile.bak"
 
@@ -221,8 +221,8 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
         fi
 
         if [ "X$DEPLOY" != "X" ]; then
-            "Calling deploy: ./deploy.sh $CONNECTOR $REGISTRY_IMAGE_PATH $CP4S_VER_PREFIX $NAMESPACE"
-            ./deploy.sh $CONNECTOR $REGISTRY_IMAGE_PATH $CP4S_VER_PREFIX $NAMESPACE
+            "Calling deploy: ./deploy.sh $CONNECTOR $REGISTRY_IMAGE_PATH $CONNECTOR_VERSION $NAMESPACE"
+            ./deploy.sh $CONNECTOR $REGISTRY_IMAGE_PATH $CONNECTOR_VERSION $NAMESPACE
         fi
     else
         echo "Building local image: $IMAGE:$TAG"
