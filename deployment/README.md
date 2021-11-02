@@ -28,13 +28,16 @@ The following needs to be installed on your local machine:
     ```
     
     #### Arguments: 
-    *MODE*: Required. Values: "local" - the docker image will be built but not pushed, or "remote": the image is pushed to remote registry. 
-    *CONNECTOR_NAME* - Required, the name of the connector and the connector source folder.
-    *IMAGE_TAG* - Optional, the container image tag, default "Test".
-    *CONNECTOR_VERSION* - Optional, the connector release version, default "1.0.0.0".
-    *REMOTE_REGISTRY* - Optional, a custom registry url (including repository path if necessary, excluding IMAGE:TAG), example: `docker.io/cp4s-connectors`, `sec-isc-team-isc-icp-docker-local.artifactory.swg-devops.com`. Used only in `MODE` being "remote".
-    *NAMESPACE* - Optional, the namespace of the CP4S. If not specified, the current namespace of the logged in cluster will be used. Used only in `MODE` being "remote".
-    *DEPLOY FLAG* `-d` - Optional. If added, the `deploy.sh` script will be executed at the end of the build, provided `MODE` being "remote".
+
+    | Argument | Required | Description | Example |
+    |------|-----|-----|-----|
+    | MODE | Required | Values: "local" - the docker image will be built but not pushed, or "remote": the image is pushed to remote registry 
+    | CONNECTOR_NAME | Required | the name of the connector and the connector source folder.
+    | `-t` MAGE_TAG | Optional | the container image tag, default "Test". |  | 
+    | `-v` CONNECTOR_VERSION | Optional | the connector release version, default "1.0.0.0". |  | 
+    | `-r` REMOTE_REGISTRY | Optional | a custom registry url (including repository path if necessary, excluding IMAGE:TAG). Used only in `MODE` being "remote".| `docker.io/cp4s-connectors`, `sec-isc-team-isc-icp-docker-local.artifactory.swg-devops.com` | 
+    | `-n` NAMESPACE | Optional | the namespace of the CP4S. If not specified, the current namespace of the logged in cluster will be used. Used only in `MODE` being "remote". |  | 
+    | DEPLOY FLAG `-d` | Optional | If added, the `deploy.sh` script will be executed at the end of the build, provided `MODE` being "remote". |  | 
 
     #### Build scenarios: 
     ##### A. Build the connector image and push to CP4S OpenShift cluster registry
@@ -67,10 +70,13 @@ The following needs to be installed on your local machine:
     (Ex: `./deploy.sh aws "image-registry.openshift-image-registry.svc:5000/cp4s/isc-car-connector-atp:Test" 1.9.0.0 -n cp4s`)
 
     #### Arguments: 
-    *CONNECTOR_NAME* - Required, the name of the connector and the connector source folder.
-    *REGISTRY_IMAGE_PATH* - Required, Image full path (including registry domain, repository path and IMAGE:TAG) example: `sec-isc-team-isc-icp-docker-local.artifactory.swg-devops.com/cp4s/isc-car-connector-aws:1.8.0.0_1.2.0`.
-    *CONNECTOR_VERSION* - Required, the connector release version, example: "1.0.0.0".
-    *NAMESPACE* - Optional, the namespace of the CP4S. If not specified, the current namespace of the logged in cluster will be used.
+
+    | Argument | Required | Description | Example |
+    |------|-----|-----|-----|
+    | CONNECTOR_NAME | Required | The name of the connector and the connector source folder. | |
+    | REGISTRY_IMAGE_PATH | Required | Image full path (including registry domain, repository path and IMAGE:TAG) |  `sec-isc-team-isc-icp-docker-local.artifactory.swg-devops.com/cp4s/isc-car-connector-aws:1.8.0.0_1.2.0` |
+    | CONNECTOR_VERSION | Required | The connector release version | "1.0.0.0" |
+    | `-n` NAMESPACE | Optional | The namespace of the CP4S. If not specified, the current namespace of the logged in cluster will be used. | |
 
 
     
