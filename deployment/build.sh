@@ -150,16 +150,6 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
     cp "$CONNECTOR_SOURCE_FOLDER/app.py" "$CONNECTOR_BUILD_FOLDER/"
     cp "$CONNECTOR_SOURCE_FOLDER/requirements.txt" "$CONNECTOR_BUILD_FOLDER/"
 
-
-    # Copy license file if license folder not present
-    if [ ! -d "$CONNECTOR_SOURCE_FOLDER/licenses" ]; then
-        echo "Copy default license file."
-        cp -R "$DEPLOYMENT_HOME/licenses" "$CONNECTOR_BUILD_FOLDER/"
-      else
-        echo "License as provided."
-        cp -R "$CONNECTOR_SOURCE_FOLDER/licenses" "$CONNECTOR_BUILD_FOLDER/"
-    fi
-
     mkdir "$CONNECTOR_BUILD_FOLDER/configurations"
 
     # Merge config files
