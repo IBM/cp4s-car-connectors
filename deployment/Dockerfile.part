@@ -1,0 +1,38 @@
+FROM registry.access.redhat.com/ubi8/ubi-minimal as base
+USER root
+RUN  microdnf update -y && \
+     microdnf install --nodocs python39 unzip openssl && \
+     microdnf clean all && \
+     rm -rf /var/cache/yum
+
+FROM base as builder
+USER root
+RUN  microdnf install openssl python39-pip
+COPY requirements.txt requirements.txt
+RUN  pip3 install -r requirements.txt --no-cache-dir 
+
+FROM base
+ARG TMP_USER_ID=1001
+ARG TMP_USER_GROUP=1001
+
+USER root
+
+ADD . /usr/src/app
+
+RUN chown -R ${TMP_USER_ID}:${TMP_USER_GROUP} /usr/src/app 
+
+COPY --from=builder /usr/local/lib64/python3.9/site-packages /usr/local/lib64/python3.9/site-packages
+COPY --from=builder /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=builder /usr/lib64/python3.9/site-packages /usr/lib64/python3.9/site-packages
+COPY --from=builder /usr/lib/python3.9/site-packages /usr/lib/python3.9/site-packages
+
+USER ${TMP_USER_ID}
+
+WORKDIR /usr/src/app
+
+LABEL vendor="IBM" \
+	release="{RELEASE}" \
+	version="{TAG}" \
+     name="isc-car-connector-{CONNECTOR}" 
+
+CMD python3 app.py

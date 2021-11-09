@@ -1,0 +1,48 @@
+{
+    "connection": {
+        "name": {
+            "label": "Connector name",
+            "description": "Assign a name to uniquely identify the connection (minimum of 5 characters and no spaces)"
+        },
+        "description": {
+            "label": "Connector Description",
+            "description": "Assign a description to indicate the purpose of the connection"
+        },
+        "schedule": {
+            "frequency": {
+                "label": "Frequency",
+                "description": "Select how frequently this connection will pull data from the asset",
+                "optionLabels": {
+                    "5m"    : "5 minutes",
+                    "10m"   : "10 minutes",
+                    "15m"   : "15 minutes",
+                    "30m"   : "30 minutes",
+                    "1h"    : "1 hour",
+                    "2h"    : "2 hours",
+                    "4h"    : "4 hours",
+                    "6h"    : "6 hours",
+                    "12h"   : "12 hours",
+                    "daily" : "Daily"
+                }
+            },
+            "time": {
+                "label": "Time (UTC)",
+                "description": "Set the UTC time to run connector to pull data from data source"
+            }
+        },
+        "help": {
+            "label": "Help",
+            "description": "More details on the datasource setting can be found in the specified link"
+        }
+    },
+    "configuration": {
+        "name": {
+            "label": "Configuration Name",
+            "placeholder": "Add a configuration name"
+        },
+        "description": {
+            "label": "Configuration Description",
+            "placeholder": "Add a configuration description"
+        }
+    }
+}

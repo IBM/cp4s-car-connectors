@@ -1,0 +1,19 @@
+{
+    "connection": {
+        "schedule": {
+            "default": "*/15 * * * *",
+            "type": "cron",
+            "previous": ["frequency", "time"],
+            "options": ["*/5 * * * *", "*/10 * * * *", "*/15 * * * *", "*/30 * * * *", "0 */1 * * *","0 */2 * * *","0 */4 * * *", "0 */6 * * *", "0 */12 * * *", "mm HH * * *"]
+        },
+        "help": {
+            "default": "data-sources-car-{CONNECTOR}.html",
+            "type": "link"
+        },
+        "image": {
+            "type": "text",
+            "hidden": true,
+            "default": "{image_link}"
+        }
+    }
+}
