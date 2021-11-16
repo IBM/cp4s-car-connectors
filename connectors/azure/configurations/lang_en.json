@@ -1,0 +1,22 @@
+{
+    "configuration": {
+        "auth": {
+            "subscription_id": {
+                "label": "Subscription ID",
+                "description": "Subscription ID of Azure with access to the Microsoft Graph API"
+            },
+            "tenant_id": {
+                "label": "Tenant",
+                "description": "Tenant ID of Azure with access to the Microsoft Graph API"
+            },
+            "client_id": {
+                "label": "Client Id",
+                "description": "Client ID of Azure with access to the Microsoft Graph API"
+            },
+            "client_secret": {
+                "label": "Client Secret",
+                "description": "Client Secret of Azure with access to the Microsoft Graph API"
+            }
+        }
+    }
+}

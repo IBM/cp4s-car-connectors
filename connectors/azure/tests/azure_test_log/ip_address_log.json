@@ -1,0 +1,52 @@
+{
+	"network_map": {
+		"name": "testvm-1-creation855",
+		"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/testvm-1-creation855",
+		"etag": "W/beb6da0e - 607 f - 454 d - 9 d6f - 938 a9a3c385f ",
+		"location": "centralus",
+		"properties": {
+			"provisioningState": "Succeeded",
+			"resourceGuid": "146063e5-6907-4c96-968d-5c14bcf89dec",
+			"ipConfigurations": {
+				"name": "ipconfig1",
+				"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/testvm-1-creation855/ipConfigurations/ipconfig1",
+				"etag": "W/beb6da0e - 607 f - 454 d - 9 d6f - 938 a9a3c385f ",
+				"type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+				"properties": {
+					"provisioningState": "Succeeded",
+					"privateIPAddress": "10.0.0.8",
+					"privateIPAllocationMethod": "Dynamic",
+					"publicIPAddress": {
+						"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/publicIPAddresses/testVM-1-creation-ip"
+					},
+					"subnet": {
+						"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/virtualNetworks/vnet-sqlmanageinstance/subnets/ManagedInstance"
+					},
+					"primary": "True",
+					"privateIPAddressVersion": "IPv4",
+					"IPAddress": {
+						"public": "40.77.68.175",
+						"private": "10.0.0.8"
+					},
+					"fqdn": "testvm-1-creation-hostname-updatedv2.centralus.cloudapp.azure.com"
+				}
+			},
+			"dnsSettings": {
+				"dnsServers": [],
+				"appliedDnsServers": [],
+				"internalDomainNameSuffix": "nuoqkr0k3ytu5ltticuakuv4yh.gx.internal.cloudapp.net"
+			},
+			"macAddress": "00-0D-3A-42-93-36",
+			"enableAcceleratedNetworking": "False",
+			"enableIPForwarding": "False",
+			"networkSecurityGroup": {
+				"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkSecurityGroups/testVM-1-creation-nsg"
+			},
+			"primary": "True",
+			"virtualMachine": {
+				"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/EASTUS/providers/Microsoft.Compute/virtualMachines/testVM-1-creation"
+			}
+		},
+		"type": "Microsoft.Network/networkInterfaces"
+	}
+}

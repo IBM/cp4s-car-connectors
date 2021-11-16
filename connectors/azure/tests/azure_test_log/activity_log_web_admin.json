@@ -1,0 +1,159 @@
+{
+	"value": [
+		{
+			"authorization": {
+				"action": "Microsoft.Web/sites/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569234610",
+				"nbf": "1569234610",
+				"exp": "1569238510",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYHgxz8NtbXBbneZxk4vndKKs6zsYb6Q+TZYqUGGrPv70jTUA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.139.35",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "bEyv3fjyjEW6SR-sbHpKAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "2bacdd4f-5e32-45d7-8ff3-aa437064535c",
+			"description": "",
+			"eventDataId": "9149f9a4-652d-4963-92e3-4227f32e48a7",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"httpRequest": {
+				"clientRequestId": "b541cf9f-09ef-4fb3-9fef-274b6fd7cd37",
+				"clientIpAddress": "106.208.139.35",
+				"method": "PUT"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp/events/9149f9a4-652d-4963-92e3-4227f32e48a7/ticks/637048318736482079",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Web",
+				"localizedValue": "Microsoft.Web"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp",
+			"resourceType": {
+				"value": "Microsoft.Web/sites",
+				"localizedValue": "Microsoft.Web/sites"
+			},
+			"operationId": "13507d6b-3d42-4797-b84e-1ebe85450661",
+			"operationName": {
+				"value": "Microsoft.Web/sites/write",
+				"localizedValue": "Microsoft.Web/sites/write"
+			},
+			"properties": {
+				"statusCode": "OK",
+				"serviceRequestId": "be7cc8b4-99d8-4656-a1c6-4764650b8f13"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "OK",
+				"localizedValue": "OK"
+			},
+			"eventTimestamp": "2019-09-23T10:37:53.6482079Z",
+			"submissionTimestamp": "2019-09-23T10:38:24.137148Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},{
+			"authorization": {
+				"action": "Microsoft.Web/sites/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Web/sites/webapp-pets"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568100754",
+				"nbf": "1568100754",
+				"exp": "1568104654",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAr0ExlmUqxrpW8xDhFNWz2GRp8AN9Zx9Scu2D7P5a9NY=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "106.208.139.204",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "7hgiBIp02U-jG5UtU3-WAA",
+				"ver": "1.0"
+			},
+			"correlationId": "0fc96169-0312-4eca-bb28-212dd932b637",
+			"description": "",
+			"eventDataId": "15d2ce02-041b-4334-b34c-a5bbf5913c36",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/webapp-pets/events/15d2ce02-041b-4334-b34c-a5bbf5913c36/ticks/637036983089008528",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Web",
+				"localizedValue": "Azure Web Sites"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp",
+			"resourceType": {
+				"value": "Microsoft.Web/sites",
+				"localizedValue": "Microsoft.Web/sites"
+			},
+			"operationId": "35ef31b5-2dd0-46aa-8d32-83d94e75964a",
+			"operationName": {
+				"value": "Microsoft.Web/sites/delete",
+				"localizedValue": "Delete website"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-10T07:45:08.9008528Z",
+			"submissionTimestamp": "2019-09-10T07:47:17.1046933Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		}]
+}

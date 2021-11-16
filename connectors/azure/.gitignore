@@ -1,0 +1,31 @@
+# ignore the following files and folders
+.idea/
+.vscode/
+base/__pycache__/
+azure/__pycache__/
+pylintrc.cfg
+errors/
+logs/
+import_files/
+tests/logs
+tests/__pycache__/
+coverage/
+.coverage
+.pytest_cache/
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+virtualenv/
+
+# mypy
+.mypy_cache/
+
+*pytest_cache*
+*__pycache__*
+.DS_Store
+*.pyc

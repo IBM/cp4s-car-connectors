@@ -1,0 +1,43 @@
+{
+   "value": [{
+      "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Security/locations/centralus/alerts/2518215898413129999_38581edc-b3e3-4125-baec-7a71193cc249",
+      "name": "2518215898413129999_38581edc-b3e3-4125-baec-7a71193cc249",
+      "type": "Microsoft.Security/Locations/alerts",
+      "properties": {
+         "vendorName": "Microsoft",
+         "alertDisplayName": "Failed SSH brute force attack",
+         "alertName": "SSH_BF_Failed",
+         "detectedTimeUtc": "2020-02-03T06:22:38.687Z",
+         "description": "Failed brute force attacks were detected from the following attackers: %{Attackers}.  Attackers were trying to access the host with the following user names: %{Accounts used on failed sign in to host attempts}.",
+         "remediationSteps": "1. In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/) \r\n2. Enforce the use of strong passwords and do not re-use them across multiple resources and services (see http://windows.microsoft.com/en-us/Windows7/Tips-for-creating-strong-passwords-and-passphrases)\r\n3. In case this is an Azure virtual machine, Create an allow list for SSH access in NSG (see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/) ",
+         "actionTaken": "Detected",
+         "reportedSeverity": "Medium",
+         "compromisedEntity": "eastUS-ubuntu-srv",
+         "associatedResource": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/eastUS-ubuntu-srv",
+         "subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+         "instanceId": "38581edc-b3e3-4125-baec-7a71193cc249",
+         "extendedProperties": {
+            "attackers": "['IP Address: 159.203.251.90','IP Address: 45.5.57.184']",
+            "number of failed authentication attempts to host": "140",
+            "accounts used on failed sign in to host attempts": "['(unknown user),'lisa','henrich','larry','justin','christian','michael','bradley','carl','adolf','arthur','noah','brandon','dylan','diane','adam','william','anthony','peter','jack','emma','john','logan','sean','jane','jerry','vincent','james','alex','george','kenneth','steven']",
+            "was SSH session initiated": "No",
+            "end Time UTC": "02/03/2020 06:58:52",
+            "resourceType": "Virtual Machine",
+            "enrichment_tas_threat__reports": "{'Kind':'Link','Value':'https://interflowwebportalext.trafficmanager.net/reports/DisplayReport?callerIdentity=ddd5443d-e6f4-441c-b52b-5278d2f21dfa&reportCreateDateTime=2020-02-02T15%3a17%3a37&reportName=MSTI-TS-Brute-Force.pdf&tenantId=e1f5f377-489c-484d-b71e-03ed9cb288d3&urlCreateDateTime=2020-02-02T15%3a17%3a37&token=H7nEEW8NRYL2NhZktiWD2a031rPcq0TGqY8fvMFw%208c=','DisplayValue':'Report: Brute Force'}"
+         },
+         "state": "Active",
+         "reportedTimeUtc": "2020-02-03T07:17:21.0545135Z",
+         "workspaceArmId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-083de1fb-cd2d-4b7c-895a-2b5af1d091e8-eus",
+         "confidenceReasons": [],
+         "canBeInvestigated": false,
+         "isIncident": false,
+         "entities": [{
+            "$id": "centralus_1",
+            "hostName": "eastus-ubuntu-srv",
+            "azureID": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/eastUS-ubuntu-srv",
+            "omsAgentID": "7b733e6a-fcef-4ffb-8daf-3ad9cdaa71f5",
+            "type": "host"
+         }]
+      }
+   }]
+}

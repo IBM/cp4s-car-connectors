@@ -1,0 +1,50 @@
+{
+    "value": [
+        {
+            "tags": {},
+            "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/Demo-centralUS-rg/providers/Microsoft.Sql/servers/demo-sql-server2/databases/demo-sqlserver-db",
+            "name": "sampledb",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "Australia Central",
+            "kind": "v12.0,user,vcore",
+            "managedBy": null,
+            "properties": {
+                "databaseId": "0e7877f0-7b8d-4e3d-960e-d4e76d38cbf0",
+                "edition": "GeneralPurpose",
+                "status": "Online",
+                "serviceLevelObjective": "GP_Gen5_2",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "34359738368",
+                "creationDate": "2019-09-01T01:17:41.807Z",
+                "currentServiceObjectiveId": "f21733ad-9b9b-4d4e-a4fa-94a133c41718",
+                "requestedServiceObjectiveId": "f21733ad-9b9b-4d4e-a4fa-94a133c41718",
+                "requestedServiceObjectiveName": "GP_Gen5_2",
+                "sampleName": null,
+                "defaultSecondaryLocation": "Australia Central 2",
+                "earliestRestoreDate": "2019-09-11T00:00:00Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "server_map": {
+                "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp",
+                "name": "sqlinjectionserverhdkcp",
+                "type": "Microsoft.Sql/servers",
+                "location": "East US",
+                "kind": "v12.0",
+                "properties": {
+                    "fullyQualifiedDomainName": "sqlinjectionserverhdkcp.database.windows.net",
+                    "administratorLogin": "devadmin",
+                    "administratorLoginPassword": null,
+                    "externalAdministratorLogin": null,
+                    "externalAdministratorSid": null,
+                    "version": "12.0",
+                    "state": "Ready"
+                }
+            }
+        }
+    ]
+}

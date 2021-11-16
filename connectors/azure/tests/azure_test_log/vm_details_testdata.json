@@ -1,0 +1,66 @@
+{
+  "value": [
+    {
+      "name": "test-abc-vm",
+      "id": "/abc/xyz",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "eastus",
+      "application_map": {
+          "id": "abc/sampleId"
+      },
+      "properties": {
+        "vmId": "2a322a0b-450f-4da2-a1f0-0ad0eb53f516",
+        "hardwareProfile": {
+          "vmSize": "Standard_D2s_v3"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest",
+            "exactVersion": "18.04.201908131"
+          },
+          "osDisk": {
+            "osType": "Linux",
+            "name": "test-linux-vm_disk1_63badf502b7e47f5b48959d4fd454eb3",
+            "createOption": "FromImage",
+            "caching": "ReadWrite",
+            "managedDisk": {
+              "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/disks/test-linux-vm_disk1_63badf502b7e47f5b48959d4fd454eb3"
+            }
+          },
+          "dataDisks": []
+        },
+        "osProfile": {
+          "computerName": "test-linux-vm",
+          "adminUsername": "rsaAdmin",
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false,
+            "provisionVMAgent": true
+          },
+          "secrets": [],
+          "allowExtensionOperations": true,
+          "requireGuestProvisionSignal": true
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-linux-vm85"
+            }
+          ]
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true,
+            "storageUri": "https://eastusdiag927.blob.core.windows.net/"
+          }
+        },
+        "provisioningState": "Succeeded"
+      }
+    }
+  ]
+}
+
+
+

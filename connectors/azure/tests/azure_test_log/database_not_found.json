@@ -1,0 +1,12 @@
+{
+	"errors": [{
+		"code": "database_not_found",
+		"message": "The database assets-ACCT_722724471 is not setup yet.",
+		"more_info": "https://github.ibm.com/UDS/Design/blob/develop/docs/Architecture/AssetJsonStructure.md",
+		"target": {
+			"type": "database",
+			"name": "asset database"
+		}
+	}],
+	"trace": "be79b6f1-7870-49a0-b489-4a4638a00a98"
+}

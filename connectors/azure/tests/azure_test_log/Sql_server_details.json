@@ -1,0 +1,9 @@
+{
+    "properties": {
+        "charset": "latin1",
+        "collation": "latin1_swedish_ci"
+    },
+    "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.DBforMySQL/servers/carmysqlserver/databases/car",
+    "name": "car",
+    "type": "Microsoft.DBforMySQL/servers/databases"
+}
