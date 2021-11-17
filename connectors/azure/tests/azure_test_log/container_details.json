@@ -1,0 +1,91 @@
+ {
+    "properties": {
+        "provisioningState": "Succeeded",
+        "containers": [
+            {
+                "name": "ngine-eastus-container",
+                "properties": {
+                    "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
+                    "ports": [
+                        {
+                            "protocol": "TCP",
+                            "port": 80
+                        }
+                    ],
+                    "environmentVariables": [],
+                    "instanceView": {
+                        "restartCount": 0,
+                        "currentState": {
+                            "state": "Running",
+                            "startTime": "2019-09-12T04:37:55Z",
+                            "detailStatus": ""
+                        },
+                        "events": [
+                            {
+                                "count": 1,
+                                "firstTimestamp": "2019-09-12T04:37:46Z",
+                                "lastTimestamp": "2019-09-12T04:37:46Z",
+                                "name": "Pulling",
+                                "message": "pulling image \"mcr.microsoft.com/azuredocs/aci-helloworld\"",
+                                "type": "Normal"
+                            },
+                            {
+                                "count": 1,
+                                "firstTimestamp": "2019-09-12T04:37:51Z",
+                                "lastTimestamp": "2019-09-12T04:37:51Z",
+                                "name": "Pulled",
+                                "message": "Successfully pulled image \"mcr.microsoft.com/azuredocs/aci-helloworld\"",
+                                "type": "Normal"
+                            },
+                            {
+                                "count": 1,
+                                "firstTimestamp": "2019-09-12T04:37:55Z",
+                                "lastTimestamp": "2019-09-12T04:37:55Z",
+                                "name": "Created",
+                                "message": "Created container",
+                                "type": "Normal"
+                            },
+                            {
+                                "count": 1,
+                                "firstTimestamp": "2019-09-12T04:37:55Z",
+                                "lastTimestamp": "2019-09-12T04:37:55Z",
+                                "name": "Started",
+                                "message": "Started container",
+                                "type": "Normal"
+                            }
+                        ]
+                    },
+                    "resources": {
+                        "requests": {
+                            "memoryInGB": 3.0,
+                            "cpu": 2.0
+                        }
+                    }
+                }
+            }
+        ],
+        "restartPolicy": "OnFailure",
+        "ipAddress": {
+            "ports": [
+                {
+                    "protocol": "TCP",
+                    "port": 80
+                }
+            ],
+            "ip": "52.151.247.187",
+            "type": "Public",
+            "dnsNameLabel": "ngine-car-eastus",
+            "fqdn": "ngine-car-eastus.eastus.azurecontainer.io"
+        },
+        "osType": "Linux",
+        "instanceView": {
+            "events": [],
+            "state": "Running"
+        }
+    },
+    "id": "/abc/container/data",
+    "name": "ngine-eastus-container",
+    "type": "Microsoft.ContainerInstance/containerGroups",
+    "location": "eastus",
+    "tags": {}
+    }

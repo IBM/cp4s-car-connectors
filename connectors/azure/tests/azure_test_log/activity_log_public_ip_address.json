@@ -1,0 +1,27 @@
+{
+  "name": "test_config",
+  "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/Demo-centralUS-rg/providers/Microsoft.Network/publicIPAddresses/test_config",
+  "etag": "W/\"a7c0504f-5707-4145-a957-3bcb092314c4\"",
+  "location": "eastus",
+  "properties": {
+    "provisioningState": "Succeeded",
+    "resourceGuid": "cea28fe3-3d43-4fd4-89f3-61a4a346e401",
+    "publicIPAddressVersion": "IPv4",
+    "publicIPAllocationMethod": "Dynamic",
+    "idleTimeoutInMinutes": 4,
+    "dnsSettings": {
+      "domainNameLabel": "container-hostname-demo-updated2",
+      "fqdn": "container-hostname-demo-updated2.centralus.cloudapp.azure.com"
+    },
+    "ipAddress": "255.255.255.0",
+    "ipTags": [],
+    "ipConfiguration": {
+      "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/Demo-centralUS-rg/providers/Microsoft.Network/networkInterfaces/test-linux-vm809/ipConfigurations/ipconfig1"
+    }
+  },
+  "type": "Microsoft.Network/publicIPAddresses",
+  "sku": {
+    "name": "Basic",
+    "tier": "Regional"
+  }
+}

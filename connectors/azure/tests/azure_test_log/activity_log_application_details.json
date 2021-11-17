@@ -1,0 +1,108 @@
+{
+	"value": [
+		{
+			"id": "/abc/application/sampleurl",
+			"name": "carjavaapp",
+			"type": "Microsoft.Web/sites",
+			"kind": "app",
+			"location": "Central US",
+			"tags": {},
+			"properties": {
+				"name": "carjavaapp",
+				"state": "Running",
+				"hostNames": [
+					"carjavaapp.azurewebsites.net"
+				],
+				"webSpace": "eastUS-CentralUSwebspace",
+				"selfLink": "https://waws-prod-dm1-141.api.azurewebsites.windows.net:454/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/webspaces/eastUS-CentralUSwebspace/sites/carjavaapp",
+				"repositorySiteName": "carjavaapp",
+				"owner": null,
+				"usageState": 0,
+				"enabled": true,
+				"adminEnabled": true,
+				"enabledHostNames": [
+					"carjavaapp.azurewebsites.net",
+					"carjavaapp.scm.azurewebsites.net"
+				],
+				"siteProperties": {
+					"metadata": null,
+					"properties": [
+						{
+							"name": "LinuxFxVersion",
+							"value": ""
+						},
+						{
+							"name": "WindowsFxVersion",
+							"value": null
+						}
+					],
+					"appSettings": null
+				},
+				"availabilityState": 0,
+				"sslCertificates": null,
+				"csrs": [],
+				"cers": null,
+				"siteMode": null,
+				"hostNameSslStates": [
+					{
+						"name": "carjavaapp.azurewebsites.net",
+						"sslState": 0,
+						"ipBasedSslResult": null,
+						"virtualIP": null,
+						"thumbprint": null,
+						"toUpdate": null,
+						"toUpdateIpBasedSsl": null,
+						"ipBasedSslState": 0,
+						"hostType": 0
+					}
+				],
+				"computeMode": null,
+				"serverFarm": null,
+				"serverFarmId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Web/serverfarms/ServicePlan0724b0cb-a753",
+				"reserved": false,
+				"isXenon": false,
+				"hyperV": false,
+				"lastModifiedTimeUtc": "2019-08-30T23:29:13.9033333",
+				"storageRecoveryDefaultState": "Running",
+				"contentAvailabilityState": 0,
+				"runtimeAvailabilityState": 0,
+				"siteConfig": null,
+				"deploymentId": "carjavaapp",
+				"trafficManagerHostNames": null,
+				"sku": "Standard",
+				"scmSiteAlsoStopped": false,
+				"targetSwapSlot": null,
+				"hostingEnvironment": null,
+				"hostingEnvironmentProfile": null,
+				"clientAffinityEnabled": true,
+				"clientCertEnabled": false,
+				"clientCertExclusionPaths": null,
+				"hostNamesDisabled": false,
+				"domainVerificationIdentifiers": null,
+				"kind": "app",
+				"inboundIpAddress": "40.122.65.162",
+				"possibleInboundIpAddresses": "40.122.65.162",
+				"outboundIpAddresses": "40.122.65.162,52.165.224.141,13.89.191.154,52.165.227.187,52.165.231.176",
+				"possibleOutboundIpAddresses": "40.122.65.162,52.165.224.141,13.89.191.154,52.165.227.187,52.165.231.176,40.113.195.102,13.89.184.19,52.165.224.153",
+				"containerSize": 0,
+				"dailyMemoryTimeQuota": 0,
+				"suspendedTill": null,
+				"siteDisabledReason": 0,
+				"functionExecutionUnitsCache": null,
+				"maxNumberOfWorkers": null,
+				"homeStamp": "waws-prod-dm1-141",
+				"cloningInfo": null,
+				"hostingEnvironmentId": null,
+				"tags": {},
+				"resourceGroup": "eastUS",
+				"defaultHostName": "carjavaapp.azurewebsites.net",
+				"slotSwapStatus": null,
+				"httpsOnly": false,
+				"redundancyMode": 0,
+				"inProgressOperationId": null,
+				"geoDistributions": null,
+				"privateEndpointConnections": []
+			}
+		}
+	]
+}

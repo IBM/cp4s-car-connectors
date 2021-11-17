@@ -1,0 +1,17 @@
+{
+	"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/master",
+	"name": "master",
+	"type": "Microsoft.Sql/servers/databases",
+	"location": "East US",
+	"kind": "v12.0,system",
+	"managedBy": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp",
+	"properties": {
+			"fullyQualifiedDomainName": "sqlinjectionserverhdkcp.database.windows.net",
+			"administratorLogin": "devadmin",
+			"administratorLoginPassword": null,
+			"externalAdministratorLogin": null,
+			"externalAdministratorSid": null,
+			"version": "12.0",
+			"state": "Ready"
+		}
+}

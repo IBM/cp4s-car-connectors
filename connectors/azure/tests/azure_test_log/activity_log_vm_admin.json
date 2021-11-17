@@ -1,0 +1,150 @@
+{
+	"value": [{
+			"authorization": {
+				"action": "Microsoft.Compute/virtualMachines/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569835718",
+				"nbf": "1569835718",
+				"exp": "1569839618",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAALMBju9DIscoIWDuzrVNB6cRvlxf1XQRY1JWqGA0swZY=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "b06a5351-c71c-4374-962e-a70069b464b2,ec93c042-1f30-4f46-893c-da779bd53153,bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "192.8.177.105",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "3ug5gjW_oEe1ofCZDSEpAQ",
+				"ver": "1.0",
+				"wids": "5d6b6bb7-de71-4623-b4af-96380a352509,194ae4cb-b126-40b2-bd5b-6091b380977d"
+			},
+			"correlationId": "1ba051e2-4574-45e5-a886-93a82231d8ca",
+			"description": "",
+			"eventDataId": "b8a7a050-b35f-476d-af5b-2e2447a7ba6e",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM/events/b8a7a050-b35f-476d-af5b-2e2447a7ba6e/ticks/637054354705310375",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Compute",
+				"localizedValue": "Microsoft.Compute"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM",
+			"resourceType": {
+				"value": "Microsoft.Compute/virtualMachines",
+				"localizedValue": "Microsoft.Compute/virtualMachines"
+			},
+			"operationId": "da1a2b16-50e8-4b22-808f-c9882a86862f",
+			"operationName": {
+				"value": "Microsoft.Compute/virtualMachines/write",
+				"localizedValue": "Microsoft.Compute/virtualMachines/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-30T10:17:50.5310375Z",
+			"submissionTimestamp": "2019-09-30T10:19:16.1150129Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},{
+			"authorization": {
+				"action": "Microsoft.Compute/virtualMachines/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM1"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569912872",
+				"nbf": "1569912872",
+				"exp": "1569916772",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAdVsBwT+kX7zlelvaubp5NLYCp6bWBdV8ERCgLKD1eko=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.140.83",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "JaFZpHY5jEW5gDti1U0SAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "46fbf9d8-66f3-4e91-9f50-2f2887167bdc",
+			"description": "",
+			"eventDataId": "2be69b10-bb2a-4d32-9ccf-df6354dd0b2a",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM/events/2be69b10-bb2a-4d32-9ccf-df6354dd0b2a/ticks/637055115829570470",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Compute",
+				"localizedValue": "Microsoft.Compute"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM",
+			"resourceType": {
+				"value": "Microsoft.Compute/virtualMachines",
+				"localizedValue": "Microsoft.Compute/virtualMachines"
+			},
+			"operationId": "f1e2029e-925d-434b-ac40-37695c990c04",
+			"operationName": {
+				"value": "Microsoft.Compute/virtualMachines/delete",
+				"localizedValue": "Microsoft.Compute/virtualMachines/delete"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-10-01T07:26:22.957047Z",
+			"submissionTimestamp": "2019-10-01T07:27:37.2024563Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		}]
+}

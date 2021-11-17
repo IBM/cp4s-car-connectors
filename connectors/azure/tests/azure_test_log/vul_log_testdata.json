@@ -1,0 +1,12 @@
+[{
+	"correlationId": "xyz-%d",
+	"eventDataId": "xyz-%d",
+	"eventTimestamp": "2019-01-01",
+	"description": "sample_data",
+	"properties": {
+		"resourceType": "Virtual Machine",
+		"compromisedEntity": "test-abc",
+		"detectedTime(uTC)": "2019-01-01"
+	},
+	"id": "0.001 * %d/456/123"
+}]

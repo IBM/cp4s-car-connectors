@@ -1,0 +1,1069 @@
+{
+	"value": [
+		{
+			"authorization": {
+				"action": "Microsoft.Compute/virtualMachines/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569835718",
+				"nbf": "1569835718",
+				"exp": "1569839618",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAALMBju9DIscoIWDuzrVNB6cRvlxf1XQRY1JWqGA0swZY=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "b06a5351-c71c-4374-962e-a70069b464b2,ec93c042-1f30-4f46-893c-da779bd53153,bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "192.8.177.105",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "3ug5gjW_oEe1ofCZDSEpAQ",
+				"ver": "1.0",
+				"wids": "5d6b6bb7-de71-4623-b4af-96380a352509,194ae4cb-b126-40b2-bd5b-6091b380977d"
+			},
+			"correlationId": "1ba051e2-4574-45e5-a886-93a82231d8ca",
+			"description": "",
+			"eventDataId": "b8a7a050-b35f-476d-af5b-2e2447a7ba6e",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM/events/b8a7a050-b35f-476d-af5b-2e2447a7ba6e/ticks/637054354705310375",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Compute",
+				"localizedValue": "Microsoft.Compute"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM",
+			"resourceType": {
+				"value": "Microsoft.Compute/virtualMachines",
+				"localizedValue": "Microsoft.Compute/virtualMachines"
+			},
+			"operationId": "da1a2b16-50e8-4b22-808f-c9882a86862f",
+			"operationName": {
+				"value": "Microsoft.Compute/virtualMachines/write",
+				"localizedValue": "Microsoft.Compute/virtualMachines/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-30T10:17:50.5310375Z",
+			"submissionTimestamp": "2019-09-30T10:19:16.1150129Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Compute/virtualMachines/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM1"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569912872",
+				"nbf": "1569912872",
+				"exp": "1569916772",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAdVsBwT+kX7zlelvaubp5NLYCp6bWBdV8ERCgLKD1eko=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.140.83",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "JaFZpHY5jEW5gDti1U0SAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "46fbf9d8-66f3-4e91-9f50-2f2887167bdc",
+			"description": "",
+			"eventDataId": "2be69b10-bb2a-4d32-9ccf-df6354dd0b2a",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM/events/2be69b10-bb2a-4d32-9ccf-df6354dd0b2a/ticks/637055115829570470",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Compute",
+				"localizedValue": "Microsoft.Compute"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM1",
+			"resourceType": {
+				"value": "Microsoft.Compute/virtualMachines",
+				"localizedValue": "Microsoft.Compute/virtualMachines"
+			},
+			"operationId": "f1e2029e-925d-434b-ac40-37695c990c04",
+			"operationName": {
+				"value": "Microsoft.Compute/virtualMachines/delete",
+				"localizedValue": "Microsoft.Compute/virtualMachines/delete"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-10-01T07:26:22.957047Z",
+			"submissionTimestamp": "2019-10-01T07:27:37.2024563Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Web/sites/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569234610",
+				"nbf": "1569234610",
+				"exp": "1569238510",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYHgxz8NtbXBbneZxk4vndKKs6zsYb6Q+TZYqUGGrPv70jTUA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.139.35",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "bEyv3fjyjEW6SR-sbHpKAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "2bacdd4f-5e32-45d7-8ff3-aa437064535c",
+			"description": "",
+			"eventDataId": "9149f9a4-652d-4963-92e3-4227f32e48a7",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"httpRequest": {
+				"clientRequestId": "b541cf9f-09ef-4fb3-9fef-274b6fd7cd37",
+				"clientIpAddress": "106.208.139.35",
+				"method": "PUT"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp/events/9149f9a4-652d-4963-92e3-4227f32e48a7/ticks/637048318736482079",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Web",
+				"localizedValue": "Microsoft.Web"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/sql-injection-webapp-hdkcp",
+			"resourceType": {
+				"value": "Microsoft.Web/sites",
+				"localizedValue": "Microsoft.Web/sites"
+			},
+			"operationId": "13507d6b-3d42-4797-b84e-1ebe85450661",
+			"operationName": {
+				"value": "Microsoft.Web/sites/write",
+				"localizedValue": "Microsoft.Web/sites/write"
+			},
+			"properties": {
+				"statusCode": "OK",
+				"serviceRequestId": "be7cc8b4-99d8-4656-a1c6-4764650b8f13"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "OK",
+				"localizedValue": "OK"
+			},
+			"eventTimestamp": "2019-09-23T10:37:53.6482079Z",
+			"submissionTimestamp": "2019-09-23T10:38:24.137148Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Web/sites/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Web/sites/webapp-pets"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568100754",
+				"nbf": "1568100754",
+				"exp": "1568104654",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAr0ExlmUqxrpW8xDhFNWz2GRp8AN9Zx9Scu2D7P5a9NY=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "106.208.139.204",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "7hgiBIp02U-jG5UtU3-WAA",
+				"ver": "1.0"
+			},
+			"correlationId": "0fc96169-0312-4eca-bb28-212dd932b637",
+			"description": "",
+			"eventDataId": "15d2ce02-041b-4334-b34c-a5bbf5913c36",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/webapp-pets/events/15d2ce02-041b-4334-b34c-a5bbf5913c36/ticks/637036983089008528",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Web",
+				"localizedValue": "Azure Web Sites"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/webapp-pets",
+			"resourceType": {
+				"value": "Microsoft.Web/sites",
+				"localizedValue": "Microsoft.Web/sites"
+			},
+			"operationId": "35ef31b5-2dd0-46aa-8d32-83d94e75964a",
+			"operationName": {
+				"value": "Microsoft.Web/sites/delete",
+				"localizedValue": "Delete website"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-10T07:45:08.9008528Z",
+			"submissionTimestamp": "2019-09-10T07:47:17.1046933Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Sql/servers/databases/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569234610",
+				"nbf": "1569234610",
+				"exp": "1569238510",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYHgxz8NtbXBbneZxk4vndKKs6zsYb6Q+TZYqUGGrPv70jTUA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.139.35",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "bEyv3fjyjEW6SR-sbHpKAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "2bacdd4f-5e32-45d7-8ff3-aa437064535c",
+			"description": "",
+			"eventDataId": "7128a618-87f0-4508-bd17-0e25b70aa6eb",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic/events/7128a618-87f0-4508-bd17-0e25b70aa6eb/ticks/637048326612272095",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Sql",
+				"localizedValue": "Microsoft.Sql"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic",
+			"resourceType": {
+				"value": "Microsoft.Sql/servers/databases",
+				"localizedValue": "Microsoft.Sql/servers/databases"
+			},
+			"operationId": "a58fa80e-ca59-4fab-b780-b8fa39b913e4",
+			"operationName": {
+				"value": "Microsoft.Sql/servers/databases/write",
+				"localizedValue": "Microsoft.Sql/servers/databases/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-23T10:51:01.2272095Z",
+			"submissionTimestamp": "2019-09-23T10:52:26.1833866Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Sql/servers/databases/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/testdb"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568005572",
+				"nbf": "1568005572",
+				"exp": "1568009472",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAESRH0GHlK6nyJajq5IdMSwT9d7flrUyomyq8k5SEWKg=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "106.208.91.8",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "cJPaMHJ8E02Pc9zGLylaAA",
+				"ver": "1.0"
+			},
+			"correlationId": "bdb3cffd-f335-4252-ad7f-3aeb572a90f4",
+			"description": "",
+			"eventDataId": "300bf2a9-377f-420e-81a5-6c0b98709a97",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/testdb/events/300bf2a9-377f-420e-81a5-6c0b98709a97/ticks/637036049387385582",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Sql",
+				"localizedValue": "Microsoft SQL"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/testdb",
+			"resourceType": {
+				"value": "Microsoft.Sql/servers/databases",
+				"localizedValue": "Microsoft.Sql/servers/databases"
+			},
+			"operationId": "c4d6b5e1-8719-4b92-8160-b9c7f25f4ac9",
+			"operationName": {
+				"value": "Microsoft.Sql/servers/databases/delete",
+				"localizedValue": "Delete SQL database"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-09T05:48:58.7385582Z",
+			"submissionTimestamp": "2019-09-09T05:49:37.0951457Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.ContainerInstance/containerGroups/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568310889",
+				"nbf": "1568310889",
+				"exp": "1568314789",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAt4z8CN/Xfsa2CEbHdNq3sW62k/a2MO1Edkx7/1zp1i0=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "148.64.7.146",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "BCV3AiLP5E-sOd1BjsdUAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "fd074927-20d8-40b1-9d3d-9896a5197a4e",
+			"description": "",
+			"eventDataId": "84d5d692-0314-475c-aeae-61093df8a613",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container/events/84d5d692-0314-475c-aeae-61093df8a613/ticks/637039091226276541",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.ContainerInstance",
+				"localizedValue": "Microsoft.ContainerInstance"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container",
+			"resourceType": {
+				"value": "Microsoft.ContainerInstance/containerGroups",
+				"localizedValue": "Microsoft.ContainerInstance/containerGroups"
+			},
+			"operationId": "6579eb1e-c025-4180-8ded-8f828a2b7468",
+			"operationName": {
+				"value": "Microsoft.ContainerInstance/containerGroups/write",
+				"localizedValue": "Microsoft.ContainerInstance/containerGroups/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-12T18:18:42.6276541Z",
+			"submissionTimestamp": "2019-09-12T18:19:28.171389Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.ContainerInstance/containerGroups/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568310889",
+				"nbf": "1568310889",
+				"exp": "1568314789",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAt4z8CN/Xfsa2CEbHdNq3sW62k/a2MO1Edkx7/1zp1i0=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "148.64.7.146",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "BCV3AiLP5E-sOd1BjsdUAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "fd074927-20d8-40b1-9d3d-9896a5197a4e",
+			"description": "",
+			"eventDataId": "84d5d692-0314-475c-aeae-61093df8a613",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container/events/84d5d692-0314-475c-aeae-61093df8a613/ticks/637039091226276541",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.ContainerInstance",
+				"localizedValue": "Microsoft.ContainerInstance"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container",
+			"resourceType": {
+				"value": "Microsoft.ContainerInstance/containerGroups",
+				"localizedValue": "Microsoft.ContainerInstance/containerGroups"
+			},
+			"operationId": "6579eb1e-c025-4180-8ded-8f828a2b7468",
+			"operationName": {
+				"value": "Microsoft.ContainerInstance/containerGroups/write",
+				"localizedValue": "Microsoft.ContainerInstance/containerGroups/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-12T18:18:42.6276541Z",
+			"submissionTimestamp": "2019-09-12T18:19:28.171389Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Network/networkInterfaces/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569821304",
+				"nbf": "1569821304",
+				"exp": "1569825204",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYKixzihNZlZYdrXaZ6XpPUeLhQfOCPkpssre03+g8u975jYA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.105.36",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "rHOyeDN2PkSDoBsI2f9GAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "f4ac6f90-2b7b-4bd7-8bd3-e24cffa6114c",
+			"description": "",
+			"eventDataId": "0f5476b0-ea19-44c3-a2df-b62121cabb4a",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637/events/0f5476b0-ea19-44c3-a2df-b62121cabb4a/ticks/637054196797205652",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Network",
+				"localizedValue": "Microsoft.Network"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637",
+			"resourceType": {
+				"value": "Microsoft.Network/networkInterfaces",
+				"localizedValue": "Microsoft.Network/networkInterfaces"
+			},
+			"operationId": "fd8a7f31-f002-4f0f-8c75-6629e1715814",
+			"operationName": {
+				"value": "Microsoft.Network/networkInterfaces/write",
+				"localizedValue": "Create or Update Network Interface"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-30T05:54:39.7205652Z",
+			"submissionTimestamp": "2019-09-30T05:56:19.0974138Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Network/networkInterfaces/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/azure-cardev-vm996"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1565679808",
+				"nbf": "1565679808",
+				"exp": "1565683708",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYCiWvHHKye1p01Hmd/rrlnEf+2Blp1j1Yso04QnW5e2/fUIB",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "42.111.131.66",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "Vhc0lggEFEaiW1Goa6CAAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "abb74f0e-7bcc-42a1-a973-9aee659edd08",
+			"description": "",
+			"eventDataId": "b66d327d-daad-41bd-88b0-8ed197085029",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/azure-cardev-vm996/events/b66d327d-daad-41bd-88b0-8ed197085029/ticks/637012785462338165",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Network",
+				"localizedValue": "Microsoft.Network"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/azure-cardev-vm996",
+			"resourceType": {
+				"value": "Microsoft.Network/networkInterfaces",
+				"localizedValue": "Microsoft.Network/networkInterfaces"
+			},
+			"operationId": "1f106f8e-2df1-4387-8490-d42016c925f4",
+			"operationName": {
+				"value": "Microsoft.Network/networkInterfaces/delete",
+				"localizedValue": "Microsoft.Network/networkInterfaces/delete"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-08-13T07:35:46.2338165Z",
+			"submissionTimestamp": "2019-08-13T07:36:48.9771114Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.ContainerInstance/containerGroups/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568316483",
+				"nbf": "1568316483",
+				"exp": "1568320383",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAiN1Auh3Zh8mrQDzSvhhLVAaxn9++VfGBqKR0os9GgSE=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "27.5.212.61",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "xr7Ir3bvEUyTaGfaH-Y5AA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "3573573b-4b03-4e33-b62a-9daada77925b",
+			"description": "",
+			"eventDataId": "e53b82af-27c8-439d-b148-3ae965b768ed",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"eventTimestamp": "2019-09-12T19:55:56.0838263Z",
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container/events/e53b82af-27c8-439d-b148-3ae965b768ed/ticks/637039149560838263",
+			"level": "Informational",
+			"operationId": "3573573b-4b03-4e33-b62a-9daada77925b",
+			"operationName": {
+				"value": "Microsoft.ContainerInstance/containerGroups/delete",
+				"localizedValue": "Delete Container Group"
+			},
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.ContainerInstance",
+				"localizedValue": "Microsoft.ContainerInstance"
+			},
+			"resourceType": {
+				"value": "Microsoft.ContainerInstance/containerGroups",
+				"localizedValue": "Microsoft.ContainerInstance/containerGroups"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.ContainerInstance/containerGroups/linux-eastus-container",
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"submissionTimestamp": "2019-09-12T19:56:25.1182143Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"properties": {
+				"statusCode": "OK",
+				"serviceRequestId": "eastus:efadd401-98f6-469f-aa04-3514e6600306"
+			},
+			"relatedEvents": []
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Network/publicIpAddresses/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Network/publicIpAddresses/latest-test-vm-ip"
+			},
+			"caller": "demouser@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1571312662",
+				"nbf": "1571312662",
+				"exp": "1571316562",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42VgYGi+oJR+LU/FstOT5eUezTsdr+osZeWCb9kG7sk72DtjjiQA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"ipaddr": "106.208.59.148",
+				"name": "demouser",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "421ab4fe-ab53-4b2b-b777-fb0e4e2e8293",
+				"puid": "1003200070DE6114",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "c2WuG_IVmvtRtZXsH72BpEVUgWuyu-7uW7nI7uffvcQ",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "demouser@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "demouser@ibmsecure.onmicrosoft.com",
+				"uti": "H-EUeDphrk24Xr767WZWAA",
+				"ver": "1.0"
+			},
+			"correlationId": "c08f18c1-ce67-4388-917a-df2f3a299586",
+			"description": "",
+			"eventDataId": "d0d62c8c-9301-4f8c-bae5-9a708d1886dc",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"eventTimestamp": "2019-10-17T12:27:37.2112721Z",
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Network/publicIPAddresses/latest-test-vm-ip/events/d0d62c8c-9301-4f8c-bae5-9a708d1886dc/ticks/637069120572112721",
+			"level": "Informational",
+			"operationId": "6925a88d-7b1b-482e-9e64-4d0903e9e530",
+			"operationName": {
+				"value": "Microsoft.Network/publicIPAddresses/write",
+				"localizedValue": "Microsoft.Network/publicIPAddresses/write"
+			},
+			"resourceGroupName": "Demo-centralUS-rg",
+			"resourceProviderName": {
+				"value": "Microsoft.Network",
+				"localizedValue": "Microsoft.Network"
+			},
+			"resourceType": {
+				"value": "Microsoft.Network/publicIpAddresses",
+				"localizedValue": "Microsoft.Network/publicIpAddresses"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Network/publicIPAddresses/latest-test-vm-ip",
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"submissionTimestamp": "2019-10-17T12:29:06.1435703Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"relatedEvents": []
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Web/sites/publishxml/action",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/latest-testver-app"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1571319851",
+				"nbf": "1571319851",
+				"exp": "1571323751",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8NAAAAF4vARYGrVqeh7N8M60Yxvswn2H1okaydWmZFrKs0Hhs=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "7be62999-6404-461c-a5ee-932303023af8",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.59.148",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "2cskmz7biEKSl-aF6exkAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "86f17153-eba5-429f-b702-cb9521330c8a",
+			"description": "",
+			"eventDataId": "513775a0-5c33-4fb3-bf5f-ab78b515cc34",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"eventTimestamp": "2019-10-17T14:08:29.7898749Z",
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/latest-testver-app/events/513775a0-5c33-4fb3-bf5f-ab78b515cc34/ticks/637069181097898749",
+			"level": "Informational",
+			"operationId": "86f17153-eba5-429f-b702-cb9521330c8a",
+			"operationName": {
+				"value": "Microsoft.Web/sites/publishxml/action",
+				"localizedValue": "Get Web App Publishing Profile"
+			},
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Web",
+				"localizedValue": "Azure Web Sites"
+			},
+			"resourceType": {
+				"value": "Microsoft.Web/sites",
+				"localizedValue": "Microsoft.Web/sites"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Web/sites/latest-testver-app",
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "OK",
+				"localizedValue": "OK (HTTP Status Code: 200)"
+			},
+			"submissionTimestamp": "2019-10-17T14:10:16.1411375Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"properties": {
+				"statusCode": "OK",
+				"serviceRequestId": null
+			},
+			"relatedEvents": []
+		},
+		{
+			"authorization": {
+				"action": "Microsoft.Sql/servers/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/Demo-centralUS-rg/providers/Microsoft.Sql/servers/demo-sql-server2"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1571309892",
+				"nbf": "1571309892",
+				"exp": "1571313792",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8NAAAA7fPRwzziRYz3H2lH38qLnmkHcVPli72bcQ3o5sD2TKg=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "148.64.6.212",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "SDKK61HdpECYizFklZFQAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "1ef0f197-d0cf-44aa-aeac-8aeeeb511fd9",
+			"description": "",
+			"eventDataId": "9aad4332-5491-42f8-b0ce-a2132cd24dac",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"eventTimestamp": "2019-10-17T11:50:45.1174018Z",
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Sql/servers/demo-sql-server2/events/9aad4332-5491-42f8-b0ce-a2132cd24dac/ticks/637069098451174018",
+			"level": "Informational",
+			"operationId": "00d3738f-a083-4e21-9bfd-35ed0ac8e1e6",
+			"operationName": {
+				"value": "Microsoft.Sql/servers/delete",
+				"localizedValue": "Delete SQL server"
+			},
+			"resourceGroupName": "Demo-centralUS-rg",
+			"resourceProviderName": {
+				"value": "Microsoft.Sql",
+				"localizedValue": "Microsoft SQL"
+			},
+			"resourceType": {
+				"value": "Microsoft.Sql/servers",
+				"localizedValue": "Microsoft.Sql/servers"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Sql/servers/demo-sql-server2",
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"submissionTimestamp": "2019-10-17T11:52:16.1353103Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"relatedEvents": []
+		}
+	]
+}

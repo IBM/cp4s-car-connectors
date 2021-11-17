@@ -1,0 +1,37 @@
+{
+  "result": {
+    "_key": "null:118306311",
+    "_id": "asset/null:118306311",
+    "_rev": "_ZY8xIXW--G",
+    "car_shard": "null",
+    "description": "VM Image details: UbuntuServer-18.04-LTS",
+    "external_id":
+      "MS-Azure-TestRun:/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastus/providers/microsoft.compute/virtualmachines/eastus-ubuntu-srv",
+    "name": "eastUS-ubuntu-srv",
+    "source": "MS-Azure-TestRun",
+    "score_sum": 0,
+    "vulns_number": 0,
+    "risk": 0
+  },
+  "related": [
+        {
+      "node": {
+        "_key": "10.0.0.8",
+        "_id": "ipaddress/10.0.0.8",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null"
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_ipaddress/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "ipaddress/10.0.0.8",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "MS-Azure-TestRun",
+        "timestamp": 1570610297579
+      }
+    }
+  ]
+}

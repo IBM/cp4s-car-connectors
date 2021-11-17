@@ -1,0 +1,171 @@
+{
+	"value": [
+		{
+			"channels": "Operation",
+			"correlationId": "2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4",
+			"description": "Security incident detected. The incident which started on 2019-08-12 07:45:55 UTC and recently detected on 2019-08-13 16:15:42 UTC indicates that an attacker has attacked other resources from your resource eastUS-winsrv-3",
+			"eventDataId": "2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4",
+			"eventName": {
+				"value": "Security incident detected",
+				"localizedValue": "Security incident detected"
+			},
+			"category": {
+				"value": "Security",
+				"localizedValue": "Security"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Security/locations/centralus/alerts/2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4/events/2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4/ticks/637011927558100000",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Security",
+				"localizedValue": "Microsoft.Security"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Security/locations/centralus/alerts/2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4",
+			"resourceType": {
+				"value": "Microsoft.Security/locations/alerts",
+				"localizedValue": "Microsoft.Security/locations/alerts"
+			},
+			"operationId": "2518367048441899999_b8a0331b-c9c5-4b2c-9fe6-eea035e993a4",
+			"operationName": {
+				"value": "Microsoft.Security/locations/alerts/activate/action",
+				"localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+			},
+			"properties": {
+				"isincident": "true",
+				"detectedTime(uTC)": "2019-08-13 16:15:42 UTC",
+				"incidentStage": "attacked other resources from",
+				"compromisedHost": "eastUS-winsrv-3",
+				"startTime(uTC)": "2019-08-12 07:45:55 UTC",
+				"crossvm": "false",
+				"resourceType": "Virtual Machine",
+				"severity": "Medium",
+				"compromisedEntity": "eastUS-winsrv-3",
+				"relatedAlerts": "[\"2518367048441899999_8440995d-e7d1-4727-b8c0-826241fa55c4\",\"2518366104387899999_cc8605e9-c978-4f1a-8e2e-be48bc505536\",\"2518366104387899999_ba3f175b-8d3e-4224-8717-1c231c43beaa\",\"2518366104390099999_ab2e63fa-8f9e-4cc3-95db-f2d7fd8a631a\",\"2518366104390099999_b6b2fa4f-499d-4cd9-8ece-883cba985e94\",\"2518366104004429999_d24152ae-eeb0-4ef7-bfab-691af725f50f\",\"2518366104004429999_94e23a26-d91d-4409-893d-d5a82bc4c9de\",\"2518366100304629999_1fd74b42-78c8-4bb0-a056-e20a810b870d\",\"2518366100304629999_f25c0fc7-b2e7-4e83-b77f-2ef06f20cde3\",\"2518366099623829999_5110f2c9-fc45-4532-9595-08c7bd225560\",\"2518366099623829999_a3e1b27c-41d5-4e85-80fc-c92bf50c92be\"]",
+				"remediationSteps": "[\"1. Escalate the alert to the information security team.\",\"2. Review the remediation steps of each one of the alerts\"]",
+				"attackedResourceType": "Virtual Machine"
+			},
+			"status": {
+				"value": "Active",
+				"localizedValue": "Active"
+			},
+			"subStatus": {
+				"value": null
+			},
+			"eventTimestamp": "2019-08-12T07:45:55.81Z",
+			"submissionTimestamp": "2019-08-13T16:15:42.6503102Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8"
+		},
+		{
+			"channels": "Operation",
+			"correlationId": "2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6",
+			"description": "Web fingerprinting detected. Azure App Service activity log indicates a possible web fingerprinting activity on your App Service resource.\r\nThe suspicious activity detected is associated with a tool called Blind Elephant. The tool fingerprint web servers and tries to detect the installed applications and version.\r\nAttackers often use this tool for probing the web application to find vulnerabilities.",
+			"eventDataId": "2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6",
+			"eventName": {
+				"value": "Web fingerprinting detected",
+				"localizedValue": "Web fingerprinting detected"
+			},
+			"category": {
+				"value": "Security",
+				"localizedValue": "Security"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/%3CresourceGroupName%3E/providers/Microsoft.Security/locations/centralus/alerts/2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6/events/2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6/ticks/637048266360000000",
+			"level": "Informational",
+			"resourceGroupName": "<resourceGroupName>",
+			"resourceProviderName": {
+				"value": "Microsoft.Security",
+				"localizedValue": "Microsoft.Security"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/<resourceGroupName>/providers/Microsoft.Security/locations/centralus/alerts/2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6",
+			"resourceType": {
+				"value": "Microsoft.Security/locations/alerts",
+				"localizedValue": "Microsoft.Security/locations/alerts"
+			},
+			"operationId": "2518330709639999999_74ecb4d9-4047-4a05-92c8-bd5d644194d6",
+			"operationName": {
+				"value": "Microsoft.Security/locations/alerts/activate/action",
+				"localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+			},
+			"properties": {
+				"lastEventTime": "9/23/2019 9:21:16 AM",
+				"sampleURIs": "/, /author/admin/should/not/exist.html, /should/not/exist.html",
+				"sampleSourceIPAddresses": "148.64.5.244",
+				"sampleUserAgents": "Mozilla/5.0+(X11;+U;+Linux+i686;+en-US;+rv:1.9.2.3)+Gecko/20100423+Ubuntu/10.04+(lucid)+Firefox/3.6.3",
+				"sampleReferer": "-",
+				"actionTaken": "Detected",
+				"resourceType": "App Service",
+				"severity": "Medium",
+				"compromisedEntity": "blindelephant",
+				"remediationSteps": "['If only specific IP addresses should be allowed to access the web app, set IP restrictions (https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) for it.']",
+				"attackedResourceType": "App Service"
+			},
+			"status": {
+				"value": "Active",
+				"localizedValue": "Active"
+			},
+			"subStatus": {
+				"value": null
+			},
+			"eventTimestamp": "2019-09-23T09:10:36Z",
+			"submissionTimestamp": "2019-09-23T12:06:05.5261389Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8"
+		},
+		{
+			"channels": "Operation",
+			"correlationId": "2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1",
+			"description": "Potential SQL Injection. Potential SQL Injection was detected on your database contosoclinic on server sqlinjectionserverhdkcp",
+			"eventDataId": "2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1",
+			"eventName": {
+				"value": "Potential SQL Injection",
+				"localizedValue": "Potential SQL Injection"
+			},
+			"category": {
+				"value": "Security",
+				"localizedValue": "Security"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Security/locations/centralus/alerts/2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1/events/2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1/ticks/637048328319261187",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Security",
+				"localizedValue": "Microsoft.Security"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Security/locations/centralus/alerts/2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1",
+			"resourceType": {
+				"value": "Microsoft.Security/locations/alerts",
+				"localizedValue": "Microsoft.Security/locations/alerts"
+			},
+			"operationId": "2518330647680738812_547812a6-6050-4d60-931b-7b49a68d39b1",
+			"operationName": {
+				"value": "Microsoft.Security/locations/alerts/activate/action",
+				"localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+			},
+			"properties": {
+				"alertId": "547812a6-6050-4d60-931b-7b49a68d39b1",
+				"server": "sqlinjectionserverhdkcp",
+				"database": "contosoclinic",
+				"iPAddress": "40.114.68.21",
+				"principalName": "devadmin",
+				"application": ".Net SqlClient Data Provider",
+				"vulnerableStatement": "SELECT * FROM dbo.Patients WHERE [FirstName] LIKE '%'order by SSN--%' OR [LastName] LIKE ',%'order by SSN--%', OR [StreetAddress] LIKE '%'order by SSN--%' OR [City] LIKE ',%'order by SSN--%', OR [State] LIKE '%'order by SSN--%'",
+				"threatID": "1",
+				"potentialCauses": "Defect in application code constructing faulty SQL statements; application code doesn't sanitize user input and was exploited to inject malicious SQL statements.",
+				"investigationSteps": "{'detailBlade',:'EngineAuditRecordsBlade','detailBladeInputs':'resourceId=\\/subscriptions\\/083de1fb-cd2d-4b7c-895a-2b5af1d091e8\\/resourceGroups\\/eastUS\\/providers\\/Microsoft.Sql\\/servers\\/sqlinjectionserverhdkcp\\/databases\\/contosoclinic;fromDateTime=Mon, 23 Sep 2019 10:53:51 GMT;eventId=1;showSecurityAlertsRecords=true;showServerRecords=true','displayValue':'View the vulnerable SQL statement that is shown in this alert. If you have audit log turned on, click here for full investigation.','extension':'SqlAzureExtension','kind':'openBlade'}",
+				"resourceType": "SQL Database",
+				"severity": "High",
+				"compromisedEntity": "contosoclinic",
+				"remediationSteps": "[{'displayValue':'Read more about SQL Injection threats and best practices for safe application code.','kind':'Link','value':'https://www.microsoft.com/en-us/download/details.aspx?id=13759'}]",
+				"attackedResourceType": "SQL Database"
+			},
+			"status": {
+				"value": "Active",
+				"localizedValue": "Active"
+			},
+			"subStatus": {
+				"value": null
+			},
+			"eventTimestamp": "2019-09-23T10:53:51.9261187Z",
+			"submissionTimestamp": "2019-09-23T10:53:56.2901647Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8"
+		}
+	]
+}

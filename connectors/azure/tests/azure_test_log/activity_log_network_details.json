@@ -1,0 +1,52 @@
+{
+	"value": [
+		{
+			"name": "test-linux-vm85",
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/Demo-centralUS-rg/providers/Microsoft.Network/publicIPAddresses/up-win-demo-ip",
+			"etag": "W/\"7dd67b4a-e3e2-4804-b378-9a7446200b74\"",
+			"location": "eastus",
+			"properties": {
+				"provisioningState": "Succeeded",
+				"resourceGuid": "52d28fe1-9de8-484c-8602-476e77ba6fb4",
+				"ipConfigurations": [
+					{
+						"name": "ipconfig1",
+						"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-linux-vm85/ipConfigurations/ipconfig1",
+						"etag": "W/\"7dd67b4a-e3e2-4804-b378-9a7446200b74\"",
+						"type": "Microsoft.Network/networkInterfaces/ipConfigurations",
+						"properties": {
+							"provisioningState": "Succeeded",
+							"privateIPAddress": "10.0.0.5",
+							"privateIPAllocationMethod": "Dynamic",
+							"publicIPAddress": {
+								"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/publicIPAddresses/test-linux-vm-ip"
+							},
+							"subnet": {
+								"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/virtualNetworks/eastUS-vnet/subnets/default"
+							},
+							"primary": true,
+							"privateIPAddressVersion": "IPv4"
+						}
+					}
+				],
+				"dnsSettings": {
+					"dnsServers": [],
+					"appliedDnsServers": []
+				},
+				"macAddress": "00-0D-3A-1E-82-44",
+				"enableAcceleratedNetworking": false,
+				"enableIPForwarding": false,
+				"networkSecurityGroup": {
+					"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkSecurityGroups/test-linux-vm-nsg"
+				},
+				"primary": true,
+				"virtualMachine": {
+					"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-linux-vm"
+				},
+				"hostedWorkloads": [],
+				"tapConfigurations": []
+			},
+			"type": "Microsoft.Network/networkInterfaces"
+		}
+	]
+}

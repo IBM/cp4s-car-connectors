@@ -1,0 +1,4 @@
+{
+  "nextLink": "https://management.azure.com/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp+ge+2019-08-25T20%3A00%3A00Z+and+category+eq+%27Administrative%27&$skipToken=US1:0637042899087041897:bae9e204;AS1:0637042872046349504:b5aeffd5",
+  "value": []
+}

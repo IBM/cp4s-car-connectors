@@ -1,0 +1,154 @@
+{
+	"value": [
+		{
+			"authorization": {
+				"action": "Microsoft.Network/networkInterfaces/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569821304",
+				"nbf": "1569821304",
+				"exp": "1569825204",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYKixzihNZlZYdrXaZ6XpPUeLhQfOCPkpssre03+g8u975jYA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.105.36",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "rHOyeDN2PkSDoBsI2f9GAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "f4ac6f90-2b7b-4bd7-8bd3-e24cffa6114c",
+			"description": "",
+			"eventDataId": "0f5476b0-ea19-44c3-a2df-b62121cabb4a",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637/events/0f5476b0-ea19-44c3-a2df-b62121cabb4a/ticks/637054196797205652",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Network",
+				"localizedValue": "Microsoft.Network"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637",
+			"resourceType": {
+				"value": "Microsoft.Network/networkInterfaces",
+				"localizedValue": "Microsoft.Network/networkInterfaces"
+			},
+			"operationId": "fd8a7f31-f002-4f0f-8c75-6629e1715814",
+			"operationName": {
+				"value": "Microsoft.Network/networkInterfaces/write",
+				"localizedValue": "Create or Update Network Interface"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-30T05:54:39.7205652Z",
+			"submissionTimestamp": "2019-09-30T05:56:19.0974138Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},{
+			"authorization": {
+				"action": "Microsoft.Network/networkInterfaces/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Network/networkInterfaces/azure-cardev-vm996"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1565679808",
+				"nbf": "1565679808",
+				"exp": "1565683708",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYCiWvHHKye1p01Hmd/rrlnEf+2Blp1j1Yso04QnW5e2/fUIB",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "42.111.131.66",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "Vhc0lggEFEaiW1Goa6CAAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "abb74f0e-7bcc-42a1-a973-9aee659edd08",
+			"description": "",
+			"eventDataId": "b66d327d-daad-41bd-88b0-8ed197085029",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/azure-cardev-vm996/events/b66d327d-daad-41bd-88b0-8ed197085029/ticks/637012785462338165",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Network",
+				"localizedValue": "Microsoft.Network"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Network/networkInterfaces/test-create-vm637",
+			"resourceType": {
+				"value": "Microsoft.Network/networkInterfaces",
+				"localizedValue": "Microsoft.Network/networkInterfaces"
+			},
+			"operationId": "1f106f8e-2df1-4387-8490-d42016c925f4",
+			"operationName": {
+				"value": "Microsoft.Network/networkInterfaces/delete",
+				"localizedValue": "Microsoft.Network/networkInterfaces/delete"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-08-13T07:35:46.2338165Z",
+			"submissionTimestamp": "2019-08-13T07:36:48.9771114Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		}]
+}

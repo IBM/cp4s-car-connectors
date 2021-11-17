@@ -1,0 +1,62 @@
+{
+	"asset_hostname": [{
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/eastUS-linuxsrv",
+		"_to": "hostname/eastUS-linuxsrv",
+		"timestamp": "2019-09-05T06:08:28.0428617Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}, {
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/eastUS-ubuntu-srv",
+		"_to": "hostname/eastUS-ubuntu-srv",
+		"timestamp": "2019-09-03T03:32:21.0063205Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}, {
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-window",
+		"_to": "hostname/test-window",
+		"timestamp": "2019-08-29T09:30:37.7826544Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}, {
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-linux-vm",
+		"_to": "hostname/test-linux-vm",
+		"timestamp": "2019-08-21T13:10:21.8241851Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}, {
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/eastUS-win10srv",
+		"_to": "hostname/eastUS-win10srv",
+		"timestamp": "2019-08-14T09:48:57.5690176Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}, {
+		"_from_external_id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/car-dev-win",
+		"_to": "hostname/car-dev-win",
+		"timestamp": "2019-08-12T06:14:03.084874Z",
+		"active": true,
+		"report": "1568706893582.581",
+		"source": "Microsoft Azure"
+	}],
+	"report": {
+		"_key": "1568706893582.581",
+		"timestamp": 1568706893582.581,
+		"type": "MS Azure",
+		"description": "Microsoft Azure imports"
+	},
+	"source": {
+		"_key": "Microsoft Azure",
+		"description": "reports coming from source Microsoft Azure",
+		"product_link": "https://management.azure.com"
+	},
+	"source_report": [{
+		"_from": "source/Microsoft Azure",
+		"_to": "report/1568706893582.581",
+		"timestamp": 1568706893582.581,
+		"active": true
+	}]
+}

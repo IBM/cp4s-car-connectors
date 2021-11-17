@@ -1,0 +1,34 @@
+{
+	"value": [
+		{
+			"kind": "v12.0",
+			"properties": {
+				"administratorLogin": "rsaadmin",
+				"version": "12.0",
+				"state": "Ready",
+				"fullyQualifiedDomainName": "mysqlservercar.database.windows.net"
+			},
+			"location": "australiacentral",
+			"tags": {},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar",
+			"name": "mysqlservercar",
+			"type": "Microsoft.Sql/servers"
+		},
+		{
+			"kind": "v12.0",
+			"properties": {
+				"administratorLogin": "devadmin",
+				"version": "12.0",
+				"state": "Ready",
+				"fullyQualifiedDomainName": "sqlinjectionserverhdkcp.database.windows.net"
+			},
+			"location": "eastus",
+			"tags": {
+				"scenario": "SQL-Injection-Attack-Prevention"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp",
+			"name": "sqlinjectionserverhdkcp",
+			"type": "Microsoft.Sql/servers"
+		}
+	]
+}

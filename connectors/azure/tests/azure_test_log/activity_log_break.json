@@ -1,0 +1,78 @@
+{
+	"nextLink": null,
+	"value": [
+		{
+			"authorization": {
+				"action": "Microsoft.Compute/virtualMachines/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569835718",
+				"nbf": "1569835718",
+				"exp": "1569839618",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAALMBju9DIscoIWDuzrVNB6cRvlxf1XQRY1JWqGA0swZY=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "b06a5351-c71c-4374-962e-a70069b464b2,ec93c042-1f30-4f46-893c-da779bd53153,bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "192.8.177.105",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "3ug5gjW_oEe1ofCZDSEpAQ",
+				"ver": "1.0",
+				"wids": "5d6b6bb7-de71-4623-b4af-96380a352509,194ae4cb-b126-40b2-bd5b-6091b380977d"
+			},
+			"correlationId": "1ba051e2-4574-45e5-a886-93a82231d8ca",
+			"description": "",
+			"eventDataId": "b8a7a050-b35f-476d-af5b-2e2447a7ba6e",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM/events/b8a7a050-b35f-476d-af5b-2e2447a7ba6e/ticks/637054354705310375",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Compute",
+				"localizedValue": "Microsoft.Compute"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Compute/virtualMachines/test-create-VM",
+			"resourceType": {
+				"value": "Microsoft.Compute/virtualMachines",
+				"localizedValue": "Microsoft.Compute/virtualMachines"
+			},
+			"operationId": "da1a2b16-50e8-4b22-808f-c9882a86862f",
+			"operationName": {
+				"value": "Microsoft.Compute/virtualMachines/write",
+				"localizedValue": "Microsoft.Compute/virtualMachines/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-30T10:17:50.5310375Z",
+			"submissionTimestamp": "2019-09-30T10:19:16.1150129Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		}
+	]
+}

@@ -1,0 +1,115 @@
+{
+    "value": [
+        {
+            "sku": {
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+                "family": "Gen5",
+                "capacity": 2
+            },
+            "kind": "v12.0,user,vcore",
+            "managedBy": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": 34359738368,
+                "status": "Online",
+                "databaseId": "0e7877f0-7b8d-4e3d-960e-d4e76d38cbf0",
+                "creationDate": "2019-09-01T01:17:41.807Z",
+                "currentServiceObjectiveName": "GP_Gen5_2",
+                "requestedServiceObjectiveName": "GP_Gen5_2",
+                "defaultSecondaryLocation": "australiacentral2",
+                "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+                "zoneRedundant": false,
+                "licenseType": "LicenseIncluded",
+                "maxLogSizeBytes": 10307502080,
+                "earliestRestoreDate": "2019-09-18T00:00:00Z",
+                "readScale": "Disabled",
+                "readReplicaCount": 0,
+                "currentSku": {
+                    "name": "GP_Gen5",
+                    "tier": "GeneralPurpose",
+                    "family": "Gen5",
+                    "capacity": 2
+                },
+                "storageAccountType": "GRS"
+            },
+            "location": "australiacentral",
+            "tags": {},
+            "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/cardb",
+            "name": "cardb",
+            "type": "Microsoft.Sql/servers/databases"
+        },
+        {
+            "sku": {
+                "name": "System",
+                "tier": "System",
+                "capacity": 0
+            },
+            "kind": "v12.0,system",
+            "managedBy": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": 32212254720,
+                "status": "Online",
+                "databaseId": "ec4e4473-bc2e-42f9-9f66-4232ee7fc482",
+                "creationDate": "2019-09-01T01:16:34.153Z",
+                "currentServiceObjectiveName": "System2",
+                "requestedServiceObjectiveName": "System2",
+                "defaultSecondaryLocation": "australiacentral2",
+                "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+                "zoneRedundant": false,
+                "readScale": "Disabled",
+                "readReplicaCount": 0,
+                "currentSku": {
+                    "name": "System",
+                    "tier": "System",
+                    "capacity": 0
+                },
+                "storageAccountType": "GRS"
+            },
+            "location": "australiacentral",
+            "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/master",
+            "name": "master",
+            "type": "Microsoft.Sql/servers/databases"
+        },
+        {
+            "sku": {
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose",
+                "family": "Gen5",
+                "capacity": 2
+            },
+            "kind": "v12.0,user,vcore",
+            "managedBy": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": 34359738368,
+                "status": "Online",
+                "databaseId": "ec90b530-395b-4a96-b2c1-a63d65f904be",
+                "creationDate": "2019-09-09T05:48:00.86Z",
+                "currentServiceObjectiveName": "GP_Gen5_2",
+                "requestedServiceObjectiveName": "GP_Gen5_2",
+                "defaultSecondaryLocation": "australiacentral2",
+                "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+                "zoneRedundant": false,
+                "licenseType": "LicenseIncluded",
+                "maxLogSizeBytes": 10307502080,
+                "earliestRestoreDate": "2019-09-18T00:00:00Z",
+                "readScale": "Disabled",
+                "readReplicaCount": 0,
+                "currentSku": {
+                    "name": "GP_Gen5",
+                    "tier": "GeneralPurpose",
+                    "family": "Gen5",
+                    "capacity": 2
+                },
+                "storageAccountType": "GRS"
+            },
+            "location": "australiacentral",
+            "tags": {},
+            "id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/test_del_db",
+            "name": "test_del_db",
+            "type": "Microsoft.Sql/servers/databases"
+        }
+    ]
+}

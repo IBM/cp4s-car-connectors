@@ -1,0 +1,150 @@
+{
+	"value": [
+		{
+			"authorization": {
+				"action": "Microsoft.Sql/servers/databases/write",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic"
+			},
+			"caller": "admin@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1569234610",
+				"nbf": "1569234610",
+				"exp": "1569238510",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "42FgYHgxz8NtbXBbneZxk4vndKKs6zsYb6Q+TZYqUGGrPv70jTUA",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+				"appidacr": "0",
+				"http://schemas.microsoft.com/2012/01/devicecontext/claims/identifier": "d37689d3-8be8-4553-9efa-d737ee993e9d",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "K",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Muralidhar",
+				"groups": "5b3d7cdf-c8c6-4218-9fdb-5f7a7b7749a9",
+				"ipaddr": "106.208.139.35",
+				"name": "Muralidhar K",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "83665730-6593-4d48-8132-87d0f07974be",
+				"puid": "1003200054E6A2D3",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "3xMjNACjAsuKpZT4XDdM7zdvqfvA6NlHJ78YoEp2e_c",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "admin@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@ibmsecure.onmicrosoft.com",
+				"uti": "bEyv3fjyjEW6SR-sbHpKAA",
+				"ver": "1.0",
+				"wids": "62e90394-69f5-4237-9190-012177145e10"
+			},
+			"correlationId": "2bacdd4f-5e32-45d7-8ff3-aa437064535c",
+			"description": "",
+			"eventDataId": "7128a618-87f0-4508-bd17-0e25b70aa6eb",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "EndRequest"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic/events/7128a618-87f0-4508-bd17-0e25b70aa6eb/ticks/637048326612272095",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Sql",
+				"localizedValue": "Microsoft.Sql"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic",
+			"resourceType": {
+				"value": "Microsoft.Sql/servers/databases",
+				"localizedValue": "Microsoft.Sql/servers/databases"
+			},
+			"operationId": "a58fa80e-ca59-4fab-b780-b8fa39b913e4",
+			"operationName": {
+				"value": "Microsoft.Sql/servers/databases/write",
+				"localizedValue": "Microsoft.Sql/servers/databases/write"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-23T10:51:01.2272095Z",
+			"submissionTimestamp": "2019-09-23T10:52:26.1833866Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		},{
+			"authorization": {
+				"action": "Microsoft.Sql/servers/databases/delete",
+				"scope": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourceGroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/testdb"
+			},
+			"caller": "isccardev@ibmsecure.onmicrosoft.com",
+			"channels": "Operation",
+			"claims": {
+				"aud": "https://management.core.windows.net/",
+				"iss": "https://sts.windows.net/b73e5ba8-34d5-495a-9901-06bdb84cf13e/",
+				"iat": "1568005572",
+				"nbf": "1568005572",
+				"exp": "1568009472",
+				"http://schemas.microsoft.com/claims/authnclassreference": "1",
+				"aio": "ASQA2/8MAAAAESRH0GHlK6nyJajq5IdMSwT9d7flrUyomyq8k5SEWKg=",
+				"http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+				"appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+				"appidacr": "2",
+				"groups": "bbe1ee48-3b19-456e-a7c2-1b201d797d27",
+				"ipaddr": "106.208.91.8",
+				"name": "ISC CAR DEV",
+				"http://schemas.microsoft.com/identity/claims/objectidentifier": "541ad327-3fda-442e-8d52-72a5d2c3e4ee",
+				"puid": "10032000570974B7",
+				"http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "vQoXHRjRx2I705L4bxixofrgCT-Acn_bxn2PfTeI75k",
+				"http://schemas.microsoft.com/identity/claims/tenantid": "b73e5ba8-34d5-495a-9901-06bdb84cf13e",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "isccardev@ibmsecure.onmicrosoft.com",
+				"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "isccardev@ibmsecure.onmicrosoft.com",
+				"uti": "cJPaMHJ8E02Pc9zGLylaAA",
+				"ver": "1.0"
+			},
+			"correlationId": "bdb3cffd-f335-4252-ad7f-3aeb572a90f4",
+			"description": "",
+			"eventDataId": "300bf2a9-377f-420e-81a5-6c0b98709a97",
+			"eventName": {
+				"value": "EndRequest",
+				"localizedValue": "End request"
+			},
+			"category": {
+				"value": "Administrative",
+				"localizedValue": "Administrative"
+			},
+			"id": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/mysqlservercar/databases/testdb/events/300bf2a9-377f-420e-81a5-6c0b98709a97/ticks/637036049387385582",
+			"level": "Informational",
+			"resourceGroupName": "eastUS",
+			"resourceProviderName": {
+				"value": "Microsoft.Sql",
+				"localizedValue": "Microsoft SQL"
+			},
+			"resourceId": "/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastUS/providers/Microsoft.Sql/servers/sqlinjectionserverhdkcp/databases/contosoclinic",
+			"resourceType": {
+				"value": "Microsoft.Sql/servers/databases",
+				"localizedValue": "Microsoft.Sql/servers/databases"
+			},
+			"operationId": "c4d6b5e1-8719-4b92-8160-b9c7f25f4ac9",
+			"operationName": {
+				"value": "Microsoft.Sql/servers/databases/delete",
+				"localizedValue": "Delete SQL database"
+			},
+			"status": {
+				"value": "Succeeded",
+				"localizedValue": "Succeeded"
+			},
+			"subStatus": {
+				"value": "",
+				"localizedValue": ""
+			},
+			"eventTimestamp": "2019-09-09T05:48:58.7385582Z",
+			"submissionTimestamp": "2019-09-09T05:49:37.0951457Z",
+			"subscriptionId": "083de1fb-cd2d-4b7c-895a-2b5af1d091e8",
+			"tenantId": "b73e5ba8-34d5-495a-9901-06bdb84cf13e"
+		}]
+}
