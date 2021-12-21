@@ -1,0 +1,35 @@
+[{
+		"_key": "null:357735056",
+		"_id": "container/null:357735056",
+		"_rev": "_a_6PyTC--_",
+		"car_shard": "null",
+		"cluster_id": "arn:aws:ecs:us-east-1:979326520502:cluster/cluster-1",
+		"external_id": [
+			"AWS-TEST:arn:aws:ecs:us-east-1:979326520502:container/85821969-cca3-4527-b6b6-7bd214fe6ac5"
+		],
+		"image": "test-image",
+		"name": "container-awsvpc-mode-demo-1",
+		"source": [
+			"AWS-TEST"
+		],
+		"task_id": "arn:aws:ecs:us-east-1:979326520502:task/b2ca2e2b-3b9a-4ac5-9242-3c884c53c7ef",
+		"last_modified": 1581069226266
+	},
+	{
+		"_key": "null:357735057",
+		"_id": "container/null:357735057",
+		"_rev": "_a_6yhGS--B",
+		"car_shard": "null",
+		"cluster_id": "arn:aws:ecs:us-east-1:979326520502:cluster/cluster-1",
+		"external_id": [
+			"AWS-TEST:arn:aws:ecs:us-east-1:979326520502:container/d2db812f-7732-4527-a4f2-0264f358e9a6"
+		],
+		"image": "test-image",
+		"name": "container-2",
+		"source": [
+			"AWS-TEST"
+		],
+		"task_id": "arn:aws:ecs:us-east-1:979326520502:task/6f29a020-59d5-4a69-9a4e-9c64e42c674c",
+		"last_modified": 1581071502225
+	}
+]

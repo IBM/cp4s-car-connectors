@@ -1,0 +1,25 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Microsoft Defender for Endpoint"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "subscription_id": {
+                "type": "password"
+            },
+            "tenant_id": {
+                "type": "password"
+            },
+            "client_id": {
+                "type": "password"
+            },
+            "client_secret": {
+                "type": "password"
+            }
+        }
+    }
+}

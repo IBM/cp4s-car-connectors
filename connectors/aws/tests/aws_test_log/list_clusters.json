@@ -1,0 +1,14 @@
+{
+	"clusterArns": ["arn:aws:ecs:us-east-1:979326520502:cluster/us-east-1-dev-cluster"],
+	"ResponseMetadata": {
+		"RequestId": "b8eca72e-da5d-47cc-b79f-14731c2d609b",
+		"HTTPStatusCode": 200,
+		"HTTPHeaders": {
+			"x-amzn-requestid": "b8eca72e-da5d-47cc-b79f-14731c2d609b",
+			"content-type": "application/x-amz-json-1.1",
+			"content-length": "84",
+			"date": "Tue, 11 Feb 2020 09:45:00 GMT"
+		},
+		"RetryAttempts": 0
+	}
+}

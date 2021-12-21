@@ -1,0 +1,183 @@
+{
+  "result": {
+    "_key": "null:118306311",
+    "_id": "asset/null:118306311",
+    "_rev": "_ZY8xIXW--G",
+    "car_shard": "null",
+    "external_id": [
+      "AWS-TEST:sample-vertice"
+    ],
+    "name": "sample-name",
+    "source": [
+      "AWS-TEST"
+    ],
+    "score_sum": 0,
+    "vulns_number": 0,
+    "risk": 0
+  },
+  "related": [
+    {
+      "node": {
+        "_key": "null:118306350",
+        "_id": "database/null:317690163",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null",
+        "external_id": [
+            "AWS-TEST:db-y7phctqog2xntdojizh6dy4mcu"
+        ],
+        "key": "10.0.0.13",
+        "source": [
+          "AWS-TEST"
+        ]
+      },
+      "link": {
+        "_key": "null:311711723:null",
+        "_id": "asset_database/null:311711723:null",
+        "_from": "asset/null:315713151",
+        "_to": "database/null:317690163",
+        "_rev": "_Z9n8odm--A",
+        "active": true,
+        "report": "1580455569742",
+        "source": "AWS-TEST",
+        "timestamp": 1580455569742
+      }
+    },
+    {
+    "node": {
+      "_key": "null:118306350",
+      "_id": "hostname/null:317690163",
+      "_rev": "_ZY8w97O--E",
+      "car_shard": "null",
+      "external_id": [
+          "AWS-TEST:db-y7phctqog2xntdojizh6dy4mcu"
+      ],
+      "key": "test-env-1.qnsncvmxme.us-east-1.elasticbeanstalk.com",
+      "resource_type": "elasticbeanstalk",
+      "source": [
+        "AWS-TEST"
+      ]
+    },
+    "link": {
+      "_key": "null:311711723:null",
+      "_id": "asset_hostname/null:311711723:null",
+      "_from": "asset/null:315713151",
+      "_to": "hostname/null:317690163",
+      "_rev": "_Z9n8odm--A",
+      "active": true,
+      "report": "1580455569742",
+      "source": "AWS-TEST",
+      "timestamp": 1580455569742
+    }
+  },
+    {
+    "node": {
+      "_key": "null:118306350",
+      "_id": "hostname/null:317690163",
+      "_rev": "_ZY8w97O--E",
+      "car_shard": "null",
+      "external_id": [
+          "AWS-TEST:db-y7phctqog2xntdojizh6dy4mcu"
+      ],
+      "key": "SampleHostname",
+      "resource_type": "elasticbeanstalk",
+      "source": [
+        "AWS-TEST"
+      ]
+    },
+    "link": {
+      "_key": "null:311711723:null",
+      "_id": "asset_hostname/null:311711723:null",
+      "_from": "asset/null:315713151",
+      "_to": "hostname/null:317690163",
+      "_rev": "_Z9n8odm--A",
+      "active": true,
+      "report": "1580455569742",
+      "source": "AWS-TEST",
+      "timestamp": 1580455569742
+    }
+  },
+     {
+    "node": {
+      "_key": "null:118306350",
+      "_id": "asset/null:317690163",
+      "_rev": "_ZY8w97O--E",
+      "car_shard": "null",
+      "external_id": [
+          "AWS-TEST:arn:aws:ec2:us-east-1:979326520502:instance/i-03b17ec42281ffa9f"
+      ],
+      "key": "SampleAsset",
+      "resource_type": "elasticbeanstalk",
+      "source": [
+        "AWS-TEST"
+      ]
+    },
+    "link": {
+      "_key": "null:311711723:null",
+      "_id": "asset_macaddress/null:311711723:null",
+      "_from": "asset/null:315713151",
+      "_to": "macaddress/null:317690163",
+      "_rev": "_Z9n8odm--A",
+      "active": true,
+      "report": "1580455569742",
+      "source": "AWS-TEST",
+      "timestamp": 1580455569742
+    }
+  },
+     {
+    "node": {
+      "_key": "null:118306350",
+      "_id": "asset/null:317690163",
+      "_rev": "_ZY8w97O--E",
+      "car_shard": "null",
+      "external_id": [
+          "AWS-TEST:arn:aws:ec2:us-east-1:979326520502:instance/i-03b17ec42281ffa9f"
+      ],
+      "key": "Sampleasset",
+      "resource_type": "elasticbeanstalk",
+      "source": [
+        "AWS-TEST"
+      ]
+    },
+    "link": {
+      "_key": "null:311711723:null",
+      "_id": "asset_ipaddress/null:311711723:null",
+      "_from": "asset/null:315713151",
+      "_to": "ipaddress/null:317690163",
+      "_rev": "_Z9n8odm--A",
+      "active": true,
+      "report": "1580455569742",
+      "source": "AWS-TEST",
+      "timestamp": 1580455569742
+    }
+  },
+    {
+    "node": {
+      "_id": "ipaddress/2600:1f18:4036:e6fe:4756:57f9:9741:5ab0",
+      "_key": "2600:1f18:4036:e6fe:4756:57f9:9741:5ab0",
+      "network_interface_id": "eni-03107005b6925e126",
+      "attachment_id": "eni-attach-03fd58bfa314117ed",
+      "_rev": "_ZY8w97O--E",
+      "car_shard": "null",
+      "external_id": [
+          "AWS-TEST:db-y7phctqog2xntdojizh6dy4mcu"
+      ],
+      "key": "test-env-1.qnsncvmxme.us-east-1.elasticbeanstalk.com",
+      "resource_type": "elasticbeanstalk",
+      "source": [
+        "AWS-TEST"
+      ]
+    },
+    "link": {
+      "_key": "null:311711723:null",
+      "_id": "asset_ipaddress/null:311711723:null",
+      "_from": "asset/null:315713151",
+      "_to": "hostname/null:317690163",
+      "_rev": "_Z9n8odm--A",
+      "active": true,
+      "report": "1580455569742",
+      "source": "AWS-TEST",
+      "timestamp": 1580455569742
+    }
+  }
+  ]
+}

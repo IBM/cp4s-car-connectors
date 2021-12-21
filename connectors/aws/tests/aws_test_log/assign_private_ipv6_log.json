@@ -1,0 +1,57 @@
+[{
+		"EventId": "1f124cfa-f074-40e8-860e-9106763ca315",
+		"EventName": "AssignIpv6Addresses",
+		"ReadOnly": "false",
+		"EventTime": "datetime.datetime(2020, 2, 9, 23, 54, 38, tzinfo = tzlocal())",
+		"EventSource": "ec2.amazonaws.com",
+		"Username": "AutoScaling",
+		"Resources": [{
+			"ResourceType": "AWS::EC2::NetworkInterface",
+			"ResourceName": "vpc-10db926a"
+		}],
+  "CloudTrailEvent": {
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDA6IBDIZS3PHKDTXCSI",
+        "arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+        "accountId": "979326520502",
+        "accessKeyId": "ASIA6IBDIZS3NTJMB2KF",
+        "userName": "karthick.rajagopal@hcl.com",
+        "sessionContext": {
+            "sessionIssuer": {},
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2020-02-06T09:52:32Z"
+            }
+        },
+        "invokedBy": "signin.amazonaws.com"
+    },
+    "eventTime": "2020-02-06T11:28:35Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "AssignIpv6Addresses",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "106.208.137.233",
+    "userAgent": "signin.amazonaws.com",
+    "requestParameters": {
+        "AssignIpv6AddressesRequest": {
+            "Ipv6AddressCount": 1,
+            "NetworkInterfaceId": "eni-01a2efd3b0481d52f"
+        }
+    },
+    "responseElements": {
+        "AssignIpv6AddressesResponse": {
+            "networkInterfaceId": "eni-01a2efd3b0481d52f",
+            "xmlns": "http://ec2.amazonaws.com/doc/2016-11-15/",
+            "requestId": "26ce305c-2635-40f5-b7f8-6c86a246a512",
+            "assignedIpv6Addresses": {
+                "item": "2600:1f18:4036:e617:2994:13e2:6f2c:f0e4"
+            }
+        }
+    },
+    "requestID": "26ce305c-2635-40f5-b7f8-6c86a246a512",
+    "eventID": "0b95f963-dee9-4c1e-95a7-a0a9286175e5",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "979326520502"
+}}]

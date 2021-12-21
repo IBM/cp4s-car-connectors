@@ -1,0 +1,25 @@
+{
+    "configuration": {
+        "auth": {
+            "account_id": {
+                "label": "Account ID",
+                "description": "Account ID of Amazon Web Service for authentication"
+            },
+            "client_id": {
+                "label": "Client Id",
+                "description": "Client ID of Amazon Web Service for authentication"
+            },
+            "client_secret": {
+                "label": "Client Secret",
+                "description": "Client Secret of Amazon Web Service for authentication"
+            }
+        },
+        "parameter": {
+            "region": {
+                "label": "Region",
+                "placeholder": "us-east-2",
+                "description": "Specify the region of the AWS Logs for the data source"
+            }
+        }
+    }
+}

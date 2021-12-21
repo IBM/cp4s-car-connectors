@@ -1,0 +1,129 @@
+{
+	"Reservations": [{
+		"Groups": [],
+		"Instances": [{
+			"AmiLaunchIndex": 0,
+			"ImageId": "ami-00068cd7555f543d5",
+			"InstanceId": "i-03b17ec42281ffa9f",
+			"InstanceType": "t2.micro",
+			"KeyName": "aws_ubuntu1",
+			"name": "Test_instance",
+			"LaunchTime": "03-12-2020",
+			"Monitoring": {
+				"State": "disabled"
+			},
+			"Placement": {
+				"AvailabilityZone": "us-east-1a",
+				"GroupName": "",
+				"Tenancy": "default"
+			},
+			"PrivateDnsName": "ip-172-31-9-85.ec2.internal",
+			"PrivateIpAddress": "172.31.9.85",
+			"ProductCodes": [],
+			"PublicDnsName": "",
+			"State": {
+				"Code": 80,
+				"Name": "stopped"
+			},
+			"StateTransitionReason": "User initiated (2019-11-29 14:47:55 GMT)",
+			"SubnetId": "subnet-b9a994de",
+			"VpcId": "vpc-10db926a",
+			"Architecture": "x86_64",
+			"BlockDeviceMappings": [{
+				"DeviceName": "/dev/xvda",
+				"Ebs": {
+					"AttachTime": "03-12-2020",
+					"DeleteOnTermination": "True",
+					"Status": "attached",
+					"VolumeId": "vol-0c0d50caa4c3253ed"
+				}
+			}],
+			"ClientToken": "",
+			"EbsOptimized": "True",
+			"EnaSupport": "True",
+			"Hypervisor": "xen",
+			"NetworkInterfaces": [{
+				"Attachment": {
+					"AttachTime": "03-12-2020",
+					"AttachmentId": "eni-attach-03fd58bfa314117ed",
+					"DeleteOnTermination": "True",
+					"DeviceIndex": 0,
+					"Status": "attached"
+				},
+				"Description": "Primary network interface",
+				"Groups": [{
+					"GroupName": "launch-wizard-1",
+					"GroupId": "sg-0aa89ff4646f71594"
+				}],
+				"Ipv6Addresses": [{
+					"Ipv6Address": "2600:1f18:4036:e6fe:4756:57f9:9741:5ab0"
+				}],
+				"MacAddress": "02:82:7d:59:55:ed",
+				"NetworkInterfaceId": "eni-03107005b6925e126",
+				"OwnerId": "979326520502",
+				"PrivateDnsName": "ip-172-31-9-85.ec2.internal",
+				"PrivateIpAddress": "172.31.9.85",
+				"PrivateIpAddresses": [{
+					"Primary": "True",
+					"PrivateDnsName": "ip-172-31-9-85.ec2.internal",
+					"PrivateIpAddress": "172.31.9.85"
+				}, {
+					"Primary": "True",
+					"PrivateDnsName": "ip-172-31-9-24.ec2.internal",
+					"PrivateIpAddress": "172.31.9.24"
+				}],
+				"SourceDestCheck": "True",
+				"Status": "in-use",
+				"SubnetId": "subnet-b9a994de",
+				"VpcId": "vpc-10db926a",
+				"InterfaceType": "interface"
+			}],
+			"RootDeviceName": "/dev/xvda",
+			"RootDeviceType": "ebs",
+			"SecurityGroups": [{
+				"GroupName": "launch-wizard-1",
+				"GroupId": "sg-0aa89ff4646f71594"
+			}],
+			"SourceDestCheck": "True",
+			"StateReason": {
+				"Code": "Client.UserInitiatedShutdown",
+				"Message": "Client.UserInitiatedShutdown: User initiated shutdown"
+			},
+			"Tags": [{
+				"Key": "elasticbeanstalk:environment-id",
+				"Value": "test"
+			}],
+			"VirtualizationType": "hvm",
+			"CpuOptions": {
+				"CoreCount": 1,
+				"ThreadsPerCore": 1
+			},
+			"CapacityReservationSpecification": {
+				"CapacityReservationPreference": "open"
+			},
+			"HibernationOptions": {
+				"Configured": "True"
+			},
+			"MetadataOptions": {
+				"State": "applied",
+				"HttpTokens": "optional",
+				"HttpPutResponseHopLimit": 1,
+				"HttpEndpoint": "enabled"
+			}
+		}],
+		"OwnerId": "979326520502",
+		"ReservationId": "r-053c410769a1b2f74"
+	}],
+	"ResponseMetadata": {
+		"RequestId": "90c56d93-2390-4662-b5bc-bd8efb46a859",
+		"HTTPStatusCode": 200,
+		"HTTPHeaders": {
+			"content-type": "text/xml;charset=UTF-8",
+			"transfer-encoding": "chunked",
+			"vary": "accept-encoding",
+			"date": "Fri, 03 Jan 2020 06:39:04 GMT",
+			"server": "AmazonEC2"
+		},
+		"RetryAttempts": 0
+	}
+}

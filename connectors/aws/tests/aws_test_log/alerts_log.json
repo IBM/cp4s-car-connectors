@@ -1,0 +1,89 @@
+{
+	"ResponseMetadata": {
+		"RequestId": "8f7ddf1e-34ab-464a-bacc-66bfb1f4e60b",
+		"HTTPStatusCode": 200,
+		"HTTPHeaders": {
+			"date": "Fri, 03 Jan 2020 07:06:04 GMT",
+			"content-type": "application/json",
+			"content-length": "338053",
+			"connection": "keep-alive",
+			"x-amzn-requestid": "8f7ddf1e-34ab-464a-bacc-66bfb1f4e60b",
+			"x-amz-apigw-id": "FtkqaE1FIAMFX_A=",
+			"x-amzn-trace-id": "Root=1-5e0ee7dc-8a4d0420053a755c8a56bf38;Sampled=0"
+		},
+		"RetryAttempts": 0
+	},
+	"Findings": [{
+		"SchemaVersion": "2018-10-08",
+		"Id": "arn:aws:guardduty:us-east-1:979326520502:detector/6ab6e6ee780ed494f3b7ca56acdc74df/finding/a4b7a0d66c84dbd593c0a85ab51e6543",
+		"ProductArn": "arn:aws:securityhub:us-east-1::product/aws/guardduty",
+		"GeneratorId": "arn:aws:guardduty:us-east-1:979326520502:detector/6ab6e6ee780ed494f3b7ca56acdc74df",
+		"AwsAccountId": "979326520502",
+		"Types": ["TTPs/Initial Access/Recon:EC2-PortProbeUnprotectedPort", "Software and Configuration Checks/Network Reachability/Recon:EC2-PortProbeUnprotectedPort"],
+		"FirstObservedAt": "2019-12-26T09:52:44Z",
+		"LastObservedAt": "2019-12-26T12:03:46Z",
+		"CreatedAt": "2019-12-26T10:07:24.425Z",
+		"UpdatedAt": "2019-12-26T12:17:18.086Z",
+		"Severity": {
+			"Product": 2,
+			"Normalized": 30
+		},
+		"Title": "Unprotected port on EC2 instance i-0f6799ff1a9a8aeea is being probed.",
+		"Description": "EC2 instance has an unprotected port which is being probed by a known malicious host.",
+		"ProductFields": {
+			"detectorId": "6ab6e6ee780ed494f3b7ca56acdc74df",
+			"action/actionType": "PORT_PROBE",
+			"action/portProbeAction/portProbeDetails:0/localPortDetails/port": "80",
+			"action/portProbeAction/portProbeDetails:0/localPortDetails/portName": "HTTP",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/ipAddressV4": "195.154.56.58",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/organization/asn": "12876",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/organization/asnOrg": "Online S.a.s.",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/organization/isp": "Online S.a.s.",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/organization/org": "Iliad-Entreprises",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/country/countryName": "France",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/city/cityName": "Paris",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/geoLocation/lat": "48.8543",
+			"action/portProbeAction/portProbeDetails:0/remoteIpDetails/geoLocation/lon": "2.3527",
+			"action/portProbeAction/blocked": "false",
+			"resourceRole": "TARGET",
+			"evidence/threatIntelligenceDetails:0/threatListName": "ProofPoint",
+			"evidence/threatIntelligenceDetails:0/threatNames:0": "Scanner",
+			"evidence/threatIntelligenceDetails:1/threatListName": "ProofPoint",
+			"evidence/threatIntelligenceDetails:1/threatNames:0": "Brute Forcer",
+			"archived": "false",
+			"count": "2",
+			"aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/guardduty/arn:aws:guardduty:us-east-1:979326520502:detector/6ab6e6ee780ed494f3b7ca56acdc74df/finding/a4b7a0d66c84dbd593c0a85ab51e6543",
+			"aws/securityhub/SeverityLabel": "LOW",
+			"aws/securityhub/ProductName": "GuardDuty",
+			"aws/securityhub/CompanyName": "Amazon"
+		},
+		"Resources": [{
+			"Type": "AwsEc2Instance",
+			"Id": "arn:aws:ec2:us-east-1:979326520502:instance/i-0f6799ff1a9a8aeea",
+			"Partition": "aws",
+			"Region": "us-east-1",
+			"Tags": {
+				"aws:autoscaling:groupName": "awseb-e-zm2scmsv8v-stack-AWSEBAutoScalingGroup-1TSXUXOJC8GVJ",
+				"aws:cloudformation:logical-id": "AWSEBAutoScalingGroup",
+				"elasticbeanstalk:environment-id": "e-zm2scmsv8v",
+				"Name": "PythonWebserverApp-env",
+				"aws:cloudformation:stack-name": "awseb-e-zm2scmsv8v-stack",
+				"aws:cloudformation:stack-id": "arn:aws:cloudformation:us-east-1:979326520502:stack/awseb-e-zm2scmsv8v-stack/562ab8c0-27ac-11ea-aeac-0a87c278b5b5",
+				"elasticbeanstalk:environment-name": "PythonWebserverApp-env"
+			},
+			"Details": {
+				"AwsEc2Instance": {
+					"Type": "t2.micro",
+					"ImageId": "ami-0e54cfcbff69a789a",
+					"IpV4Addresses": ["52.206.163.54", "172.31.24.4"],
+					"IamInstanceProfileArn": "arn:aws:iam::979326520502:instance-profile/aws-elasticbeanstalk-ec2-role",
+					"VpcId": "vpc-10db926a",
+					"SubnetId": "subnet-52cd011f",
+					"LaunchedAt": "2019-12-26T06:53:27.000Z"
+				}
+			}
+		}],
+		"WorkflowState": "NEW",
+		"RecordState": "ACTIVE"
+	}]
+}

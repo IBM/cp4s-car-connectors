@@ -1,0 +1,10 @@
+{
+	"Events": [{
+		"EventId": "c6895718-09c1-47e7-8edd-954e316a2299",
+		"EventName": "TerminateInstances",
+		"ReadOnly": "false",
+		"EventSource": "ec2.amazonaws.com",
+		"Username": "AutoScaling",
+		"CloudTrailEvent": "{'eventVersion':'1.05','userIdentity':{'type':'AssumedRole','principalId':'AROA6IBDIZS3MCNRJPJCB:AutoScaling','arn':'arn:aws:sts::979326520502:assumed-role/AWSServiceRoleForAutoScaling/AutoScaling','accountId':'979326520502','sessionContext':{'sessionIssuer':{'type':'Role','principalId':'AROA6IBDIZS3MCNRJPJCB','arn':'arn:aws:iam::979326520502:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling','accountId':'979326520502','userName':'AWSServiceRoleForAutoScaling'},'webIdFederationData':{},'attributes':{'mfaAuthenticated':'false','creationDate':'2020-01-20T11:27:00Z'}},'invokedBy':'autoscaling.amazonaws.com'},'eventTime':'2020-01-20T11:27:00Z','eventSource':'ec2.amazonaws.com','eventName':'TerminateInstances','awsRegion':'us-east-1','sourceIPAddress':'autoscaling.amazonaws.com','userAgent':'autoscaling.amazonaws.com','requestParameters':{'instancesSet':{'items':[{'instanceId':'i-0930bce8ea8bbc3ec'}]}},'responseElements':{'instancesSet':{'items':[{'instanceId':'i-0930bce8ea8bbc3ec','currentState':{'code':32,'name':'shutting-down'},'previousState':{'code':16,'name':'running'}}]}},'requestID':'39de36f1-4b7c-41d6-a74a-5c74da7c202b','eventID':'c6895718-09c1-47e7-8edd-954e316a2299','eventType':'AwsApiCall','recipientAccountId':'979326520502'}"
+	}]
+}

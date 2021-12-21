@@ -1,0 +1,75 @@
+{
+	"tasks": [{
+		"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/c3f410c2-a076-460b-b738-94c33e94c825",
+		"clusterArn": "arn:aws:ecs:us-east-1:979326520502:cluster/demo-cluster-1",
+		"taskDefinitionArn": "arn:aws:ecs:us-east-1:979326520502:task-definition/task-awsvpc-demo:2",
+		"containerInstanceArn": "arn:aws:ecs:us-east-1:979326520502:container-instance/1d0bdc9e-5b74-43a5-bb5a-f0ba5fe0289b",
+		"overrides": {
+			"containerOverrides": [{
+				"name": "container-awsvpc-mode-demo-1"
+			}],
+			"inferenceAcceleratorOverrides": []
+		},
+		"lastStatus": "RUNNING",
+		"desiredStatus": "RUNNING",
+		"cpu": "256",
+		"memory": "100",
+		"containers": [{
+			"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/c0cf679f-bdb3-40df-8239-15138c064eb9",
+			"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/c3f410c2-a076-460b-b738-94c33e94c825",
+			"name": "container-awsvpc-mode-demo-1",
+			"image": "httpd:2.4",
+			"runtimeId": "48c8a00bbb0091e866fa2a59f6a7879c57d7ab251e2edb89616c6680850f8ae5",
+			"lastStatus": "RUNNING",
+			"networkBindings": [],
+			"networkInterfaces": [{
+				"attachmentId": "b25d456f-3eb6-493c-a004-a51bc2c06dbd",
+				"privateIpv4Address": "172.31.6.15"
+			}],
+			"healthStatus": "UNKNOWN",
+			"cpu": "0",
+			"memory": "50"
+		}],
+		"version": 3,
+		"connectivity": "CONNECTED",
+		"connectivityAt": "datetime.datetime(2020, 1, 30, 11, 3, 2, 527000, tzinfo = tzlocal())",
+		"pullStartedAt": "datetime.datetime(2020, 1, 30, 11, 3, 20, 161000, tzinfo = tzlocal())",
+		"pullStoppedAt": "datetime.datetime(2020, 1, 30, 11, 3, 20, 161000, tzinfo = tzlocal())",
+		"createdAt": "datetime.datetime(2020, 1, 30, 11, 3, 2, 527000, tzinfo = tzlocal())",
+		"startedAt": "datetime.datetime(2020, 1, 30, 11, 3, 21, 161000, tzinfo = tzlocal())",
+		"group": "tg111",
+		"launchType": "EC2",
+		"attachments": [{
+			"id": "b25d456f-3eb6-493c-a004-a51bc2c06dbd",
+			"type": "ElasticNetworkInterface",
+			"status": "ATTACHED",
+			"details": [{
+				"name": "subnetId",
+				"value": "subnet-b9a994de"
+			}, {
+				"name": "networkInterfaceId",
+				"value": "eni-00228945cc0ff156f"
+			}, {
+				"name": "macAddress",
+				"value": "02:84:ed:26:e8:27"
+			}, {
+				"name": "privateIPv4Address",
+				"value": "172.31.6.15"
+			}]
+		}],
+		"healthStatus": "UNKNOWN",
+		"tags": []
+	}],
+	"failures": [],
+	"ResponseMetadata": {
+		"RequestId": "699dc1bb-3c0d-48fb-be51-3a31e0588d0c",
+		"HTTPStatusCode": 200,
+		"HTTPHeaders": {
+			"x-amzn-requestid": "699dc1bb-3c0d-48fb-be51-3a31e0588d0c",
+			"content-type": "application/x-amz-json-1.1",
+			"content-length": "1769",
+			"date": "Thu, 30 Jan 2020 05:34:30 GMT"
+		},
+		"RetryAttempts": 0
+	}
+}

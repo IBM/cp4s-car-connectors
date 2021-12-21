@@ -1,0 +1,5 @@
+{
+	"Events": [{
+		"CloudTrailEvent": '{ "EventId": "6b7793d2-ca8d-4b0f-a841-bbda74830e8a","EventName": "ModifyDBInstance","ReadOnly": "false","AccessKeyId": "ASIA6IBDIZS3PCYGH2XY","EventTime": "2020-01-30T06:11:43Z"}'
+	}]
+}

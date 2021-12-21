@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.DS_Store
+
 # C extensions
 *.so
 
@@ -88,7 +90,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-virtualenv/
 
 # Spyder project settings
 .spyderproject
@@ -102,11 +103,3 @@ virtualenv/
 
 # mypy
 .mypy_cache/
-
-
-# IDE
-.vscode/
-car_framework
-
-
-deployment/backup*

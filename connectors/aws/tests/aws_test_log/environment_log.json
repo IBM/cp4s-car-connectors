@@ -1,0 +1,25 @@
+{
+	"Environments": [{
+		"EnvironmentName": "test-environment",
+		"EnvironmentId": "e-id123",
+		"ApplicationName": "application-test",
+		"VersionLabel": "Sample Application",
+		"SolutionStackName": "64bit Amazon Linux 2018.03 v2.9.5 running Python 3.6",
+		"PlatformArn": "arn:aws:elasticbeanstalk:region",
+		"EndpointURL": "12.123.46.78",
+		"CNAME": "test-env-1.qnsncvmxme.us-east-1.elasticbeanstalk.com",
+		"DateCreated": "datetime.datetime(2020, 2, 9, 17, 32, 29, 287000, tzinfo = tzutc())",
+		"DateUpdated": "datetime.datetime(2020, 2, 9, 17, 44, 3, 560000, tzinfo = tzutc())",
+		"Status": "Ready",
+		"AbortableOperationInProgress": "False",
+		"Health": "Green",
+		"HealthStatus": "Ok",
+		"Tier": {
+			"Name": "WebServer",
+			"Type": "Standard",
+			"Version": "1.0"
+		},
+		"EnvironmentLinks": [],
+		"EnvironmentArn": "arn:aws:test-env-1.qnsncvmxme.us-east-1.elasticbeanstalk.com"
+	}]
+}

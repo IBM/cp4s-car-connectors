@@ -1,0 +1,5 @@
+{
+    "id": "7f13a1af-f6de-4c86-af76-e615b87cfd05-ACCT_722724471",
+    "status": "INPROGRESS",
+    "message": "Check the status of the import by calling the endpoint GET /importstatus/{uuid} or GET /importstatus?ids=uuid#1, uuid#2, etc"
+}

@@ -1,0 +1,53 @@
+[{"CloudTrailEvent":
+  {
+      "eventVersion": "1.05",
+      "userIdentity": {
+          "type": "IAMUser",
+          "principalId": "AIDA6IBDIZS3PHKDTXCSI",
+          "arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+          "accountId": "979326520502",
+          "accessKeyId": "ASIA6IBDIZS3PKJ44SPF",
+          "userName": "karthick.rajagopal@hcl.com",
+          "sessionContext": {
+              "sessionIssuer": {},
+              "webIdFederationData": {},
+              "attributes": {
+                  "mfaAuthenticated": "false",
+                  "creationDate": "2020-02-07T06:30:20Z"
+              }
+          },
+          "invokedBy": "signin.amazonaws.com"
+      },
+      "eventTime": "2020-02-07T14:50:46Z",
+      "eventSource": "ecs.amazonaws.com",
+      "eventName": "DeleteCluster",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "148.64.6.125",
+      "userAgent": "signin.amazonaws.com",
+      "requestParameters": {
+          "cluster": "cluster-1"
+      },
+      "responseElements": {
+          "cluster": {
+              "tags": [],
+              "capacityProviders": [],
+              "pendingTasksCount": 0,
+              "registeredContainerInstancesCount": 0,
+              "runningTasksCount": 0,
+              "clusterName": "cluster-1",
+              "defaultCapacityProviderStrategy": [],
+              "clusterArn": "arn:aws:ecs:us-east-1:979326520502:cluster/cluster-1",
+              "status": "INACTIVE",
+              "statistics": [],
+              "settings": [{
+                  "name": "containerInsights",
+                  "value": "disabled"
+              }],
+              "activeServicesCount": 0
+          }
+      },
+      "requestID": "749cf13a-b7fd-486d-9550-569dbde7a90e",
+      "eventID": "083fe6ce-0fe0-475a-a2bb-0d5f152a3e93",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "979326520502"
+  }}]
