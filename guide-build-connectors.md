@@ -12,6 +12,9 @@ Delete the server folder. This is only used to provide dummy data to demo the co
 ### `app.py`
 
 Update the arguments required to connect to the target data source in the `__init__` method. The example in the reference connector uses `server`, `username` and `password`.
+
+`get_schema_extension` method is `app.py` has an example how to to extend [core CAR schema](https://github.com/IBM/cp4s-car-schema/blob/master/doc/generated/importSchema_v2.json). If the connector **doesn't need to extend the schema `get_schema_extension` method should be deleted**.
+If connector needs to extend the schema more information can be found in [schema-extension](./schema-extension.md) doc. 
  
 ### `connector/server_access.py`
 
