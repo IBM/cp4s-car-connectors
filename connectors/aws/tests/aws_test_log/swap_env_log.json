@@ -1,0 +1,46 @@
+[{
+		"EventId": "c5192134-68db-438b-a884-1f9f8b8a3c93",
+		"EventName": "SwapEnvironmentCNAMEs",
+		"ReadOnly": "false",
+		"AccessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+		"EventTime": "datetime.datetime(2020, 2, 9, 1, 50, 41, tzinfo = tzlocal())",
+		"EventSource": "elasticbeanstalk.amazonaws.com",
+		"Username": "karthick.rajagopal@hcl.com",
+		"Resources": [],
+		"CloudTrailEvent": {
+			"eventVersion": "1.05",
+			"userIdentity": {
+				"type": "IAMUser",
+				"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+				"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+				"accountId": "979326520502",
+				"accessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+				"userName": "karthick.rajagopal@hcl.com",
+				"sessionContext": {
+					"sessionIssuer": {},
+					"webIdFederationData": {},
+					"attributes": {
+						"mfaAuthenticated": "false",
+						"creationDate": "2020-02-08T09:35:13Z"
+					}
+				},
+				"invokedBy": "signin.amazonaws.com"
+			},
+			"eventTime": "2020-02-08T19:10:37Z",
+			"eventSource": "elasticbeanstalk.amazonaws.com",
+			"eventName": "SwapEnvironmentCNAMEs",
+			"awsRegion": "us-east-1",
+			"sourceIPAddress": "148.64.6.24",
+			"userAgent": "signin.amazonaws.com",
+			"requestParameters": {
+				"sourceEnvironmentId": "e-t5yxy2p2bp",
+				"destinationEnvironmentId": "e-yhfc8zznzf"
+			},
+			"responseElements": null,
+			"requestID": "9ef80ad4-3887-479e-8bbd-e954b0dc96eb",
+			"eventID": "74b1f131-7966-4b12-8bf4-6855779b87ac",
+			"eventType": "AwsApiCall",
+			"recipientAccountId": "979326520502"
+		}
+	}
+]

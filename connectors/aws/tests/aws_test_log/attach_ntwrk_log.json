@@ -1,0 +1,110 @@
+[{
+		"EventId": "1f124cfa-f074-40e8-860e-9106763ca315",
+		"EventName": "DetachNetworkInterface",
+		"ReadOnly": "false",
+		"EventTime": "datetime.datetime(2020, 2, 9, 23, 54, 38, tzinfo = tzlocal())",
+		"EventSource": "ec2.amazonaws.com",
+		"Username": "AutoScaling",
+		"Resources": [{
+			"ResourceType": "AWS::EC2::NetworkInterface",
+			"ResourceName": "vpc-10db926a"
+		}],
+  "CloudTrailEvent": {
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA6IBDIZS3JDFRSNEMH:ecs-eni-provisioning",
+        "arn": "arn:aws:sts::979326520502:assumed-role/AWSServiceRoleForECS/ecs-eni-provisioning",
+        "accountId": "979326520502",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROA6IBDIZS3JDFRSNEMH",
+                "arn": "arn:aws:iam::979326520502:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+                "accountId": "979326520502",
+                "userName": "AWSServiceRoleForECS"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2020-02-10T05:00:02Z"
+            }
+        },
+        "invokedBy": "ecs.amazonaws.com"
+    },
+    "eventTime": "2020-02-10T05:00:03Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "AttachNetworkInterface",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "ecs.amazonaws.com",
+    "userAgent": "ecs.amazonaws.com",
+    "requestParameters": {
+        "networkInterfaceId": "eni-06bb59cc980111514",
+        "instanceId": "i-04bf234915034e3fe",
+        "deviceIndex": 1
+    },
+    "responseElements": {
+        "requestId": "7e540548-8097-4302-a17a-49e3a47952ce",
+        "attachmentId": "eni-attach-04d251750d21366e7e"
+    },
+    "requestID": "7e540548-8097-4302-a17a-49e3a47952ce",
+    "eventID": "ac921c38-ed8a-4d05-aaa4-bbe912706c3b",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "979326520502"
+}
+},
+{
+		"EventId": "1f124cfa-f074-40e8-860e-9106763ca315",
+		"EventName": "DetachNetworkInterface",
+		"ReadOnly": "false",
+		"EventTime": "datetime.datetime(2020, 2, 9, 23, 54, 38, tzinfo = tzlocal())",
+		"EventSource": "ec2.amazonaws.com",
+		"Username": "AutoScaling",
+		"Resources": [{
+			"ResourceType": "AWS::EC2::Instance",
+			"ResourceName": "vpc-10db926a"
+		}],
+  "CloudTrailEvent": {
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA6IBDIZS3JDFRSNEMH:ecs-eni-provisioning",
+        "arn": "arn:aws:sts::979326520502:assumed-role/AWSServiceRoleForECS/ecs-eni-provisioning",
+        "accountId": "979326520502",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROA6IBDIZS3JDFRSNEMH",
+                "arn": "arn:aws:iam::979326520502:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+                "accountId": "979326520502",
+                "userName": "AWSServiceRoleForECS"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2020-02-10T05:00:02Z"
+            }
+        },
+        "invokedBy": "ecs.amazonaws.com"
+    },
+    "eventTime": "2020-02-10T05:00:03Z",
+    "eventSource": "ec2.amazonaws.com",
+    "eventName": "AttachNetworkInterface",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "ecs.amazonaws.com",
+    "userAgent": "ecs.amazonaws.com",
+    "requestParameters": {
+        "networkInterfaceId": "eni-06bb59cc980111514",
+        "instanceId": "i-04bf234915034e3fe",
+        "deviceIndex": 1
+    },
+    "responseElements": {
+        "requestId": "7e540548-8097-4302-a17a-49e3a47952ce",
+        "attachmentId": "eni-attach-04d251750d21366e7e"
+    },
+    "requestID": "7e540548-8097-4302-a17a-49e3a47952ce",
+    "eventID": "ac921c38-ed8a-4d05-aaa4-bbe912706c3b",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "979326520502"
+}
+}]

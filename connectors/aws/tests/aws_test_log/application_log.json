@@ -1,0 +1,24 @@
+{
+	"Applications": [{
+		"ApplicationArn": "arn:region:9876:application/testapp",
+		"ApplicationName": "testapp",
+		"DateCreated": "datetime.datetime(2020, 2, 6, 9, 53, 12, 527000, tzinfo = tzutc())",
+		"DateUpdated": "datetime.datetime(2020, 2, 8, 20, 21, 2, 611000, tzinfo = tzutc())",
+		"Versions": ["Sample Application"],
+		"ConfigurationTemplates": [],
+		"ResourceLifecycleConfig": {
+			"VersionLifecycleConfig": {
+				"MaxCountRule": {
+					"Enabled": "False",
+					"MaxCount": 200,
+					"DeleteSourceFromS3": "False"
+				},
+				"MaxAgeRule": {
+					"Enabled": "False",
+					"MaxAgeInDays": 180,
+					"DeleteSourceFromS3": "False"
+				}
+			}
+		}
+	}]
+}

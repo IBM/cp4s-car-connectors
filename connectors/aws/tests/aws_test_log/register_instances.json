@@ -1,0 +1,55 @@
+[{"CloudTrailEvent":{
+    "eventVersion": "1.05",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROA6IBDIZS3JDFRSNEMH:ecs-service-discovery-provisioning",
+        "arn": "arn:aws:sts::979326520502:assumed-role/AWSServiceRoleForECS/ecs-service-discovery-provisioning",
+        "accountId": "979326520502",
+        "accessKeyId": "ASIA6IBDIZS3AD6C5FGE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROA6IBDIZS3JDFRSNEMH",
+                "arn": "arn:aws:iam::979326520502:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+                "accountId": "979326520502",
+                "userName": "AWSServiceRoleForECS"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2020-02-10T13:47:24Z"
+            }
+        },
+        "invokedBy": "ecs.amazonaws.com"
+    },
+    "eventTime": "2020-02-10T13:47:24Z",
+    "eventSource": "servicediscovery.amazonaws.com",
+    "eventName": "RegisterInstance",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "ecs.amazonaws.com",
+    "userAgent": "ecs.amazonaws.com",
+    "requestParameters": {
+        "attributes": {
+            "ECS_TASK_DEFINITION_FAMILY": "demo-task-one",
+            "ECS_CLUSTER_NAME": "us-east-1-dev-cluster",
+            "AVAILABILITY_ZONE": "us-east-1a",
+            "AWS_INSTANCE_PORT": "32773",
+            "ECS_SERVICE_NAME": "us-east-demo-service",
+            "AWS_INSTANCE_IPV4": "172.31.8.164",
+            "EC2_INSTANCE_ID": "i-04bf234915034e3fe",
+            "AWS_INIT_HEALTH_STATUS": "HEALTHY",
+            "REGION": "us-east-1"
+        },
+        "serviceId": "srv-xksc7atwcanw4ano",
+        "instanceId": "999e1cc6-71bb-47e9-b775-8fc741cc8e10",
+        "creatorRequestId": "999e1cc6-71bb-47e9-b775-8fc741cc8e10",
+        "verifyDnsPropagation": false
+    },
+    "responseElements": {
+        "operationId": "n3rajuscaxsyh5zx5yldavmmky77ppb4-k6gignlk"
+    },
+    "requestID": "1b9ebeef-978d-4898-8b35-c2ea91b2f7b6",
+    "eventID": "b2244116-4677-44de-a0d6-59bda811b1ae",
+    "eventType": "AwsApiCall",
+    "recipientAccountId": "979326520502"
+}}]

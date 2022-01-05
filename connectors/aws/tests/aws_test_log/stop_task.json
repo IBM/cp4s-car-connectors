@@ -1,0 +1,106 @@
+[	{
+		"CloudTrailEvent":
+		{
+			"eventVersion": "1.05",
+			"userIdentity": {
+				"type": "IAMUser",
+				"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+				"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+				"accountId": "979326520502",
+				"accessKeyId": "ASIA6IBDIZS3AVKMX3WW",
+				"userName": "karthick.rajagopal@hcl.com",
+				"sessionContext": {
+					"sessionIssuer": {},
+					"webIdFederationData": {},
+					"attributes": {
+						"mfaAuthenticated": "false",
+						"creationDate": "2020-02-10T07:21:20Z"
+					}
+				},
+				"invokedBy": "signin.amazonaws.com"
+			},
+			"eventTime": "2020-02-10T11:55:00Z",
+			"eventSource": "ecs.amazonaws.com",
+			"eventName": "StopTask",
+			"awsRegion": "us-east-1",
+			"sourceIPAddress": "148.64.7.26",
+			"userAgent": "signin.amazonaws.com",
+			"requestParameters": {
+				"task": "2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+				"cluster": "us-east-1-dev-cluster"
+			},
+			"responseElements": {
+				"task": {
+					"startedAt": "Feb 10, 2020 11:41:03 AM",
+					"createdAt": "Feb 10, 2020 11:41:01 AM",
+					"pullStoppedAt": "Feb 10, 2020 11:41:02 AM",
+					"containerInstanceArn": "arn:aws:ecs:us-east-1:979326520502:container-instance/29082ded-e754-4465-ba93-64c79b103674",
+					"memory": "100",
+					"version": 3,
+					"stoppedReason": "Task stopped by user",
+					"desiredStatus": "STOPPED",
+					"lastStatus": "RUNNING",
+					"pullStartedAt": "Feb 10, 2020 11:41:02 AM",
+					"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+					"taskDefinitionArn": "arn:aws:ecs:us-east-1:979326520502:task-definition/demo-task-one:1",
+					"attachments": [],
+					"clusterArn": "arn:aws:ecs:us-east-1:979326520502:cluster/us-east-1-dev-cluster",
+					"availabilityZone": "us-east-1a",
+					"connectivityAt": "Feb 10, 2020 11:41:01 AM",
+					"overrides": {
+						"containerOverrides": [{
+							"name": "container-2"
+						}, {
+							"name": "container-1"
+						}],
+						"inferenceAcceleratorOverrides": []
+					},
+					"connectivity": "CONNECTED",
+					"group": "family:demo-task-one",
+					"containers": [{
+						"networkInterfaces": [],
+						"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+						"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/70673e51-d7b9-470c-8e10-fcc6e61532d9",
+						"image": "nginx:latest",
+						"cpu": "0",
+						"name": "container-2",
+						"runtimeId": "68f8589b5a2b1f8fa5e97d0f077ca6e441ea612bea16e23855c8aec38870b2ff",
+						"lastStatus": "RUNNING",
+						"memory": "50",
+						"networkBindings": [{
+							"bindIP": "0.0.0.0",
+							"containerPort": 80,
+							"hostPort": 32771,
+							"protocol": "tcp"
+						}]
+					}, {
+						"networkInterfaces": [],
+						"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+						"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/89aa9092-890f-4b45-94e6-732f74ad933f",
+						"image": "httpd:2.4",
+						"cpu": "0",
+						"name": "container-1",
+						"runtimeId": "2dc53c0e25c23c2de0547e1bc6c54ad1415fd942a98d33fb30fd14f92dd3295f",
+						"lastStatus": "RUNNING",
+						"memory": "50",
+						"networkBindings": [{
+							"bindIP": "0.0.0.0",
+							"containerPort": 80,
+							"hostPort": 32770,
+							"protocol": "tcp"
+						}]
+					}],
+					"cpu": "512",
+					"tags": [],
+					"launchType": "EC2",
+					"stoppingAt": "Feb 10, 2020 11:55:00 AM",
+					"stopCode": "UserInitiated"
+				}
+			},
+			"requestID": "b4fdc163-0875-4a8b-9be8-ea0d97ef7c3b",
+			"eventID": "74307986-84f8-4355-b30b-2f125308894a",
+			"eventType": "AwsApiCall",
+			"recipientAccountId": "979326520502"
+		}
+	}
+]

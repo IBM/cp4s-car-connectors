@@ -1,0 +1,19 @@
+{
+	"DBInstances": [{
+			"DBInstanceIdentifier": "sample",
+			"Engine": "sampleEngine",
+			"Endpoint": {
+				"Address": "sample.amazonaws.com",
+				"port": 1234
+			},
+		    "AvailabilityZone": "us-east-1f",
+			"DBInstanceArn": "dbinstance:db:sample",
+			"Versions": ["Sample Application"],
+			 "pendingModifiedValues": {
+				"dBInstanceIdentifier": "database-new-md7"
+			},
+		  "DbiResourceId": "db-12345",
+		  "MasterUsername": "admin"
+		}
+	]
+}

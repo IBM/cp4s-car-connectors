@@ -1,0 +1,12 @@
+{
+	"eventName": "CreateDBInstance",
+	"requestParameters": {
+		"newDBInstanceIdentifier": "AssumedRole",
+		"engine": "AROA6IBDIZS3MCNRJPJCB:AutoScaling"
+	},
+	"responseElements": {
+		"dBInstanceIdentifier": "AssumedRole",
+		"dBInstanceArn": "AROA6IBDIZS3MCNRJPJCB:AutoScaling",
+		"dBName": "cloudgoat"
+	}
+}

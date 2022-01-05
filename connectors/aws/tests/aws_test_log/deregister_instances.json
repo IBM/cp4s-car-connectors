@@ -1,0 +1,44 @@
+[{ "CloudTrailEvent":
+	{
+		"eventVersion": "1.05",
+		"userIdentity": {
+			"type": "AssumedRole",
+			"principalId": "AROA6IBDIZS3JDFRSNEMH:ecs-service-discovery-provisioning",
+			"arn": "arn:aws:sts::979326520502:assumed-role/AWSServiceRoleForECS/ecs-service-discovery-provisioning",
+			"accountId": "979326520502",
+			"accessKeyId": "ASIA6IBDIZS3FEWIJVFW",
+			"sessionContext": {
+				"sessionIssuer": {
+					"type": "Role",
+					"principalId": "AROA6IBDIZS3JDFRSNEMH",
+					"arn": "arn:aws:iam::979326520502:role/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+					"accountId": "979326520502",
+					"userName": "AWSServiceRoleForECS"
+				},
+				"webIdFederationData": {},
+				"attributes": {
+					"mfaAuthenticated": "false",
+					"creationDate": "2020-02-10T13:46:52Z"
+				}
+			},
+			"invokedBy": "ecs.amazonaws.com"
+		},
+		"eventTime": "2020-02-10T13:46:52Z",
+		"eventSource": "servicediscovery.amazonaws.com",
+		"eventName": "DeregisterInstance",
+		"awsRegion": "us-east-1",
+		"sourceIPAddress": "ecs.amazonaws.com",
+		"userAgent": "ecs.amazonaws.com",
+		"requestParameters": {
+			"serviceId": "srv-xksc7atwcanw4ano",
+			"instanceId": "9f11973d-fd2f-4d25-8374-10136be8d409"
+		},
+		"responseElements": {
+			"operationId": "nfkd43uzo47m44q3cqlwsndnlj3jamhh-k6gifyoh"
+		},
+		"requestID": "5320d79d-de10-4048-ab1a-dfd8a35a05bc",
+		"eventID": "9300854e-8aef-4759-bb4e-0df68bcfefa4",
+		"eventType": "AwsApiCall",
+		"recipientAccountId": "979326520502"
+	}
+}]

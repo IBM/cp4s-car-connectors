@@ -1,0 +1,156 @@
+[{
+	"CloudTrailEvent": {
+		"eventVersion": "1.05",
+		"userIdentity": {
+			"type": "IAMUser",
+			"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+			"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+			"accountId": "979326520502",
+			"accessKeyId": "ASIA6IBDIZS3AVKMX3WW",
+			"userName": "karthick.rajagopal@hcl.com",
+			"sessionContext": {
+				"sessionIssuer": {},
+				"webIdFederationData": {},
+				"attributes": {
+					"mfaAuthenticated": "false",
+					"creationDate": "2020-02-10T07:21:20Z"
+				}
+			},
+			"invokedBy": "signin.amazonaws.com"
+		},
+		"eventTime": "2020-02-10T11:41:01Z",
+		"eventSource": "ecs.amazonaws.com",
+		"eventName": "RunTask",
+		"awsRegion": "us-east-1",
+		"sourceIPAddress": "148.64.7.26",
+		"userAgent": "signin.amazonaws.com",
+		"requestParameters": {
+			"placementConstraints": [],
+			"overrides": {},
+			"count": 2,
+			"launchType": "EC2",
+			"cluster": "us-east-1-dev-cluster",
+			"taskDefinition": "demo-task-one:1",
+			"placementStrategy": [
+				{
+					"type": "spread",
+					"field": "attribute:ecs.availability-zone"
+				},
+				{
+					"type": "spread",
+					"field": "instanceId"
+				}
+			],
+			"enableECSManagedTags": false
+		},
+		"responseElements": {
+			"failures": [],
+			"tasks": [
+				{
+					"createdAt": "Feb 10, 2020 11:41:01 AM",
+					"containerInstanceArn": "arn:aws:ecs:us-east-1:979326520502:container-instance/1d10797b-d6f6-4546-97ea-54c694c30335",
+					"memory": "100",
+					"version": 1,
+					"desiredStatus": "RUNNING",
+					"lastStatus": "PENDING",
+					"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/1d51de94-7ca3-42a0-a92a-0f9be6dcdd77",
+					"taskDefinitionArn": "arn:aws:ecs:us-east-1:979326520502:task-definition/demo-task-one:1",
+					"attachments": [],
+					"clusterArn": "arn:aws:ecs:us-east-1:979326520502:cluster/us-east-1-dev-cluster",
+					"availabilityZone": "us-east-1a",
+					"overrides": {
+						"containerOverrides": [
+							{
+								"name": "container-1"
+							},
+							{
+								"name": "container-2"
+							}
+						],
+						"inferenceAcceleratorOverrides": []
+					},
+					"group": "family:demo-task-one",
+					"containers": [
+						{
+							"networkInterfaces": [],
+							"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/1d51de94-7ca3-42a0-a92a-0f9be6dcdd77",
+							"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/7ae2639c-709a-4645-9091-97274f5834cf",
+							"image": "httpd:2.4",
+							"cpu": "0",
+							"name": "container-1",
+							"lastStatus": "PENDING",
+							"memory": "50"
+						},
+						{
+							"networkInterfaces": [],
+							"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/1d51de94-7ca3-42a0-a92a-0f9be6dcdd77",
+							"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/b1d563af-118a-4bef-a819-1f6978dd24f1",
+							"image": "nginx:latest",
+							"cpu": "0",
+							"name": "container-2",
+							"lastStatus": "PENDING",
+							"memory": "50"
+						}
+					],
+					"cpu": "512",
+					"tags": [],
+					"launchType": "EC2"
+				},
+				{
+					"createdAt": "Feb 10, 2020 11:41:01 AM",
+					"containerInstanceArn": "arn:aws:ecs:us-east-1:979326520502:container-instance/29082ded-e754-4465-ba93-64c79b103674",
+					"memory": "100",
+					"version": 1,
+					"desiredStatus": "RUNNING",
+					"lastStatus": "PENDING",
+					"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+					"taskDefinitionArn": "arn:aws:ecs:us-east-1:979326520502:task-definition/demo-task-one:1",
+					"attachments": [],
+					"clusterArn": "arn:aws:ecs:us-east-1:979326520502:cluster/us-east-1-dev-cluster",
+					"availabilityZone": "us-east-1a",
+					"overrides": {
+						"containerOverrides": [
+							{
+								"name": "container-1"
+							},
+							{
+								"name": "container-2"
+							}
+						],
+						"inferenceAcceleratorOverrides": []
+					},
+					"group": "family:demo-task-one",
+					"containers": [
+						{
+							"networkInterfaces": [],
+							"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+							"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/89aa9092-890f-4b45-94e6-732f74ad933f",
+							"image": "httpd:2.4",
+							"cpu": "0",
+							"name": "container-1",
+							"lastStatus": "PENDING",
+							"memory": "50"
+						},
+						{
+							"networkInterfaces": [],
+							"taskArn": "arn:aws:ecs:us-east-1:979326520502:task/2a306b52-76f8-4c52-b8fa-4da0fc410f67",
+							"containerArn": "arn:aws:ecs:us-east-1:979326520502:container/70673e51-d7b9-470c-8e10-fcc6e61532d9",
+							"image": "nginx:latest",
+							"cpu": "0",
+							"name": "container-2",
+							"lastStatus": "PENDING",
+							"memory": "50"
+						}
+					],
+					"cpu": "512",
+					"tags": [],
+					"launchType": "EC2"
+				}
+			]
+		},
+		"requestID": "8cd567e9-d8ef-457e-a26e-8b1684f7e67c",
+		"eventID": "6435cbd2-84f4-4777-a532-e50ceba0f3e3",
+		"eventType": "AwsApiCall",
+		"recipientAccountId": "979326520502"
+	}
+}]

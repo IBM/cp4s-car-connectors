@@ -1,0 +1,84 @@
+{
+	"Events": [{
+			"EventId": "9e918dc1-2a5a-4ca8-8f50-375510da0e6b",
+			"EventName": "CreateEnvironment",
+			"ReadOnly": "false",
+			"AccessKeyId": "ASIA6IBDIZS3GVBK3BMS",
+			"EventTime": "12-12-2019",
+			"EventSource": "elasticbeanstalk.amazonaws.com",
+			"Username": "karthick.rajagopal@hcl.com",
+			"Resources": [],
+			"CloudTrailEvent": {
+				"eventVersion": "1.05",
+				"userIdentity": {
+					"type": "IAMUser",
+					"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+					"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+					"accountId": "979326520502",
+					"accessKeyId": "ASIA6IBDIZS3GVBK3BMS",
+					"userName": "karthick.rajagopal@hcl.com",
+					"sessionContext": {
+						"sessionIssuer": {},
+						"webIdFederationData": {},
+						"attributes": {
+							"mfaAuthenticated": "false",
+							"creationDate": "2020-01-02T05:31:55Z"
+						}
+					},
+					"invokedBy": "signin.amazonaws.com"
+				},
+				"eventTime": "2020-01-02T06:43:53Z",
+				"eventSource": "elasticbeanstalk.amazonaws.com",
+				"eventName": "CreateEnvironment",
+				"awsRegion": "us-east-1",
+				"sourceIPAddress": "192.8.190.10",
+				"userAgent": "signin.amazonaws.com",
+				"requestParameters": {
+					"applicationName": "java_application_v1",
+					"environmentName": "pythonapplication-test",
+					"tier": {
+						"name": "WebServer",
+						"type": "Standard"
+					},
+					"versionLabel": "Sample Application",
+					"optionSettings": [{
+						"namespace": "aws:autoscaling:launchconfiguration",
+						"optionName": "IamInstanceProfile",
+						"value": "aws-elasticbeanstalk-ec2-role"
+					}, {
+						"namespace": "aws:elasticbeanstalk:environment",
+						"optionName": "EnvironmentType",
+						"value": "SingleInstance"
+					}, {
+						"namespace": "aws:elasticbeanstalk:environment",
+						"optionName": "ServiceRole",
+						"value": "arn:aws:iam::979326520502:role/aws-elasticbeanstalk-service-role"
+					}, {
+						"namespace": "aws:elasticbeanstalk:healthreporting:system",
+						"optionName": "SystemType",
+						"value": "enhanced"
+					}, {
+						"namespace": "aws:elasticbeanstalk:managedactions",
+						"optionName": "ManagedActionsEnabled",
+						"value": "true"
+					}, {
+						"namespace": "aws:elasticbeanstalk:managedactions:platformupdate",
+						"optionName": "UpdateLevel",
+						"value": "minor"
+					}, {
+						"namespace": "aws:elasticbeanstalk:managedactions",
+						"optionName": "PreferredStartTime",
+						"value": "Fri:08:00"
+					}],
+					"optionsToRemove": []
+				},
+				"responseElements": null,
+				"requestID": "454e0494-5c5e-4a35-8eb2-baa6c5c3335b",
+				"eventID": "9e918dc1-2a5a-4ca8-8f50-375510da0e6b",
+				"eventType": "AwsApiCall",
+				"recipientAccountId": "979326520502"
+			}
+		}
+
+	]
+}

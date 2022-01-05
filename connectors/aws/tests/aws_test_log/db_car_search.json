@@ -1,0 +1,97 @@
+{
+  "result": {
+    "_key": "null:391729179",
+    "_id": "database/null:391729179",
+    "_rev": "_aBLBwCW--A",
+    "car_shard": "null",
+    "external_id": [
+      "AWS-TEST:db-SW7U4PNNHP5K4FSQ7SVHYOJH6E"
+    ],
+    "key": "db-SW7U4PNNHP5K4FSQ7SVHYOJH6E",
+    "name": "database-1",
+    "pending_update": "inactive",
+    "source": [
+      "AWS-TEST"
+    ]
+  },
+  "related": [
+    {
+      "node": {
+        "_key": "null:393727993",
+        "_id": "asset/null:393727993",
+        "_rev": "_aBLBs_6--Y",
+        "car_shard": "null",
+        "engine": "mysql",
+        "external_id": [
+          "AWS-TEST:arn:aws:rds:us-east-1:979326520502:db:database-1"
+        ],
+        "name": "database-1",
+        "source": [
+          "AWS-TEST"
+        ]
+      },
+      "link": {
+        "_key": "null:383747114:null",
+        "_id": "asset_database/null:383747114:null",
+        "_from": "asset/null:393727993",
+        "_to": "database/null:391729179",
+        "_rev": "_aBLB1fm--B",
+        "active": true,
+        "report": "1581408032601",
+        "source": "AWS-TEST",
+        "timestamp": 1581408032601
+      }
+    },
+    {
+      "node": {
+        "_key": "null:1581408032601",
+        "_id": "report/null:1581408032601",
+        "_rev": "_aBLBrWq---",
+        "timestamp": 1581408032601,
+        "type": "AWS",
+        "description": "Aws Car",
+        "key": "1581408032601",
+        "car_shard": "null"
+      },
+      "link": {
+        "_key": "null:393728098:null",
+        "_id": "report_database/null:393728098:null",
+        "_from": "report/null:1581408032601",
+        "_to": "database/null:391729179",
+        "_rev": "_aBLB32e---",
+        "active": true,
+        "report": "1581408032601",
+        "source": "AWS-TEST",
+        "timestamp": 1581408032601
+      }
+    },
+    {
+      "node": {
+        "_key": "null:391729183",
+        "_id": "user/null:391729183",
+        "_rev": "_aBLBxMi--_",
+        "car_shard": "null",
+        "external_id": [
+          "AWS-TEST:undefined"
+        ],
+        "key": "admin",
+        "role": "TECHNICAL OWNER",
+        "source": [
+          "AWS-TEST"
+        ],
+        "username": "admin"
+      },
+      "link": {
+        "_key": "null:391729278:null",
+        "_id": "account_database/null:391729278:null",
+        "_from": "user/null:391729183",
+        "_to": "database/null:391729179",
+        "_rev": "_aBLB5ES--B",
+        "active": true,
+        "report": "1581408032601",
+        "source": "AWS-TEST",
+        "timestamp": 1581408032601
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+[{
+		"EventId": "14caa21c-8acb-46c6-933b-554b17caaff0",
+		"EventName": "CreateTags",
+		"ReadOnly": "false",
+		"EventTime": "datetime.datetime(2020, 2, 9, 1, 51, 29, tzinfo = tzlocal())",
+		"EventSource": "ec2.amazonaws.com",
+		"Username": "AutoScaling",
+		"Resources": [{
+			"ResourceType": "AWS::EC2::Instance",
+			"ResourceName": "i-08c7ab6d6b1daf6b8"
+		}],
+		"CloudTrailEvent": {
+              "eventVersion": "1.05",
+              "userIdentity": {
+                  "type": "IAMUser",
+                  "principalId": "AIDA6IBDIZS3PHKDTXCSI",
+                  "arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+                  "accountId": "979326520502",
+                  "accessKeyId": "ASIA6IBDIZS3MFEM35TX",
+                  "userName": "karthick.rajagopal@hcl.com",
+                  "sessionContext": {
+                      "sessionIssuer": {},
+                      "webIdFederationData": {},
+                      "attributes": {
+                          "mfaAuthenticated": "false",
+                          "creationDate": "2020-02-10T06:28:00Z"
+                      }
+                  },
+                  "invokedBy": "signin.amazonaws.com"
+              },
+              "eventTime": "2020-02-10T14:04:39Z",
+              "eventSource": "ec2.amazonaws.com",
+              "eventName": "CreateTags",
+              "awsRegion": "us-east-1",
+              "sourceIPAddress": "148.64.6.218",
+              "userAgent": "signin.amazonaws.com",
+              "requestParameters": {
+                  "resourcesSet": {
+                      "items": [
+                          {
+                              "resourceId": "i-00b2cd77c83a82e3f"
+                          }
+                      ]
+                  },
+                  "tagSet": {
+                      "items": [
+                          {
+                              "key": "Name",
+                              "value": "windows10_machine-hn"
+                          }
+                      ]
+                  }
+              },
+              "responseElements": {
+                  "requestId": "94d53676-2249-4c38-9940-34b3d04e0f0f",
+                  "_return": true
+              },
+              "requestID": "94d53676-2249-4c38-9940-34b3d04e0f0f",
+              "eventID": "afa1c399-ffac-4f3b-8552-064e40e39966",
+              "eventType": "AwsApiCall",
+              "recipientAccountId": "979326520502"
+          }
+	}]

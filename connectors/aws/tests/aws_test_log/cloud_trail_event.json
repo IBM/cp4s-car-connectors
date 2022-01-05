@@ -1,0 +1,49 @@
+{
+	"Events": [{
+		"EventId": "1bc0878f-9a56-44b4-8a28-33129277cc0f",
+		"EventName": "CreateDBInstance",
+		"ReadOnly": "false",
+		"AccessKeyId": "ASIA6IBDIZS3H4JUJPME",
+		"EventTime": "datetime.datetime(2020, 2, 9, 19, 39, 48, tzinfo = tzlocal())",
+		"EventSource": "rds.amazonaws.com",
+		"Username": "karthick.rajagopal@hcl.com",
+		"Resources": [{
+			"ResourceType": "AWS::RDS::DBInstance",
+			"ResourceName": "database-1"
+		}, {
+			"ResourceType": "AWS::EC2::VPC",
+			"ResourceName": "vpc-10db926a"
+		}, {
+			"ResourceType": "AWS::RDS::DBSubnetGroup",
+			"ResourceName": "default"
+		}, {
+			"ResourceType": "AWS::EC2::SecurityGroup",
+			"ResourceName": "sg-4fdf771f"
+		}, {
+			"ResourceType": "AWS::RDS::DBOptionGroup",
+			"ResourceName": "default:mysql-5-7"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-d230098e"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-ea9d6be4"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-52cd011f"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-4b662675"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-c62a11e8"
+		}, {
+			"ResourceType": "AWS::EC2::Subnet",
+			"ResourceName": "subnet-b9a994de"
+		}, {
+			"ResourceType": "AWS::RDS::DBParameterGroup",
+			"ResourceName": "default.mysql5.7"
+		}],
+		"CloudTrailEvent": {"eventVersion":"1.05","userIdentity":{"type":"IAMUser","principalId":"AIDA6IBDIZS3PHKDTXCSI","arn":"arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com","accountId":"979326520502","accessKeyId":"ASIA6IBDIZS3H4JUJPME","userName":"karthick.rajagopal@hcl.com","sessionContext":{"attributes":{"mfaAuthenticated":"false","creationDate":"2020-02-09T09:24:07Z"}},"invokedBy":"signin.amazonaws.com"},"eventTime":"2020-02-09T14:09:48Z","eventSource":"rds.amazonaws.com","eventName":"CreateDBInstance","awsRegion":"us-east-1","sourceIPAddress":"148.64.7.55","userAgent":"signin.amazonaws.com","requestParameters":{"dBName":"","dBInstanceIdentifier":"database-1","allocatedStorage":20,"dBInstanceClass":"db.t2.micro","engine":"mysql","masterUsername":"admin","masterUserPassword":"****","vpcSecurityGroupIds":["sg-4fdf771f"],"dBSubnetGroupName":"default","dBParameterGroupName":"default.mysql5.7","backupRetentionPeriod":7,"port":3306,"multiAZ":false,"engineVersion":"5.7.22","autoMinorVersionUpgrade":true,"optionGroupName":"default:mysql-5-7","publiclyAccessible":false,"storageType":"gp2","storageEncrypted":false,"copyTagsToSnapshot":true,"enableIAMDatabaseAuthentication":false,"enablePerformanceInsights":false,"enableCloudwatchLogsExports":[],"deletionProtection":false,"maxAllocatedStorage":1000},"responseElements":{"dBInstanceIdentifier":"database-1","dBInstanceClass":"db.t2.micro","engine":"mysql","dBInstanceStatus":"creating","masterUsername":"admin","allocatedStorage":20,"preferredBackupWindow":"08:05-08:35","backupRetentionPeriod":7,"dBSecurityGroups":[],"vpcSecurityGroups":[{"vpcSecurityGroupId":"sg-4fdf771f","status":"active"}],"dBParameterGroups":[{"dBParameterGroupName":"default.mysql5.7","parameterApplyStatus":"in-sync"}],"dBSubnetGroup":{"dBSubnetGroupName":"default","dBSubnetGroupDescription":"default","vpcId":"vpc-10db926a","subnetGroupStatus":"Complete","subnets":[{"subnetIdentifier":"subnet-c62a11e8","subnetAvailabilityZone":{"name":"us-east-1b"},"subnetOutpost":{},"subnetStatus":"Active"},{"subnetIdentifier":"subnet-4b662675","subnetAvailabilityZone":{"name":"us-east-1e"},"subnetOutpost":{},"subnetStatus":"Active"},{"subnetIdentifier":"subnet-52cd011f","subnetAvailabilityZone":{"name":"us-east-1c"},"subnetOutpost":{},"subnetStatus":"Active"},{"subnetIdentifier":"subnet-ea9d6be4","subnetAvailabilityZone":{"name":"us-east-1f"},"subnetOutpost":{},"subnetStatus":"Active"},{"subnetIdentifier":"subnet-d230098e","subnetAvailabilityZone":{"name":"us-east-1d"},"subnetOutpost":{},"subnetStatus":"Active"},{"subnetIdentifier":"subnet-b9a994de","subnetAvailabilityZone":{"name":"us-east-1a"},"subnetOutpost":{},"subnetStatus":"Active"}]},"preferredMaintenanceWindow":"mon:08:41-mon:09:11","pendingModifiedValues":{"masterUserPassword":"****"},"multiAZ":false,"engineVersion":"5.7.22","autoMinorVersionUpgrade":true,"readReplicaDBInstanceIdentifiers":[],"licenseModel":"general-public-license","optionGroupMemberships":[{"optionGroupName":"default:mysql-5-7","status":"in-sync"}],"publiclyAccessible":false,"storageType":"gp2","dbInstancePort":0,"storageEncrypted":false,"dbiResourceId":"db-SW7U4PNNHP5K4FSQ7SVHYOJH6E","cACertificateIdentifier":"rds-ca-2019","domainMemberships":[],"copyTagsToSnapshot":true,"monitoringInterval":0,"dBInstanceArn":"arn:aws:rds:us-east-1:979326520502:db:database-1","iAMDatabaseAuthenticationEnabled":false,"performanceInsightsEnabled":false,"deletionProtection":false,"associatedRoles":[],"httpEndpointEnabled":false,"maxAllocatedStorage":1000},"requestID":"758f51a9-684d-492d-b616-fd6dd76b44e9","eventID":"1bc0878f-9a56-44b4-8a28-33129277cc0f","eventType":"AwsApiCall","recipientAccountId":"979326520502"}
+	}]
+}

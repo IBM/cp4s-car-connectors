@@ -1,0 +1,35 @@
+{
+	"asset_hostname": [{
+		"_from_external_id": "arn:aws:ec2:us-east-1:979326520502:instance/i-03b17ec42281ffa9f",
+		"_to": "hostname/ip-172-31-9-85.ec2.internal",
+		"report": "1578901200436",
+		"source": "AWS-CAR",
+		"active": true,
+		"timestamp": 1578901200436
+	}],
+	"report": {
+		"_key": "1568706893582.581",
+		"timestamp": 1568706893582.581,
+		"type": "MS Azure",
+		"description": "Microsoft Azure imports"
+	},
+	"report": {
+		"_key": "1578901200436",
+		"timestamp": 1578901200436,
+		"type": "AWS",
+		"description": "Aws Car"
+	},
+	"source": {
+		"_key": "AWS-CAR",
+		"description": "reports coming from source AWS-CAR",
+		"product_link": "https://aws.amazon.com/",
+		"last_run_time": "2020-01-13 07:40:00.436000",
+		"initial_import_status": true
+	},
+	"source_report": [{
+		"_from": "source/AWS-CAR",
+		"_to": "report/1578901200436",
+		"timestamp": 1578901200436,
+		"active": true
+	}]
+}

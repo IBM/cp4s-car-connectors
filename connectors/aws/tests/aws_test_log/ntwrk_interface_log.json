@@ -1,0 +1,40 @@
+{
+	"NetworkInterfaces": [{
+		"Attachment": {
+			"AttachTime": "03-12-2020",
+			"AttachmentId": "eni-attach-03fd58bfa314117ed",
+			"DeleteOnTermination": "True",
+			"DeviceIndex": 0,
+			"Status": "attached",
+			"InstanceId": "Test-instance"
+		},
+		"Description": "Primary network interface",
+		"Groups": [{
+			"GroupName": "launch-wizard-1",
+			"GroupId": "sg-0aa89ff4646f71594"
+		}],
+		"Ipv6Addresses": [{
+			"Ipv6Address": "2600:1f18:4036:e6fe:4756:57f9:9741:5ab0"
+		}],
+		"AvailabilityZone": "us-east-1",
+		"MacAddress": "02:82:7d:59:55:ed",
+		"NetworkInterfaceId": "eni-03107005b6925e126",
+		"OwnerId": "979326520502",
+		"PrivateDnsName": "ip-172-31-9-85.ec2.internal",
+		"PrivateIpAddress": "172.31.9.85",
+		"PrivateIpAddresses": [{
+			"Primary": "True",
+			"PrivateDnsName": "ip-172-31-9-85.ec2.internal",
+			"PrivateIpAddress": "172.31.9.85"
+		}, {
+			"Primary": "True",
+			"PrivateDnsName": "ip-172-31-9-24.ec2.internal",
+			"PrivateIpAddress": "172.31.9.24"
+		}],
+		"SourceDestCheck": "True",
+		"Status": "in-use",
+		"SubnetId": "subnet-b9a994de",
+		"VpcId": "vpc-10db926a",
+		"InterfaceType": "interface"
+	}]
+}

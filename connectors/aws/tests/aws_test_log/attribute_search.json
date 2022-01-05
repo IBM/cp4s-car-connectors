@@ -1,0 +1,17 @@
+[
+  {
+    "_key": "null:353756699",
+    "_id": "application/null:353756699",
+    "_rev": "_aA-SBvK--L",
+    "car_shard": "null",
+    "description": "App name is application-ebs-test",
+    "external_id": [
+      "AWS-CAR-test7:arn:aws:elasticbeanstalk:us-east-1:979326520502:application/application-ebs-test"
+    ],
+    "key": "application-ebs-test",
+    "name": "application-ebs-test",
+    "source": [
+      "AWS-CAR-test7"
+    ]
+  }
+]

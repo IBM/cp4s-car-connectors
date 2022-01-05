@@ -1,0 +1,19 @@
+{
+	"Error": {
+		"Type": "Sender",
+		"Code": "InvalidParameterValue",
+		"Message": "Invalid database identifier:abc"
+	},
+	"ResponseMetadata": {
+		"RequestId": "a38bd2d2-8306-45c0-9edb-8eeb76a60ef9",
+		"HTTPStatusCode": 400,
+		"HTTPHeaders": {
+			"x-amzn-requestid": "a38bd2d2-8306-45c0-9edb-8eeb76a60ef9",
+			"content-type": "text/xml",
+			"content-length": "285",
+			"date": "Mon, 10 Feb 2020 07:54:56 GMT",
+			"connection": "close"
+		},
+		"RetryAttempts": 0
+	}
+}

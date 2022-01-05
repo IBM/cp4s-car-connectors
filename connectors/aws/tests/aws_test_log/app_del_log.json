@@ -1,0 +1,91 @@
+[{
+		"EventId": "c5192134-68db-438b-a884-1f9f8b8a3c93",
+		"EventName": "DeleteApplication",
+		"ReadOnly": "false",
+		"AccessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+		"EventTime": "datetime.datetime(2020, 2, 9, 1, 50, 41, tzinfo = tzlocal())",
+		"EventSource": "elasticbeanstalk.amazonaws.com",
+		"Username": "karthick.rajagopal@hcl.com",
+		"Resources": [],
+		"CloudTrailEvent": {
+			"eventVersion": "1.05",
+			"userIdentity": {
+				"type": "IAMUser",
+				"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+				"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+				"accountId": "979326520502",
+				"accessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+				"userName": "karthick.rajagopal@hcl.com",
+				"sessionContext": {
+					"sessionIssuer": {},
+					"webIdFederationData": {},
+					"attributes": {
+						"mfaAuthenticated": "false",
+						"creationDate": "2020-02-08T09:35:13Z"
+					}
+				},
+				"invokedBy": "signin.amazonaws.com"
+			},
+			"eventTime": "2020-02-08T20:20:41Z",
+			"eventSource": "elasticbeanstalk.amazonaws.com",
+			"eventName": "DeleteApplication",
+			"awsRegion": "us-east-1",
+			"sourceIPAddress": "148.64.6.24",
+			"userAgent": "signin.amazonaws.com",
+			"requestParameters": {
+				"applicationName": "test-new",
+				"terminateEnvByForce": true
+			},
+			"responseElements": null,
+			"requestID": "36d5cbb4-4a83-4f86-bc88-43d0a3682f2c",
+			"eventID": "c5192134-68db-438b-a884-1f9f8b8a3c93",
+			"eventType": "AwsApiCall",
+			"recipientAccountId": "979326520502"
+		}
+	},
+	{
+		"EventId": "c5192134-68db-438b-a884-1f9f8b8a3c93",
+		"EventName": "DeleteApplication",
+		"ReadOnly": "false",
+		"AccessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+		"EventTime": "datetime.datetime(2020, 2, 9, 1, 50, 41, tzinfo = tzlocal())",
+		"EventSource": "elasticbeanstalk.amazonaws.com",
+		"Username": "karthick.rajagopal@hcl.com",
+		"Resources": [],
+		"CloudTrailEvent": {
+			"eventVersion": "1.05",
+			"userIdentity": {
+				"type": "IAMUser",
+				"principalId": "AIDA6IBDIZS3PHKDTXCSI",
+				"arn": "arn:aws:iam::979326520502:user/karthick.rajagopal@hcl.com",
+				"accountId": "979326520502",
+				"accessKeyId": "ASIA6IBDIZS3LXTYPRNI",
+				"userName": "karthick.rajagopal@hcl.com",
+				"sessionContext": {
+					"sessionIssuer": {},
+					"webIdFederationData": {},
+					"attributes": {
+						"mfaAuthenticated": "false",
+						"creationDate": "2020-02-08T09:35:13Z"
+					}
+				},
+				"invokedBy": "signin.amazonaws.com"
+			},
+			"eventTime": "2020-02-08T20:20:41Z",
+			"eventSource": "elasticbeanstalk.amazonaws.com",
+			"eventName": "DeleteApplication",
+			"awsRegion": "us-east-1",
+			"sourceIPAddress": "148.64.6.24",
+			"userAgent": "signin.amazonaws.com",
+			"requestParameters": {
+				"applicationName": "test-appdb",
+				"terminateEnvByForce": true
+			},
+			"responseElements": null,
+			"requestID": "36d5cbb4-4a83-4f86-bc88-43d0a3682f2c",
+			"eventID": "c5192134-68db-438b-a884-1f9f8b8a3c93",
+			"eventType": "AwsApiCall",
+			"recipientAccountId": "979326520502"
+		}
+	}
+]
