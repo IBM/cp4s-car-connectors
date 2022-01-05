@@ -1,0 +1,16 @@
+{
+	"source": "ProofPoint",
+	"endpoint": {
+		"siem": "siem/all",
+		"people": "people/vap",
+		"threat": "threat/summary/"
+	},
+	"parameter": {
+		"headers": {
+			"Accept": "application/json"
+		},
+		"format": "json",
+		"time_window": 90,
+		"interval_days": 7
+	}
+}

@@ -1,0 +1,79 @@
+{
+	"siem": [{
+	"clicks": [],
+	"events": [{
+		"spamScore": 0,
+		"phishScore": 0,
+		"threatsInfoMap": [{
+			"threatID": "ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35",
+			"threatStatus": "active",
+			"classification": "malware",
+			"threatUrl": "https://threatinsight.proofpoint.com/a7929edb-9295-4c75-8767-8a8ddf8a5807/threat/email/ecb8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35",
+			"threatTime": "2021-10-27T13:25:35.000Z",
+			"threat": "https://dummytestsite.com",
+			"campaignID": null,
+			"threatType": "url"
+		}],
+		"messageTime": "2021-10-19T07:47:25.000Z",
+		"impostorScore": 0.0,
+		"malwareScore": 0,
+		"cluster": "hcltechnologies_hosted",
+		"subject": null,
+		"quarantineFolder": null,
+		"quarantineRule": null,
+		"policyRoutes": ["default_inbound"],
+		"modulesRun": ["smtpsrv", "av", "spf", "dkimv", "banner", "dmarc"],
+		"messageSize": 3466,
+		"headerFrom": "karthick rajagopal <karthickuser@iscabcd.com>",
+		"headerReplyTo": null,
+		"fromAddress": ["karthickuser@iscabcd.com"],
+		"ccAddresses": [],
+		"replyToAddress": [],
+		"toAddresses": [],
+		"xmailer": "Amazon WorkMail",
+		"messageParts": [{
+			"disposition": "inline",
+			"sha256": "d632dab6bb96208ae6b3dbe263914c566ed572c23d584b6f4c17efd40900b075",
+			"md5": "e5ae3f0dc5faf0673e81c60c4aeb07af",
+			"filename": "text.html",
+			"sandboxStatus": null,
+			"oContentType": "text/html",
+			"contentType": "text/html"
+		}, {
+			"disposition": "inline",
+			"sha256": "02851ac55a00ca87f66cf4f7012389d12b205eb2a31a098b853203c29c4969c8",
+			"md5": "809a6bc7de676e0fb94e70ec8635ad78",
+			"filename": "text.txt",
+			"sandboxStatus": null,
+			"oContentType": "text/plain",
+			"contentType": "text/plain"
+		}],
+		"completelyRewritten": false,
+		"id": "73a9caf6-4aaf-7b94-4cc1-214ff27551d7",
+		"QID": "19J7kWUk003509",
+		"GUID": "jMgF2vFMgVwbrZKZSemWIRl58SWoTw6X",
+		"sender": "0100017c97841b34-c838cfd3-e1a4-422d-bc20-4101da254f85-000000@amazonses.com",
+		"recipient": ["subashuser@iscabcd.com"],
+		"senderIP": "54.240.11.173",
+		"messageID": ""
+	}]
+}],
+	"people": [{
+		"identity": {
+			"guid": "97b6d0a5-5fd4-65cb-d015-e26afbd35930",
+			"customerUserId": "null",
+			"emails": ["navvyasree@presentfortesting.com"],
+			"name": "null",
+			"department": "null",
+			"location": "null",
+			"title": "null",
+			"vip": false
+		},
+		"threatStatistics": {
+			"attackIndex": 464,
+			"families": [{
+				"name": "credential phishing",
+				"score": 232
+			}]
+	}}]
+}

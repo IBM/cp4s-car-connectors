@@ -1,0 +1,192 @@
+{
+    "users": [
+        {
+            "identity": {
+                "guid": "97b6d0a5-5fd4-65cb-d015-e26afbd35930",
+                "customerUserId": null,
+                "emails": [
+                    "123abcd@efg.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "e32d67b2-b87e-ce13-d7f6-cff8e2e764fd",
+                "customerUserId": null,
+                "emails": [
+                    "karthickuser@abcd.com"
+                ],
+                "name": "karthick ",
+                "department": "HCL",
+                "location": "HCL",
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 116
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "33153f15-e1a3-7dd0-455d-991bd35a0ff5",
+                "customerUserId": null,
+                "emails": [
+                    "yatheesa@xyzs.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "b2f18455-2cfc-a0c4-ea4b-6cf663597597",
+                "customerUserId": null,
+                "emails": [
+                    "deeapk2@xyzs.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "1e099a4c-9406-4190-f62c-508b415c38d4",
+                "customerUserId": null,
+                "emails": [
+                    "subashuser@abcd.com"
+                ],
+                "name": "subash",
+                "department": null,
+                "location": null,
+                "title": "Management People",
+                "vip": true
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 116
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "db62ff1c-dd6c-478c-eb70-42791773cf99",
+                "customerUserId": null,
+                "emails": [
+                    "123abcd@efg.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "5e889735-a505-1641-8046-a8667a2df24b",
+                "customerUserId": null,
+                "emails": [
+                    "123abcd@efg.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        },
+        {
+            "identity": {
+                "guid": "70ee85f6-f2a3-a939-e10d-1b63a8e8d1a2",
+                "customerUserId": null,
+                "emails": [
+                    "preethi@abcd.com"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 116
+                    }
+                ]
+            }
+        }
+    ],
+    "totalVapUsers": 8,
+    "interval": "2021-07-19T22:21:23Z/2021-10-17T22:21:23Z",
+    "averageAttackIndex": 464.0,
+    "vapAttackIndexThreshold": 464.0
+}

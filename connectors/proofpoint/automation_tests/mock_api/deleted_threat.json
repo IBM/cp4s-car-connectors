@@ -1,0 +1,18 @@
+{
+    "id": "ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35",
+    "identifiedAt": "2021-09-29T12:16:40.000Z",
+    "name": "https://impacted.org.uk",
+    "type": "url",
+    "category": "malware",
+    "status": "cleared",
+    "severityScore": 0,
+    "attackSpread": 0,
+    "notable": false,
+    "verticallyTargeted": false,
+    "geoTargeted": false,
+    "actors": [],
+    "families": [],
+    "malware": [],
+    "techniques": [],
+    "brands": []
+}

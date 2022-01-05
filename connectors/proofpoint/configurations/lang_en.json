@@ -1,0 +1,18 @@
+{
+    "configuration": {
+        "auth": {
+            "proofpoint_url": {
+                "label": "ProofPoint_URL",
+                "description": "Data source URL"
+            },
+            "principle": {
+                "label": "Principle",
+                "description": "Principle required for data source authentication"
+            },
+            "secret": {
+                "label": "Secret",
+                "description": "Secret required for data source authentication"
+            }
+        }
+    }
+}
