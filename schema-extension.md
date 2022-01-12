@@ -1,12 +1,12 @@
 # CAR schema extension
 
-The CAR schema can be extended by creating `get_schema_extension` method in `app.py` file of the connector and returning `SchemaExtension` object.
+The CAR schema can be extended by creating a `get_schema_extension` method in the `app.py` file of the connector and returning `SchemaExtension` object.
 Example can found in [reference connector](./connectors/reference_connector/app.py)
 
 `SchemaExtension` object constructor needs following variables:
 - \<UUID\> is the ID of the extension. It is unique for every extension and it never changes.
 - \<Connector Name\> is a name that makes it easier to see where this extension comes from.
-- \<Version Number\> is an integer number encoded as a string; whenever an extension is changed this number needs to be incremented.
+- \<Version Number\> is an integer number encoded as a string representing version of schema extension; whenever an extension is changed this number needs to be incremented.
 - \<Schema\> is a data structure that describes additions to core schema
 
 # Extension schema
