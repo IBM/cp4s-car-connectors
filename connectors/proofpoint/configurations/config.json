@@ -1,0 +1,22 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "ProofPoint"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "proofpoint_url": {
+                "type": "text"
+            },
+            "principle": {
+                "type": "password"
+            },
+            "secret": {
+                "type": "password"
+            }
+        }
+    }
+}

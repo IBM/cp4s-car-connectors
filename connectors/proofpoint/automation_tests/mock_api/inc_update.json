@@ -1,0 +1,41 @@
+{
+	"siem": [{
+	"clicks": [{
+		"url": "https://impacted.org.uk",
+		"classification": "malware",
+		"clickTime": "2021-09-29T05:17:21.000Z",
+		"threatTime": "2021-09-28T12:09:54.000Z",
+		"userAgent": "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko",
+		"campaignId": "",
+		"id": "b28da6d1-f2e0-459d-ad7c-b94b45cf02a2",
+		"clickIP": "34.239.248.48",
+		"sender": "0100017c2fe78680-219ca7ed-c321-4002-8a46-f28f859c9133-000000@amazonses.com",
+		"recipient": "subashuser@abcd.com",
+		"senderIP": "54.240.48.177",
+		"GUID": "Uw2PsoTbNANSUsGpWT4M6m2f3aViY6Ts",
+		"threatID": "ecb8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35",
+		"threatURL": "https://threatinsight.proofpoint.com/a7929edb-9295-4c75-8767-8a8ddf8a5807/threat/email/2d8367310dc9a70341f04d39f18261641eb403c019bedbf288203d17647053cf",
+		"threatStatus": "active",
+		"messageID": ""
+	}],
+	"events": []
+}],
+	"people": [{
+		"identity": {
+			"guid": "97b6d0a5-5fd4-65cb-d015-e26afbd35930",
+			"customerUserId": "null",
+			"emails": ["navvyasree@presentfortesting.com"],
+			"name": "null",
+			"department": "null",
+			"location": "null",
+			"title": "null",
+			"vip": false
+		},
+		"threatStatistics": {
+			"attackIndex": 464,
+			"families": [{
+				"name": "credential phishing",
+				"score": 232
+			}]
+	}}]
+}

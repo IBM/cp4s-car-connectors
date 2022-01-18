@@ -1,0 +1,29 @@
+{
+    "users": [{
+            "identity": {
+                "guid": "97b6d0a5-5fd4-65cb-d015-e26afbd35930",
+                "customerUserId": null,
+                "emails": [
+                    "navvyasree@abcd.com123"
+                ],
+                "name": null,
+                "department": null,
+                "location": null,
+                "title": null,
+                "vip": false
+            },
+            "threatStatistics": {
+                "attackIndex": 464,
+                "families": [
+                    {
+                        "name": "credential phishing",
+                        "score": 232
+                    }
+                ]
+            }
+        }],
+    "totalVapUsers": 8,
+    "interval": "2021-07-19T22:21:23Z/2021-10-17T22:21:23Z",
+    "averageAttackIndex": 464.0,
+    "vapAttackIndexThreshold": 464.0
+}
