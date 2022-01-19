@@ -31,7 +31,7 @@ Set the "size" to some number and click "Save" button.
 
 ## Connector
 
-Install python dependencies from the `connector` directory
+Install python dependencies
 ```
 pip3 install -r requirements.txt
 ```

@@ -125,7 +125,7 @@ python -V
 python3 -V
 docker version
 
-pip3 install 'cryptography==2.9.2'
+pip3 install 'cryptography==3.3.2'
 pip3 install 'pyopenssl==19.1.0'
 
 
