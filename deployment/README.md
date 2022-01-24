@@ -78,5 +78,3 @@ The following needs to be installed on your local machine:
     | CONNECTOR_VERSION | Required | The connector release version | "1.0.0.0" |
     | `-n` NAMESPACE | Optional | The namespace of the CP4S. If not specified, the current namespace of the logged in cluster will be used. | |
 
-
-    
