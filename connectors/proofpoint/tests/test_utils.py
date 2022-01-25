@@ -21,6 +21,7 @@ class Arguments:
     export_data_page_size = 2000
     description = "description"
     debug = None
+    connector_name = "test-connector-name"
 
 
 class ImportDataReturnObj:
