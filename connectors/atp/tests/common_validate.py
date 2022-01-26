@@ -39,6 +39,7 @@ def context_patch(incremental=True):
         'alerts': None,
         'export_data_dir': './cache/tmp',
         'export_data_page_size': 200,
+        'connector_name': "test-connector-name",
     }
     Context(Struct(context_args))
 
