@@ -14,7 +14,6 @@ class DataHandler(object):
 
     source = None
     report = None
-    source_report = None
 
     def __init__(self):
         self.collections = {}
@@ -24,13 +23,12 @@ class DataHandler(object):
         self.timestamp = get_report_time()
 
     def create_source_report_object(self):
-        if not (self.source and self.report and self.source_report):
-            # create source, report and source_report entry and it is compuslory for each imports API call
+        if not (self.source and self.report):
+            # create source and report entry and it is compuslory for each imports API call
             self.source = {'_key': context().args.source, 'name': context().args.tenantID, 'description': 'Microsoft Azure imports'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'MS Azure', 'description': 'Microsoft Azure imports'}
-            self.source_report = [{'active': True, '_from': 'source/' + self.source['_key'], '_to': 'report/' + self.report['_key'], 'timestamp': self.report['timestamp']}]
         
-        return {'source': self.source, 'report': self.report, 'source_report': self.source_report}
+        return {'source': self.source, 'report': self.report}
 
     # Adds the collection data
     def add_collection(self, name, object, key):
