@@ -1,0 +1,28 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "DRM"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "tenant_url": {
+                "type": "text"
+            },
+            "username": {
+                "type": "text"
+            },
+            "password": {
+                "type": "password"
+            }
+        },
+        "parameter": {
+            "type": "fields",
+            "page_size": {
+                "type": "number"
+            }
+        }
+    }
+}

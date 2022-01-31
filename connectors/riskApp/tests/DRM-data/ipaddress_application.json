@@ -1,0 +1,27 @@
+{
+    "httpStatus": "200",
+    "serverCode": "2001",
+    "requestedUrl": "https://9.195.20.86:8443/albatross/restAPI/v2/delta/enterprise/concept/car/DSAPPLICATION",
+    "data": [
+        {
+            "childConceptId": "eb5af036-fed9-11ea-9352-0050568994b3",
+            "conceptRelation": null,
+            "parentConceptId": "eb57d45a-fed9-11ea-9352-0050568994b3",
+            "mappingType": "DSAPPLICATION",
+            "lastUpdate": 1601445682188,
+            "ipAddress": "9.194.243.13",
+            "parentConceptName": "SS-MySQL-CatImp-DS1-Nov7",
+            "childConceptName": "Analytics App"
+        },
+        {
+            "childConceptId": "eb5af736-fed9-11ea-9352-0050568994b3",
+            "conceptRelation": null,
+            "parentConceptId": "eb5bcc18-fed9-11ea-9352-0050568994b3",
+            "mappingType": "DSAPPLICATION",
+            "lastUpdate": 1601445682188,
+            "ipAddress": "",
+            "parentConceptName": "MySQL on Sakila179",
+            "childConceptName": "RW Resource Planner (ERP)"
+        }
+    ]
+}
