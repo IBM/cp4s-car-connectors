@@ -9,7 +9,7 @@ class FullImport(BaseFullImport):
         self.data_handler = DataHandler()
         super().__init__()
 
-    # Create source, report and source_report entry.
+    # Create source and report entry.
     def create_source_report_object(self):
         return self.data_handler.create_source_report_object()
 

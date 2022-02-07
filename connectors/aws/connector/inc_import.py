@@ -17,7 +17,7 @@ class IncrementalImport(BaseIncrementalImport):
     def get_new_model_state_id(self):
         return str(self.data_handler.timestamp)
 
-    # Create source, report and source_report entry.
+    # Create source and report entry.
     def create_source_report_object(self):
         return self.data_handler.create_source_report_object()
 

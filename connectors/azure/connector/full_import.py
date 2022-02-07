@@ -12,7 +12,7 @@ class FullImport(BaseFullImport):
         # If data source doesn't have external reference property None can be supplied as parameter.
         self.data_handler = DataHandler()
 
-    # Create source, report and source_report entry.
+    # Create source and report entry.
     def create_source_report_object(self):
         return self.data_handler.create_source_report_object()
 
