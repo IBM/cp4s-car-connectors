@@ -12,12 +12,14 @@ from datetime import datetime
 
 from car_framework.context import context
 from connector.data_collector import deep_get
+from car_framework.util import DatasourceFailure
+from car_framework.server_access import BaseAssetServer
 
 # This is to disable context().fooMember error in IDE
 # pylint: disable=no-member
 
 # This is a simple HTTP client that can be used to access the REST API
-class RestApiClient:
+class RestApiClient(BaseAssetServer):
 
     def __init__(self, host, port=None, cert=None, headers={}, url_modifier_function=None, cert_verify=True):
         server_ip = host
@@ -249,6 +251,15 @@ class AssetServer(RestApiClient):
         self.container_data = None
         self.access_token = ""
 
+    def test_connection(self):
+        try:
+            self.get_access_token()
+            code = 0
+        except DatasourceFailure as e:
+            context().logger.error(e)
+            code = 1
+        return code
+
     def get_administrative_logs(self, timestamp):
         """Get the security alerts from azure management endpoint.
         :param timestamp: str, time and date for the API call
@@ -293,7 +304,7 @@ class AssetServer(RestApiClient):
                 except KeyError:
                     break
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.activity_logs
 
@@ -347,7 +358,7 @@ class AssetServer(RestApiClient):
                 except KeyError:
                     break
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.security_logs
 
@@ -397,7 +408,7 @@ class AssetServer(RestApiClient):
                     break
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.machine_data
 
@@ -427,7 +438,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -474,7 +485,7 @@ class AssetServer(RestApiClient):
                     break
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.network_data
 
@@ -499,7 +510,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -546,7 +557,7 @@ class AssetServer(RestApiClient):
                 except KeyError:
                     break
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.security_logs
 
@@ -595,7 +606,7 @@ class AssetServer(RestApiClient):
                     break
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return self.application_data
 
@@ -628,7 +639,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -663,7 +674,7 @@ class AssetServer(RestApiClient):
                     data_json["server_map"] = server_data
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -694,7 +705,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -732,7 +743,7 @@ class AssetServer(RestApiClient):
                             self.database_data["value"].extend(data_json["value"])
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
         return self.database_data
 
     # def get_container_details(self, container_url=None, incremental=True):
@@ -777,7 +788,7 @@ class AssetServer(RestApiClient):
     #                 break
     #
     #     except Exception as e:
-    #         raise Exception(e)
+    #         raise DatasourceFailure(e)
     #
     #     return self.container_data
 
@@ -803,7 +814,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -830,7 +841,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -857,7 +868,7 @@ class AssetServer(RestApiClient):
             data_json = data.json()
 
         except Exception as e:
-            raise Exception(e)
+            raise DatasourceFailure(e)
 
         return data_json
 
@@ -945,7 +956,7 @@ class AssetServer(RestApiClient):
 
         except Exception as ex:
             error = ErrorResponder.fill_error({}, ex)
-            raise Exception(error)
+            raise DatasourceFailure(error)
 
     @staticmethod
     def epoch_to_datetime_conv(epoch_time):

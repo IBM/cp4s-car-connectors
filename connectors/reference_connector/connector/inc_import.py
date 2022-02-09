@@ -8,7 +8,7 @@ class IncrementalImport(BaseIncrementalImport):
         super().__init__()
         # initialize the data handler.
         # If data source doesn't have external reference property None can be supplied as parameter.
-        self.data_handler = DataHandler(context().asset_server.get_collection('xrefproperties'))
+        self.data_handler = DataHandler()
         self.create_source_report_object()
 
     # Pulls the save point for last import
@@ -41,6 +41,7 @@ class IncrementalImport(BaseIncrementalImport):
 
     # Import all vertices from data source
     def import_vertices(self):
+        self.data_handler.xrefproperties = context().asset_server.get_collection('xrefproperties')
         # can be left as it is if all the collection to be imported is lister in endpoint_mappingin data handler
         for asset_server_endpoint, car_resource_name in endpoint_mapping.items():
             self.import_collection(asset_server_endpoint, car_resource_name)

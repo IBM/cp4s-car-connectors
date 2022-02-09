@@ -8,7 +8,7 @@ class FullImport(BaseFullImport):
         super().__init__()
         # initialize the data handler.
         # If data source doesn't have external reference property None can be supplied as parameter.
-        self.data_handler = DataHandler(context().asset_server.get_collection('xrefproperties'))
+        self.data_handler = DataHandler()
 
     # Create source entry.
     def create_source_report_object(self):
@@ -30,6 +30,7 @@ class FullImport(BaseFullImport):
 
     # Import all vertices from data source
     def import_vertices(self):
+        self.data_handler.xrefproperties = context().asset_server.get_collection('xrefproperties')
         # can be left as it is if all the collection to be imported is lister in endpoint_mappingin data handler
         for asset_server_endpoint, data_name in endpoint_mapping.items():
             self.import_collection(asset_server_endpoint, data_name)
