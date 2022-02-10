@@ -1,0 +1,11 @@
+{
+    "httpStatus": "200",
+    "serverCode": "2001",
+    "requestedUrl": "https://test/user/login",
+    "data": {
+        "access_token": "816fb81b-0102-4417-a3e9-fa26a19bdb76",
+        "token_type": "bearer",
+        "expires_in": 28799,
+        "scope": "read write"
+    }
+}

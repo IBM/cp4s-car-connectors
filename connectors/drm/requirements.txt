@@ -1,0 +1,4 @@
+car-connector-framework==2.0.8
+requests-toolbelt
+cryptography==3.3.2
+pyopenssl==19.1.0

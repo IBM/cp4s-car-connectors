@@ -1,0 +1,40 @@
+{
+    "httpStatus": "200",
+    "serverCode": "2001",
+    "requestedUrl": "https://9.195.20.86:8443/albatross/restAPI/v2/delta/enterprise/concept/car/ApplicationBPMapping",
+    "data": [
+        {
+            "mappingType": "ApplicationBPMapping",
+            "childConcept": {
+                "id": "eb57d45a-fed9-11ea-9352-0050568994b3",
+                "name": "IT Risk Management",
+                "description": "IT Risk Management",
+                "displayName": "IT Risk Management",
+                "isDeleted": 1,
+                "importedFrom": "Native",
+                "category": "BusinessProcess",
+                "sourceId": null,
+                "industryId": null,
+                "domainId": "AssetUsage",
+                "refresh": "0",
+                "conceptSynonyms": [],
+                "conceptProperties": [],
+                "parentConcepts": [],
+                "childConcepts": [],
+                "joinedDomainConcept": [],
+                "joinedConceptTemplate": [],
+                "joinedControlTemplateImpliControl": [],
+                "joinedControlTemplateImpliTask": [],
+                "joinedControlTemplateImpliRisk": [],
+                "entityValue": null
+            },
+            "parentId": "eb58b154-fed9-11ea-9352-0050568994b3",
+            "parentConceptName": "AutoPro MRP",
+            "childConceptName": "IT Risk Management",
+            "isDeleted": null,
+            "conceptRelation": null,
+            "lastUpdate": 1602772822188
+        }
+
+    ]
+}

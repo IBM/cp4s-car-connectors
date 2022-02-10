@@ -1,0 +1,24 @@
+{
+    "configuration": {
+        "auth": {
+            "tenant_url": {
+                "label": "Tenant URL",
+                "description": "DRM data source URL"
+            },
+            "username": {
+                "label": "Username",
+                "description": "Username of DRM data source server"
+            },
+            "password": {
+                "label": "Password",
+                "description": "password of the username"
+            }
+        },
+        "parameter": {
+            "page_size": {
+                "label": "Page Size",
+                "description": "specify records per page"
+            }
+        }
+    }
+}
