@@ -153,8 +153,8 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
     mkdir "$CONNECTOR_BUILD_FOLDER/configurations"
 
     # Merge config files
-    jq -s '.[0] * .[1]' "$DEPLOYMENT_HOME/configurations/config.json" "$CONNECTOR_SOURCE_FOLDER/configurations/config.json" > "$CONNECTOR_BUILD_FOLDER/configurations/config.json"
-    jq -s '.[0] * .[1]' "$DEPLOYMENT_HOME/configurations/lang_en.json" "$CONNECTOR_SOURCE_FOLDER/configurations/lang_en.json" > "$CONNECTOR_BUILD_FOLDER/configurations/lang_en.json"
+    jq -s '{ connection:(.[0].connection + .[1].connection), configuration: (.[0].configuration + .[1].configuration)}' "$DEPLOYMENT_HOME/configurations/config.json" "$CONNECTOR_SOURCE_FOLDER/configurations/config.json" > "$CONNECTOR_BUILD_FOLDER/configurations/config.json"
+    jq -s '{ connection:(.[0].connection + .[1].connection), configuration: (.[0].configuration + .[1].configuration)}' "$DEPLOYMENT_HOME/configurations/lang_en.json" "$CONNECTOR_SOURCE_FOLDER/configurations/lang_en.json" > "$CONNECTOR_BUILD_FOLDER/configurations/lang_en.json"
 
 
     # Update help link
