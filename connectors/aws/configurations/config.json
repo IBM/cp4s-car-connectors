@@ -3,6 +3,9 @@
         "type": {
             "type": "connectorType",
             "displayName": "AWS"
+        },
+        "region": {
+            "type": "text"
         }
     },
     "configuration": {
@@ -11,17 +14,11 @@
             "account_id": {
                 "type": "password"
             },
-            "client_id": {
+            "aws_access_key_id": {
                 "type": "password"
             },
-            "client_secret": {
+            "aws_secret_access_key": {
                 "type": "password"
-            }
-        },
-        "parameter": {
-            "type": "fields",
-            "region": {
-                "type": "text"
             }
         }
     }
