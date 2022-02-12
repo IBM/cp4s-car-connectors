@@ -1,0 +1,92 @@
+{
+	"ServiceResponse": {
+		"data": [{
+			"HostAsset": {
+				"modified": "2021-12-21T02:51:49Z",
+				"created": "2021-12-09T08:37:49Z",
+				"isDockerHost": "false",
+				"os": "Linux",
+				"tags": {
+					"list": [{
+						"TagSimple": {
+							"name": "ec2",
+							"id": 15939724
+						}
+					}]
+				},
+				"fqdn": "ip-177.77.7.777.ec2.internal",
+				"cloudProvider": "AWS",
+				"id": 13263514,
+				"networkInterface": {
+					"list":[{
+						"HostAssetInterface": {
+							"gatewayAddress": "172.31.80.1",
+							"hostname": "EC2AMAZ",
+							"address": "fe80:0:0:0:f558:672:7853:f978",
+							"interfaceName": "AWS PV Network Device #0",
+							"macAddress": "12:77:77:77:77:77"
+						}
+					}]
+				},
+				"sourceInfo": {
+					"list": [{
+						"Ec2AssetSourceSimple": {
+							"type": "EC_2",
+							"groupName": "launch-wizard-36",
+							"region": "us-east-1",
+							"spotInstance": "false",
+							"firstDiscovered": "2021-12-09T08:38:00Z",
+							"reservationId": "r-0b736fe7199f26903",
+							"zone": "VPC",
+							"assetId": 13263514,
+							"privateDnsName": "ip-177.77.7.777.ec2.internal",
+							"vpcId": "vpc-10db926a",
+							"imageId": "ami-083654bd07b5da81d",
+							"instanceType": "t2.micro",
+							"accountId": "979326520502",
+							"groupId": "sg-02e81194d73aab257",
+							"createdDate": "2022-01-10T11:01:34Z",
+							"instanceId": "i-dd",
+							"ec2InstanceTags": {
+								"tags": {
+									"list": [{
+										"EC2Tags": {
+											"key": "Name",
+											"value": "ubuntu-uat"
+										}
+									}]
+								}
+							},
+							"lastUpdated": "2021-12-21T02:51:49Z",
+							"subnetId": "subnet-52cd011f",
+							"monitoringEnabled": "false",
+							"availabilityZone": "us-east-1c",
+							"instanceState": "STOPPED",
+							"privateIpAddress": "177.77.7.777"
+						}
+					}]
+				}, 
+				"account": {
+					"list": [{
+						"HostAssetAccount": {
+							"username": "ubuntu"
+						}
+					}, {
+						"HostAssetAccount": {
+							"username": "root"
+						}
+					}]
+				},
+				"type": "HOST",
+				"dnsHostName": "ip-177.77.7.777.ec2.internal",
+				"address": "177.77.7.777",
+				"qwebHostId": 7774720,
+				"name": "ip-177.77.7.777.ec2.internal",
+				"trackingMethod": "INSTANCE_ID"
+			}
+		}],
+		"hasMoreRecords": "true",
+		"count": 50,
+		"responseCode": "SUCCESS"
+	}
+}
