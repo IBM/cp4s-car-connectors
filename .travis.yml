@@ -8,8 +8,6 @@ install:
   - echo "Starting Travis"
 
 before_script:
-  - set -e
-  - set -o pipefail
   - bash ./travis.sh
   - echo "End Unit Tests..."
 
