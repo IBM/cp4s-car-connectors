@@ -34,9 +34,9 @@ def get_report_time():
     return milliseconds
 
 class DataHandler(BaseDataHandler):
-
-    def __init__(self, xrefproperties):
-        self.xrefproperties = xrefproperties
+    
+    xrefproperties = []
+    def __init__(self):
         super().__init__()
 
 

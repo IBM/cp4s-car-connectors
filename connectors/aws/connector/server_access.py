@@ -1,17 +1,29 @@
 import json
 from datetime import datetime, timedelta
 import boto3
+
 from car_framework.context import context
+from car_framework.util import DatasourceFailure
+from car_framework.server_access import BaseAssetServer
 
 # This is to disable context().fooMember error in IDE
 # pylint: disable=no-member
 
-class AssetServer(object):
+class AssetServer(BaseAssetServer):
     """Client object for Boto3"""
     def __init__(self):
         self.region_name = context().args.region
         self.aws_access_key_id = context().args.clientID
         self.aws_secret_access_key = context().args.clientSecret
+
+    def test_connection(self):
+        try:
+            self.get_instances()
+            code = 0
+        except DatasourceFailure as e:
+            context().logger.error(e)
+            code = 1
+        return code
 
     def getClient(self, service_name):
         return boto3.client(service_name, aws_access_key_id=self.aws_access_key_id,
@@ -41,7 +53,7 @@ class AssetServer(object):
             return ec2_list
         except Exception as ex:
             context().logger.error("Error when getting AWS resource get_instances")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def security_alerts(self, ec2_id):
         """Security alerts from security hub"""
@@ -60,7 +72,7 @@ class AssetServer(object):
             return data_list
         except Exception as ex:
             context().logger.error("Error when getting AWS resource security_alerts")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def event_logs(self, attribute_value, attribute_type):
         """Event logs from Cloud trail"""
@@ -80,7 +92,7 @@ class AssetServer(object):
             return logs_collection
         except Exception as ex:
             context().logger.error("Error when getting AWS resource event_logs")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def security_alerts_update(self, status, value):
         """security alerts for incremental update"""
@@ -141,7 +153,7 @@ class AssetServer(object):
                 return delete_list
         except Exception as ex:
             context().logger.error("Error when getting AWS resource security_alerts_update")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def list_applications(self, app_name=None):
         """List application"""
@@ -157,7 +169,7 @@ class AssetServer(object):
                 return app_response['Applications']
         except Exception as ex:
             context().logger.error("Error when getting AWS resource list_applications")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def list_applications_env(self, app_name=None, env_name=None, env_id=None):
         """List application environment"""
@@ -178,7 +190,7 @@ class AssetServer(object):
                 return env_list
         except Exception as ex:
             context().logger.error("Error when getting AWS resource list_applications_env")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def get_db_instances(self, resource_ids=None, instance_identifier=None):
         """list the RDS database instances"""
@@ -198,7 +210,7 @@ class AssetServer(object):
             return db_list
         except Exception as ex:
             context().logger.error("Error when getting AWS resource get_db_instances")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def get_image_name(self, image_id):
         """get the name details of image id"""
@@ -244,7 +256,7 @@ class AssetServer(object):
 
         except Exception as ex:
             context().logger.error("Error when getting AWS resource list_running_containers")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     # def list_running_containers2(self, cluster_arn=None, task_arn=None):
     #     """list containers"""
@@ -256,7 +268,7 @@ class AssetServer(object):
 
     #     except Exception as ex:
     #         context().logger.error("Error when getting AWS resource list_running_containers")
-    #         raise Exception(ex)
+    #         raise DatasourceFailure(ex)
 
     def container_ec2_instance(self, cluster_arn=None, container_instance_arn=None):
         """Security alerts from security hub"""
@@ -267,7 +279,7 @@ class AssetServer(object):
             return app_response
         except Exception as ex:
             context().logger.error("Error when getting AWS resource container_ec2_instance")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
     def get_incremental_time(self):
         """store the incremental time for next run"""
@@ -283,7 +295,7 @@ class AssetServer(object):
 
         except Exception as ex:
             context().logger.error("Error when getting AWS resource get_incremental_time")
-            raise Exception(ex)
+            raise DatasourceFailure(ex)
 
 
     @staticmethod
