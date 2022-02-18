@@ -22,6 +22,7 @@ class Arguments:
     description = "description"
     debug = None
     connector_name = "test-connector-name"
+    version = "0.0.0",
 
 
 class ImportDataReturnObj:

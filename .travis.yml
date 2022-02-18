@@ -1,0 +1,17 @@
+language: python
+os:
+  - linux
+python:
+  - "3.9"
+
+install:
+  - echo "Starting Travis"
+
+before_script:
+  - set -e
+  - set -o pipefail
+  - bash ./travis.sh
+  - echo "End Unit Tests..."
+
+script:
+  - echo "No build required"

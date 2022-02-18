@@ -36,6 +36,7 @@ def context_patch():
         'last_model_state_id': "1580649320000",
         'new_model_state_id':  "1580649321920",
         'connector_name': "test-connector-name",
+        'version': "0.0.0",
     }
     Context(Struct(context_args))
 
