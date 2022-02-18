@@ -41,8 +41,7 @@ class TestMsatpApiClient(unittest.TestCase):
         # context = TextContext(update=True)
         with self.assertRaises(Exception) as cm:
             context().asset_server.get_machine_list()
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 404
         assert except_obj['success'] is False
 
