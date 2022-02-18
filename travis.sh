@@ -8,10 +8,6 @@ CONNECTORS=(
     reference_connector
 )
 
-
-set -e
-set -o pipefail
-
 for i in "${CONNECTORS[@]}"
 do
     echo "------ Testing connectors/$i"
