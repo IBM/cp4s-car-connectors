@@ -5,9 +5,11 @@ import json
 from car_framework.context import context
 
 from requests_toolbelt.multipart.encoder import MultipartEncoder
+from car_framework.util import DatasourceFailure
+from car_framework.server_access import BaseAssetServer
 
 
-class DRMServer(object):
+class AssetServer(BaseAssetServer):
 
     def __init__(self):
         self.tenant_bearer_token_url = '/user/login'
@@ -41,8 +43,21 @@ class DRMServer(object):
                              headers=self.server_headers_bearer, verify=False)
         if resp.status_code != 200:
             raise Exception('Error when getting authorization bearer token: %s' % resp.status_code)
+        if resp.json()['data'] == None:
+            raise Exception('Error when getting authorization bearer token data is none: %s', resp.status_code)
         bearer_token = 'Bearer' + " " + resp.json()['data']['access_token']
         return bearer_token
+
+    def test_connection(self):
+        try:
+           if self.auth is not None:
+                code = 0
+           else:
+               context().logger.error("Unable to get the token")
+               code =1
+        except DatasourceFailure as e:
+            context().logger.error(e)
+        return code
 
     # Pulls data for all collection entities
     def get_collection(self, drm_server_endpoint, param):
