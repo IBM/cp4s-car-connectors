@@ -19,7 +19,7 @@ class FullImport(BaseFullImport):
     def import_collection(self, drm_server_endpoint, name):
         lastupdate = (datetime.now() - timedelta(days=90)).replace(tzinfo=timezone.utc).timestamp()
         param = datetime.date(datetime.fromtimestamp(lastupdate)).strftime("%s")
-        collection = context().drm_server.get_collection(drm_server_endpoint, param)
+        collection = context().asset_server.get_collection(drm_server_endpoint, param)
         data = []
         for obj in collection:
             res = eval('self.data_handler.handle_%s(obj)' % drm_server_endpoint)
@@ -31,7 +31,7 @@ class FullImport(BaseFullImport):
         self.send_data(name, data)
 
     def get_new_model_state_id(self):
-        return context().drm_server.get_model_state_id()
+        return context().asset_server.get_model_state_id()
 
     # Import all vertices from data source
     def import_vertices(self):
