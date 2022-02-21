@@ -5,7 +5,8 @@ sys.path.append('connector')
 from car_framework.context import context
 from car_framework.app import BaseApp
 
-from server_access import DRMServer
+# from server_access import DRMServer
+from server_access import AssetServer
 from full_import import FullImport
 from inc_import import IncrementalImport
 
@@ -28,7 +29,8 @@ class App(BaseApp):
 
     def setup(self):
         super().setup()
-        context().drm_server = DRMServer()
+        # context().drm_server = DRMServer()
+        context().asset_server = AssetServer()
         context().full_importer = FullImport()
         context().inc_importer = IncrementalImport()
 
