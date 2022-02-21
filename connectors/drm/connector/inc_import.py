@@ -11,7 +11,7 @@ class IncrementalImport(BaseIncrementalImport):
         self.data_handler = DataHandler(None)
 
     def get_new_model_state_id(self):
-        return context().drm_server.get_model_state_id()
+        return context().asset_server.get_model_state_id()
 
     def create_source_report_object(self):
         return {'source': self.data_handler.source, 'report': self.data_handler.report,
@@ -27,7 +27,7 @@ class IncrementalImport(BaseIncrementalImport):
     # Import a collection; called by import_vertices
     def import_collection(self, drm_server_endpoint, car_resource_name):
         param = self.last_model_state_id
-        collection = context().drm_server.get_collection(drm_server_endpoint, param)
+        collection = context().asset_server.get_collection(drm_server_endpoint, param)
         if collection != []:
             data = []
             if drm_server_endpoint == 'AssetRetention' or drm_server_endpoint == 'AssetUsage' or drm_server_endpoint == 'AssetDSList':
@@ -49,7 +49,7 @@ class IncrementalImport(BaseIncrementalImport):
             data = []
             edge_creation_endpoint = 'DSAPPLICATION'
             car_resource_name = 'application_ipaddress'
-            new_edge_collection = context().drm_server.get_collection(edge_creation_endpoint, param)
+            new_edge_collection = context().asset_server.get_collection(edge_creation_endpoint, param)
             for item in new_edge_collection:
                 if item['parentConceptId'] == str(obj['id']) or item['childConceptId'] == str(obj['id']):
                     res = eval('self.data_handler.handle_%s(item)' % edge_creation_endpoint)
@@ -60,7 +60,7 @@ class IncrementalImport(BaseIncrementalImport):
             data = []
             edge_creation_endpoint = 'ApplicationBPMapping'
             car_resource_name = 'businessprocess_application'
-            new_edge_collection = context().drm_server.get_collection(edge_creation_endpoint, param)
+            new_edge_collection = context().asset_server.get_collection(edge_creation_endpoint, param)
             for item in new_edge_collection:
                 if item['parentId'] == str(obj['id']) or item['childConcept']['id'] == str(obj['id']):
                     res = eval('self.data_handler.handle_%s(item)' % edge_creation_endpoint)
@@ -88,7 +88,7 @@ class IncrementalImport(BaseIncrementalImport):
     # Imports deleted records for all collection
     def delete_collection(self, drm_server_endpoint, car_resource_name):
         param = self.last_model_state_id
-        collection = context().drm_server.get_deleted_collection(drm_server_endpoint, param)
+        collection = context().asset_server.get_deleted_collection(drm_server_endpoint, param)
         data = []
         for obj in collection:
             res = eval('self.data_handler.handle_%s(obj)' % drm_server_endpoint)
