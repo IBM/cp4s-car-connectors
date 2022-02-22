@@ -5,7 +5,7 @@ CONNECTORS=(
     aws 
     azure 
     proofpoint 
-    reference_connector
+    # reference_connector
 )
 
 set -e
