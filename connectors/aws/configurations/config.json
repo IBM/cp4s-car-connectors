@@ -1,5 +1,11 @@
 {
     "connection": {
+        "schedule": {
+            "default": "* */1 * * *",
+            "type": "cron",
+            "previous": ["frequency", "time"],
+            "options": ["0 */4 * * *", "0 */6 * * *", "0 */12 * * *", "mm HH * * *"]
+        },
         "type": {
             "type": "connectorType",
             "displayName": "AWS"
