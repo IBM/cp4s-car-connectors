@@ -40,6 +40,7 @@ def context_patch(incremental=True):
         'export_data_dir': './cache/tmp',
         'export_data_page_size': 200,
         'connector_name': "test-connector-name",
+        'version': "0.0.0",
     }
     Context(Struct(context_args))
 

@@ -1,0 +1,67 @@
+{
+	"Stats": {
+		"ExecutionTime": 0.0312495,
+		"resource_usage": {
+			"cache": {
+				"memory": {
+					"hits": 1370,
+					"misses": 0,
+					"total": 1370
+				},
+				"disk": {
+					"hits": 0,
+					"misses": 0,
+					"total": 0
+				}
+			},
+			"cpu": {
+				"user": "00:00:00.0468750",
+				"kernel": "00:00:00.0156250",
+				"total cpu": "00:00:00.0625000"
+			},
+			"memory": {
+				"peak_per_node": 50332128
+			}
+		},
+		"dataset_statistics": [{
+			"table_row_count": 39,
+			"table_size": 2408
+		}]
+	},
+	"Schema": [{
+		"Name": "MachineId",
+		"Type": "String"
+	}, {
+		"Name": "PublicIP",
+		"Type": "String"
+	}],
+	"Results": [{
+		"MachineId": "7594a7860caaf0bdb5a3b68c341773bf004e3e14",
+		"PublicIP": "40.113.221.255",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "fc0842373e54e76f5c55830e47526f6f1c187be6",
+		"PublicIP": "52.168.19.140",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"PublicIP": "106.208.135.93",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"PublicIP": "203.105.191.92",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"PublicIP": "106.208.33.67",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"PublicIP": "106.208.33.217",
+		"ComputerName": "xyz"
+	}, {
+		"MachineId": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"PublicIP": "148.64.6.77",
+		"ComputerName": "xyz"
+	}]
+}

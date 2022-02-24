@@ -7,7 +7,6 @@ pylintrc.cfg
 errors/
 logs/
 import_files/
-tests/msatp_test_log/
 tests/logs
 tests/__pycache__/
 coverage/

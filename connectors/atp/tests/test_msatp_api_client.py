@@ -41,8 +41,7 @@ class TestMsatpApiClient(unittest.TestCase):
         # context = TextContext(update=True)
         with self.assertRaises(Exception) as cm:
             context().asset_server.get_machine_list()
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 404
         assert except_obj['success'] is False
 
@@ -74,8 +73,7 @@ class TestMsatpApiClient(unittest.TestCase):
         # context = TextContext(update=True)
         with self.assertRaises(Exception) as cm:
             context().asset_server.get_alerts_list()
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 400
         assert except_obj['success'] is False
 
@@ -124,8 +122,7 @@ class TestMsatpApiClient(unittest.TestCase):
         # context = TextContext(update=True)
         with self.assertRaises(Exception) as cm:
             context().asset_server.mac_private_ip_information(context, None)
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 504
         assert except_obj['success'] is False
 
@@ -159,8 +156,7 @@ class TestMsatpApiClient(unittest.TestCase):
         # context = TextContext(update=True)
         with self.assertRaises(Exception) as cm:
             context().asset_server.get_user_information(None)
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 404
         assert except_obj['success'] is False
 
@@ -233,8 +229,7 @@ class TestMsatpApiClient(unittest.TestCase):
 
         with self.assertRaises(Exception) as cm:
             context().asset_server.vulnerability_information('7594a7860caaf0bdb5a3b68c341773bf004e3e14')
-        error_msg = cm.exception.args[0]
-        except_obj = json.loads(error_msg)
+        except_obj = cm.exception.args[0]
         assert except_obj['status_code'] == 404
         assert except_obj['success'] is False
 
