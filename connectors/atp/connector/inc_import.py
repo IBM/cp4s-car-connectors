@@ -1,7 +1,7 @@
 from car_framework.inc_import import BaseIncrementalImport
 from car_framework.context import context
 from connector.data_handler import DataHandler
-
+from car_framework.util import IncrementalImportNotPossible
 
 class IncrementalImport(BaseIncrementalImport):
     def __init__(self):
@@ -143,3 +143,7 @@ class IncrementalImport(BaseIncrementalImport):
         context().data_collector.delete_vertices()
 
         self.data_handler.printData()
+
+    # To disbale incremental import
+    def run(self):
+        raise IncrementalImportNotPossible('Connector doesn\'t support incremental import.')

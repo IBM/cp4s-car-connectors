@@ -1,6 +1,7 @@
 from car_framework.inc_import import BaseIncrementalImport
 from car_framework.context import context
 from connector.data_handler import DataHandler
+from car_framework.util import IncrementalImportNotPossible
 
 # This is to disable context().fooMember error in IDE
 # pylint: disable=no-member
@@ -167,3 +168,6 @@ class IncrementalImport(BaseIncrementalImport):
 
         self.data_handler.printData()
 
+    # To disbale incremental import
+    def run(self):
+        raise IncrementalImportNotPossible('Connector doesn\'t support incremental import.')
