@@ -17,13 +17,13 @@
             "subscription_id": {
                 "type": "password"
             },
-            "tenant_id": {
+            "tenant": {
                 "type": "password"
             },
-            "client_id": {
+            "clientId": {
                 "type": "password"
             },
-            "client_secret": {
+            "clientSecret": {
                 "type": "password"
             }
         }
