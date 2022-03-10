@@ -17,14 +17,14 @@
                 "label": "Time (UTC)",
                 "description": "Set the UTC time to run connector to pull data from data source"
             }
+        },
+        "host": {
+            "label": "ProofPoint_URL",
+            "description": "Data source URL"
         }
     },
     "configuration": {
         "auth": {
-            "proofpoint_url": {
-                "label": "ProofPoint_URL",
-                "description": "Data source URL"
-            },
             "principle": {
                 "label": "Principle",
                 "description": "Principle required for data source authentication"

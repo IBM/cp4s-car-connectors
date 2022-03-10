@@ -16,7 +16,7 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Parameters need to connect data source
-        self.parser.add_argument('-proofpoint_url', dest='server', default=os.getenv('CONFIGURATION_AUTH_PROOFPOINT_URL', None),
+        self.parser.add_argument('-proofpoint_url', dest='server', default=os.getenv('CONNECTION_HOST', None),
                                  type=str, required=False, help='The url of the ProofPoint data source')
         self.parser.add_argument('-principle', dest='username', default=os.getenv('CONFIGURATION_AUTH_PRINCIPLE', None),
                                  type=str, required=False, help='The principle for the ProofPoint data source')
