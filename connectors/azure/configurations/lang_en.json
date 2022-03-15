@@ -23,15 +23,15 @@
                 "label": "Subscription ID",
                 "description": "Subscription ID of Azure with access to the Microsoft Graph API"
             },
-            "tenant_id": {
+            "tenant": {
                 "label": "Tenant",
                 "description": "Tenant ID of Azure with access to the Microsoft Graph API"
             },
-            "client_id": {
+            "clientId": {
                 "label": "Client Id",
                 "description": "Client ID of Azure with access to the Microsoft Graph API"
             },
-            "client_secret": {
+            "clientSecret": {
                 "label": "Client Secret",
                 "description": "Client Secret of Azure with access to the Microsoft Graph API"
             }
