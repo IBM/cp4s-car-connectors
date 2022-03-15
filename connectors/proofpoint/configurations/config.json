@@ -9,14 +9,14 @@
         "type": {
             "type": "connectorType",
             "displayName": "ProofPoint"
+        },
+        "host": {
+            "type": "text"
         }
     },
     "configuration": {
         "auth": {
             "type": "fields",
-            "proofpoint_url": {
-                "type": "text"
-            },
             "principle": {
                 "type": "password"
             },
