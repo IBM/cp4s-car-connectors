@@ -18,7 +18,7 @@ class TestInitialImportFunctions(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_application_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -54,7 +54,7 @@ class TestInitialImportFunctions(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('no_vulnerability_detail.json')
+        res_vulnerability_detail = get_response('no_vulnerability_detail.xml')
         res_app_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)

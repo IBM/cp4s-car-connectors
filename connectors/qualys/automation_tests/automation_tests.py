@@ -54,7 +54,7 @@ class TestConnector(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_app_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -90,7 +90,7 @@ class TestConnector(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset_inc_create.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_app_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -128,7 +128,7 @@ class TestConnector(unittest.TestCase):
 
         # mock host asset and vulnerability api
         res_host_asset = get_response('host_asset_inc_update.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_app_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -170,7 +170,7 @@ class TestConnector(unittest.TestCase):
 
         # mock host asset, vulnerability, application and car graph search api
         res_host_asset = get_response('host_asset_inc_delete.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_app_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -198,8 +198,9 @@ class TestConnector(unittest.TestCase):
         # Initiate delete vertices process
         context().inc_import.delete_vertices()
         time.sleep(10)
-
-        asset = context().car_service.graph_search('asset', '13263514')
-
+        # api_version = '/api/car/v3'
+        asset_edge_id = context().args.source + '/' + str(13263514)
+        edge_type = "asset_ipaddress"
+        result = context().inc_import.query_active_edges(edge_type, asset_edge_id, "ipaddress")
         # Validate the asset_ipaddress edge is inactive for the asset
-        assert '11:11:11:11:11:11:11:11' not in str(asset)
+        assert '11:11:11:11:11:11:11:11' not in str(result)

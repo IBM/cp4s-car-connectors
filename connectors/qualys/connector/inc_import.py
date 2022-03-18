@@ -1,3 +1,4 @@
+import json
 from car_framework.context import context
 from car_framework.inc_import import BaseIncrementalImport
 from connector.data_handler import DataHandler, endpoint_mapping, get_epoch_time, find_location, deep_get
@@ -44,7 +45,7 @@ class IncrementalImport(BaseIncrementalImport):
         self.import_collection()
         self.data_handler.send_collections(self)
 
-    # Imports edges for all collection
+    # Import edges for all collection
     def import_edges(self):
         self.data_handler.send_edges(self)
 
@@ -98,7 +99,7 @@ class IncrementalImport(BaseIncrementalImport):
 
             for edge_name, edge_ids in asset_edges.items():
                 for edge_id in edge_ids:
-                    self.update_edge.append({'from': asset_id, 'to': edge_id, 'edge_type': 'asset_'+edge_name})
+                    self.update_edge.append({'from': asset_id, 'to': edge_id, 'edge_type': 'asset_' + edge_name})
 
     def get_active_asset_edges(self, asset_id):
         """
@@ -110,45 +111,31 @@ class IncrementalImport(BaseIncrementalImport):
         asset_edges = {'ipaddress': set(), 'macaddress': set(), 'hostname': set(),
                        'account': set(), 'application': set(), 'vulnerability': set(), 'geolocation': set()}
 
-        search_result = context().car_service.graph_search('asset', str(asset_id))
-
-        if search_result['result'] and search_result['related']:
-
-            for car_ip in search_result['related']:
-
-                if 'ipaddress/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        deep_get(car_ip, ["node", "_key"]) and \
-                        context().args.source in deep_get(car_ip, ["link", "source"]):
-                    asset_edges['ipaddress'].add(deep_get(car_ip, ["node", "_key"]))
-
-                if 'macaddress/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        deep_get(car_ip, ["node", "_key"]) and \
-                        context().args.source in deep_get(car_ip, ["link", "source"]):
-                    asset_edges['macaddress'].add(deep_get(car_ip, ["node", "_key"]))
-
-                if 'account/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        deep_get(car_ip, ["node", "external_id"]) and \
-                        context().args.source in deep_get(car_ip, ["node", "source"]):
-                    asset_edges['account'].add(deep_get(car_ip, ["node", "external_id"]))
-
-                if 'vulnerability/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        deep_get(car_ip, ["node", "disclosed_on"]) is None and \
-                        context().args.source in deep_get(car_ip, ["node", "source"]):
-                    asset_edges['vulnerability'].add(deep_get(car_ip, ["node", "external_id"]))
-
-                if 'application/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        context().args.source in deep_get(car_ip, ["node", "source"]):
-                    asset_edges['application'].add(deep_get(car_ip, ["node", "external_id"]))
-
-                if 'hostname/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        context().args.source in deep_get(car_ip, ["node", "source"]):
-                    asset_edges['hostname'].add(deep_get(car_ip, ["node", "_key"]))
-
-                if 'geolocation/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                        context().args.source in deep_get(car_ip, ["node", "source"]):
-                    asset_edges['geolocation'].add(deep_get(car_ip, ["node", "external_id"]))
-
+        for key in asset_edges.keys():
+            edge_type = "asset_" + key
+            asset_edge_id = context().args.source + '/' + str(asset_id)
+            edges = self.query_active_edges(edge_type, asset_edge_id, key)
+            to_field = key + "_id"
+            for edge in edges["data"][edge_type]:
+                asset_edges[key].add(edge[to_field].split('/', 1)[1])
         return asset_edges
+
+    def query_active_edges(self, edge_type, asset_id, resource_name):
+        """
+        Query CARDB for list of asset related edges
+        params: edge_type(str) : type of the edge
+                asset_id(str): asset_id values in edge
+                resource_name: resource name
+        """
+        # GraphQL uses api version v3.
+        api_version = '/api/car/v3'
+        # Graph query
+        data = "{\"query\":\"query { %s(where: {asset_id: {_eq: \\\"%s\\\"}}) " \
+               "{  source, asset_id, %s_id  }}\"}" % (edge_type, asset_id, resource_name)
+
+        search_result = context().car_service.communicator.post('query', data=data,
+                                                                api_version=api_version)
+        return json.loads(search_result.content)
 
     def disable_edges(self):
         """ Disable the inactive edges """

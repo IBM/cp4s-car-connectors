@@ -50,8 +50,8 @@ class TestAssetServer(unittest.TestCase):
          If vulnerability api having pagination."""
 
         # mock vulnerability api
-        vuln_page_1 = get_response('vulnerability_detail_pagination.json')
-        vuln_page_2 = get_response('vulnerability_detail.json')
+        vuln_page_1 = get_response('vulnerability_detail_pagination.xml')
+        vuln_page_2 = get_response('vulnerability_detail.xml')
 
         mock_vuln_page_1 = Mock(status_code=200)
         mock_vuln_page_1.text = vuln_page_1
@@ -98,7 +98,7 @@ class TestAssetServer(unittest.TestCase):
         full_import_obj.create_source_report_object()
 
         # mock host asset api
-        host_asset = get_response('vulnerability_detail_error.json')
+        host_asset = get_response('vulnerability_detail_error.xml')
 
         mock_host_asset = Mock(status_code=404)
         mock_host_asset.text = host_asset

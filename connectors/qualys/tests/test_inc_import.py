@@ -17,7 +17,7 @@ class TestIncImportFunctions(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         inc_import_obj.last_model_state_id = data_handler.get_report_time()
         res_application_detail = get_response('application_detail.json', True)
 
@@ -56,7 +56,7 @@ class TestIncImportFunctions(unittest.TestCase):
 
         # mock host asset, vulnerability, application api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('no_vulnerability_detail.json')
+        res_vulnerability_detail = get_response('no_vulnerability_detail.xml')
         res_application_detail = get_response('application_detail.json', True)
 
         mock_host_asset = Mock(status_code=200)
@@ -81,7 +81,7 @@ class TestIncImportFunctions(unittest.TestCase):
         assert actual_response is not None
 
     @patch('car_framework.car_service.CarService.edge_patch')
-    @patch('car_framework.car_service.CarService.graph_search')
+    @patch('connector.inc_import.IncrementalImport.get_active_asset_edges')
     @patch('connector.server_access.AssetServer.get_collection')
     def test_delete_vertices(self, mock_api, mock_active_edges, mock_patch):
         """Unit test for import vertices
@@ -93,7 +93,7 @@ class TestIncImportFunctions(unittest.TestCase):
 
         # mock host asset, vulnerability, application and car graph search api
         res_host_asset = get_response('host_asset.json', True)
-        res_vulnerability_detail = get_response('vulnerability_detail.json')
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
         res_application_detail = get_response('application_detail.json', True)
         res_active_edges = get_response('asset_active_edges.json', True)
 
@@ -110,7 +110,10 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_application_detail.json.return_value = res_application_detail
 
         mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
-        mock_active_edges.return_value = res_active_edges
+        active_edge = {}
+        for key, value in res_active_edges.items():
+            active_edge[key] = set(value)
+        mock_active_edges.return_value = active_edge
         mock_patch.return_value = {'status': 'success'}
 
         # Initiate delete vertices process
