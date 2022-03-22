@@ -2,6 +2,7 @@ import argparse, os
 
 from car_framework.context import context
 from car_framework.app import BaseApp
+from car_framework.extension import SchemaExtension
 
 from connector.server_access import AssetServer
 from connector.data_collector import DataCollector
@@ -34,6 +35,41 @@ class App(BaseApp):
         context().data_collector = DataCollector()
         context().full_importer = FullImport()
         context().inc_importer = IncrementalImport()
+
+
+    def get_schema_extension(self):
+        return SchemaExtension(
+            key='f1532f2f-32bf-4c39-9bcb-89643fcffd05',  # generate your own UUID key!
+            owner='Reference Connector',
+            version='1',
+            schema='''
+               {
+                   "vertices": [
+                        {
+                           "name": "asset",
+                           "properties": {
+                               "os": {
+                                   "description": "Operating system platform",
+                                   "type": "text"
+                               },
+                               "os_version": {
+                                   "description": "Operation system version",
+                                   "type": "text"
+                               },
+                               "os_architecture": {
+                                   "description": "Operating system architecture. Possible values are: 32-bit, 64-bit",
+                                   "type": "text"
+                               },
+                               "ad_device_id": {
+                                   "description": "Active Directory Device ID",
+                                   "type": "text"
+                               }
+                           }
+                       }
+                   ]
+               }
+               '''
+        )
 
 
 app = App()
