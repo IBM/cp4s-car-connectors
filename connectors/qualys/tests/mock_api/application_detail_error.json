@@ -1,0 +1,10 @@
+{
+	"timestamp": "2022-02-02T06:03:36.701+0000",
+	"path": "/rest/2.0/search/am/asset",
+	"status": 401,
+	"error": "Unauthorized",
+	"message": "Not authenticated",
+	"requestId": "ec5fa457",
+	"responseCode": "Failure",
+	"responseErrorDetails": "Unauthorized"
+}
