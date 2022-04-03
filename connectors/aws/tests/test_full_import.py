@@ -7,17 +7,19 @@ from tests.common_validate import context, context_patch, TestConsumer, JsonResp
 
 class TestAwsFullImportFunctions(unittest.TestCase):
 
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.get_image_name')
     @patch('connector.server_access.AssetServer.list_applications')
     @patch('connector.server_access.AssetServer.list_applications_env')
-    def test_create_asset(self, mock_env_details, mock_app_details, mock_image_details, mock_get_instances):
+    def test_create_asset(self, mock_env_details, mock_app_details, mock_image_details, mock_get_instances, mock_get_login_events):
         """Unit test for create asset"""
         result_list = list()
         test_log_data = JsonResponse(200, 'Instance_details.json').json()
         mock_env_details.return_value = JsonResponse(200, 'environment_log.json').json()
         mock_image_details.return_value = "TestImage"
-        mock_get_instances.return_value = JsonResponse(200, 'get_instance.json').json()
+        mock_get_instances.return_value = (JsonResponse(200, 'get_instance.json').json(), JsonResponse(200, 'cloudtrail_run_instance_events.json').json()['Events'])
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
         context_patch()
 
         result_list.extend(test_log_data['Reservations'])
@@ -25,6 +27,9 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         
         assert actual_response is not None
         context().inc_importer.handle_data([
+            'user',
+            'account',
+            'user_account',
             'asset',
             'application',
             'asset_application',
@@ -44,12 +49,15 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         validate = TestConsumer()
 
         validations = all([
+            validate.user_validate(collections.get('user')),
+            validate.account_validate(collections.get('account')),
             validate.asset_validate(collections.get('asset')),
             validate.application_validate(collections.get('application')),
             validate.ip_adr_validate(collections.get('ipaddress')),
             validate.host_validate(collections.get('hostname')), 
             validate.mac_validate(collections.get('macaddress')),
             validate.geolocation_validate(collections.get('geolocation')),
+            validate.edges_validate(edges.get('user_account')),
             validate.edges_validate(edges.get('asset_application')),
             validate.edges_validate(edges.get('ipaddress_macaddress')),
             validate.edges_validate(edges.get('asset_ipaddress')),
@@ -126,19 +134,23 @@ class TestAwsFullImportFunctions(unittest.TestCase):
 
         assert validations is True
 
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.security_alerts')
-    def test_create_vulnerability(self, mock_alerts_response, mock_get_instances):
+    def test_create_vulnerability(self, mock_alerts_response, mock_get_instances, mock_get_login_events):
         """Unit test for create vulnerability"""
         mock_alerts_response.return_value = JsonResponse(200, 'alerts_log.json').json()['Findings']
-        mock_get_instances.return_value = JsonResponse(200, 'get_instance.json').json()
-
+        mock_get_instances.return_value = (JsonResponse(200, 'get_instance.json').json(), JsonResponse(200, 'cloudtrail_run_instance_events.json').json()['Events'])
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
         context_patch()
 
         actual_response = context().data_collector.create_vulnerability(incremental=False)
         assert actual_response is not None
         
         context().inc_importer.handle_data([
+            'user',
+            'account',
+            'user_account',
             'vulnerability',
             'asset_vulnerability',
         ], actual_response)
@@ -148,48 +160,61 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         validate = TestConsumer()
 
         validations = all([
+            validate.user_validate(collections.get('user')),
+            validate.account_validate(collections.get('account')),
             validate.vuln_validate(collections.get('vulnerability')), 
             validate.edges_validate(edges.get('asset_vulnerability')),
+            validate.edges_validate(edges.get('user_account')),
         ])
         
         assert validations is True
 
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('connector.server_access.AssetServer.list_applications')
-    def test_create_application(self, mock_list_applications):
+    def test_create_application(self, mock_list_applications, mock_get_login_events):
         """Unit test for create application."""
-        mock_list_applications.return_value = JsonResponse(200, 'application_log.json').json()['Applications']
-        
+        mock_list_applications.return_value = (JsonResponse(200, 'application_log.json').json()['Applications'],
+                                               JsonResponse(200, 'cloudtrail_create_application_events.json').json()['Events'])
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
         context_patch()
         
         actual_response, _ = context().data_collector.create_application(incremental=False)
         assert actual_response is not None
         
         context().inc_importer.handle_data([
+            'user',
+            'account',
+            'user_account',
             'application'
         ], actual_response)
         
         collections = context().inc_importer.data_handler.collections
+        edges = context().inc_importer.data_handler.edges
         validate = TestConsumer()
 
         validations = all([
+            validate.user_validate(collections.get('user')),
+            validate.account_validate(collections.get('account')),
             validate.application_validate(collections.get('application')),
+            validate.edges_validate(edges.get('user_account')),
         ])
         assert validations is True
         
-
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('car_framework.car_service.CarService.graph_search')
     @patch('car_framework.car_service.CarService.graph_attribute_search')
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.event_logs')
-    def test_create_database(self, mock_cloudtrail_events, mock_db_data, search_data, attribute_search, db_graph_data):
+    def test_create_database(self, mock_cloudtrail_events, mock_db_data, search_data, attribute_search, db_graph_data, mock_get_login_events):
         """Unit test case for create RDS database"""
         mock_cloudtrail_events.return_value = JsonResponse(200, 'db_cloutrail_events.json').json()
         for item in mock_cloudtrail_events.return_value:
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
-        mock_db_data.return_value = JsonResponse(200, 'db_list_log.json').json()
-        search_data.return_value = JsonResponse(200, 'db_search.json').json()
+        mock_db_data.return_value = (JsonResponse(200, 'db_list_log.json').json(), JsonResponse(200, 'cloudtrail_create_db_instance_events.json').json()['Events'])
+        search_data.return_value = (JsonResponse(200, 'db_search.json').json(), JsonResponse(200, 'cloudtrail_create_db_instance_events.json').json()['Events'])
         db_graph_data.return_value = JsonResponse(200, 'db_car_search.json').json()
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
         attribute_search.return_value = [{'external_id': ['AWS-TEST:db-GQNFWUQIV7BLAFOMGEDTPTN67M'], 'source':['AWS-TEST']}]
         context_patch()
         
@@ -234,17 +259,22 @@ class TestAwsFullImportFunctions(unittest.TestCase):
 
         assert validations is True
 
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('connector.server_access.AssetServer.list_running_containers')
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.container_ec2_instance')
-    def test_create_container(self, mock_container_instances, mock_get_instances, mock_container_details):
+    def test_create_container(self, mock_container_instances, mock_get_instances, mock_container_details, mock_get_login_events):
         """Unit test cases for create container"""
         container_details = JsonResponse(200, 'container.json').json()['tasks']
         container_instances = JsonResponse(200, 'describe_container_instances.json').json()
         get_instances = JsonResponse(200, 'get_instance.json').json()
+
+        create_events = JsonResponse(200, 'cloudtrail_create_cluster_events.json').json()['Events']
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
+
         mock_container_instances.return_value = container_instances
-        mock_get_instances.return_value = get_instances
-        mock_container_details.return_value = container_details
+        mock_get_instances.return_value = (get_instances, create_events)
+        mock_container_details.return_value = (container_details, create_events)
         context_patch()
 
         response = context().data_collector.create_container(incremental=False)
@@ -252,10 +282,13 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         assert response is not None
 
         context().inc_importer.handle_data([
+            'user',
+            'account',
             'container',
             'ipaddress',
             'asset_container',
             'ipaddress_container',
+            'user_account'
         ], response)
         
         collections = context().inc_importer.data_handler.collections
@@ -263,9 +296,12 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         validate = TestConsumer()
 
         validations = all([
+            validate.user_validate(collections.get('user')),
+            validate.account_validate(collections.get('account')),
             validate.container_validate(collections.get('container')),
             validate.edges_validate(edges.get('asset_container')),
             validate.edges_validate(edges.get('ipaddress_container')),
+            validate.edges_validate(edges.get('user_account')),
         ])
 
         assert validations is True

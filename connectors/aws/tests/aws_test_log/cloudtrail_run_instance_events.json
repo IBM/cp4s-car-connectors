@@ -1,0 +1,530 @@
+{
+  "Events": [
+    {
+      "EventId": "7de1c1e6-f6ab-4f75-b830-8ceaf87da4b6",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KOOGY2YA5",
+      "EventTime": "2022-03-14 13:54:12+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-0e1d30f2c40c4c701"
+        },
+        {
+          "ResourceType": "AWS::EC2::NetworkInterface",
+          "ResourceName": "eni-051ac5949e37d75c2"
+        },
+        {
+          "ResourceType": "AWS::EC2::Instance",
+          "ResourceName": "i-03b17ec42281ffa9f"
+        },
+        {
+          "ResourceType": "AWS::EC2::KeyPair",
+          "ResourceName": "karthick.rajagopal"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-00dbbac62606ef2f5"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "launch-wizard-5"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-f5e297dd"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KOOGY2YA5\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-14T11:54:12Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-0e1d30f2c40c4c701\",\"minCount\":1,\"maxCount\":1,\"keyName\":\"karthick.rajagopal\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"t2.micro\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvda\",\"ebs\":{\"volumeSize\":8,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"tenancy\":\"default\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"instanceInitiatedShutdownBehavior\":\"stop\",\"networkInterfaceSet\":{\"items\":[{\"deviceIndex\":0,\"subnetId\":\"subnet-f5e297dd\",\"description\":\"Primary network interface\",\"deleteOnTermination\":true,\"groupSet\":{\"items\":[{\"groupId\":\"sg-00dbbac62606ef2f5\"}]},\"ipv6AddressCount\":0}]},\"ebsOptimized\":false,\"creditSpecification\":{\"cpuCredits\":\"standard\"},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"metadataOptions\":{\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}},\"responseElements\":{\"requestId\":\"78bd7ec9-50a0-42a1-a8c5-dc711f9b3220\",\"reservationId\":\"r-0b5b8e0a98d87e9bc\",\"ownerId\":\"752111851284\",\"groupSet\":{},\"instancesSet\":{\"items\":[{\"instanceId\":\"i-06f35fac91f076a47\",\"imageId\":\"ami-0e1d30f2c40c4c701\",\"instanceState\":{\"code\":0,\"name\":\"pending\"},\"privateDnsName\":\"ip-172-16-2-251.ec2.internal\",\"keyName\":\"karthick.rajagopal\",\"amiLaunchIndex\":0,\"productCodes\":{},\"instanceType\":\"t2.micro\",\"launchTime\":1647258852000,\"placement\":{\"availabilityZone\":\"us-east-1c\",\"tenancy\":\"default\"},\"monitoring\":{\"state\":\"disabled\"},\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"privateIpAddress\":\"172.16.2.251\",\"stateReason\":{\"code\":\"pending\",\"message\":\"pending\"},\"architecture\":\"x86_64\",\"rootDeviceType\":\"ebs\",\"rootDeviceName\":\"/dev/xvda\",\"blockDeviceMapping\":{},\"virtualizationType\":\"hvm\",\"hypervisor\":\"xen\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-00dbbac62606ef2f5\",\"groupName\":\"launch-wizard-5\"}]},\"sourceDestCheck\":true,\"networkInterfaceSet\":{\"items\":[{\"networkInterfaceId\":\"eni-051ac5949e37d75c2\",\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"description\":\"Primary network interface\",\"ownerId\":\"752111851284\",\"status\":\"in-use\",\"macAddress\":\"12:45:79:0a:07:bf\",\"privateIpAddress\":\"172.16.2.251\",\"privateDnsName\":\"ip-172-16-2-251.ec2.internal\",\"sourceDestCheck\":true,\"interfaceType\":\"interface\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-00dbbac62606ef2f5\",\"groupName\":\"launch-wizard-5\"}]},\"attachment\":{\"attachmentId\":\"eni-attach-089cb8d8c76856ded\",\"deviceIndex\":0,\"networkCardIndex\":0,\"status\":\"attaching\",\"attachTime\":1647258852000,\"deleteOnTermination\":true},\"privateIpAddressesSet\":{\"item\":[{\"privateIpAddress\":\"172.16.2.251\",\"privateDnsName\":\"ip-172-16-2-251.ec2.internal\",\"primary\":true}]},\"ipv6AddressesSet\":{},\"tagSet\":{}}]},\"ebsOptimized\":false,\"enaSupport\":true,\"cpuOptions\":{\"coreCount\":1,\"threadsPerCore\":1},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"enclaveOptions\":{\"enabled\":false},\"metadataOptions\":{\"state\":\"pending\",\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"httpProtocolIpv4\":\"enabled\",\"httpProtocolIpv6\":\"disabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}}]}},\"requestID\":\"78bd7ec9-50a0-42a1-a8c5-dc711f9b3220\",\"eventID\":\"7de1c1e6-f6ab-4f75-b830-8ceaf87da4b6\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "3f5b8ee4-ff98-49e9-beaa-1f387eb818fe",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-14 13:30:08+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-053a0d2e538381b38"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-06658c61e1dc12b55"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-14T11:30:08Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-053a0d2e538381b38\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"m6i.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-06658c61e1dc12b55\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"70a7839f-af7f-46f4-b338-70826898d22f\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"44c73b0b-4711-4a04-ab53-1d826feabf62\",\"eventID\":\"3f5b8ee4-ff98-49e9-beaa-1f387eb818fe\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "4dc15a8d-2904-4196-80ca-8b2e29a2347a",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-14 13:30:08+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-053a0d2e538381b38"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-06658c61e1dc12b55"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-14T11:30:08Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-053a0d2e538381b38\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.medium\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-06658c61e1dc12b55\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"34063c76-7951-44f1-9c61-06781ac24f12\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"ba160a79-9ba9-40f5-94b2-8b6881c47ec7\",\"eventID\":\"4dc15a8d-2904-4196-80ca-8b2e29a2347a\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "75a5f91e-8653-4fb8-b356-6d8eed914f99",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-14 13:30:08+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-053a0d2e538381b38"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-066e62b6a1ae777eb"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-14T11:30:08Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-053a0d2e538381b38\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"m6i.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-066e62b6a1ae777eb\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"11a6cb05-59c9-4fd1-8a8d-5686c99f0650\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"511fb235-36a1-4878-97a0-7b5b827df396\",\"eventID\":\"75a5f91e-8653-4fb8-b356-6d8eed914f99\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "8b7732ca-4008-47e6-94d3-bc55dc1eee13",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-14 13:30:08+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-053a0d2e538381b38"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-066e62b6a1ae777eb"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-14T11:30:08Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-053a0d2e538381b38\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.medium\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-066e62b6a1ae777eb\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"c1ae0ed8-4e7d-45b8-a25a-4cdfb422d5ad\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"4385c16a-6141-4f37-a612-ac98117d7a5c\",\"eventID\":\"8b7732ca-4008-47e6-94d3-bc55dc1eee13\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "aaee7e56-bfd8-4197-9aec-784f2d660b3c",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:02+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-0f4e9f8f87ac65967"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:02Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"m6i.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-0f4e9f8f87ac65967\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"07744027-0466-4e1a-b0f2-14fcadd5edfe\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"a7e71da1-540d-4bff-af40-dd2f52fa87f1\",\"eventID\":\"aaee7e56-bfd8-4197-9aec-784f2d660b3c\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "baccb479-6599-411b-aa09-93c908d3c2f0",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:02+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-05417dd37a55ac12f"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:02Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"m6i.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-05417dd37a55ac12f\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"77f8fb3b-d924-4f86-b5fa-ca996165a0aa\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"86db0c9d-92b8-4f16-a5ef-7d174d57e8cf\",\"eventID\":\"baccb479-6599-411b-aa09-93c908d3c2f0\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "1ae10be1-2a9a-4adc-8713-ff6b7ba6df6d",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:01+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-0f4e9f8f87ac65967"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:01Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.medium\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-0f4e9f8f87ac65967\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"86dbf922-c75c-496c-abb5-e6200490de72\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"70945cb9-cff3-47dc-83ea-44b3f5028c46\",\"eventID\":\"1ae10be1-2a9a-4adc-8713-ff6b7ba6df6d\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "47d24da9-8432-491b-a645-b2ad1660d37c",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:01+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-0f4e9f8f87ac65967"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:01Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-0f4e9f8f87ac65967\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"d081cbe5-3409-4792-84e8-b7b39d5607a4\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"9dccd56a-5fdc-402f-877f-7b478fec6183\",\"eventID\":\"47d24da9-8432-491b-a645-b2ad1660d37c\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "c86668d0-f47d-40de-8798-d9323dd6146f",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:01+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-05417dd37a55ac12f"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:01Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.large\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-05417dd37a55ac12f\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"d2622ac2-265e-4314-9405-cbe91f5adc56\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"4b4d7afb-20fa-47ce-80ae-348b03101bea\",\"eventID\":\"c86668d0-f47d-40de-8798-d9323dd6146f\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "ea772c30-14ac-48d4-bf08-404a3dec6119",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 17:55:01+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-09dde860d0fe25a39"
+        },
+        {
+          "ResourceType": "AWS::IAM::InstanceProfile",
+          "ResourceName": "arn:aws:iam::752111851284:instance-profile/ecsInstanceRole"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-069a5e25a7e119630"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-05417dd37a55ac12f"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"spotfleet.amazonaws.com\"},\"eventTime\":\"2022-03-13T15:55:01Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.InvalidParameterValue\",\"errorMessage\":\"The architecture 'arm64' of the specified instance type does not match the architecture 'x86_64' of the specified AMI. Specify an instance type and an AMI that have matching architectures, and try again. You can use 'describe-instance-types' or 'describe-images' to discover the architecture of the instance type or AMI.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-09dde860d0fe25a39\",\"minCount\":1,\"maxCount\":1}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-069a5e25a7e119630\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"a1.medium\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvdcz\",\"ebs\":{\"volumeSize\":22,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"monitoring\":{\"enabled\":true},\"subnetId\":\"subnet-05417dd37a55ac12f\",\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"1e8c4645-acd8-4937-8a34-bfb28549574e\",\"iamInstanceProfile\":{\"arn\":\"arn:aws:iam::752111851284:instance-profile/ecsInstanceRole\"}},\"responseElements\":null,\"requestID\":\"a2aa7352-8490-4a77-98c1-993ea29b6e84\",\"eventID\":\"ea772c30-14ac-48d4-bf08-404a3dec6119\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "45452235-83cc-4748-a748-9b0bde0f5a3a",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 14:40:49+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T12:40:49Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"f484daa2-73af-4c1f-ade2-723ba16d3177\",\"launchTemplate\":{\"launchTemplateId\":\"lt-0298413f87eefe0f3\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"4af6a1c4-b803-43ee-aa51-fa99a1820ae1\",\"eventID\":\"45452235-83cc-4748-a748-9b0bde0f5a3a\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "f1773cf0-3e7b-4605-94a9-5316ca7db0f8",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 14:40:47+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T12:40:47Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"a6cce604-1930-4fa3-8825-b74fe7d78783\",\"launchTemplate\":{\"launchTemplateId\":\"lt-0298413f87eefe0f3\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"9e6c17c3-dca2-4bf6-8949-489a65952624\",\"eventID\":\"f1773cf0-3e7b-4605-94a9-5316ca7db0f8\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "ca5067de-d44f-4cbc-b363-0842ac88f2bb",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 14:09:00+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T12:09:00Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"1ab6652c-19e3-45a1-82f4-fb3c544cbb22\",\"launchTemplate\":{\"launchTemplateId\":\"lt-025d2d2c535ed7511\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"b794c9c8-f26e-49bb-af2e-75ef5241a3d3\",\"eventID\":\"ca5067de-d44f-4cbc-b363-0842ac88f2bb\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "6fc661fd-0887-433e-b9d1-0b10cccf8474",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 14:08:58+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T12:08:58Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"f7a88dfd-7402-40c1-b79c-5665517ac972\",\"launchTemplate\":{\"launchTemplateId\":\"lt-025d2d2c535ed7511\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"f5f9e948-535b-489d-8739-081640f38899\",\"eventID\":\"6fc661fd-0887-433e-b9d1-0b10cccf8474\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "6da978cd-4bd9-411e-a845-712361c9c02e",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 10:19:38+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T08:19:38Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"363f62a1-466d-4d08-aaf3-19d9445eb7b3\",\"launchTemplate\":{\"launchTemplateId\":\"lt-09c2a2d9c1d5e2797\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"0ba20be2-6071-47f5-aaea-b123d678b722\",\"eventID\":\"6da978cd-4bd9-411e-a845-712361c9c02e\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "9c6caafa-eeb1-44e1-8653-d90c5c3ba85b",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 10:19:37+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-13T08:19:37Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"136b4109-b889-4082-ab7a-01e723d88065\",\"launchTemplate\":{\"launchTemplateId\":\"lt-09c2a2d9c1d5e2797\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"23acd1e0-94dd-4f27-9706-5ef79bd59f86\",\"eventID\":\"9c6caafa-eeb1-44e1-8653-d90c5c3ba85b\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "7d4e7320-17f1-46b7-8062-6362ab0c5f74",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-10 19:46:23+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-10T15:21:29Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-10T17:46:23Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"d028a1e8-e78f-4fa3-9b50-7cba1adc0cab\",\"launchTemplate\":{\"launchTemplateId\":\"lt-09e924f812b303893\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"213d4249-b726-4a94-8ccd-95fc9eb33a20\",\"eventID\":\"7d4e7320-17f1-46b7-8062-6362ab0c5f74\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "c176bd53-ec16-4e9d-b075-08992793c716",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-10 19:46:15+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-10T15:21:29Z\",\"mfaAuthenticated\":\"true\"}},\"invokedBy\":\"autoscaling.amazonaws.com\"},\"eventTime\":\"2022-03-10T17:46:15Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"errorCode\":\"Client.DryRunOperation\",\"errorMessage\":\"Request would have succeeded, but DryRun flag is set.\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"minCount\":1,\"maxCount\":1}]},\"instanceType\":\"t1.micro\",\"blockDeviceMapping\":{},\"availabilityZone\":\"us-east-1a\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"clientToken\":\"2f5c9c3f-d035-47ce-bff0-c52ecc3bd7cc\",\"launchTemplate\":{\"launchTemplateId\":\"lt-09e924f812b303893\",\"version\":\"1\"}},\"responseElements\":null,\"requestID\":\"4568d3be-7378-43ef-be4f-0d1f332ba630\",\"eventID\":\"c176bd53-ec16-4e9d-b075-08992793c716\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "fcffb5eb-c1e1-4289-841b-cc8353000df0",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KCEYSS4BP",
+      "EventTime": "2022-02-27 10:18:37+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-033b95fb8079dc481"
+        },
+        {
+          "ResourceType": "AWS::EC2::NetworkInterface",
+          "ResourceName": "eni-031a0c477177854ff"
+        },
+        {
+          "ResourceType": "AWS::EC2::Instance",
+          "ResourceName": "i-02136402a2e041708"
+        },
+        {
+          "ResourceType": "AWS::EC2::KeyPair",
+          "ResourceName": "ec2_useast"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-0fd0c28fd5e946d38"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "karthick.rajagopal@hcl.com@il.ibm.com"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-f5e297dd"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KCEYSS4BP\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-27T08:11:49Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-27T08:18:37Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-033b95fb8079dc481\",\"minCount\":1,\"maxCount\":1,\"keyName\":\"ec2_useast\"}]},\"userData\":\"<sensitiveDataRemoved>\",\"instanceType\":\"t2.micro\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvda\",\"ebs\":{\"volumeSize\":8,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"tenancy\":\"default\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"instanceInitiatedShutdownBehavior\":\"stop\",\"networkInterfaceSet\":{\"items\":[{\"deviceIndex\":0,\"subnetId\":\"subnet-f5e297dd\",\"description\":\"Primary network interface\",\"deleteOnTermination\":true,\"groupSet\":{\"items\":[{\"groupId\":\"sg-0fd0c28fd5e946d38\"}]},\"ipv6AddressCount\":0}]},\"ebsOptimized\":false,\"creditSpecification\":{\"cpuCredits\":\"standard\"},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"metadataOptions\":{\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}},\"responseElements\":{\"requestId\":\"9c94fa33-f42e-404b-ad57-73d5a2a046f1\",\"reservationId\":\"r-0a3649488ea592b65\",\"ownerId\":\"752111851284\",\"groupSet\":{},\"instancesSet\":{\"items\":[{\"instanceId\":\"i-02136402a2e041708\",\"imageId\":\"ami-033b95fb8079dc481\",\"instanceState\":{\"code\":0,\"name\":\"pending\"},\"privateDnsName\":\"ip-172-16-2-37.ec2.internal\",\"keyName\":\"ec2_useast\",\"amiLaunchIndex\":0,\"productCodes\":{},\"instanceType\":\"t2.micro\",\"launchTime\":1645949917000,\"placement\":{\"availabilityZone\":\"us-east-1c\",\"tenancy\":\"default\"},\"monitoring\":{\"state\":\"disabled\"},\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"privateIpAddress\":\"172.16.2.37\",\"stateReason\":{\"code\":\"pending\",\"message\":\"pending\"},\"architecture\":\"x86_64\",\"rootDeviceType\":\"ebs\",\"rootDeviceName\":\"/dev/xvda\",\"blockDeviceMapping\":{},\"virtualizationType\":\"hvm\",\"hypervisor\":\"xen\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-0fd0c28fd5e946d38\",\"groupName\":\"karthick.rajagopal@hcl.com@il.ibm.com\"}]},\"sourceDestCheck\":true,\"networkInterfaceSet\":{\"items\":[{\"networkInterfaceId\":\"eni-031a0c477177854ff\",\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"description\":\"Primary network interface\",\"ownerId\":\"752111851284\",\"status\":\"in-use\",\"macAddress\":\"12:1a:93:66:87:8f\",\"privateIpAddress\":\"172.16.2.37\",\"privateDnsName\":\"ip-172-16-2-37.ec2.internal\",\"sourceDestCheck\":true,\"interfaceType\":\"interface\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-0fd0c28fd5e946d38\",\"groupName\":\"karthick.rajagopal@hcl.com@il.ibm.com\"}]},\"attachment\":{\"attachmentId\":\"eni-attach-00ae2e14db5691b37\",\"deviceIndex\":0,\"networkCardIndex\":0,\"status\":\"attaching\",\"attachTime\":1645949917000,\"deleteOnTermination\":true},\"privateIpAddressesSet\":{\"item\":[{\"privateIpAddress\":\"172.16.2.37\",\"privateDnsName\":\"ip-172-16-2-37.ec2.internal\",\"primary\":true}]},\"ipv6AddressesSet\":{},\"tagSet\":{}}]},\"ebsOptimized\":false,\"enaSupport\":true,\"cpuOptions\":{\"coreCount\":1,\"threadsPerCore\":1},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"enclaveOptions\":{\"enabled\":false},\"metadataOptions\":{\"state\":\"pending\",\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"httpProtocolIpv4\":\"enabled\",\"httpProtocolIpv6\":\"disabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}}]}},\"requestID\":\"9c94fa33-f42e-404b-ad57-73d5a2a046f1\",\"eventID\":\"fcffb5eb-c1e1-4289-841b-cc8353000df0\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "b2cacf0f-9f0b-4b0f-af04-10fabdefcc6a",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KJMYPTOBK",
+      "EventTime": "2022-02-22 17:36:30+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-033b95fb8079dc481"
+        },
+        {
+          "ResourceType": "AWS::EC2::NetworkInterface",
+          "ResourceName": "eni-022696cf765cad43c"
+        },
+        {
+          "ResourceType": "AWS::EC2::Instance",
+          "ResourceName": "i-03eb866f2ad8eb07d"
+        },
+        {
+          "ResourceType": "AWS::EC2::KeyPair",
+          "ResourceName": "ec2_useast"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "matan-ec2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-0bd085ea395e602d6"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-f5e297dd"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KJMYPTOBK\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-22T14:15:13Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-22T15:36:30Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-033b95fb8079dc481\",\"minCount\":1,\"maxCount\":1,\"keyName\":\"ec2_useast\"}]},\"instanceType\":\"t2.micro\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvda\",\"ebs\":{\"volumeSize\":8,\"deleteOnTermination\":true,\"volumeType\":\"gp2\",\"encrypted\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:752111851284:key/41ab255d-d303-46b8-9964-347f147fc88f\"}}]},\"tenancy\":\"default\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"instanceInitiatedShutdownBehavior\":\"stop\",\"networkInterfaceSet\":{\"items\":[{\"deviceIndex\":0,\"subnetId\":\"subnet-f5e297dd\",\"description\":\"Primary network interface\",\"deleteOnTermination\":true,\"groupSet\":{\"items\":[{\"groupId\":\"sg-0bd085ea395e602d6\"}]},\"privateIpAddressesSet\":{\"items\":[{\"primary\":true}]},\"secondaryPrivateIpAddressCount\":1,\"ipv6AddressCount\":0}]},\"ebsOptimized\":false,\"tagSpecificationSet\":{\"items\":[{\"resourceType\":\"instance\",\"tags\":[{\"key\":\"ffsadsad\",\"value\":\"1234\"}]},{\"resourceType\":\"volume\",\"tags\":[{\"key\":\"ffsadsad\",\"value\":\"1234\"}]},{\"resourceType\":\"network-interface\",\"tags\":[{\"key\":\"ffsadsad\",\"value\":\"1234\"}]}]},\"creditSpecification\":{\"cpuCredits\":\"standard\"},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"metadataOptions\":{\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"instanceMetadataTags\":\"enabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}},\"responseElements\":{\"requestId\":\"a44a560c-9f35-4dc9-a57a-2b4e95e38e7d\",\"reservationId\":\"r-0239c4792f5c74a79\",\"ownerId\":\"752111851284\",\"groupSet\":{},\"instancesSet\":{\"items\":[{\"instanceId\":\"i-03eb866f2ad8eb07d\",\"imageId\":\"ami-033b95fb8079dc481\",\"instanceState\":{\"code\":0,\"name\":\"pending\"},\"privateDnsName\":\"ip-172-16-2-163.ec2.internal\",\"keyName\":\"ec2_useast\",\"amiLaunchIndex\":0,\"productCodes\":{},\"instanceType\":\"t2.micro\",\"launchTime\":1645544189000,\"placement\":{\"availabilityZone\":\"us-east-1c\",\"tenancy\":\"default\"},\"monitoring\":{\"state\":\"disabled\"},\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"privateIpAddress\":\"172.16.2.163\",\"stateReason\":{\"code\":\"pending\",\"message\":\"pending\"},\"architecture\":\"x86_64\",\"rootDeviceType\":\"ebs\",\"rootDeviceName\":\"/dev/xvda\",\"blockDeviceMapping\":{},\"virtualizationType\":\"hvm\",\"hypervisor\":\"xen\",\"tagSet\":{\"items\":[{\"key\":\"ffsadsad\",\"value\":\"1234\"}]},\"groupSet\":{\"items\":[{\"groupId\":\"sg-0bd085ea395e602d6\",\"groupName\":\"matan-ec2\"}]},\"sourceDestCheck\":true,\"networkInterfaceSet\":{\"items\":[{\"networkInterfaceId\":\"eni-022696cf765cad43c\",\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"description\":\"Primary network interface\",\"ownerId\":\"752111851284\",\"status\":\"in-use\",\"macAddress\":\"12:41:cd:4a:34:1b\",\"privateIpAddress\":\"172.16.2.163\",\"privateDnsName\":\"ip-172-16-2-163.ec2.internal\",\"sourceDestCheck\":true,\"interfaceType\":\"interface\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-0bd085ea395e602d6\",\"groupName\":\"matan-ec2\"}]},\"attachment\":{\"attachmentId\":\"eni-attach-0af9c5eb3c1b5084d\",\"deviceIndex\":0,\"networkCardIndex\":0,\"status\":\"attaching\",\"attachTime\":1645544189000,\"deleteOnTermination\":true},\"privateIpAddressesSet\":{\"item\":[{\"privateIpAddress\":\"172.16.2.163\",\"privateDnsName\":\"ip-172-16-2-163.ec2.internal\",\"primary\":true},{\"privateIpAddress\":\"172.16.2.38\",\"privateDnsName\":\"ip-172-16-2-38.ec2.internal\",\"primary\":false}]},\"ipv6AddressesSet\":{},\"tagSet\":{}}]},\"ebsOptimized\":false,\"enaSupport\":true,\"cpuOptions\":{\"coreCount\":1,\"threadsPerCore\":1},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"enclaveOptions\":{\"enabled\":false},\"metadataOptions\":{\"state\":\"pending\",\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"httpProtocolIpv4\":\"enabled\",\"httpProtocolIpv6\":\"disabled\",\"instanceMetadataTags\":\"enabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}}]}},\"requestID\":\"a44a560c-9f35-4dc9-a57a-2b4e95e38e7d\",\"eventID\":\"b2cacf0f-9f0b-4b0f-af04-10fabdefcc6a\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "533845c5-6fa1-4eab-bbe5-ad73ff4fd0ec",
+      "EventName": "RunInstances",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KJMYPTOBK",
+      "EventTime": "2022-02-22 17:10:25+02:00",
+      "EventSource": "ec2.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::EC2::Ami",
+          "ResourceName": "ami-033b95fb8079dc481"
+        },
+        {
+          "ResourceType": "AWS::EC2::NetworkInterface",
+          "ResourceName": "eni-02a5ca0be3f37cf54"
+        },
+        {
+          "ResourceType": "AWS::EC2::Instance",
+          "ResourceName": "i-02ed710e57b885eda"
+        },
+        {
+          "ResourceType": "AWS::EC2::KeyPair",
+          "ResourceName": "ec2_useast"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-0b583415df198dfcc"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "launch-wizard-4"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-f5e297dd"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KJMYPTOBK\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-22T14:15:13Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-22T15:10:25Z\",\"eventSource\":\"ec2.amazonaws.com\",\"eventName\":\"RunInstances\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"instancesSet\":{\"items\":[{\"imageId\":\"ami-033b95fb8079dc481\",\"minCount\":1,\"maxCount\":1,\"keyName\":\"ec2_useast\"}]},\"instanceType\":\"t2.micro\",\"blockDeviceMapping\":{\"items\":[{\"deviceName\":\"/dev/xvda\",\"ebs\":{\"volumeSize\":8,\"deleteOnTermination\":true,\"volumeType\":\"gp2\"}}]},\"tenancy\":\"default\",\"monitoring\":{\"enabled\":false},\"disableApiTermination\":false,\"disableApiStop\":false,\"instanceInitiatedShutdownBehavior\":\"stop\",\"networkInterfaceSet\":{\"items\":[{\"deviceIndex\":0,\"subnetId\":\"subnet-f5e297dd\",\"description\":\"Primary network interface\",\"deleteOnTermination\":true,\"groupSet\":{\"items\":[{\"groupId\":\"sg-0b583415df198dfcc\"}]},\"ipv6AddressCount\":0}]},\"ebsOptimized\":false,\"creditSpecification\":{\"cpuCredits\":\"standard\"},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"metadataOptions\":{\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}},\"responseElements\":{\"requestId\":\"41e0319a-08a4-4867-bbc4-3c6063171b24\",\"reservationId\":\"r-0c7e98110e16d34e6\",\"ownerId\":\"752111851284\",\"groupSet\":{},\"instancesSet\":{\"items\":[{\"instanceId\":\"i-02ed710e57b885eda\",\"imageId\":\"ami-033b95fb8079dc481\",\"instanceState\":{\"code\":0,\"name\":\"pending\"},\"privateDnsName\":\"ip-172-16-2-23.ec2.internal\",\"keyName\":\"ec2_useast\",\"amiLaunchIndex\":0,\"productCodes\":{},\"instanceType\":\"t2.micro\",\"launchTime\":1645542625000,\"placement\":{\"availabilityZone\":\"us-east-1c\",\"tenancy\":\"default\"},\"monitoring\":{\"state\":\"disabled\"},\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"privateIpAddress\":\"172.16.2.23\",\"stateReason\":{\"code\":\"pending\",\"message\":\"pending\"},\"architecture\":\"x86_64\",\"rootDeviceType\":\"ebs\",\"rootDeviceName\":\"/dev/xvda\",\"blockDeviceMapping\":{},\"virtualizationType\":\"hvm\",\"hypervisor\":\"xen\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-0b583415df198dfcc\",\"groupName\":\"launch-wizard-4\"}]},\"sourceDestCheck\":true,\"networkInterfaceSet\":{\"items\":[{\"networkInterfaceId\":\"eni-02a5ca0be3f37cf54\",\"subnetId\":\"subnet-f5e297dd\",\"vpcId\":\"vpc-b8be43d9\",\"description\":\"Primary network interface\",\"ownerId\":\"752111851284\",\"status\":\"in-use\",\"macAddress\":\"12:cf:b1:26:3d:db\",\"privateIpAddress\":\"172.16.2.23\",\"privateDnsName\":\"ip-172-16-2-23.ec2.internal\",\"sourceDestCheck\":true,\"interfaceType\":\"interface\",\"groupSet\":{\"items\":[{\"groupId\":\"sg-0b583415df198dfcc\",\"groupName\":\"launch-wizard-4\"}]},\"attachment\":{\"attachmentId\":\"eni-attach-09a3ec47152f63593\",\"deviceIndex\":0,\"networkCardIndex\":0,\"status\":\"attaching\",\"attachTime\":1645542625000,\"deleteOnTermination\":true},\"privateIpAddressesSet\":{\"item\":[{\"privateIpAddress\":\"172.16.2.23\",\"privateDnsName\":\"ip-172-16-2-23.ec2.internal\",\"primary\":true}]},\"ipv6AddressesSet\":{},\"tagSet\":{}}]},\"ebsOptimized\":false,\"enaSupport\":true,\"cpuOptions\":{\"coreCount\":1,\"threadsPerCore\":1},\"capacityReservationSpecification\":{\"capacityReservationPreference\":\"open\"},\"hibernationOptions\":{\"configured\":false},\"enclaveOptions\":{\"enabled\":false},\"metadataOptions\":{\"state\":\"pending\",\"httpTokens\":\"optional\",\"httpPutResponseHopLimit\":1,\"httpEndpoint\":\"enabled\",\"httpProtocolIpv4\":\"enabled\",\"httpProtocolIpv6\":\"disabled\",\"instanceMetadataTags\":\"disabled\"},\"privateDnsNameOptions\":{\"hostnameType\":\"ip-name\",\"enableResourceNameDnsARecord\":true,\"enableResourceNameDnsAAAARecord\":false}}]}},\"requestID\":\"41e0319a-08a4-4867-bbc4-3c6063171b24\",\"eventID\":\"533845c5-6fa1-4eab-bbe5-ad73ff4fd0ec\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    }
+  ]
+}

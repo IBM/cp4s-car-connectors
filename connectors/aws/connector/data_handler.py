@@ -2,7 +2,6 @@ import datetime, re
 from car_framework.context import context
 from connector.data_collector import deep_get
 
-
 EBS_ENV_ID_TAG = 'elasticbeanstalk:environment-id'
 EBS_ENV_NAME_TAG = 'elasticbeanstalk:environment-name'
 
@@ -12,8 +11,8 @@ def get_report_time():
     milliseconds = delta.total_seconds() * 1000
     return milliseconds
 
-class DataHandler(object):
 
+class DataHandler(object):
     source = None
     report = None
 
@@ -28,20 +27,26 @@ class DataHandler(object):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
             self.source = {'_key': context().args.source, 'name': context().args.accountId, 'description': 'AWS cloud datasource'}
-            self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'AWS cloud datasource', 'description': 'AWS cloud datasource'}
-        
+            self.report = {'_key': str(self.timestamp), 'timestamp': self.timestamp, 'type': 'AWS cloud datasource',
+                           'description': 'AWS cloud datasource'}
+
         return {'source': self.source, 'report': self.report}
 
     # Adds the collection data
     def add_collection(self, name, object, key):
         objects = self.collections.get(name)
         if not objects:
-            objects = []; self.collections[name] = objects
-        
+            objects = [];
+            self.collections[name] = objects
+
         keys = self.collection_keys.get(name)
         if not keys:
-            keys = []; self.collection_keys[name] = keys
-        
+            keys = [];
+            self.collection_keys[name] = keys
+
+        # Remove "/" from values since it will split the string on CAR's side, which will result in edges not connecting to their vertices
+        self.fix_arn(object)
+
         if not object[key] in self.collection_keys[name]:
             objects.append(object)
             self.collection_keys[name].append(object[key])
@@ -50,12 +55,17 @@ class DataHandler(object):
     def add_edge(self, name, object):
         objects = self.edges.get(name)
         if not objects:
-            objects = []; self.edges[name] = objects
+            objects = [];
+            self.edges[name] = objects
 
         keys = self.collection_keys.get(name)
         if not keys:
-            keys = []; self.edge_keys[name] = keys
-        
+            keys = [];
+            self.edge_keys[name] = keys
+
+        # Remove "/" from values since it will split the string on CAR's side, which will result in edges not connecting to their vertices
+        self.fix_arn(object)
+
         key = '#'.join(str(x) for x in object.values())
         if not key in self.edge_keys[name]:
             object['report'] = self.report['_key']
@@ -64,6 +74,12 @@ class DataHandler(object):
             object['timestamp'] = self.report['timestamp']
             objects.append(object)
             self.edge_keys[name].append(key)
+
+    def fix_arn(self, obj):
+        for k, v in obj.items():
+            if type(v) == str and k not in ('_from', '_to'):
+                obj[k] = v.replace("/", ":")
+        return obj
 
     def handle_asset(self, obj):
         asset = dict()
@@ -81,7 +97,7 @@ class DataHandler(object):
             asset['external_id'] = asset_id
             asset['name'] = deep_get(obj, ["DBInstanceIdentifier"])
             # asset['engine'] = deep_get(obj, ["Engine"])
-        
+
         if asset: self.add_collection('asset', asset, 'external_id')
 
     def handle_geolocation(self, obj):
@@ -99,6 +115,7 @@ class DataHandler(object):
         if geolocation: self.add_collection('geolocation', geolocation, 'external_id')
 
     def handle_ipaddress(self, obj):
+        # Handle assets/db/etc. network data
         if deep_get(obj, ['networkData']):
             for interfaces in obj['networkData']:
                 if deep_get(interfaces, ['IpAddress']):
@@ -108,6 +125,11 @@ class DataHandler(object):
                         ipaddress['network_interface_id'] = interfaces['NetworkInterfaceId']
                         ipaddress['attachment_id'] = interfaces['AttachmentId']
                         self.add_collection('ipaddress', ipaddress, '_key')
+        # Handle actual user network data
+        if 'UserSourceIpAddress' in obj and obj['UserSourceIpAddress']:
+            user_ipaddress = dict()
+            user_ipaddress['_key'] = obj['UserSourceIpAddress']
+            self.add_collection('ipaddress', user_ipaddress, '_key')
 
     def handle_macaddress(self, obj):
         if deep_get(obj, ['networkData']):
@@ -125,22 +147,26 @@ class DataHandler(object):
             for interfaces in obj['networkData']:
                 if deep_get(interfaces, ['DnsName']):
                     for host in interfaces['DnsName']:
+                        if host:
+                            hostname = dict()
+                            hostname['_key'] = host
+                            hostname['network_interface_id'] = deep_get(interfaces, ['NetworkInterfaceId'])
+                            hostname['attachment_id'] = interfaces['AttachmentId']
+                            self.add_collection('hostname', hostname, '_key')
+                elif deep_get(interfaces, ['env_host']):
+                    host = deep_get(interfaces, ['env_host'])
+                    if host:
                         hostname = dict()
                         hostname['_key'] = host
-                        hostname['network_interface_id'] = deep_get(interfaces, ['NetworkInterfaceId'])
-                        hostname['attachment_id'] = interfaces['AttachmentId']
+                        hostname['resource_type'] = 'elasticbeanstalk'
                         self.add_collection('hostname', hostname, '_key')
-                elif deep_get(interfaces, ['env_host']):
-                    hostname = dict()
-                    hostname['_key'] = deep_get(interfaces, ['env_host'])
-                    hostname['resource_type'] = 'elasticbeanstalk'
-                    self.add_collection('hostname', hostname, '_key')
 
         elif deep_get(obj, ['DBInstanceArn']):
             host = deep_get(obj, ["Endpoint", "Address"])
-            hostname = dict()
-            hostname['_key'] = host
-            self.add_collection('hostname', hostname, '_key')
+            if host:
+                hostname = dict()
+                hostname['_key'] = host
+                self.add_collection('hostname', hostname, '_key')
 
     def handle_vulnerability(self, obj):
         vulnerability = dict()
@@ -181,12 +207,18 @@ class DataHandler(object):
                 database['pending_update'] = 'active'
             else:
                 database['pending_update'] = 'inactive'
-            
+
             self.add_collection('database', database, 'external_id')
 
     def handle_user(self, obj):
         user = dict()
-        if deep_get(obj, ['DBInstanceArn']):
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling':
+            user['external_id'] = obj['Username']
+            user['username'] = obj['Username']
+            if 'SourceUserAgent' in obj:
+                user['source_user_agent'] = obj['SourceUserAgent']
+            self.add_collection('user', user, 'external_id')
+        elif deep_get(obj, ['DBInstanceArn']):
             user['external_id'] = obj['MasterUsername']
             user['username'] = obj['MasterUsername']
             user['role'] = 'TECHNICAL OWNER'
@@ -194,7 +226,13 @@ class DataHandler(object):
 
     def handle_account(self, obj):
         account = dict()
-        if deep_get(obj, ['DBInstanceArn']):
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling':
+            account['external_id'] = obj['Username']
+            account['name'] = obj['Username']
+            if 'SourceUserAgent' in obj:
+                account['source_user_agent'] = obj['SourceUserAgent']
+            self.add_collection('account', account, 'external_id')
+        elif deep_get(obj, ['DBInstanceArn']):
             account['external_id'] = obj['MasterUsername']
             account['name'] = obj['MasterUsername']
             self.add_collection('account', account, 'external_id')
@@ -230,6 +268,11 @@ class DataHandler(object):
                         asset_ipaddress['_from_external_id'] = obj['ResourceId']
                         asset_ipaddress['_to'] = 'ipaddress/' + ip_value
                         self.add_edge('asset_ipaddress', asset_ipaddress)
+        if 'UserSourceIpAddress' in obj and obj['UserSourceIpAddress']:
+            asset_user_ipaddress = dict()
+            asset_user_ipaddress['_from_external_id'] = obj['ResourceId']
+            asset_user_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+            self.add_edge('asset_ipaddress', asset_user_ipaddress)
 
     def handle_asset_macaddress(self, obj):
         if deep_get(obj, ['networkData']):
@@ -292,7 +335,6 @@ class DataHandler(object):
             asset_database['_to_external_id'] = deep_get(obj, ["DbiResourceId"])
             self.add_edge('asset_database', asset_database)
 
-
     def handle_asset_geolocation(self, obj):
         asset_geolocation = dict()
         if deep_get(obj, ['ResourceId']):
@@ -306,7 +348,11 @@ class DataHandler(object):
 
     def handle_user_account(self, obj):
         user_account = dict()
-        if deep_get(obj, ['DBInstanceArn']):
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling':
+            user_account['_from_external_id'] = obj['Username']
+            user_account['_to_external_id'] = obj['Username']
+            self.add_edge('user_account', user_account)
+        elif deep_get(obj, ['DBInstanceArn']):
             # resource_id = deep_get(obj, ['DbiResourceId'])
             user_account['_from_external_id'] = deep_get(obj, ['MasterUsername'])
             user_account['_to_external_id'] = deep_get(obj, ['MasterUsername'])
@@ -314,8 +360,11 @@ class DataHandler(object):
 
     def handle_account_database(self, obj):
         account_database = dict()
-        if deep_get(obj, ['DBInstanceArn']):
-            # resource_id = deep_get(obj, ['DbiResourceId'])
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling' and deep_get(obj, ['DBInstanceArn']):
+            account_database['_from_external_id'] = obj['Username']
+            account_database['_to_external_id'] = deep_get(obj, ['DbiResourceId'])
+            self.add_edge('account_database', account_database)
+        elif deep_get(obj, ['DBInstanceArn']):
             account_database['_from_external_id'] = deep_get(obj, ['MasterUsername'])
             account_database['_to_external_id'] = deep_get(obj, ['DbiResourceId'])
             self.add_edge('account_database', account_database)
@@ -337,6 +386,64 @@ class DataHandler(object):
                     ipaddress_container['_from'] = 'ipaddress/' + network_interface[0]['privateIpv4Address']
                     ipaddress_container['_to_external_id'] = item["containerArn"]
                     self.add_edge('ipaddress_container', ipaddress_container)
+
+    def handle_account_ipaddress(self, obj):
+        if 'Username' in obj and obj['Username'] and obj['UserSourceIpAddress']:
+            account_ipaddress = dict()
+            account_ipaddress['_from_external_id'] = obj['Username']
+            account_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+            self.add_edge('account_ipaddress', account_ipaddress)
+
+    def handle_account_application(self, obj):
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling':
+            account_application = dict()
+            account_application['_from_external_id'] = obj['Username']
+
+            if deep_get(obj, ['ApplicationArn']):
+                account_application['_to_external_id'] = deep_get(obj, ['ApplicationArn'])
+            elif deep_get(obj, ['ImageId']):
+                account_application['_to_external_id'] = deep_get(obj, ['ImageId'])
+            elif deep_get(obj, ['Engine']):
+                account_application['_to_external_id'] = deep_get(obj, ['Engine'])
+            if '_to_external_id' in account_application.keys():
+                self.add_edge('account_application', account_application)
+
+    def handle_asset_account(self, obj):
+        if 'Username' in obj and obj['Username'] and obj['Username'].lower() != 'autoscaling':
+            asset_account = dict()
+            asset_account['_from_external_id'] = obj['ResourceId']
+            asset_account['_to_external_id'] = obj['Username']
+            self.add_edge('asset_account', asset_account)
+
+    def handle_database_ipaddress(self, obj):
+        if 'UserSourceIpAddress' in obj and obj['UserSourceIpAddress'] and deep_get(obj, ['DBInstanceArn']):
+            database_ipaddress = dict()
+            database_ipaddress['_from_external_id'] = deep_get(obj, ['DbiResourceId'])
+            database_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+            self.add_edge('database_ipaddress', database_ipaddress)
+
+    def handle_application_ipaddress(self, obj):
+        if 'UserSourceIpAddress' in obj and obj['UserSourceIpAddress']:
+            application_ipaddress = dict()
+            if deep_get(obj, ['ApplicationArn']):
+                application_ipaddress['_from_external_id'] = deep_get(obj, ['ApplicationArn'])
+                application_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+            elif deep_get(obj, ['ImageId']):
+                application_ipaddress['_from_external_id'] = deep_get(obj, ['ImageId'])
+                application_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+            elif deep_get(obj, ['Engine']):
+                application_ipaddress['_from_external_id'] = deep_get(obj, ['Engine'])
+                application_ipaddress['_to'] = 'ipaddress/' + obj['UserSourceIpAddress']
+
+            if application_ipaddress:
+                self.add_edge('application_ipaddress', application_ipaddress)
+
+    def handle_ipaddress_vulnerability(self, obj):
+        if 'UserSourceIpAddress' in obj and obj['UserSourceIpAddress']:
+            ipaddress_vulnerability = dict()
+            ipaddress_vulnerability['_from_external_id'] = obj['UserSourceIpAddress']
+            ipaddress_vulnerability['_to_external_id'] = obj['Id']
+            self.add_edge('ipaddress_vulnerability', ipaddress_vulnerability)
 
     def printData(self):
         context().logger.debug("Vertexes to be created:")

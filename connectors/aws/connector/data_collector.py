@@ -1,5 +1,6 @@
 import json
 from car_framework.context import context
+import datetime
 
 # This is to disable context().fooMember error in IDE
 # pylint: disable=no-member
@@ -13,6 +14,8 @@ def deep_get(_dict, keys, default=None):
 
 class DataCollector(object):
     _collected_data = {}
+    _user_create_events = {}
+    _login_events = []
     ec2_create = list()
     ec2_instances, delete_attachment_id, interface_create_id = set(), set(), set()
     
@@ -25,35 +28,45 @@ class DataCollector(object):
     def _get_collected_data(self, data):
         if not self._collected_data.get(data):
             if data == 'vm':
-                self._collected_data[data] = context().asset_server.get_instances()
+                self._collected_data[data], self._user_create_events[data] = context().asset_server.get_instances()
             elif data == 'db':
-                self._collected_data[data] = context().asset_server.get_db_instances()
+                self._collected_data[data], self._user_create_events[data] = context().asset_server.get_db_instances()
             elif data == 'app':
-                self._collected_data[data] = context().asset_server.list_applications()
+                self._collected_data[data], self._user_create_events[data] = context().asset_server.list_applications()
             elif data == 'container':
-                self._collected_data[data] = context().asset_server.list_running_containers()
-        
-        return self._collected_data[data]
+                self._collected_data[data], self._user_create_events[data] = context().asset_server.list_running_containers()
+
+        if not self._login_events:
+            self._login_events = context().asset_server.get_login_events()
+
+        return self._collected_data[data], self._login_events, self._user_create_events[data]
 
     def create_asset(self, incremental=True):
         """Creating EC2 asset and network interface"""
         context().logger.info('Collecting assets')
         data = None
         asset_list = []
+        user_login_events, user_create_events = [], []
+
         # incremental import case
         if incremental:
             asset_create = self.asset_create_delete()
             self.incremental_create_tags()
 
             if asset_create:
-                data = context().asset_server.get_instances(asset_create)
+                data, user_create_events = context().asset_server.get_instances(asset_create)
+                if not self._login_events:
+                    self._login_events = context().asset_server.get_login_events()
+                    user_login_events = self._login_events
         else:
-            data = self._get_collected_data('vm')
+            data, user_login_events, user_create_events = self._get_collected_data('vm')
 
         if data:
             for instances in data:
                 for instance in instances['Instances']:
                     if deep_get(instance, ['State', 'Name']) != 'terminated':
+                        self.identity_data_enrichment(user_create_events, instance, user_login_events, asset_type='ec2')
+
                         resource_id = 'arn:aws:ec2:' + instance['Placement']['AvailabilityZone'][:-1] + ':' + \
                                     context().args.accountId + ':instance/' + instance['InstanceId']
                         instance['ResourceId'] = resource_id
@@ -68,7 +81,7 @@ class DataCollector(object):
                                         env_data = context().asset_server.list_applications_env(
                                             env_id=[processed_data['EnvironmentId']])
                                         for env in env_data['Environments']:
-                                            app_arn_data = context().asset_server.list_applications([env['ApplicationName']])
+                                            app_arn_data, _ = context().asset_server.list_applications([env['ApplicationName']])
                                             if deep_get(env, ['CNAME']):
                                                 temp = dict()
                                                 temp['env_host'] = env['CNAME']
@@ -85,12 +98,18 @@ class DataCollector(object):
         context().logger.info('Collecting databases')
         data_create = None
         data_modify = None
+
+        user_login_events = []
+        user_create_events = []
         if incremental:
             response_data = self.database_update_delete()
             data_create = deep_get(response_data, ['create'])
             data_modify = deep_get(response_data, ['modify'])
         else:
-            data_create = self._get_collected_data('db')
+            data_create, user_login_events, user_create_events = self._get_collected_data('db')
+
+        for db_instance in data_create:
+            self.identity_data_enrichment(user_create_events, db_instance, user_login_events, asset_type='db')
 
         return data_create, data_modify
 
@@ -105,12 +124,16 @@ class DataCollector(object):
             self.application_update(create_app_name)  # create/delete app
             hosts_modify = self.application_swap_host()  # update hostname
             if create_app_name:
-                data = context().asset_server.list_applications(create_app_name)
+                data, user_create_events = context().asset_server.list_applications(create_app_name)
+                if not self._login_events:
+                    self._login_events = context().asset_server.get_login_events()
+                    user_login_events = self._login_events
         else:
-            data = self._get_collected_data('app')
+            data, user_login_events, user_create_events = self._get_collected_data('app')
 
         if data:
             for app in data:
+                self.identity_data_enrichment(user_create_events, app, user_login_events, asset_type='app')
                 app_list.append(app)
 
         return app_list, hosts_modify
@@ -123,11 +146,12 @@ class DataCollector(object):
         if incremental:
             container_list = self.container_update_delete()
         else:
-            data = self._get_collected_data('container')
+            data, user_login_events, user_create_events = self._get_collected_data('container')
             if data:
                 for task in data:
                     if task['lastStatus'] == 'RUNNING' and task['launchType'] == 'EC2':
                         processed_data = self.process_task_container(task)
+                        self.identity_data_enrichment(user_create_events, processed_data, user_login_events, asset_type='container')
                         container_list.append(processed_data)
 
         return container_list
@@ -151,12 +175,17 @@ class DataCollector(object):
             for delete_ids in data_security_delete:
                 self.vuln_delete.append(delete_ids['Id'])
         else:  # initial import case
-            data = self._get_collected_data('vm')
+            data, user_login_events, user_create_events = self._get_collected_data('vm')
             for instances in data:
                 for instance in instances['Instances']:
+                    self.identity_data_enrichment(user_create_events, instance, user_login_events, asset_type='ec2')
                     resource_id = 'arn:aws:ec2:' + instance['Placement']['AvailabilityZone'][:-1] + ':' + \
                                 context().args.accountId + ':instance/' + instance['InstanceId']
                     data = context().asset_server.security_alerts(resource_id)
+                    for alert in data:
+                        alert['Username'] = instance['Username']
+                        alert['UserSourceIpAddress'] = instance['UserSourceIpAddress']
+                        alert['SourceUserAgent'] = instance['SourceUserAgent']
                     vuln_list.extend(data)
                     
         return vuln_list
@@ -342,8 +371,8 @@ class DataCollector(object):
                         for ipv6 in network_data['Ipv6Addresses']:
                             temp['IpAddress'].append(ipv6['Ipv6Address'])
                     count = count + 1
-                    temp['IpAddress'].append(ip_data['PrivateIpAddress'])
-                    temp['DnsName'].append(ip_data['PrivateDnsName'])
+                    temp['IpAddress'].append(ip_data.get('PrivateIpAddress', ''))
+                    temp['DnsName'].append(ip_data.get('PrivateDnsName', ''))
                 instance['networkData'].append(temp)
         return instance
 
@@ -744,7 +773,7 @@ class DataCollector(object):
                     task_arn = task['taskArn']
                     if task_arn not in task_list:
                         cluster_arn = task['clusterArn']
-                        task_detail = context().asset_server.list_running_containers(cluster_arn, task_arn)
+                        task_detail, create_events = context().asset_server.list_running_containers(cluster_arn, task_arn)
                         for each_task in task_detail['tasks']:
                             if each_task['lastStatus'] == 'RUNNING' and each_task['launchType'] == 'EC2':
                                 response = self.process_task_container(each_task)
@@ -760,7 +789,7 @@ class DataCollector(object):
                         context().args.accountId + ':task/' + task_id
                 if task_arn not in task_list:
                     cluster_arn = deep_get(cloud_trail_event, ['requestParameters', 'attributes', 'ECS_CLUSTER_NAME'])
-                    task_detail = context().asset_server.list_running_containers(cluster_arn, task_arn)
+                    task_detail, create_events = context().asset_server.list_running_containers(cluster_arn, task_arn)
                     for each_task in task_detail['tasks']:
                         if each_task['lastStatus'] == 'RUNNING' and each_task['launchType'] == 'EC2':
                             response = self.process_task_container(each_task)
@@ -774,7 +803,7 @@ class DataCollector(object):
         container_instance = context().asset_server.container_ec2_instance(cluster_arn=cluster_arn,
                                                                     container_instance_arn=task['containerInstanceArn'])
         ec2_instance_id = container_instance['containerInstances'][0]['ec2InstanceId']
-        describe_ec2_instance = context().asset_server.get_instances(instance_ids=[ec2_instance_id])
+        describe_ec2_instance, _ = context().asset_server.get_instances(instance_ids=[ec2_instance_id])
         for reservation in describe_ec2_instance:
             for instance_detail in reservation['Instances']:
                 task['ec2InstanceId'] = 'arn:aws:ec2:' + instance_detail['Placement']['AvailabilityZone'][: -1] \
@@ -825,3 +854,55 @@ class DataCollector(object):
             'database': len(self.database_delete),
             'container': len(self.container_delete)
         } )
+
+    def identity_data_enrichment(self, user_create_events, instance, user_login_events, asset_type):
+        """ Add identity data From cloudtrail login and instance-creation events by linking the instance id with the ones in the cloudtrail events"""
+        user_name = None
+        user_source_ipaddress = None
+        source_user_agent = None
+
+        if asset_type == 'ec2':
+            resource_identity_key = 'AWS::EC2::Instance'
+            instance_identity_key = 'InstanceId'
+        elif asset_type == 'db':
+            resource_identity_key = 'AWS::RDS::DBInstance'
+            instance_identity_key = 'DBInstanceIdentifier'
+        elif asset_type == 'app':
+            resource_identity_key = 'requestParameters'
+            instance_identity_key = 'ApplicationName'
+        elif asset_type == 'container':
+            resource_identity_key = 'responseElements'
+            instance_identity_key = 'clusterArn'
+        else:
+            raise NotImplementedError(f'Requested type={asset_type} not implemented for identity enrichment')
+
+        for c_event in user_create_events:
+            if asset_type == 'app':
+                resource_id = json.loads(c_event['CloudTrailEvent']).get(resource_identity_key, {}).get('applicationName', None)
+            elif asset_type == 'container':
+                resource_id = json.loads(c_event['CloudTrailEvent']).get(resource_identity_key, {}).get('cluster', {}).get('clusterArn', None)
+            else:
+                resource_id = next((resource for resource in c_event['Resources'] if resource['ResourceType'] == resource_identity_key), {}).get(
+                    'ResourceName', None)
+            if resource_id and resource_id == instance[instance_identity_key]:
+                user_name = c_event['Username']
+                user_source_ipaddress, source_user_agent = self.search_user_network_data(asset_type, c_event, user_login_events, user_name)
+                break
+
+        instance['Username'] = user_name
+        instance['UserSourceIpAddress'] = user_source_ipaddress
+        instance['SourceUserAgent'] = source_user_agent
+
+    def search_user_network_data(self, asset_type, c_event, user_login_events, user_name):
+        user_source_ipaddress = None
+        source_user_agent = None
+
+        user_logins = sorted([l_event for l_event in user_login_events if l_event['Username'] == user_name and type(l_event['EventTime']) == datetime.datetime
+                              and type(c_event['EventTime']) == datetime.datetime and l_event['EventTime'].date() == c_event['EventTime'].date()],
+                             key=lambda e: e['EventTime'])
+        if user_logins:
+            # Take IP of the same date only
+            event = json.loads(user_logins[-1]['CloudTrailEvent'])
+            user_source_ipaddress = json.loads(c_event['CloudTrailEvent']).get('sourceIPAddress', None) if asset_type == 'container' else event.get('sourceIPAddress', None)
+            source_user_agent = event.get('userAgent', None)
+        return user_source_ipaddress, source_user_agent
