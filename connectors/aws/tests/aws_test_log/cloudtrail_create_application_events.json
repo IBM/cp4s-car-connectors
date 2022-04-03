@@ -1,0 +1,26 @@
+{
+  "Events": [
+    {
+      "EventId": "d3683a5e-a79b-43ce-b7d4-505280280a2a",
+      "EventName": "CreateApplication",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KGZ33ADQ2",
+      "EventTime": "2022-03-13 14:40:05+02:00",
+      "EventSource": "elasticbeanstalk.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:region:9876:application/testapp\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KGZ33ADQ2\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-13T12:40:05Z\",\"eventSource\":\"elasticbeanstalk.amazonaws.com\",\"eventName\":\"CreateApplication\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"applicationName\":\"testapp\",\"tags\":[]},\"responseElements\":null,\"requestID\":\"9ab9f801-5333-4918-be5a-461e28c721b0\",\"eventID\":\"d3683a5e-a79b-43ce-b7d4-505280280a2a\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "1bbe9200-0235-4f41-9f34-faec56a55846",
+      "EventName": "CreateApplication",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KGMSWLFED",
+      "EventTime": "2022-03-10 19:44:50+02:00",
+      "EventSource": "elasticbeanstalk.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851284:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851284\",\"accessKeyId\":\"ASIA26HK4C4KGMSWLFED\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-10T15:21:29Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-10T17:44:50Z\",\"eventSource\":\"elasticbeanstalk.amazonaws.com\",\"eventName\":\"CreateApplication\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"applicationName\":\"matan-app\",\"description\":\"test app for IDR\",\"tags\":[]},\"responseElements\":null,\"requestID\":\"9e8fa6d4-ba09-41f6-b160-8917c4655139\",\"eventID\":\"1bbe9200-0235-4f41-9f34-faec56a55846\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851284\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    }
+  ]
+}

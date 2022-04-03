@@ -50,7 +50,10 @@ class AssetServer(BaseAssetServer):
             if response_data:
                 for page in response_data:
                     ec2_list.extend(page['Reservations'])
-            return ec2_list
+
+            user_create_events = self.get_create_events(create_event_type='RunInstances')
+
+            return ec2_list, user_create_events
         except Exception as ex:
             context().logger.error("Error when getting AWS resource get_instances")
             raise DatasourceFailure(ex)
@@ -162,11 +165,16 @@ class AssetServer(BaseAssetServer):
             client = self.getClient('elasticbeanstalk')
             if app_name:
                 app_response = client.describe_applications(ApplicationNames=app_name)
-                return app_response['Applications']
+                response = app_response['Applications']
 
             elif not app_name:
                 app_response = client.describe_applications()
-                return app_response['Applications']
+                response = app_response['Applications']
+            else:
+                raise NotImplementedError(f'Application name not supported: {app_name}')
+
+            user_create_events = self.get_create_events(create_event_type='CreateApplication')
+            return response, user_create_events
         except Exception as ex:
             context().logger.error("Error when getting AWS resource list_applications")
             raise DatasourceFailure(ex)
@@ -207,7 +215,9 @@ class AssetServer(BaseAssetServer):
                 response_data = paginator.paginate()
             for page in response_data:
                 db_list.extend(page['DBInstances'])
-            return db_list
+
+            user_create_events = self.get_create_events(create_event_type='CreateDBInstance')
+            return db_list, user_create_events
         except Exception as ex:
             context().logger.error("Error when getting AWS resource get_db_instances")
             raise DatasourceFailure(ex)
@@ -242,9 +252,9 @@ class AssetServer(BaseAssetServer):
             response = paginator.paginate()
             for page in response:
                 list_cluster.extend(page['clusterArns'])
-            task_list = []
             app_response = []
             for cluster in list_cluster:
+                task_list = []  # This caused an InvalidParameterException when used outside the loop, since the cluster and task where not aligned
                 paginator = client.get_paginator('list_tasks')
                 response = paginator.paginate(cluster=cluster)
                 for page in response:
@@ -252,7 +262,9 @@ class AssetServer(BaseAssetServer):
                 for i in range(0, len(task_list), 100):
                     task_data = client.describe_tasks(cluster=cluster, tasks=task_list[i:i+100])
                     app_response.extend(task_data['tasks'])
-            return app_response
+
+            user_create_events = self.get_create_events(create_event_type='CreateCluster')
+            return app_response, user_create_events
 
         except Exception as ex:
             context().logger.error("Error when getting AWS resource list_running_containers")
@@ -297,6 +309,38 @@ class AssetServer(BaseAssetServer):
             context().logger.error("Error when getting AWS resource get_incremental_time")
             raise DatasourceFailure(ex)
 
+    def get_create_events(self, create_event_type):
+        """ Get relevant events with user identity that would be linked to the different assets"""
+        cloudtrail_client = self.getClient('cloudtrail')
+        cloudtrail_paginator = cloudtrail_client.get_paginator('lookup_events')
+
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=90)  # Define time range (90 is max for cloudtrail)
+
+        response_data_create = cloudtrail_paginator.paginate(LookupAttributes=[{'AttributeKey': 'EventName', 'AttributeValue': create_event_type}],
+                                                             StartTime=start_date, EndTime=end_date)
+        user_create_events = []
+
+        for page in response_data_create:
+            user_create_events.extend(page['Events'])
+        return user_create_events
+
+    def get_login_events(self):
+        """ Get relevant events with user identity that would be linked to the different assets"""
+        cloudtrail_client = self.getClient('cloudtrail')
+        cloudtrail_paginator = cloudtrail_client.get_paginator('lookup_events')
+
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=90)  # Define time range (90 is max for cloudtrail)
+
+        response_data_login = cloudtrail_paginator.paginate(LookupAttributes=[{'AttributeKey': 'EventName', 'AttributeValue': 'ConsoleLogin'}],
+                                                            StartTime=start_date, EndTime=end_date)
+
+        user_login_events = []
+        for page in response_data_login:
+            user_login_events.extend(page['Events'])
+
+        return user_login_events
 
     @staticmethod
     def converted_time(time_string):

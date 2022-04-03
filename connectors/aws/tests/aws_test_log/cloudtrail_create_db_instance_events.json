@@ -1,0 +1,252 @@
+{
+  "Events": [
+    {
+      "EventId": "f7c0dd7f-e166-4885-a42a-78cb3e8534e8",
+      "EventName": "CreateDBInstance",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KLFVTGU7Q",
+      "EventTime": "2022-02-22 16:58:02+02:00",
+      "EventSource": "rds.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::RDS::DBInstance",
+          "ResourceName": "database-1"
+        },
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBSubnetGroup",
+          "ResourceName": "galt-test-db-2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-af9c3cc0"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBOptionGroup",
+          "ResourceName": "default:aurora-mysql-5-7"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-74ffd915"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-fd50328a"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-7646005e"
+        },
+        {
+          "ResourceType": "AWS::KMS::Key",
+          "ResourceName": "arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBParameterGroup",
+          "ResourceName": "default.aurora-mysql5.7"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KLFVTGU7Q\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-22T14:15:13Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-22T14:58:02Z\",\"eventSource\":\"rds.amazonaws.com\",\"eventName\":\"CreateDBInstance\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"dBInstanceIdentifier\":\"database-1\",\"dBInstanceClass\":\"db.r5.large\",\"engine\":\"aurora-mysql\",\"availabilityZone\":\"us-east-1a\",\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBParameterGroupName\":\"default.aurora-mysql5.7\",\"engineVersion\":\"5.7.mysql_aurora.2.07.2\",\"autoMinorVersionUpgrade\":true,\"publiclyAccessible\":false,\"dBClusterIdentifier\":\"db2\",\"monitoringInterval\":60,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"enablePerformanceInsights\":true,\"performanceInsightsRetentionPeriod\":7},\"responseElements\":{\"dBInstanceIdentifier\":\"database-1\",\"dBInstanceClass\":\"db.r5.large\",\"engine\":\"aurora-mysql\",\"dBInstanceStatus\":\"creating\",\"masterUsername\":\"admin\",\"allocatedStorage\":1,\"preferredBackupWindow\":\"04:06-04:36\",\"backupRetentionPeriod\":1,\"dBSecurityGroups\":[],\"vpcSecurityGroups\":[{\"vpcSecurityGroupId\":\"sg-af9c3cc0\",\"status\":\"active\"}],\"dBParameterGroups\":[{\"dBParameterGroupName\":\"default.aurora-mysql5.7\",\"parameterApplyStatus\":\"in-sync\"}],\"availabilityZone\":\"us-east-1a\",\"dBSubnetGroup\":{\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBSubnetGroupDescription\":\"subnet group for cluster galt-test-db-2\",\"vpcId\":\"vpc-b8be43d9\",\"subnetGroupStatus\":\"Complete\",\"subnets\":[{\"subnetIdentifier\":\"subnet-7646005e\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1c\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetIdentifier\":\"subnet-fd50328a\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1d\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetIdentifier\":\"subnet-74ffd915\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1a\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"}]},\"preferredMaintenanceWindow\":\"wed:04:48-wed:05:18\",\"pendingModifiedValues\":{},\"multiAZ\":false,\"engineVersion\":\"5.7.mysql_aurora.2.07.2\",\"autoMinorVersionUpgrade\":true,\"readReplicaDBInstanceIdentifiers\":[],\"licenseModel\":\"general-public-license\",\"storageThroughput\":0,\"optionGroupMemberships\":[{\"optionGroupName\":\"default:aurora-mysql-5-7\",\"status\":\"in-sync\"}],\"publiclyAccessible\":false,\"storageType\":\"aurora\",\"dbInstancePort\":0,\"dBClusterIdentifier\":\"db2\",\"storageEncrypted\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f\",\"dbiResourceId\":\"db-HOLOOS7P3PRAUH44UVZWYI4BIU\",\"cACertificateIdentifier\":\"rds-ca-2019\",\"domainMemberships\":[],\"copyTagsToSnapshot\":false,\"monitoringInterval\":60,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"promotionTier\":1,\"dBInstanceArn\":\"arn:aws:rds:us-east-1:752111851211:db:database-1\",\"iAMDatabaseAuthenticationEnabled\":false,\"performanceInsightsEnabled\":true,\"performanceInsightsKMSKeyId\":\"arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f\",\"performanceInsightsRetentionPeriod\":7,\"deletionProtection\":false,\"associatedRoles\":[],\"httpEndpointEnabled\":false,\"tagList\":[],\"customerOwnedIpEnabled\":false,\"networkType\":\"IPV4\",\"backupTarget\":\"region\"},\"requestID\":\"5ce8dbc4-7f8e-4f93-a032-88e5c240a5dc\",\"eventID\":\"f7c0dd7f-e166-4885-a42a-78cb3e8534e8\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "9f4600b7-fb52-44fe-afff-ea19632b4746",
+      "EventName": "CreateDBInstance",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KLFVTGU7Q",
+      "EventTime": "2022-02-22 16:58:01+02:00",
+      "EventSource": "rds.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::RDS::DBInstance",
+          "ResourceName": "db2-instance-1"
+        },
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBSubnetGroup",
+          "ResourceName": "galt-test-db-2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-af9c3cc0"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBOptionGroup",
+          "ResourceName": "default:aurora-mysql-5-7"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-74ffd915"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-fd50328a"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-7646005e"
+        },
+        {
+          "ResourceType": "AWS::KMS::Key",
+          "ResourceName": "arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBParameterGroup",
+          "ResourceName": "default.aurora-mysql5.7"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KLFVTGU7Q\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-22T14:15:13Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-22T14:58:01Z\",\"eventSource\":\"rds.amazonaws.com\",\"eventName\":\"CreateDBInstance\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"AWS Internal\",\"userAgent\":\"AWS Internal\",\"requestParameters\":{\"dBInstanceIdentifier\":\"db2-instance-1\",\"enablePerformanceInsights\":true,\"dBSubnetGroupName\":\"galt-test-db-2\",\"engine\":\"aurora-mysql\",\"publiclyAccessible\":false,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"performanceInsightsRetentionPeriod\":7,\"availabilityZone\":\"us-east-1d\",\"dBParameterGroupName\":\"default.aurora-mysql5.7\",\"engineVersion\":\"5.7.mysql_aurora.2.07.2\",\"dBClusterIdentifier\":\"db2\",\"monitoringInterval\":60,\"dBInstanceClass\":\"db.r5.large\",\"autoMinorVersionUpgrade\":true},\"responseElements\":{\"dBInstanceArn\":\"arn:aws:rds:us-east-1:752111851211:db:db2-instance-1\",\"storageEncrypted\":true,\"preferredBackupWindow\":\"04:06-04:36\",\"backupTarget\":\"region\",\"preferredMaintenanceWindow\":\"sun:08:44-sun:09:14\",\"backupRetentionPeriod\":1,\"allocatedStorage\":1,\"storageType\":\"aurora\",\"engineVersion\":\"5.7.mysql_aurora.2.07.2\",\"dBClusterIdentifier\":\"db2\",\"dbInstancePort\":0,\"associatedRoles\":[],\"optionGroupMemberships\":[{\"status\":\"in-sync\",\"optionGroupName\":\"default:aurora-mysql-5-7\"}],\"dBParameterGroups\":[{\"dBParameterGroupName\":\"default.aurora-mysql5.7\",\"parameterApplyStatus\":\"in-sync\"}],\"performanceInsightsKMSKeyId\":\"arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f\",\"monitoringInterval\":60,\"dBInstanceClass\":\"db.r5.large\",\"readReplicaDBInstanceIdentifiers\":[],\"dBSubnetGroup\":{\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBSubnetGroupDescription\":\"subnet group for cluster galt-test-db-2\",\"subnets\":[{\"subnetAvailabilityZone\":{\"name\":\"us-east-1c\"},\"subnetIdentifier\":\"subnet-7646005e\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1d\"},\"subnetIdentifier\":\"subnet-fd50328a\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1a\"},\"subnetIdentifier\":\"subnet-74ffd915\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"}],\"vpcId\":\"vpc-b8be43d9\",\"subnetGroupStatus\":\"Complete\"},\"masterUsername\":\"admin\",\"multiAZ\":false,\"autoMinorVersionUpgrade\":true,\"engine\":\"aurora-mysql\",\"httpEndpointEnabled\":false,\"cACertificateIdentifier\":\"rds-ca-2019\",\"dbiResourceId\":\"db-MZZEUPSCPK4HNQYX543NWWFDOU\",\"promotionTier\":1,\"deletionProtection\":false,\"dBSecurityGroups\":[],\"performanceInsightsRetentionPeriod\":7,\"pendingModifiedValues\":{},\"customerOwnedIpEnabled\":false,\"storageThroughput\":0,\"dBInstanceStatus\":\"creating\",\"publiclyAccessible\":false,\"domainMemberships\":[],\"copyTagsToSnapshot\":false,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"dBInstanceIdentifier\":\"db2-instance-1\",\"licenseModel\":\"general-public-license\",\"tagList\":[],\"networkType\":\"IPV4\",\"iAMDatabaseAuthenticationEnabled\":false,\"performanceInsightsEnabled\":true,\"vpcSecurityGroups\":[{\"status\":\"active\",\"vpcSecurityGroupId\":\"sg-af9c3cc0\"}],\"availabilityZone\":\"us-east-1d\",\"kmsKeyId\":\"arn:aws:kms:us-east-1:752111851211:key/80f68fde-7300-45df-8ec9-775c2a849c2f\"},\"requestID\":\"ac0ba218-b607-42da-b02a-51a1b0afd5fc\",\"eventID\":\"9f4600b7-fb52-44fe-afff-ea19632b4746\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "2babac3e-5113-4208-9691-36c8316c753d",
+      "EventName": "CreateDBInstance",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KETCBC2HJ",
+      "EventTime": "2022-02-07 17:04:15+02:00",
+      "EventSource": "rds.amazonaws.com",
+      "Username": "itay.hazan",
+      "Resources": [
+        {
+          "ResourceType": "AWS::RDS::DBInstance",
+          "ResourceName": "database-cp4s-test2"
+        },
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBSubnetGroup",
+          "ResourceName": "galt-test-db-2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-af9c3cc0"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBOptionGroup",
+          "ResourceName": "default:mysql-8-0"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-74ffd915"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-fd50328a"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-7646005e"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBParameterGroup",
+          "ResourceName": "default.mysql8.0"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KI53DTYFK6\",\"arn\":\"arn:aws:iam::752111851211:user/itay.hazan\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KETCBC2HJ\",\"userName\":\"itay.hazan\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-07T07:37:17Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-07T15:04:15Z\",\"eventSource\":\"rds.amazonaws.com\",\"eventName\":\"CreateDBInstance\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"109.186.68.11\",\"userAgent\":\"aws-internal/3 aws-sdk-java/1.11.975 Linux/5.4.156-94.273.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.242-b08 java/1.8.0_242 vendor/Oracle_Corporation cfg/retry-mode/legacy\",\"requestParameters\":{\"dBInstanceIdentifier\":\"database-cp4s-test2\",\"enablePerformanceInsights\":false,\"deletionProtection\":false,\"dBSubnetGroupName\":\"galt-test-db-2\",\"engine\":\"mysql\",\"publiclyAccessible\":false,\"enableIAMDatabaseAuthentication\":false,\"masterUsername\":\"admin\",\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"allocatedStorage\":100,\"backupRetentionPeriod\":7,\"dBName\":\"\",\"port\":3306,\"multiAZ\":false,\"enableCloudwatchLogsExports\":[],\"iops\":3000,\"vpcSecurityGroupIds\":[\"sg-af9c3cc0\"],\"copyTagsToSnapshot\":true,\"storageType\":\"io1\",\"storageEncrypted\":false,\"engineVersion\":\"8.0.23\",\"maxAllocatedStorage\":1000,\"monitoringInterval\":60,\"dBInstanceClass\":\"db.t2.micro\",\"masterUserPassword\":\"****\",\"autoMinorVersionUpgrade\":true},\"responseElements\":{\"dBInstanceArn\":\"arn:aws:rds:us-east-1:752111851211:db:database-cp4s-test2\",\"storageEncrypted\":false,\"preferredBackupWindow\":\"09:27-09:57\",\"backupTarget\":\"region\",\"preferredMaintenanceWindow\":\"sat:03:15-sat:03:45\",\"backupRetentionPeriod\":7,\"allocatedStorage\":100,\"storageType\":\"io1\",\"engineVersion\":\"8.0.23\",\"dbInstancePort\":0,\"associatedRoles\":[],\"optionGroupMemberships\":[{\"status\":\"in-sync\",\"optionGroupName\":\"default:mysql-8-0\"}],\"dBParameterGroups\":[{\"dBParameterGroupName\":\"default.mysql8.0\",\"parameterApplyStatus\":\"in-sync\"}],\"maxAllocatedStorage\":1000,\"monitoringInterval\":60,\"dBInstanceClass\":\"db.t2.micro\",\"readReplicaDBInstanceIdentifiers\":[],\"dBSubnetGroup\":{\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBSubnetGroupDescription\":\"subnet group for cluster galt-test-db-2\",\"subnets\":[{\"subnetAvailabilityZone\":{\"name\":\"us-east-1c\"},\"subnetIdentifier\":\"subnet-7646005e\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1d\"},\"subnetIdentifier\":\"subnet-fd50328a\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1a\"},\"subnetIdentifier\":\"subnet-74ffd915\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"}],\"vpcId\":\"vpc-b8be43d9\",\"subnetGroupStatus\":\"Complete\"},\"masterUsername\":\"admin\",\"multiAZ\":false,\"autoMinorVersionUpgrade\":true,\"engine\":\"mysql\",\"httpEndpointEnabled\":false,\"cACertificateIdentifier\":\"rds-ca-2019\",\"dbiResourceId\":\"db-J2KSJRXLVXRBQ7ISIV2VNISS7E\",\"deletionProtection\":false,\"dBSecurityGroups\":[],\"pendingModifiedValues\":{\"masterUserPassword\":\"****\"},\"customerOwnedIpEnabled\":false,\"storageThroughput\":0,\"dBInstanceStatus\":\"creating\",\"publiclyAccessible\":false,\"domainMemberships\":[],\"copyTagsToSnapshot\":true,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"dBInstanceIdentifier\":\"database-cp4s-test2\",\"licenseModel\":\"general-public-license\",\"tagList\":[],\"iops\":3000,\"networkType\":\"IPV4\",\"iAMDatabaseAuthenticationEnabled\":false,\"performanceInsightsEnabled\":false,\"vpcSecurityGroups\":[{\"status\":\"active\",\"vpcSecurityGroupId\":\"sg-af9c3cc0\"}]},\"requestID\":\"48d1edcd-efe1-4684-aca7-b0c0a34aecb6\",\"eventID\":\"2babac3e-5113-4208-9691-36c8316c753d\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "cb8df8d6-8c9d-4ffa-99d8-acbee0680178",
+      "EventName": "CreateDBInstance",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KAF7J7FF6",
+      "EventTime": "2022-02-01 17:01:26+02:00",
+      "EventSource": "rds.amazonaws.com",
+      "Username": "itay.hazan",
+      "Resources": [
+        {
+          "ResourceType": "AWS::RDS::DBInstance",
+          "ResourceName": "database-cp4s-test"
+        },
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBSubnetGroup",
+          "ResourceName": "galt-test-db-2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-af9c3cc0"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBOptionGroup",
+          "ResourceName": "default:mysql-8-0"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-74ffd915"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-fd50328a"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-7646005e"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBParameterGroup",
+          "ResourceName": "default.mysql8.0"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KI53DTYFK6\",\"arn\":\"arn:aws:iam::752111851211:user/itay.hazan\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KAF7J7FF6\",\"userName\":\"itay.hazan\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-01T14:35:04Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-01T15:01:26Z\",\"eventSource\":\"rds.amazonaws.com\",\"eventName\":\"CreateDBInstance\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"93.173.251.148\",\"userAgent\":\"aws-internal/3 aws-sdk-java/1.11.975 Linux/5.4.147-83.259.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.242-b08 java/1.8.0_242 vendor/Oracle_Corporation cfg/retry-mode/legacy\",\"requestParameters\":{\"dBInstanceIdentifier\":\"database-cp4s-test\",\"enablePerformanceInsights\":false,\"deletionProtection\":false,\"dBSubnetGroupName\":\"galt-test-db-2\",\"engine\":\"mysql\",\"publiclyAccessible\":false,\"enableIAMDatabaseAuthentication\":false,\"masterUsername\":\"admin\",\"allocatedStorage\":20,\"backupRetentionPeriod\":7,\"dBName\":\"\",\"port\":3306,\"multiAZ\":false,\"enableCloudwatchLogsExports\":[],\"vpcSecurityGroupIds\":[\"sg-af9c3cc0\"],\"copyTagsToSnapshot\":true,\"storageType\":\"gp2\",\"dBParameterGroupName\":\"default.mysql8.0\",\"storageEncrypted\":false,\"engineVersion\":\"8.0.23\",\"maxAllocatedStorage\":1000,\"dBInstanceClass\":\"db.t2.micro\",\"masterUserPassword\":\"****\",\"autoMinorVersionUpgrade\":true,\"optionGroupName\":\"default:mysql-8-0\"},\"responseElements\":{\"dBInstanceArn\":\"arn:aws:rds:us-east-1:752111851211:db:database-cp4s-test\",\"storageEncrypted\":false,\"preferredBackupWindow\":\"05:08-05:38\",\"backupTarget\":\"region\",\"preferredMaintenanceWindow\":\"sat:05:52-sat:06:22\",\"backupRetentionPeriod\":7,\"allocatedStorage\":20,\"storageType\":\"gp2\",\"engineVersion\":\"8.0.23\",\"dbInstancePort\":0,\"associatedRoles\":[],\"optionGroupMemberships\":[{\"status\":\"in-sync\",\"optionGroupName\":\"default:mysql-8-0\"}],\"dBParameterGroups\":[{\"dBParameterGroupName\":\"default.mysql8.0\",\"parameterApplyStatus\":\"in-sync\"}],\"maxAllocatedStorage\":1000,\"monitoringInterval\":0,\"dBInstanceClass\":\"db.t2.micro\",\"readReplicaDBInstanceIdentifiers\":[],\"dBSubnetGroup\":{\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBSubnetGroupDescription\":\"subnet group for cluster galt-test-db-2\",\"subnets\":[{\"subnetAvailabilityZone\":{\"name\":\"us-east-1c\"},\"subnetIdentifier\":\"subnet-7646005e\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1d\"},\"subnetIdentifier\":\"subnet-fd50328a\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetAvailabilityZone\":{\"name\":\"us-east-1a\"},\"subnetIdentifier\":\"subnet-74ffd915\",\"subnetOutpost\":{},\"subnetStatus\":\"Active\"}],\"vpcId\":\"vpc-b8be43d9\",\"subnetGroupStatus\":\"Complete\"},\"masterUsername\":\"admin\",\"multiAZ\":false,\"autoMinorVersionUpgrade\":true,\"engine\":\"mysql\",\"httpEndpointEnabled\":false,\"cACertificateIdentifier\":\"rds-ca-2019\",\"dbiResourceId\":\"db-3XF44N5NOVCB6UWTDXNLKFU3SA\",\"deletionProtection\":false,\"dBSecurityGroups\":[],\"pendingModifiedValues\":{\"masterUserPassword\":\"****\"},\"customerOwnedIpEnabled\":false,\"storageThroughput\":0,\"dBInstanceStatus\":\"creating\",\"publiclyAccessible\":false,\"domainMemberships\":[],\"copyTagsToSnapshot\":true,\"dBInstanceIdentifier\":\"database-cp4s-test\",\"licenseModel\":\"general-public-license\",\"tagList\":[],\"networkType\":\"IPV4\",\"iAMDatabaseAuthenticationEnabled\":false,\"performanceInsightsEnabled\":false,\"vpcSecurityGroups\":[{\"status\":\"active\",\"vpcSecurityGroupId\":\"sg-af9c3cc0\"}]},\"requestID\":\"9c7c0a27-d6c1-40a8-8d74-45747896dbcc\",\"eventID\":\"cb8df8d6-8c9d-4ffa-99d8-acbee0680178\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    },
+    {
+      "EventId": "6bdcae5a-c78b-4a48-b553-0c3dacdf66a5",
+      "EventName": "CreateDBInstance",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KAF7J7FF6",
+      "EventTime": "2022-02-01 16:43:42+02:00",
+      "EventSource": "rds.amazonaws.com",
+      "Username": "itay.hazan",
+      "Resources": [
+        {
+          "ResourceType": "AWS::RDS::DBInstance",
+          "ResourceName": "database-test-cp4s"
+        },
+        {
+          "ResourceType": "AWS::EC2::VPC",
+          "ResourceName": "vpc-b8be43d9"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBSubnetGroup",
+          "ResourceName": "galt-test-db-2"
+        },
+        {
+          "ResourceType": "AWS::EC2::SecurityGroup",
+          "ResourceName": "sg-af9c3cc0"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBOptionGroup",
+          "ResourceName": "default:mysql-8-0"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-74ffd915"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-fd50328a"
+        },
+        {
+          "ResourceType": "AWS::EC2::Subnet",
+          "ResourceName": "subnet-7646005e"
+        },
+        {
+          "ResourceType": "AWS::RDS::DBParameterGroup",
+          "ResourceName": "default.mysql8.0"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KI53DTYFK6\",\"arn\":\"arn:aws:iam::752111851211:user/itay.hazan\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KAF7J7FF6\",\"userName\":\"itay.hazan\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-02-01T14:35:04Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-02-01T14:43:42Z\",\"eventSource\":\"rds.amazonaws.com\",\"eventName\":\"CreateDBInstance\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"93.173.251.148\",\"userAgent\":\"aws-internal/3 aws-sdk-java/1.11.975 Linux/5.4.156-94.273.amzn2int.x86_64 OpenJDK_64-Bit_Server_VM/25.242-b08 java/1.8.0_242 vendor/Oracle_Corporation cfg/retry-mode/legacy\",\"requestParameters\":{\"dBName\":\"\",\"dBInstanceIdentifier\":\"database-test-cp4s\",\"allocatedStorage\":100,\"dBInstanceClass\":\"db.t2.micro\",\"engine\":\"mysql\",\"masterUsername\":\"admin\",\"masterUserPassword\":\"****\",\"vpcSecurityGroupIds\":[\"sg-af9c3cc0\"],\"dBSubnetGroupName\":\"galt-test-db-2\",\"backupRetentionPeriod\":7,\"port\":3306,\"multiAZ\":false,\"engineVersion\":\"8.0.23\",\"autoMinorVersionUpgrade\":true,\"iops\":3000,\"publiclyAccessible\":false,\"storageType\":\"io1\",\"storageEncrypted\":false,\"copyTagsToSnapshot\":true,\"monitoringInterval\":60,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"enableIAMDatabaseAuthentication\":false,\"enablePerformanceInsights\":false,\"enableCloudwatchLogsExports\":[],\"deletionProtection\":false,\"maxAllocatedStorage\":1000},\"responseElements\":{\"dBInstanceIdentifier\":\"database-test-cp4s\",\"dBInstanceClass\":\"db.t2.micro\",\"engine\":\"mysql\",\"dBInstanceStatus\":\"creating\",\"masterUsername\":\"admin\",\"allocatedStorage\":100,\"preferredBackupWindow\":\"07:10-07:40\",\"backupRetentionPeriod\":7,\"dBSecurityGroups\":[],\"vpcSecurityGroups\":[{\"vpcSecurityGroupId\":\"sg-af9c3cc0\",\"status\":\"active\"}],\"dBParameterGroups\":[{\"dBParameterGroupName\":\"default.mysql8.0\",\"parameterApplyStatus\":\"in-sync\"}],\"dBSubnetGroup\":{\"dBSubnetGroupName\":\"galt-test-db-2\",\"dBSubnetGroupDescription\":\"subnet group for cluster galt-test-db-2\",\"vpcId\":\"vpc-b8be43d9\",\"subnetGroupStatus\":\"Complete\",\"subnets\":[{\"subnetIdentifier\":\"subnet-7646005e\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1c\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetIdentifier\":\"subnet-fd50328a\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1d\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"},{\"subnetIdentifier\":\"subnet-74ffd915\",\"subnetAvailabilityZone\":{\"name\":\"us-east-1a\"},\"subnetOutpost\":{},\"subnetStatus\":\"Active\"}]},\"preferredMaintenanceWindow\":\"sun:04:11-sun:04:41\",\"pendingModifiedValues\":{\"masterUserPassword\":\"****\"},\"multiAZ\":false,\"engineVersion\":\"8.0.23\",\"autoMinorVersionUpgrade\":true,\"readReplicaDBInstanceIdentifiers\":[],\"licenseModel\":\"general-public-license\",\"iops\":3000,\"storageThroughput\":0,\"optionGroupMemberships\":[{\"optionGroupName\":\"default:mysql-8-0\",\"status\":\"in-sync\"}],\"publiclyAccessible\":false,\"storageType\":\"io1\",\"dbInstancePort\":0,\"storageEncrypted\":false,\"dbiResourceId\":\"db-3AY67P6AX7U6XUQXGDKBLZENBI\",\"cACertificateIdentifier\":\"rds-ca-2019\",\"domainMemberships\":[],\"copyTagsToSnapshot\":true,\"monitoringInterval\":60,\"monitoringRoleArn\":\"arn:aws:iam::752111851211:role/rds-monitoring-role\",\"dBInstanceArn\":\"arn:aws:rds:us-east-1:752111851211:db:database-test-cp4s\",\"iAMDatabaseAuthenticationEnabled\":false,\"performanceInsightsEnabled\":false,\"deletionProtection\":false,\"associatedRoles\":[],\"httpEndpointEnabled\":false,\"maxAllocatedStorage\":1000,\"tagList\":[],\"customerOwnedIpEnabled\":false,\"networkType\":\"IPV4\",\"backupTarget\":\"region\"},\"requestID\":\"ceae69f5-bb2b-4fb1-b634-5409b0bb9e56\",\"eventID\":\"6bdcae5a-c78b-4a48-b553-0c3dacdf66a5\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"sessionCredentialFromConsole\":\"true\"}"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "Events": [
+    {
+      "EventId": "522d61d0-8008-4b79-82cb-a04e2323e7a6",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-22 13:57:43+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KBIZZ2EOOZ\",\"accountId\":\"752111851211\",\"accessKeyId\":\"\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-22T11:57:43Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"129.41.47.6\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.74 Safari/537.36\",\"errorMessage\":\"Failed authentication\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Failure\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&region=us-east-1&state=hashArgsFromTB_us-east-1_e19b07f99459731a\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"522d61d0-8008-4b79-82cb-a04e2323e7a6\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "320f2934-d3cd-425c-ab4f-faf02b2fc7f6",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-20 10:18:21+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-20T08:18:21Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:98.0) Gecko/20100101 Firefox/98.0\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/securityhub/home?region=us-east-1&state=hashArgs%23%2Ffindings%3Fsearch%3DRecordState%253D%25255Coperator%25255C%25253AEQUALS%25255C%25253AACTIVE%2526WorkflowStatus%253D%25255Coperator%25255C%25253AEQUALS%25255C%25253ANEW%2526WorkflowStatus%253D%25255Coperator%25255C%25253AEQUALS%25255C%25253ANOTIFIED&isauthcode=true\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"320f2934-d3cd-425c-ab4f-faf02b2fc7f6\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"us-east-1.signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "a856909d-c6ff-40a1-bf16-fde505bc0fbf",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-16 13:10:07+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KBIZZ2EOOZ\",\"accountId\":\"752111851211\",\"accessKeyId\":\"\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-16T11:10:07Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"195.110.40.7\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0\",\"errorMessage\":\"Failed authentication\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Failure\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&region=us-east-1&skipRegion=true&src=header-signin&state=hashArgsFromTB_us-east-1_f78f7bd45413729d\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"a856909d-c6ff-40a1-bf16-fde505bc0fbf\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "1f8c4ec4-e244-469e-a71b-259a3ca4da30",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-16 13:09:18+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KBIZZ2EOOZ\",\"accountId\":\"752111851211\",\"accessKeyId\":\"\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-16T11:09:18Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"195.110.40.7\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0\",\"errorMessage\":\"Failed authentication\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Failure\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&region=us-east-1&skipRegion=true&src=header-signin&state=hashArgsFromTB_us-east-1_f78f7bd45413729d\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"1f8c4ec4-e244-469e-a71b-259a3ca4da30\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "72874a86-ff24-4974-adab-ed768c9c26a8",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-16 13:08:49+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KBIZZ2EOOZ\",\"accountId\":\"752111851211\",\"accessKeyId\":\"\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-16T11:08:49Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"195.110.40.7\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0\",\"errorMessage\":\"Failed authentication\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Failure\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&region=us-east-1&skipRegion=true&src=header-signin&state=hashArgsFromTB_us-east-1_f78f7bd45413729d\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"72874a86-ff24-4974-adab-ed768c9c26a8\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "bc48e6cf-400c-4a0c-818d-c28ae81ecaeb",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-16 13:08:04+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KBIZZ2EOOZ\",\"accountId\":\"752111851211\",\"accessKeyId\":\"\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-16T11:08:04Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"195.110.40.7\",\"userAgent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:97.0) Gecko/20100101 Firefox/97.0\",\"errorMessage\":\"Failed authentication\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Failure\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&region=us-east-1&skipRegion=true&src=header-signin&state=hashArgsFromTB_us-east-1_f78f7bd45413729d\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"bc48e6cf-400c-4a0c-818d-c28ae81ecaeb\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "f5373d1f-a681-4b93-9cd8-5ac3075330ff",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-16 10:19:42+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-16T08:19:42Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1&state=hashArgs%23%2Fclusters%2Ftest1%2Ftasks&isauthcode=true\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"f5373d1f-a681-4b93-9cd8-5ac3075330ff\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"us-east-1.signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "e5d84c20-b1e7-4ade-9d6f-ea27685a44d3",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-15 09:45:55+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-15T07:45:55Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1&state=hashArgs%23%2Fclusters%2Fmatan3%2FrunTask&isauthcode=true\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"e5d84c20-b1e7-4ade-9d6f-ea27685a44d3\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"us-east-1.signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "82479d4c-e3c2-4839-89c4-617701ce7650",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-14 11:15:30+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-14T09:15:30Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"129.41.47.6\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://console.aws.amazon.com/ecs/home?region=us-east-1&state=hashArgs%23%2Fclusters%2Fcreate%2Fnew&isauthcode=true\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"82479d4c-e3c2-4839-89c4-617701ce7650\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"us-east-1.signin.aws.amazon.com\"}}"
+    },
+    {
+      "EventId": "315f4ac5-4eb9-49c0-9861-aeeadb5a8069",
+      "EventName": "ConsoleLogin",
+      "ReadOnly": "false",
+      "EventTime": "2022-03-13 10:09:43+02:00",
+      "EventSource": "signin.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"userName\":\"karthick.rajagopal@hcl.com\"},\"eventTime\":\"2022-03-13T08:09:43Z\",\"eventSource\":\"signin.amazonaws.com\",\"eventName\":\"ConsoleLogin\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"62.219.18.92\",\"userAgent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:97.0) Gecko/20100101 Firefox/97.0\",\"requestParameters\":null,\"responseElements\":{\"ConsoleLogin\":\"Success\"},\"additionalEventData\":{\"LoginTo\":\"https://us-east-1.console.aws.amazon.com/ecs/home?region=us-east-1&state=hashArgs%23%2Fclusters%2Fdefault%2Fservices%2Fsample-app-service%2Fdetails&isauthcode=true\",\"MobileVersion\":\"No\",\"MFAUsed\":\"Yes\"},\"eventID\":\"315f4ac5-4eb9-49c0-9861-aeeadb5a8069\",\"readOnly\":false,\"eventType\":\"AwsConsoleSignIn\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\",\"tlsDetails\":{\"tlsVersion\":\"TLSv1.2\",\"cipherSuite\":\"ECDHE-RSA-AES128-GCM-SHA256\",\"clientProvidedHostHeader\":\"us-east-1.signin.aws.amazon.com\"}}"
+    }
+  ]
+}

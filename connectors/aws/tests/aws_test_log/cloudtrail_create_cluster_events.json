@@ -1,0 +1,132 @@
+{
+  "Events": [
+    {
+      "EventId": "ebfb6f57-bc6b-45f0-940d-fe577e5d274a",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KKZ7KC3XQ",
+      "EventTime": "2022-03-15 10:09:47+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "test1"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KKZ7KC3XQ\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-15T07:45:56Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-15T08:09:47Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"test1\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:979326520502:cluster/demo-cluster-1\",\"clusterName\":\"test1\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"4b315ad5-8404-45bb-be0b-870deb3193f1\",\"eventID\":\"ebfb6f57-bc6b-45f0-940d-fe577e5d274a\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "afd0104f-0ce9-48c9-bac8-13d560f30008",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KIEVXFSOG",
+      "EventTime": "2022-03-14 13:29:13+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "abc"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KIEVXFSOG\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-14T11:29:13Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"129.41.47.6\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"abc\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/abc\",\"clusterName\":\"abc\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"71fadef9-b93b-49da-9543-59af0b7bd4cc\",\"eventID\":\"afd0104f-0ce9-48c9-bac8-13d560f30008\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "d32d30d2-fc42-42be-97e9-f167c919d7cd",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KIEVXFSOG",
+      "EventTime": "2022-03-14 11:35:56+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "matan3"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KIEVXFSOG\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-14T09:35:56Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"129.41.47.6\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"matan3\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/matan3\",\"clusterName\":\"matan3\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"2e7336d3-159b-4bae-94fa-8041d9e63e42\",\"eventID\":\"d32d30d2-fc42-42be-97e9-f167c919d7cd\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "f078e10f-0762-47c9-a7d1-d1b7db14fcc6",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KIEVXFSOG",
+      "EventTime": "2022-03-14 11:16:21+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "matan-container"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KIEVXFSOG\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-14T09:15:30Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-14T09:16:21Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"129.41.47.6\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"matan-container\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[\"FARGATE_SPOT\",\"FARGATE\"]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/matan-container\",\"clusterName\":\"matan-container\",\"status\":\"PROVISIONING\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[\"FARGATE\",\"FARGATE_SPOT\"],\"defaultCapacityProviderStrategy\":[],\"attachmentsStatus\":\"UPDATE_IN_PROGRESS\"}},\"requestID\":\"e5957353-f35a-4493-9cd9-63cb73675b94\",\"eventID\":\"f078e10f-0762-47c9-a7d1-d1b7db14fcc6\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "3443bf3a-86e9-4cab-9624-f684bc947fb9",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KE4AZ6YHJ",
+      "EventTime": "2022-03-13 17:54:08+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "idr-new"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KE4AZ6YHJ\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-13T15:54:08Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"idr-new\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/idr-new\",\"clusterName\":\"idr-new\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"97611a2c-3ea8-4f98-8279-51a710c8cdd5\",\"eventID\":\"3443bf3a-86e9-4cab-9624-f684bc947fb9\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "ed7ed6c7-70b4-4bd9-82b0-e85f72328663",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KE4AZ6YHJ",
+      "EventTime": "2022-03-13 16:14:51+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "IDR"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KE4AZ6YHJ\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-13T08:09:43Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-13T14:14:51Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"IDR\",\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}]},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/IDR\",\"clusterName\":\"IDR\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"7491557f-9c52-44a4-a97a-ef7d36f9d381\",\"eventID\":\"ed7ed6c7-70b4-4bd9-82b0-e85f72328663\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "49faa543-ef4a-4754-8df2-2203ec98d726",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KOW32LL4Y",
+      "EventTime": "2022-03-10 19:38:44+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "default"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KOW32LL4Y\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-10T15:21:29Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-10T17:38:44Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"default\"},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/default\",\"clusterName\":\"default\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"95840eb0-4843-4c95-ba18-794da1e385ff\",\"eventID\":\"49faa543-ef4a-4754-8df2-2203ec98d726\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    },
+    {
+      "EventId": "e8d9fb2c-21f1-40b0-8c77-d8e6b64e6d36",
+      "EventName": "CreateCluster",
+      "ReadOnly": "false",
+      "AccessKeyId": "ASIA26HK4C4KOW32LL4Y",
+      "EventTime": "2022-03-10 17:23:05+02:00",
+      "EventSource": "ecs.amazonaws.com",
+      "Username": "karthick.rajagopal@hcl.com",
+      "Resources": [
+        {
+          "ResourceType": "AWS::ECS::Cluster",
+          "ResourceName": "matan-cluster"
+        }
+      ],
+      "CloudTrailEvent": "{\"eventVersion\":\"1.08\",\"userIdentity\":{\"type\":\"IAMUser\",\"principalId\":\"AIDA26HK4C4KB66XLNPWH\",\"arn\":\"arn:aws:iam::752111851211:user/karthick.rajagopal@hcl.com\",\"accountId\":\"752111851211\",\"accessKeyId\":\"ASIA26HK4C4KOW32LL4Y\",\"userName\":\"karthick.rajagopal@hcl.com\",\"sessionContext\":{\"sessionIssuer\":{},\"webIdFederationData\":{},\"attributes\":{\"creationDate\":\"2022-03-10T15:21:29Z\",\"mfaAuthenticated\":\"true\"}}},\"eventTime\":\"2022-03-10T15:23:05Z\",\"eventSource\":\"ecs.amazonaws.com\",\"eventName\":\"CreateCluster\",\"awsRegion\":\"us-east-1\",\"sourceIPAddress\":\"83.130.139.33\",\"userAgent\":\"console.amazonaws.com\",\"requestParameters\":{\"clusterName\":\"matan-cluster\"},\"responseElements\":{\"cluster\":{\"clusterArn\":\"arn:aws:ecs:us-east-1:752111851211:cluster/matan-cluster\",\"clusterName\":\"matan-cluster\",\"status\":\"ACTIVE\",\"registeredContainerInstancesCount\":0,\"runningTasksCount\":0,\"pendingTasksCount\":0,\"activeServicesCount\":0,\"statistics\":[],\"tags\":[],\"settings\":[{\"name\":\"containerInsights\",\"value\":\"disabled\"}],\"capacityProviders\":[],\"defaultCapacityProviderStrategy\":[]}},\"requestID\":\"b7866df7-141d-4806-9a57-20ba6326269d\",\"eventID\":\"e8d9fb2c-21f1-40b0-8c77-d8e6b64e6d36\",\"readOnly\":false,\"eventType\":\"AwsApiCall\",\"managementEvent\":true,\"recipientAccountId\":\"752111851211\",\"eventCategory\":\"Management\"}"
+    }
+  ]
+}

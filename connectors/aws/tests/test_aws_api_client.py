@@ -17,9 +17,15 @@ class TestAwsApiClient(unittest.TestCase):
         """unit test for get ec2 instances"""
         context_patch()
         instance_list, response_list, flag = list(), list(), False
-        mock_client_details.return_value = JsonResponse(200, 'Instance_details.json').json()
-        actual_response = context().asset_server.get_instances(None)
-        instance_response = context().asset_server.get_instances('instance-123')
+        instance_details = JsonResponse(200, 'Instance_details.json').json()
+        create_events = JsonResponse(200, 'cloudtrail_run_instance_events.json').json()
+        mock_client_details.side_effect = [instance_details, create_events, instance_details, create_events]
+        actual_response, actual_create_events = context().asset_server.get_instances(None)
+        instance_response, instance_create_events = context().asset_server.get_instances('instance-123')
+
+        assert all([e['EventName'] == 'RunInstances' for e in actual_create_events])
+        assert all([e['EventName'] == 'RunInstances' for e in instance_create_events])
+
         for item in actual_response:
             if 'Instances' in item:
                 flag = True
@@ -119,10 +125,18 @@ class TestAwsApiClient(unittest.TestCase):
     def test_db_instances(self, mock_client_details):
         """Unit test for list RDS database"""
         context_patch()
-        mock_client_details.return_value = JsonResponse(200, 'database_log.json').json()
-        actual_response = context().asset_server.get_db_instances(['db-GQNFWUQIV7BL'])
-        actual_response1 = context().asset_server.get_db_instances(instance_identifier=['test-db'])
-        actual_response2 = context().asset_server.get_db_instances()
+        database_log = JsonResponse(200, 'database_log.json').json()
+        create_events = JsonResponse(200, 'cloudtrail_create_db_instance_events.json').json()
+        mock_client_details.side_effect = [database_log, create_events, database_log, create_events, database_log, create_events]
+
+        actual_response, actual_create_events = context().asset_server.get_db_instances(['db-GQNFWUQIV7BL'])
+        actual_response1, actual_create_events1 = context().asset_server.get_db_instances(instance_identifier=['test-db'])
+        actual_response2, actual_create_events2 = context().asset_server.get_db_instances()
+
+        assert all([e['EventName'] == 'CreateDBInstance' for e in actual_create_events])
+        assert all([e['EventName'] == 'CreateDBInstance' for e in actual_create_events1])
+        assert all([e['EventName'] == 'CreateDBInstance' for e in actual_create_events2])
+
         assert actual_response[0]['DBInstanceIdentifier'] is not None
         assert actual_response and actual_response1 and actual_response2 is not None
 
@@ -143,9 +157,16 @@ class TestAwsApiClient(unittest.TestCase):
         """Unit test for list applications"""
         context_patch()
         app_valid_list, flag = list(), False
-        mock_client_details.return_value = JsonResponse(200, 'application_log.json').json()
-        actual_response = context().asset_server.list_applications('testapp')
-        actual_response_app = context().asset_server.list_applications()
+        application_log = JsonResponse(200, 'application_log.json').json()
+        create_events = JsonResponse(200, 'cloudtrail_create_application_events.json').json()
+        mock_client_details.side_effect = [application_log, create_events, application_log, create_events]
+
+        actual_response, actual_create_events = context().asset_server.list_applications('testapp')
+        actual_response_app, actual_create_events_app = context().asset_server.list_applications()
+
+        assert all([e['EventName'] == 'CreateApplication' for e in actual_create_events])
+        assert all([e['EventName'] == 'CreateApplication' for e in actual_create_events_app])
+
         for item in actual_response:
             if 'ApplicationName' in item and 'ApplicationArn' in item:
                 flag = True
@@ -228,8 +249,13 @@ class TestAwsApiClient(unittest.TestCase):
         list_clusters = JsonResponse(200, 'list_clusters.json').json()
         list_tasks = JsonResponse(200, 'list_tasks.json').json()
         describe_tasks = JsonResponse(200, 'describe_tasks.json').json()
-        mock_client_details.side_effect = [list_clusters, list_tasks, describe_tasks]
-        actual_response = context().asset_server.list_running_containers('cluster-arn', 'task-arn')
+        create_events = JsonResponse(200, 'cloudtrail_create_cluster_events.json').json()
+        mock_client_details.side_effect = [list_clusters, list_tasks, describe_tasks, create_events]
+
+        actual_response, actual_create_events = context().asset_server.list_running_containers('cluster-arn', 'task-arn')
+
+        assert all([e['EventName'] == 'CreateCluster' for e in actual_create_events])
+
         for item in actual_response:
             assert isinstance(item['availabilityZone'], str)
             assert 'containers' in item

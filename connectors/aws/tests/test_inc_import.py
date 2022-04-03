@@ -6,13 +6,15 @@ from tests.common_validate import context, context_patch, TestConsumer, JsonResp
 
 class TestAwsIncImportFunctions(unittest.TestCase):
 
+    @patch('connector.server_access.AssetServer.get_login_events')
+    @patch('connector.server_access.AssetServer.get_create_events')
     @patch('connector.server_access.AssetServer.get_image_name')
     @patch('connector.server_access.AssetServer.list_applications')
     @patch('connector.server_access.AssetServer.list_applications_env')
     @patch('connector.server_access.AssetServer.event_logs', return_value=Mock())
     @patch('botocore.client.BaseClient._make_api_call')
-    def test_create_asset_update(self,  mock_instance_details, mock_event_details, mock_env_details, mock_app_details,
-                                 mock_image_details):
+    def test_create_asset_update(self, mock_instance_details, mock_event_details, mock_env_details, mock_app_details,
+                                 mock_image_details, mock_get_create_events, mock_get_login_events):
         """Unit test for create asset for update"""
         terminate_instances = JsonResponse(200, 'terminate_instance.json').json()
         run_instances = JsonResponse(200, 'run_instances.json').json()
@@ -23,10 +25,14 @@ class TestAwsIncImportFunctions(unittest.TestCase):
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
         for item in tags_log:
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
+        create_events = JsonResponse(200, 'cloudtrail_run_instance_events.json').json()['Events']
+        mock_get_create_events.return_value = create_events
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
+
         mock_event_details.side_effect = [terminate_instances, run_instances, tags_log]
         mock_instance_details.return_value = JsonResponse(200, 'Instance_details.json').json()
         mock_env_details.return_value = JsonResponse(200, 'environment_log.json').json()
-        mock_app_details.return_value = JsonResponse(200, 'application_log.json').json()["Applications"]
+        mock_app_details.return_value = (JsonResponse(200, 'application_log.json').json()["Applications"], create_events)
         mock_image_details.return_value = "TestImage"
         context_patch()
 
@@ -68,17 +74,20 @@ class TestAwsIncImportFunctions(unittest.TestCase):
         ])
         assert validations is True
 
+    @patch('connector.server_access.AssetServer.get_login_events')
     @patch('connector.server_access.AssetServer.list_applications')
     @patch('car_framework.car_service.CarService.graph_search')
     @patch('car_framework.car_service.CarService.graph_attribute_search', return_value=Mock())
     @patch('connector.server_access.AssetServer.list_applications_env')
     @patch('connector.server_access.AssetServer.event_logs', return_value=Mock())
     def test_create_application_update(self, mock_app_details, mock_env_details, mock_attr_details, mock_graph_details,
-                                       mock_application):
+                                       mock_application, mock_get_login_events):
         """Unit test for create application with update"""
-        mock_application.return_value = JsonResponse(200, 'application_log.json').json()
+        mock_application.return_value = (JsonResponse(200, 'application_log.json').json()['Applications'], JsonResponse(200, 'cloudtrail_create_application_events.json').json()['Events'])
         mock_env_details.return_value = JsonResponse(200, 'environment_log.json').json()
         mock_graph_details.return_value = JsonResponse(200, 'graph_search_log.json').json()
+        mock_get_login_events.return_value = JsonResponse(200, 'cloudtrail_login_events.json').json()['Events']
+
         app_del_data = JsonResponse(200, 'app_create_log.json').json()
         for item in app_del_data:
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
@@ -236,11 +245,12 @@ class TestAwsIncImportFunctions(unittest.TestCase):
         for item in register_instances:
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
         mock_event_details.side_effect = [stop_task, delete_container_log, delete_cluster, run_task, register_instances]
-        mock_container_list.return_value = running_containers
+        create_events = JsonResponse(200, 'cloudtrail_run_instance_events.json').json()['Events']
+        mock_container_list.return_value = (running_containers, create_events)
         mock_graph_search.return_value = container_task_cluster
         mock_container_instances.return_value = container_instances
-        mock_get_instances.return_value = get_instances
-        
+        mock_get_instances.return_value = (get_instances, create_events)
+
         response = context().data_collector.create_container(incremental=True)
         if response:
             context().inc_importer.handle_data([

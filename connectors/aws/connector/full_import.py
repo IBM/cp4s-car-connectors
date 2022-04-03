@@ -48,10 +48,16 @@ class FullImport(BaseFullImport):
                 'asset_macaddress',
                 'geolocation',
                 'asset_geolocation',
+                'user',
+                'account',
+                'user_account',
+                'account_ipaddress',
+                'account_application',
+                'asset_account',
             ], collection)
             
         # database catalog
-        collection_create, _ = context().data_collector.create_database(incremental=False) 
+        collection_create, _ = context().data_collector.create_database(incremental=False)
         if collection_create:
             self.handle_data([
                 'database',
@@ -67,23 +73,38 @@ class FullImport(BaseFullImport):
                 'user',
                 'user_account',
                 'asset_application',
+                'ipaddress',
+                'database_ipaddress',
+                'account_ipaddress',
+                'account_application',
             ], collection_create)
 
         # application catalog
         app_list, _ = context().data_collector.create_application(incremental=False)
         if app_list:
             self.handle_data([
-                'application'
+                'application',
+                'user',
+                'account',
+                'user_account',
+                'ipaddress',
+                'account_ipaddress',
+                'application_ipaddress',
+                'account_application'
             ], app_list)
 
         # container catalog
         collection = context().data_collector.create_container(incremental=False)
         if collection:
             self.handle_data([
+                'user',
+                'account',
+                'user_account',
                 'container',
                 'ipaddress',
                 'asset_container',
                 'ipaddress_container',
+                'account_ipaddress'
             ], collection)
 
         # vulnerability catalog
@@ -92,6 +113,12 @@ class FullImport(BaseFullImport):
             self.handle_data([
                 'vulnerability',
                 'asset_vulnerability',
+                'user',
+                'account',
+                'user_account',
+                'ipaddress',
+                'account_ipaddress',
+                'ipaddress_vulnerability',
             ], collection)
 
 
