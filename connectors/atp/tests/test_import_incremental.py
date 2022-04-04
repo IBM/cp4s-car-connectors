@@ -6,7 +6,7 @@ from tests.common_validate import context, context_patch, JsonResponse, MockJson
 
 ACCESS_TOKEN = 'xyz-abc-123'
 
-
+@unittest.skip("Incremental import skipping")
 class TestImportIncremental(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_machine_list')

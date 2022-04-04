@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from tests.common_validate import context_patch, context, JsonResponse, TestConsumer
 
-
+@unittest.skip("Incremental import skipping")
 class TestImportIncremental(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_administrative_logs')
