@@ -4,6 +4,7 @@ from unittest.mock import patch, Mock
 
 from tests.common_validate import context, context_patch, TestConsumer, JsonResponse
 
+@unittest.skip("Incremental import skipping")
 class TestAwsIncImportFunctions(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_image_name')
