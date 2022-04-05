@@ -1,0 +1,42 @@
+{
+    "connection":{
+        "schedule": {
+            "frequency": {
+                "label": "Frequency",
+                "description": "Select how frequently this connection will pull data from the asset",
+                "optionLabels": {
+                    "1h"    : "1 hour",
+                    "2h"    : "2 hours",
+                    "4h"    : "4 hours",
+                    "6h"    : "6 hours",
+                    "12h"   : "12 hours",
+                    "daily" : "Daily"
+                }
+            },
+            "time": {
+                "label": "Time (UTC)",
+                "description": "Set the UTC time to run connector to pull data from data source"
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "qualys_url": {
+                "label": "Qualys URL",
+                "description": "Qualys data source URL"
+            },
+            "qualys_gateway": {
+                "label": "Qualys Gateway",
+                "description": "Qualys data source Gateway"
+            },
+            "username": {
+                "label": "Username",
+                "description": "Username required for data source authentication"
+            },
+            "password": {
+                "label": "Password",
+                "description": "Password required for data source authentication"
+            }
+        }
+    }
+}

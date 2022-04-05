@@ -1,0 +1,5 @@
+cryptography==3.3.2
+pyopenssl==19.1.0
+car-connector-framework==2.0.8
+xmltodict==0.12.0
+pytest==7.0.0
