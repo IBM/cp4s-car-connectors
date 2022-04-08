@@ -1,0 +1,104 @@
+{
+	"data": {
+		"evidenceMap": {},
+		"guessedPossibleResults": 0,
+		"guids": [],
+		"pathResultCounts": [{
+				"count": 9,
+				"featureDescriptor": {
+					"elementInstanceType": "Machine",
+					"featureName": null
+				}
+			},
+			{
+				"count": 18,
+				"featureDescriptor": {
+					"elementInstanceType": "Machine",
+					"featureName": "networkInterfaces"
+				}
+			}
+		],
+		"queryLimits": {
+			"groupingFeature": {
+				"elementInstanceType": "NetworkInterface",
+				"featureName": "self"
+			},
+			"perFeatureLimit": 100,
+			"perGroupLimit": 100,
+			"sortInGroupFeature": null,
+			"totalResultLimit": 1000
+		},
+		"queryTerminated": false,
+		"resultIdToElementDataMap": {
+			"-1462096699.-5317559776888310190": {
+				"elementValues": {
+					"ipAddress": {
+						"elementValues": [{
+							"elementType": "IpAddress",
+							"guid": "0.4290587568726535260",
+							"hasMalops": false,
+							"hasSuspicions": false,
+							"name": "192.168.153.17"
+						}],
+						"guessedTotal": 0,
+						"totalMalicious": 0,
+						"totalSuspicious": 0,
+						"totalValues": 1
+					},
+					"ownerMachine": {
+						"elementValues": [{
+							"elementType": "Machine",
+							"guid": "-1299996638.1198775089551518743",
+							"hasMalops": false,
+							"hasSuspicions": false,
+							"name": "workspace-qqydu"
+						}],
+						"guessedTotal": 0,
+						"totalMalicious": 0,
+						"totalSuspicious": 0,
+						"totalValues": 1
+					}
+				},
+				"filterData": {
+					"groupByValue": "NetworkInterfaceRuntime:-1462096699.-5317559776888310190 ",
+					"sortInGroupValue": "-1462096699.-5317559776888310190"
+				},
+				"guidString": "-1462096699.-5317559776888310190",
+				"isMalicious": false,
+				"labelsIds": null,
+				"malicious": false,
+				"malopPriority": null,
+				"simpleValues": {
+					"elementDisplayName": {
+						"totalValues": 1,
+						"values": [
+							"Loopback Pseudo-Interface 1"
+						]
+					},
+					"id": {
+						"totalValues": 1,
+						"values": [
+							"{7903EC1C-98DE-11EB-9146-806E6F6E6963}"
+						]
+					},
+					"macAddressFormat": {
+						"totalValues": 1,
+						"values": [
+							"00:15:5D:96:01:14"
+						]
+					}
+				},
+				"suspect": false,
+				"suspicionCount": 0,
+				"suspicions": null
+			}
+		},
+		"suspicionsMap": {},
+		"totalPossibleResults": 18
+	},
+	"expectedResults": 1,
+	"failures": 0,
+	"hidePartialSuccess": false,
+	"message": "",
+	"status": "SUCCESS"
+}

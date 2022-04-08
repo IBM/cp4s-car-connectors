@@ -1,0 +1,22 @@
+{
+    "configuration": {
+        "auth": {
+            "cybereason_url": {
+                "label": "Cybereason URL",
+                "description": "Cybereason data source URL"
+            },
+            "username": {
+                "label": "Username",
+                "description": "Username required for data source authentication"
+            },
+            "password": {
+                "label": "Password",
+                "description": "Password required for data source authentication"
+            },
+            "malop_retention_period": {
+                "label": "Malop Retention Period",
+                "description": "No of days of Malops to be imported"
+            }
+        }
+    }
+}

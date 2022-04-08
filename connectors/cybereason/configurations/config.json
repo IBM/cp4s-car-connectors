@@ -1,0 +1,26 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Cybereason"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "cybereason_url": {
+                "type": "text"
+            },
+            "username": {
+                "type": "text"
+            },
+            "password": {
+                "type": "password"
+            },
+            "malop_retention_period": {
+                "type": "text",
+		        "default": 30
+            }
+        }
+    }
+}

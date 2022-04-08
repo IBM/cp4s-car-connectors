@@ -1,0 +1,258 @@
+{
+	"asset": {
+    "totalResults": 50,
+    "sensorsStatus": {
+        "@class": ".SensorsStatusOverview",
+        "onlineCount": 12,
+        "offlineCount": 10,
+        "staleCount": 18,
+        "archivedCount": 10,
+        "turnedOnCount": 1,
+        "turnedOffCount": 0,
+        "suspendedCount": 1,
+        "advancedCount": 7,
+        "outdatedCount": 27,
+        "serviceErrorCount": 3
+    },
+    "sensors": [
+        {
+            "sensorId": "5e77883de4b0575ddcf824ef:PYLUMCLIENT_INTEGRATION_EC2AMAZ-F5QLBEH_127AEF43CDAD",
+            "pylumId": "PYLUMCLIENT_INTEGRATION_EC2AMAZ-F5QLBEH_127AEF43CDAD",
+            "guid": "335595233.1198775089551518743",
+            "fqdn": "ec2amaz-f5qlbeh",
+            "machineName": "ec2amaz-f5qlbeh",
+            "internalIpAddress": "172.31.81.246",
+            "externalIpAddress": "54.174.202.201",
+            "siteName": "Default",
+            "siteId": 0,
+            "ransomwareStatus": "DETECT_SUSPEND_PREVENT",
+            "preventionStatus": "ENABLED",
+            "isolated": false,
+            "disconnectionTime": 1648384671531,
+            "lastPylumInfoMsgUpdateTime": 1648386419033,
+            "lastPylumUpdateTimestampMs": 1648386419033,
+            "status": "Online",
+            "serviceStatus": "Up",
+            "onlineTimeMS": 0,
+            "offlineTimeMS": 0,
+            "staleTimeMS": 0,
+            "archiveTimeMs": null,
+            "statusTimeMS": 0,
+            "lastStatusAction": "None",
+            "archivedOrUnarchiveComment": "",
+            "sensorArchivedByUser": "",
+            "serverName": "integration-1-t",
+            "serverId": "5e77883de4b0575ddcf824ef",
+            "serverIp": "10.146.0.47",
+            "privateServerIp": "10.146.0.47",
+            "collectiveUuid": "70b8b433-e8ba-4375-8eb5-1c0d95c62120",
+            "osType": "WINDOWS",
+            "osVersionType": "Windows_Server_2019",
+            "collectionStatus": "ADVANCED",
+            "version": "21.2.103.0",
+            "consoleVersion": null,
+            "firstSeenTime": 1643024878113,
+            "upTime": 1143005,
+            "cpuUsage": 0.008331389,
+            "memoryUsage": 119291904,
+            "outdated": false,
+            "amStatus": "AM_QUARANTINE",
+            "amModeOrigin": null,
+            "avDbVersion": "87485",
+            "avDbLastUpdateTime": 1648382530000,
+            "powerShellStatus": "PS_ENABLED",
+            "remoteShellStatus": "AC_ENABLED",
+            "usbStatus": "DISABLED",
+            "fwStatus": "DISABLED",
+            "antiExploitStatus": "AE_DISABLED",
+            "documentProtectionStatus": "DS_QUARANTINE",
+            "documentProtectionMode": "DM_CAUTIOUS",
+            "serialNumber": "",
+            "deviceModel": "Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz",
+            "organizationalUnit": "",
+            "antiMalwareStatus": "AM_ENABLED",
+            "antiMalwareModeOrigin": null,
+            "organization": "integration",
+            "proxyAddress": "",
+            "preventionError": "",
+            "exitReason": "STOP_REQUEST_FROM_PYLUM",
+            "actionsInProgress": 0,
+            "pendingActions": [],
+            "lastUpgradeResult": "AlreadyUpdated",
+            "department": null,
+            "location": null,
+            "criticalAsset": null,
+            "deviceType": null,
+            "customTags": null,
+            "lastUpgradeSteps": [
+                {
+                    "name": "Started",
+                    "startTime": 1647937540413
+                },
+                {
+                    "name": "AlreadyUpdated",
+                    "startTime": 1647937540414
+                }
+            ],
+            "disconnected": false,
+            "staticAnalysisDetectMode": "DISABLED",
+            "staticAnalysisDetectModeOrigin": null,
+            "staticAnalysisPreventMode": "DISABLED",
+            "staticAnalysisPreventModeOrigin": null,
+            "collectionComponents": [
+                "Metadata"
+            ],
+            "sensorLastUpdate": 0,
+            "fullScanStatus": "IDLE",
+            "quickScanStatus": "IDLE",
+            "lastFullScheduleScanSuccessTime": 1648202970000,
+            "lastQuickScheduleScanSuccessTime": 1648384493000,
+            "policyName": "CARTest",
+            "deliveryTime": 1648382064744,
+            "policyId": "ec81461f-51e3-4e6c-b119-6138af794f7d",
+            "compliance": false,
+            "groupId": "72a61eac-6f79-4670-8607-a1334ddd2ff0",
+            "groupName": "Perimeter 1",
+            "groupStickiness": true,
+            "groupStickinessLabel": "Manual"
+        }
+
+    ],
+    "hasMoreResults": false
+},
+
+	"network_interface": {
+		"data": {
+			"resultIdToElementDataMap": {
+				"1673663194.8588594537387152347": {
+					"simpleValues": {
+						"id": {
+							"totalValues": 1,
+							"values": [
+								"{C0100896-E869-11E8-81BF-806E6F6E6963}"
+							]
+						},
+						"macAddressFormat": {
+							"totalValues": 1,
+							"values": [
+								"00:15:5D:96:01:14"
+							]
+						},
+						"elementDisplayName": {
+							"totalValues": 1,
+							"values": [
+								"Loopback Pseudo-Interface 1"
+							]
+						}
+					},
+					"elementValues": {
+						"ownerMachine": {
+							"totalValues": 1,
+							"elementValues": [
+								{
+									"elementType": "Machine",
+									"guid": "335595233.1198775089551518743",
+									"name": "ec2amaz-l2dhhuj",
+									"hasSuspicions": false,
+									"hasMalops": false
+								}
+							],
+							"totalSuspicious": 0,
+							"totalMalicious": 0,
+							"guessedTotal": 0
+						},
+						"ipAddress": {
+							"totalValues": 1,
+							"elementValues": [
+								{
+									"elementType": "IpAddress",
+									"guid": "0.4290587568726535260",
+									"name": "172.31.81.246",
+									"hasSuspicions": false,
+									"hasMalops": false
+								}
+							],
+							"totalSuspicious": 0,
+							"totalMalicious": 0,
+							"guessedTotal": 0
+						}
+					},
+					"suspicions": null,
+					"filterData": {
+						"sortInGroupValue": "1673663194.8588594537387152347",
+						"groupByValue": "NetworkInterfaceRuntime:1673663194.8588594537387152347 "
+					},
+					"isMalicious": false,
+					"suspicionCount": 0,
+					"guidString": "1673663194.8588594537387152347",
+					"labelsIds": null,
+					"malopPriority": null,
+					"suspect": false,
+					"malicious": false
+				}
+			}
+		}
+	},
+	"vulnerability": {
+		"malops": [
+			{
+				"@class": ".MalopInboxModel",
+				"closed": false,
+				"closerName": null,
+				"creationTime": 1796228162669,
+				"decisionStatuses": [],
+				"detectionEngines": [
+					"EDR"
+				],
+				"detectionTypes": [
+					"Malicious use of PowerShell"
+				],
+				"displayName": "powershell.exe",
+				"edr": true,
+				"escalated": true,
+				"group": "",
+				"guid": "11.5131751183100962590",
+				"iconBase64": "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",
+				"labels": [
+					"Spear Phishing label1124c",
+					"Spear Phishing label1124d",
+					"NEW_1124a"
+				],
+				"lastUpdateTime": 1606237179258,
+				"machines": [
+					{
+						"@class": ".MachineInboxModel",
+						"connected": false,
+						"displayName": "jpkerouanton34",
+						"guid": "1673663194.1198775089551518743",
+						"isolated": false,
+						"lastConnected": 1606400403051,
+						"osType": "WINDOWS"
+					}
+				],
+				"malopCloseTime": null,
+				"malopDetectionType": "CNC",
+				"malopPriority": "HIGH",
+				"malopSeverity": "High",
+				"malopStatus": "Active",
+				"malopType": "CNC",
+				"primaryRootCauseName": "powershell.exe",
+				"priority": "HIGH",
+				"rootCauseElementHashes": "",
+				"rootCauseElementNamesCount": 1,
+				"rootCauseElementType": "Process",
+				"severity": "High",
+				"status": "Active",
+				"users": [
+					{
+						"admin": false,
+						"displayName": "archer\\jgreer",
+						"domainUser": false,
+						"guid": "0.7518736930030886380",
+						"localSystem": false
+					}
+				]
+			}
+		]
+	}
+}

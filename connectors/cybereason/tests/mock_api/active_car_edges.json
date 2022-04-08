@@ -1,0 +1,30 @@
+{
+  "asset_ipaddress" : [
+    {
+      "source": "Cybereason",
+      "asset_id": "Cybereason/1673663194.1198775089551518743",
+      "ipaddress_id": "Cybereason/0/172.31.81.246"
+    }
+  ],
+  "ipaddress_macaddress": [
+    {
+      "source": "Cybereason",
+      "ipaddress_id": "Cybereason/0/172.31.81.246",
+      "macaddress_id": "Cybereason/00:15:5D:96:01:15"
+    }
+  ],
+  "asset_hostname": [
+    {
+      "source": "Cybereason",
+      "asset_id": "Cybereason/1673663194.1198775089551518743",
+      "hostname_id": "Cybereason/ec2amaz-f5qlbeh"
+    }
+  ],
+  "asset_vulnerability": [
+    {
+      "source": "Cybereason",
+      "asset_id": "Cybereason/1673663194.1198775089551518743",
+      "vulnerability_id": "Cybereason/11.5131751183100962590"
+    }
+  ]
+}
