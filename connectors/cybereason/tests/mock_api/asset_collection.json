@@ -30,7 +30,7 @@
       "documentProtectionMode": "DM_CAUTIOUS",
       "documentProtectionStatus": "DS_DISABLED",
       "exitReason": "STOP_REQUEST_FROM_PYLUM",
-      "externalIpAddress": "74.201.86.232",
+      "externalIpAddress": "74.11.11.11",
       "firstSeenTime": 1594244678141,
       "fqdn": "leroy_brown.corp.example.com",
       "fullScanStatus": "UNKNOWN",
@@ -40,7 +40,7 @@
       "groupStickiness": true,
       "groupStickinessLabel": "Manual",
       "guid": "-1299996638.1198775089551518743",
-      "internalIpAddress": "192.168.153.17",
+      "internalIpAddress": "192.61.44.44",
       "isolated": false,
       "lastFullScheduleScanSuccessTime": 0,
       "lastPylumInfoMsgUpdateTime": 1648699740327,
@@ -74,7 +74,7 @@
       "powerShellStatus": "PS_DISABLED",
       "preventionError": "",
       "preventionStatus": "DISABLED",
-      "privateServerIp": "10.146.0.47",
+      "privateServerIp": "10.11.11.11",
       "proxyAddress": "",
       "pylumId": "PYLUMCLIENT_INTEGRATION_LEROY_BROWN_005056934B92",
       "quickScanStatus": "UNKNOWN",
@@ -85,7 +85,7 @@
       "sensorLastUpdate": 0,
       "serialNumber": "",
       "serverId": "5e77883de4b0575ddcf824ef",
-      "serverIp": "10.146.0.47",
+      "serverIp": "10.11.11.11",
       "serverName": "integration-1-t",
       "serviceStatus": "Up",
       "siteId": 0,
@@ -100,7 +100,7 @@
       "upTime": 1657214030,
       "usbStatus": "DISABLED",
       "version": "20.2.244.0",
-      "mac_list": {"192.168.153.17": ["12:1e:5r:3f:4d"]}
+      "mac_list": {"192.61.44.44": ["12:11:11:11:11:11"]}
     }
   ],
   "network_interface": {
@@ -114,7 +114,7 @@
                 "guid": "0.4290587568726535260",
                 "hasMalops": false,
                 "hasSuspicions": false,
-                "name": "192.168.153.17"
+                "name": "192.61.44.44"
               }
             ],
             "guessedTotal": 0,
@@ -163,7 +163,7 @@
           "macAddressFormat": {
             "totalValues": 1,
             "values": [
-              "00:15:5D:96:01:14"
+              "00:11:11:11:11:11"
             ]
           }
         },
@@ -173,7 +173,7 @@
       }
     },
     "active_ip": [
-      "192.168.153.17"
+      "192.61.44.44"
     ]
   },
   "vulnerability": [
@@ -229,7 +229,7 @@
       "users": [
         {
           "admin": false,
-          "displayName": "archer\\jgreer",
+          "displayName": "testuser",
           "domainUser": false,
           "guid": "0.7518736930030886380",
           "localSystem": false

@@ -17,7 +17,8 @@ class Arguments:
     with open('automation_tests/automation_config.json', 'rb') as json_data:
         args = json.load(json_data)
 
-    server = ""  # server url
+    host = ""  # server name or IP
+    port = ""  # Server port
     username = ""  # server username
     password = ""  # server password
     source = args['source']  # source name in car db
@@ -160,7 +161,7 @@ class TestConnector(unittest.TestCase):
         res_vulnerability = Mock(status_code=200)
         res_vulnerability.content = json.dumps(inc_delete_collections["vulnerability"])
 
-        mock_api.side_effect = [mock_header, res_asset, res_network, res_vulnerability]
+        mock_api.side_effect = [mock_header, res_asset, res_network, res_vulnerability, res_asset]
 
         # Initialization
         Context(Arguments)

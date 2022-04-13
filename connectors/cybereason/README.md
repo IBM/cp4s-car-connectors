@@ -35,7 +35,8 @@ required arguments in command line:
 
 ```
 positional arguments:
--cybereason_url             :Cybereason API server URL
+-host                       :Cybereason API server name or IP
+-port                       :Cybereason server port number
 -username                   :Cybereason API authentication user name
 -password                   :Cybereason API authentication secret
 -url                        :CAR DB url
@@ -90,10 +91,10 @@ II.	Setting PYTHONPATH permanently.
 1. goto the connector folder ` <cp4s-car-connectors/connectors/cybereason>`
 
 2. To run the initial import which is the full dump of the data source assets, run this command:
-   ` python app.py -cybereason_server <Cybereason server uri> -port <Cybereason server port> -username <'username'> -password <'secret'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<Cybereason>"`
+   ` python app.py -host <Cybereason hostname or IP> -port <Cybereason server port> -username <'username'> -password <'secret'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<Cybereason>"`
 
 3. To run the incremental update, create a cronjob that runs every 4hours, the command to run is:
-   ` python app.py -cybereason_server <Cybereason server uri> -port <Cybereason server port> -username <'username'> -password <'secret'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<Cybereason>"`
+   ` python app.py -host <Cybereason hostname or IP> -port <Cybereason server port> -username <'username'> -password <'secret'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<Cybereason>"`
 
 V. INITIAL IMPORT
 -----------------------------------------------------------------

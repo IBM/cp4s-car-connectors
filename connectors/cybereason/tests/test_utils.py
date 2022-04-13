@@ -8,7 +8,8 @@ from connector import full_import, server_access, inc_import
 
 class Arguments:
     """Test args for Unit test case"""
-    server = "https://www.test.com"
+    host = "test.com"
+    port = ""
     gateway = ""
     username = ""
     password = ""

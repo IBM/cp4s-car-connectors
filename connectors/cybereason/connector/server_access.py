@@ -13,8 +13,9 @@ class AssetServer:
         # Get server connection arguments from config file
         with open('connector/cybereason_config.json', 'rb') as json_data:
             self.config = json.load(json_data)
-
-        asset_server_endpoint = context().args.server + self.config['endpoint']['auth']
+        # Data source url
+        self.server = "https://" + context().args.host + ":" + context().args.port
+        asset_server_endpoint = self.server + self.config['endpoint']['auth']
         data = {
             "username": context().args.username,
             "password": context().args.password
@@ -25,7 +26,7 @@ class AssetServer:
 
     def test_connection(self):
         try:
-            asset_server_endpoint = context().args.server + self.config['endpoint']['auth']
+            asset_server_endpoint = self.server + self.config['endpoint']['auth']
             data = {
                 "username": context().args.username,
                 "password": context().args.password
@@ -63,7 +64,7 @@ class AssetServer:
 
         return api_response
 
-    def get_assets(self, last_model_state_id=None):
+    def get_assets(self, last_model_state_id=None, incremental_delete=None):
         """
         Fetch the entire asset records from data source.
         parameters:
@@ -73,13 +74,24 @@ class AssetServer:
         """
         assets = []
         headers = self.config['parameter']['headers']
-        asset_server_endpoint = context().args.server + self.config['endpoint']['asset']
+        asset_server_endpoint = self.server + self.config['endpoint']['asset']
         if last_model_state_id:
             filter_query = [{
                 "fieldName": "lastPylumUpdateTimestampMs",
                 "operator": "GreaterOrEqualsTo",
                 "values": [last_model_state_id]
             }]
+        elif incremental_delete:
+            filter_query = [
+                {
+                    "fieldName": "status",
+                    "operator": "Equals",
+                    "values": [
+                        "Stale",
+                        "Archived"
+                    ]
+                }
+            ]
         else:
             filter_query = [
                 {
@@ -119,11 +131,11 @@ class AssetServer:
             results(list): Api response
         """
         headers = self.config['parameter']['headers']
-        server_endpoint = context().args.server + self.config['endpoint']['vulnerability']
+        server_endpoint = self.server + self.config['endpoint']['vulnerability']
         query = json.dumps({"endTime": current_model_state_id})
 
         if last_model_state_id:
-            start_time = current_model_state_id - (context().args.malop_retention_period * 24
+            start_time = current_model_state_id - (int(context().args.malop_retention_period) * 24
                                                    * 60 * 60 * 1000)
             query = json.dumps({"startTime": start_time,
                                 "endTime": current_model_state_id})
@@ -146,7 +158,7 @@ class AssetServer:
             results(list): Api response
         """
         headers = self.config['parameter']['headers']
-        server_endpoint = context().args.server + self.config['endpoint']['network']
+        server_endpoint = self.server + self.config['endpoint']['network']
         query = json.dumps({
             "queryPath": [{
                 "requestedType": "Machine",
@@ -187,7 +199,7 @@ class AssetServer:
             results(list): Api response
         """
         headers = self.config['parameter']['headers']
-        server_endpoint = context().args.server + self.config['endpoint']['remediation'] + "/" + malop_id
+        server_endpoint = self.server + self.config['endpoint']['remediation'] + "/" + malop_id
         response = self.get_collection("GET", server_endpoint, data=None, headers=headers)
         if response.status_code != 200:
             return_obj = {}

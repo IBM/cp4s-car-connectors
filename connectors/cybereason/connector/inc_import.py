@@ -1,4 +1,3 @@
-import json
 from car_framework.inc_import import BaseIncrementalImport
 from car_framework.context import context
 from connector.data_handler import DataHandler, endpoint_mapping
@@ -99,11 +98,9 @@ class IncrementalImport(BaseIncrementalImport):
         returns:
             update_list(dict) : incremental updated asset and vulnerability list
         """
-        updation_list = {}
-        updation_list["asset"] = self.incremental_asset_update(data)
-        updation_list["vulnerability"] = self.incremental_vuln_update(data)
+        updation_list = {"asset": self.incremental_asset_update(data),
+                         "vulnerability": self.incremental_vuln_update(data)}
         return updation_list
-
 
     def incremental_asset_update(self, data):
         """
@@ -190,7 +187,7 @@ class IncrementalImport(BaseIncrementalImport):
         returns:
             active_vertices(list) : list of active nodes
         """
-        active_vertices = list()
+        active_vertices = []
         result = context().car_service.search_collection(resource, 'source', context().args.source,
                                                                    resource_fields)
         if result:
@@ -283,10 +280,13 @@ class IncrementalImport(BaseIncrementalImport):
         Delete asset nodes from CAR Database if status changed to stale or archive
         """
         asset_delete = []
-        if self.delta["asset"]:
-            for asset in self.delta["asset"]:
-                if asset["status"] in ["Archive", "Stale"]:
-                    asset_delete.append(asset["guid"])
+        stale_or_archive_assets = context().asset_server.get_assets(incremental_delete=True)
+        active_car_assets = self.get_active_vertices("asset", ['external_id', 'name'])
+        if stale_or_archive_assets:
+            for asset in stale_or_archive_assets:
+                for active_asset in active_car_assets:
+                    if asset["guid"] == active_asset["external_id"]:
+                        asset_delete.append(asset["guid"])
         if asset_delete:
             context().car_service.delete("asset", asset_delete)
         context().logger.info('Deleting vertices done: %s', {'asset': len(asset_delete)})

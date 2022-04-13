@@ -16,12 +16,12 @@
     },
     "sensors": [
         {
-            "sensorId": "5e77883de4b0575ddcf824ef:PYLUMCLIENT_INTEGRATION_EC2AMAZ-F5QLBEH_127AEF43CDAD",
-            "pylumId": "PYLUMCLIENT_INTEGRATION_EC2AMAZ-F5QLBEH_127AEF43CDAD",
+            "sensorId": "5e77883de4b0575ddcf824ef:PYLUMCLIENT_INTEGRATION_testmachine_127AEF43CDAD",
+            "pylumId": "PYLUMCLIENT_INTEGRATION_testmachine_127AEF43CDAD",
             "guid": "1673663194.1198775089551518743",
-            "fqdn": "ec2amaz-f5qlbeh",
-            "machineName": "ec2amaz-f5qlbeh",
-            "internalIpAddress": "172.31.81.246",
+            "fqdn": "testmachine",
+            "machineName": "testmachine",
+            "internalIpAddress": "172.11.11.11",
             "externalIpAddress": "54.174.202.203",
             "siteName": "Default",
             "siteId": 0,
@@ -43,8 +43,8 @@
             "sensorArchivedByUser": "",
             "serverName": "integration-1-t",
             "serverId": "5e77883de4b0575ddcf824ef",
-            "serverIp": "10.146.0.47",
-            "privateServerIp": "10.146.0.47",
+            "serverIp": "10.172.0.31",
+            "privateServerIp": "10.172.0.31",
             "collectiveUuid": "70b8b433-e8ba-4375-8eb5-1c0d95c62120",
             "osType": "WINDOWS",
             "osVersionType": "Windows_Server_2019",
@@ -135,7 +135,7 @@
 						"macAddressFormat": {
 							"totalValues": 1,
 							"values": [
-								"00:15:5D:96:01:14"
+								"00:11:11:FF:01:EE"
 							]
 						},
 						"elementDisplayName": {
@@ -167,7 +167,7 @@
 								{
 									"elementType": "IpAddress",
 									"guid": "0.4290587568726535260",
-									"name": "172.31.81.246",
+									"name": "172.11.11.11",
 									"hasSuspicions": false,
 									"hasMalops": false
 								}

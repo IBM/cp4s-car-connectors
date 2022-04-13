@@ -1,5 +1,5 @@
 {   "source": "Cybetest",
-    "car_service_apikey_url": "https://cp4s.mycluster-che01-b3-721165-9b9163e1d4dfda33846fd7cfb5bc4acf-0000.che01.containers.appdomain.cloud/api/car/v2",
-    "api_key": "c2ad22e54eb65482aaede2ecb0377f8f",
-    "api_password": "a5f8a1330b394a3eaf68ddf942307e8b"
+    "car_service_apikey_url": "https://cp4s.xxxxxxxxxxxxxxcxxxxx.appdomain.cloud/api/car/v2",
+    "api_key": "xxxxxxxxxxxxxxxx",
+    "api_password": "xxxxxxxxxxxxxx"
 }

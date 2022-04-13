@@ -16,15 +16,17 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Parameters need to connect data source
-        self.parser.add_argument('-cybereason_url', dest='server', default=os.getenv('CONFIGURATION_AUTH_CYBEREASON_URL', None),
+        self.parser.add_argument('-host', dest='host', default=os.getenv('CONNECTION_HOST', None),
+                                 type=str, required=False, help='The url of the Cybereason data source')
+        self.parser.add_argument('-port', dest='port', default=os.getenv('CONNECTION_PORT', None),
                                  type=str, required=False, help='The url of the Cybereason data source')
         self.parser.add_argument('-username', dest='username', default=os.getenv('CONFIGURATION_AUTH_USERNAME', None),
                                  type=str, required=False, help='Username for the Cybereason data source')
         self.parser.add_argument('-password', dest='password', default=os.getenv('CONFIGURATION_AUTH_PASSWORD', None),
                                  type=str, required=False, help='Password for the Cybereason data source')
-        self.parser.add_argument('-malop_retention_period', dest='malop_retention_period',
-                                 default=os.getenv('CONFIGURATION_AUTH_MALOPRETENTIONPERIOD', None),
-                                 type=str, required=False, help='number of days of malops to be considered')
+        self.parser.add_argument('-vulnerability_retention_period', dest='malop_retention_period',
+                                 default=os.getenv('CONFIGURATION_PARAMETER_VULNERABILITY_RETENTION_PERIOD', None),
+                                 type=str, required=False, help='number of days of vulnerabilities to be considered')
     def setup(self):
         super().setup()
         # add default malop retention period

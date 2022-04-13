@@ -3,23 +3,34 @@
         "type": {
             "type": "connectorType",
             "displayName": "Cybereason"
+        },
+        "host": {
+            "type": "text",
+            "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"
+        },
+        "port": {
+            "type": "number",
+            "default": 443,
+            "min": 1,
+            "max": 65535
         }
     },
     "configuration": {
         "auth": {
             "type": "fields",
-            "cybereason_url": {
-                "type": "text"
-            },
             "username": {
-                "type": "text"
+                "type": "password"
             },
             "password": {
                 "type": "password"
-            },
-            "malop_retention_period": {
-                "type": "text",
-		        "default": 30
+            }
+        },
+        "parameter": {
+            "type": "fields",
+            "vulnerability_retention_period": {
+                "type": "number",
+                "default": 30,
+                "min": 1
             }
         }
     }

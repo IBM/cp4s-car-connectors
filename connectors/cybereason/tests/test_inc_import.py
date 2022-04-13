@@ -107,7 +107,7 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         mock_netwrk = CybereasonMockResponse(200, mock_netwrk_res)
         mock_vuln = CybereasonMockResponse(200, mock_vuln_res)
 
-        mock_api.side_effect = [mock_asset, mock_netwrk, mock_vuln]
+        mock_api.side_effect = [mock_asset, mock_netwrk, mock_vuln, mock_asset]
         inc_import_obj.get_data_for_delta(data_handler.get_report_time(), None)
         # Mock active edge response
         active_edges.return_value = []
