@@ -13,6 +13,14 @@
             "default": 443,
             "min": 1,
             "max": 65535
+        },
+        "options": {
+            "type": "fields",
+            "vulnerability_retention_period": {
+                "type": "number",
+                "default": 30,
+                "min": 1
+            }
         }
     },
     "configuration": {
@@ -23,14 +31,6 @@
             },
             "password": {
                 "type": "password"
-            }
-        },
-        "parameter": {
-            "type": "fields",
-            "vulnerability_retention_period": {
-                "type": "number",
-                "default": 30,
-                "min": 1
             }
         }
     }

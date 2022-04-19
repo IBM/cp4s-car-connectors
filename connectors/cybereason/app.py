@@ -25,7 +25,7 @@ class App(BaseApp):
         self.parser.add_argument('-password', dest='password', default=os.getenv('CONFIGURATION_AUTH_PASSWORD', None),
                                  type=str, required=False, help='Password for the Cybereason data source')
         self.parser.add_argument('-vulnerability_retention_period', dest='malop_retention_period',
-                                 default=os.getenv('CONFIGURATION_PARAMETER_VULNERABILITY_RETENTION_PERIOD', None),
+                                 default=os.getenv('CONNECTION_OPTIONS_VULNERABILITY_RETENTION_PERIOD', None),
                                  type=str, required=False, help='number of days of vulnerabilities to be considered')
     def setup(self):
         super().setup()
