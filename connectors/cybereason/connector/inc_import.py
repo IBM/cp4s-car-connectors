@@ -1,17 +1,18 @@
 from car_framework.inc_import import BaseIncrementalImport
 from car_framework.context import context
 from connector.data_handler import DataHandler, endpoint_mapping
+from car_framework.util import IncrementalImportNotPossible
 
 
 class IncrementalImport(BaseIncrementalImport):
     def __init__(self):
         super().__init__()
         # initialize the data handler.
-        self.data_handler = DataHandler()
-        self.create_source_report_object()
-        self.update_edge = []
-        self.delete_vulnerability = []
-        self.car_active_asset_edges = self.get_active_car_edges()
+        # self.data_handler = DataHandler()
+        # self.create_source_report_object()
+        # self.update_edge = []
+        # self.delete_vulnerability = []
+        # self.car_active_asset_edges = self.get_active_car_edges()
 
     # Pulls the save point for last import
     def get_new_model_state_id(self):
@@ -304,3 +305,7 @@ class IncrementalImport(BaseIncrementalImport):
         if vulnerability_delete:
             context().car_service.delete("vulnerability", vulnerability_delete)
         context().logger.info('Deleting vertices done: %s', {'vulnerability': len(vulnerability_delete)})
+
+    # To disbale incremental import
+    def run(self):
+        raise IncrementalImportNotPossible('Connector doesn\'t support incremental import.')
