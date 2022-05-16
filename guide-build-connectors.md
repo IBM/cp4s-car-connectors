@@ -155,6 +155,9 @@ The following example contains the appropriate parameters for `lang.json`:
 
 Only the `configuration` object needs to be updated to reflect the `auth` and `parameter` objects defined in `config.json`.
 
+### `travis.sh`
+Update `travis.sh` file, including the name of the new connector in a new line in the CONNECTORS list.
+
 ### `README.md`
 
 Update `README.md` to include an overview of the target data source and any setup information. Remove reference to the server since the server folder should have been deleted. 
