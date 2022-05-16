@@ -1,10 +1,11 @@
 #!/bin/sh
 
 CONNECTORS=(
-    atp 
-    aws 
-    azure 
-    proofpoint 
+    atp
+    aws
+    azure
+    cybereason
+    proofpoint
     # reference_connector
 )
 
