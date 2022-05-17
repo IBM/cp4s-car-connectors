@@ -6,6 +6,7 @@ CONNECTORS=(
     azure
     cybereason
     proofpoint
+    qualys
     # reference_connector
 )
 
