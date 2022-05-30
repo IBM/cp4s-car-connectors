@@ -1,0 +1,46 @@
+[{
+        "id": "00u4umwkoyAh4h6lU5d7",
+        "externalId": null,
+        "created": "2022-04-28T11:49:05.000Z",
+        "lastUpdated": "2022-04-28T11:49:05.000Z",
+        "scope": "USER",
+        "status": "ACTIVE",
+        "statusChanged": "2022-04-28T11:49:05.000Z",
+        "passwordChanged": null,
+        "syncState": "DISABLED",
+        "credentials": {
+            "userName": "thummalar@abc.com"
+        },
+        "profile": {},
+        "_links": {
+            "app": {
+                "href": "https://car.okta.com/api/v1/apps/0oa4unchvq34zg0H35d7"
+            },
+            "user": {
+                "href": "https://car.okta.com/api/v1/users/00u4umwkoyAh4h6lU5d7"
+            }
+        }
+    },
+    {
+        "id": "00u4oexp0nQ82Fx405d7",
+        "externalId": null,
+        "created": "2022-05-06T08:42:24.000Z",
+        "lastUpdated": "2022-05-06T08:43:15.000Z",
+        "scope": "USER",
+        "status": "ACTIVE",
+        "statusChanged": "2022-05-06T08:42:24.000Z",
+        "passwordChanged": null,
+        "syncState": "DISABLED",
+        "credentials": {
+            "userName": "kathiresh.d@abc.com"
+        },
+        "profile": {},
+        "_links": {
+            "app": {
+                "href": "https://car.okta.com/api/v1/apps/0oa4unchvq34zg0H35d7"
+            },
+            "user": {
+                "href": "https://car.okta.com/api/v1/users/00u4oexp0nQ82Fx405d7"
+            }
+        }
+    }]

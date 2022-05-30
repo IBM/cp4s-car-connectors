@@ -1,0 +1,19 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Okta"
+        },
+        "host": {
+            "type": "text"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "token": {
+                "type": "password"
+            }
+        }
+    }
+}

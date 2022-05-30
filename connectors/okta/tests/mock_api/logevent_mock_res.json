@@ -1,0 +1,321 @@
+[{
+        "actor": {
+            "id": "00uu1y5ok0fhJDDYV696",
+            "type": "User",
+            "alternateId": "preeth-g@abc.com",
+            "displayName": "preeth G",
+            "detailEntry": null
+        },
+        "client": {
+            "userAgent": {
+                "rawUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36",
+                "os": "Windows 10",
+                "browser": "CHROME"
+            },
+            "zone": "null",
+            "device": "Computer",
+            "id": null,
+            "ipAddress": "11.11.11.111",
+            "geographicalContext": {
+                "city": "Chennai",
+                "state": "Tamil Nadu",
+                "country": "India",
+                "postalCode": "600002",
+                "geolocation": {
+                    "lat": 20.8996,
+                    "lon": 80.2209
+                }
+            }
+        },
+        "device": null,
+        "authenticationContext": {
+            "authenticationProvider": null,
+            "credentialProvider": null,
+            "credentialType": null,
+            "issuer": null,
+            "interface": null,
+            "authenticationStep": 0,
+            "externalSessionId": "idxoWQgxAztTS-_97CTYnTCYQ"
+        },
+        "displayMessage": "User login to Okta",
+        "eventType": "user.session.start",
+        "outcome": {
+            "result": "FAILURE",
+            "reason": "INVALID_CREDENTIALS"
+        },
+        "published": "2022-05-17T06:49:06.980Z",
+        "securityContext": {
+            "asNumber": 45609,
+            "asOrg": "bharti airtel limited  plot no. f8  1st floor  sipcot it park  s",
+            "isp": "bharti airtel",
+            "domain": ".",
+            "isProxy": false
+        },
+        "severity": "INFO",
+        "debugContext": {
+            "debugData": {
+                "requestId": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+                "origin": "https://car.okta.com",
+                "requestUri": "/idp/idx/identify",
+                "threatSuspected": "false",
+                "url": "/idp/idx/identify?"
+            }
+        },
+        "legacyEventType": "core.user_auth.login_success",
+        "transaction": {
+            "type": "WEB",
+            "id": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+            "detail": {}
+        },
+        "uuid": "7290e70c-d5ad-11ec-9a97-69e83c4b4fdb",
+        "version": "0",
+        "request": {
+            "ipChain": [
+                {
+                    "ip": "11.11.11.111",
+                    "geographicalContext": {
+                        "city": "Chennai",
+                        "state": "Tamil Nadu",
+                        "country": "India",
+                        "postalCode": "600002",
+                        "geolocation": {
+                            "lat": 20.8996,
+                            "lon": 80.2209
+                        }
+                    },
+                    "version": "V4",
+                    "source": null
+                }
+            ]
+        },
+        "target": [
+            {
+                "id": "laegu9twm9tWm6GyL5d6",
+                "type": "AuthenticatorEnrollment",
+                "alternateId": "unknown",
+                "displayName": "Password",
+                "detailEntry": null
+            },
+            {
+                "id": "0oa4oexov63QrxhVt5d7",
+                "type": "AppInstance",
+                "alternateId": "Okta Admin Console",
+                "displayName": "Okta Admin Console",
+                "detailEntry": null
+            }
+        ]
+    },
+    {
+        "actor": {
+            "id": "00uu1y5ok0fhJDDYV696",
+            "type": "User",
+            "alternateId": "preeth-g@abc.com",
+            "displayName": "preeth G",
+            "detailEntry": null
+        },
+        "client": {
+            "userAgent": {
+                "rawUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36",
+                "os": "Windows 10",
+                "browser": "CHROME"
+            },
+            "zone": "null",
+            "device": "Computer",
+            "id": null,
+            "ipAddress": "11.11.11.111",
+            "geographicalContext": {
+                "city": "Chennai",
+                "state": "Tamil Nadu",
+                "country": "India",
+                "postalCode": "600002",
+                "geolocation": {
+                    "lat": 20.8996,
+                    "lon": 80.2209
+                }
+            }
+        },
+        "device": null,
+        "authenticationContext": {
+            "authenticationProvider": null,
+            "credentialProvider": null,
+            "credentialType": null,
+            "issuer": null,
+            "interface": null,
+            "authenticationStep": 0,
+            "externalSessionId": "idxoWQgxAztTS-_97CTYnTCYQ"
+        },
+        "displayMessage": "User login to Okta",
+        "eventType": "user.session.start",
+        "outcome": {
+            "result": "FAILURE",
+            "reason": "INVALID_CREDENTIALS"
+        },
+        "published": "2022-05-17T06:49:06.980Z",
+        "securityContext": {
+            "asNumber": 45609,
+            "asOrg": "bharti airtel limited  plot no. f8  1st floor  sipcot it park  s",
+            "isp": "bharti airtel",
+            "domain": ".",
+            "isProxy": false
+        },
+        "severity": "INFO",
+        "debugContext": {
+            "debugData": {
+                "requestId": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+                "origin": "https://car.okta.com",
+                "requestUri": "/idp/idx/identify",
+                "threatSuspected": "false",
+                "url": "/idp/idx/identify?"
+            }
+        },
+        "legacyEventType": "core.user_auth.login_success",
+        "transaction": {
+            "type": "WEB",
+            "id": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+            "detail": {}
+        },
+        "uuid": "7290e70c-d5ad-11ec-9a97-69e83c4b4fdb",
+        "version": "0",
+        "request": {
+            "ipChain": [
+                {
+                    "ip": "11.11.11.111",
+                    "geographicalContext": {
+                        "city": "Chennai",
+                        "state": "Tamil Nadu",
+                        "country": "India",
+                        "postalCode": "600002",
+                        "geolocation": {
+                            "lat": 20.8996,
+                            "lon": 80.2209
+                        }
+                    },
+                    "version": "V4",
+                    "source": null
+                }
+            ]
+        },
+        "target": [
+            {
+                "id": "laegu9twm9tWm6GyL5d6",
+                "type": "AuthenticatorEnrollment",
+                "alternateId": "unknown",
+                "displayName": "Password",
+                "detailEntry": null
+            },
+            {
+                "id": "0oa4oexov63QrxhVt5d7",
+                "type": "AppInstance",
+                "alternateId": "Okta Admin Console",
+                "displayName": "Okta Admin Console",
+                "detailEntry": null
+            }
+        ]
+    },
+    {
+        "actor": {
+            "id": "00uu1y5ok0fhJDDYV696",
+            "type": "User",
+            "alternateId": "preeth-g@abc.com",
+            "displayName": "preeth G",
+            "detailEntry": null
+        },
+        "client": {
+            "userAgent": {
+                "rawUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36",
+                "os": "Windows 10",
+                "browser": "CHROME"
+            },
+            "zone": "null",
+            "device": "Computer",
+            "id": null,
+            "ipAddress": "11.11.11.111",
+            "geographicalContext": {
+                "city": "Chennai",
+                "state": "Tamil Nadu",
+                "country": "India",
+                "postalCode": "600002",
+                "geolocation": {
+                    "lat": 20.8996,
+                    "lon": 80.2209
+                }
+            }
+        },
+        "device": null,
+        "authenticationContext": {
+            "authenticationProvider": null,
+            "credentialProvider": null,
+            "credentialType": null,
+            "issuer": null,
+            "interface": null,
+            "authenticationStep": 0,
+            "externalSessionId": "idxoWQgxAztTS-_97CTYnTCYQ"
+        },
+        "displayMessage": "User login to Okta",
+        "eventType": "user.session.start",
+        "outcome": {
+            "result": "SUCCESS",
+            "reason": "INVALID_CREDENTIALS"
+        },
+        "published": "2022-05-17T06:49:06.980Z",
+        "securityContext": {
+            "asNumber": 45609,
+            "asOrg": "bharti airtel limited  plot no. f8  1st floor  sipcot it park  s",
+            "isp": "bharti airtel",
+            "domain": ".",
+            "isProxy": false
+        },
+        "severity": "INFO",
+        "debugContext": {
+            "debugData": {
+                "requestId": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+                "origin": "https://car.okta.com",
+                "requestUri": "/idp/idx/identify",
+                "threatSuspected": "false",
+                "url": "/idp/idx/identify?"
+            }
+        },
+        "legacyEventType": "core.user_auth.login_success",
+        "transaction": {
+            "type": "WEB",
+            "id": "YoNFYsNHivh7vV9SBPe_jQAAB4A",
+            "detail": {}
+        },
+        "uuid": "7290e70c-d5ad-11ec-9a97-69e83c4b4fdb",
+        "version": "0",
+        "request": {
+            "ipChain": [
+                {
+                    "ip": "11.11.11.111",
+                    "geographicalContext": {
+                        "city": "Chennai",
+                        "state": "Tamil Nadu",
+                        "country": "India",
+                        "postalCode": "600002",
+                        "geolocation": {
+                            "lat": 20.8996,
+                            "lon": 80.2209
+                        }
+                    },
+                    "version": "V4",
+                    "source": null
+                }
+            ]
+        },
+        "target": [
+            {
+                "id": "laegu9twm9tWm6GyL5d6",
+                "type": "AuthenticatorEnrollment",
+                "alternateId": "unknown",
+                "displayName": "Password",
+                "detailEntry": null
+            },
+            {
+                "id": "0oa4oexov63QrxhVt5d7",
+                "type": "AppInstance",
+                "alternateId": "Okta Admin Console",
+                "displayName": "Okta Admin Console",
+                "detailEntry": null
+            }
+        ]
+    }]

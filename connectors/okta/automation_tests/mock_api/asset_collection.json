@@ -1,0 +1,171 @@
+{"asset":[{
+        "id": "00uu1y5ok0fhJDDYV696",
+        "status": "ACTIVE",
+        "created": "2022-04-21T07:52:04.000Z",
+        "activated": null,
+        "statusChanged": "2022-04-21T07:56:23.000Z",
+        "lastLogin": "2022-04-25T10:32:45.000Z",
+        "lastUpdated": "2022-04-21T07:56:23.000Z",
+        "passwordChanged": "2022-04-21T07:56:23.000Z",
+        "type": {
+            "id": "otyu1u592mSF8hMsD696"
+        },
+        "profile": {
+            "firstName": "ravi",
+            "lastName": "thummala",
+            "mobilePhone": null,
+            "secondEmail": null,
+            "login": "thummalar@abc.com",
+            "email": "thummalar@abc.com"
+        },
+        "credentials": {
+            "password": {},
+            "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "https://car.okta.com/api/v1/users/00uu1y5ok0fhJDDYV696"
+            }
+        }
+    }],"application":[{
+        "id": "0oau1u58hh0PLgyax696",
+        "name": "saasure",
+        "label": "Okta Admin Console",
+        "status": "ACTIVE",
+        "lastUpdated": "2022-04-21T07:52:03.000Z",
+        "created": "2022-04-21T07:52:01.000Z",
+        "accessibility": {
+            "selfService": false,
+            "errorRedirectUrl": null,
+            "loginRedirectUrl": null
+        },
+        "visibility": {
+            "autoSubmitToolbar": false,
+            "hide": {
+                "iOS": false,
+                "web": false
+            },
+            "appLinks": {
+                "admin": true
+            }
+        },
+        "features": [],
+        "signOnMode": "OPENID_CONNECT",
+        "credentials": {
+            "userNameTemplate": {
+                "template": "${source.login}",
+                "type": "BUILT_IN"
+            },
+            "signing": {
+                "kid": "jiK8FNUmFrASW1ZewyBVamzrSH4VeDFdQKR4WNcubMQ"
+            }
+        },
+        "settings": {
+            "app": {},
+            "notifications": {
+                "vpn": {
+                    "network": {
+                        "connection": "DISABLED"
+                    },
+                    "message": null,
+                    "helpUrl": null
+                }
+            }
+        },
+        "users": [{
+        "id": "00u4umwkoyAh4h6lU5d7",
+        "externalId": null,
+        "created": "2022-04-28T11:49:05.000Z",
+        "lastUpdated": "2022-04-28T11:49:05.000Z",
+        "scope": "USER",
+        "status": "ACTIVE",
+        "statusChanged": "2022-04-28T11:49:05.000Z",
+        "passwordChanged": null,
+        "syncState": "DISABLED",
+        "credentials": {
+            "userName": "thummalar@abc.com"
+        },
+        "profile": {},
+        "_links": {
+            "app": {
+                "href": "https://car.okta.com/api/v1/apps/0oa4unchvq34zg0H35d7"
+            },
+            "user": {
+                "href": "https://car.okta.com/api/v1/users/00u4umwkoyAh4h6lU5d7"
+            }
+        }
+    },
+    {
+        "id": "00u4oexp0nQ82Fx405d7",
+        "externalId": null,
+        "created": "2022-05-06T08:42:24.000Z",
+        "lastUpdated": "2022-05-06T08:43:15.000Z",
+        "scope": "USER",
+        "status": "ACTIVE",
+        "statusChanged": "2022-05-06T08:42:24.000Z",
+        "passwordChanged": null,
+        "syncState": "DISABLED",
+        "credentials": {
+            "userName": "kathiresh.d@abc.com"
+        },
+        "profile": {},
+        "_links": {
+            "app": {
+                "href": "https://car.okta.com/api/v1/apps/0oa4unchvq34zg0H35d7"
+            },
+            "user": {
+                "href": "https://car.okta.com/api/v1/users/00u4oexp0nQ82Fx405d7"
+            }
+        }
+    }],
+        "_links": {
+            "uploadLogo": {
+                "href": "https://car.okta.com/api/v1/apps/0oau1u58hh0PLgyax696/logo",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "appLinks": [
+                {
+                    "name": "admin",
+                    "href": "https://car.okta.com/home/saasure/0oau1u58hh0PLgyax696/2",
+                    "type": "text/html"
+                }
+            ],
+            "profileEnrollment": {
+                "href": "https://car.okta.com/api/v1/policies/rstu1y5qaAhz1GxhQ696"
+            },
+            "policies": {
+                "href": "https://car.okta.com/api/v1/apps/0oau1u58hh0PLgyax696/policies",
+                "hints": {
+                    "allow": [
+                        "PUT"
+                    ]
+                }
+            },
+            "groups": {
+                "href": "https://car.okta.com/api/v1/apps/0oau1u58hh0PLgyax696/groups"
+            },
+            "logo": [
+                {
+                    "name": "medium",
+                    "href": "https://ok14static.oktacdn.com/assets/img/logos/okta_admin_app.da3325676d57eaf566cb786dd0c7a819.png",
+                    "type": "image/png"
+                }
+            ],
+            "accessPolicy": {
+                "href": "https://car.okta.com/api/v1/policies/rstu1y5oybD94nkRh696"
+            },
+            "users": {
+                "href": "https://car.okta.com/api/v1/apps/0oau1u58hh0PLgyax696/users"
+            },
+            "deactivate": {
+                "href": "https://car.okta.com/api/v1/apps/0oau1u58hh0PLgyax696/lifecycle/deactivate"
+            }
+        }
+    }]}
