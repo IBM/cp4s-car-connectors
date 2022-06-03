@@ -16,7 +16,7 @@ validate_cmd () {
   fi
 }
 
-validate_docker_podman () {
+validate_cmd_alias () {
   if ! `command -v $1 &> /dev/null` ; then
         if ! `command -v $2 &> /dev/null` ; then
             echo "Error: $1 and $2 could not be found"
@@ -114,7 +114,7 @@ echo "Checking Prerequisites ... "
 validate_cmd openssl
 validate_cmd python3
 validate_cmd pip3
-validate_docker_podman docker podman
+validate_cmd_alias docker podman
 
 echo -n "Checking if it is possible to execute docker command... "
 docker ps > /dev/null
