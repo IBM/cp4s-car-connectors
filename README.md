@@ -17,3 +17,7 @@ See the [developer guide](guide-build-connectors.md) for building a new CAR conn
 4. Install python dependancies: `pip install -r requirements.txt`
 5. Run the command to start import. Each connector has a different set of options that you can find in README.md file of each connector:
     `python3 app.py -source "<source>" -car-service-key "<car-service-key>" -car-service-password "<car-service-password>" -car-service-url "<car-service-url>" -d .... OTHER_OPTIONS`
+
+## Deploy connector in CP4S cluster
+
+See the [build and deploy](./deployment/README.md) guide to install connector in CP4S cluster
