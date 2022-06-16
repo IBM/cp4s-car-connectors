@@ -14,7 +14,7 @@ version = '1.0.1'
 
 class App(BaseApp):
     def __init__(self):
-        super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
+        super().__init__('This app is used for pushing asset data to CP4S CAR ingestion microservice')
         # Add parameters need to connect data source
         self.parser.add_argument('-server', dest='server', type=str, required=True, help='The url of the Asset data server')
         self.parser.add_argument('-username', dest='username', type=str, required=True, help='The user name for the Asset data server')
@@ -44,12 +44,12 @@ class App(BaseApp):
                         "description": "name",
                         "type": "text",
                         "indexed": true,
-                        "required": true
+                        "required": false
                         },
                         "address": {
                         "description": "address",
                         "type": "text",
-                        "required": true
+                        "required": false
                         }
                       }
                     },

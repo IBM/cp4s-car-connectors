@@ -6,10 +6,9 @@ models = ['XRefProperty', 'Vulnerability', 'Asset', 'IPAddress', 'MACAddress', '
 
 
 def log_change(model, id, deleted=False):
-    print(model, id, deleted)
     change = ChangeLog()
     change.model = model
-    change.uid = id
+    change.uid = str(id)
     change.deleted = deleted
     change.save()
 
@@ -19,26 +18,28 @@ def save_delete_handler(sender, **kwargs):
     if not instance: return
     model = type(instance).__name__
     if model not in models: return
-    log_change(model, instance.pk, kwargs.get('deleted'))
+    if model == 'IPAddress' and kwargs.get('deleted'): log_change(model, instance.address, kwargs.get('deleted'))
+    else: log_change(model, instance.pk, kwargs.get('deleted'))
 
 
-@receiver(post_save)
-def save_handler(sender, **kwargs):
-    kwargs['deleted'] = False
-    save_delete_handler(sender, **kwargs)
+def init_event_receivers():
 
-
-@receiver(post_delete)
-def delete_handler(sender, **kwargs):
-    kwargs['deleted'] = True
-    save_delete_handler(sender, **kwargs)
-
-
-@receiver(m2m_changed)
-def m2m_handler(sender, **kwargs):
-    if kwargs.get('action') in ['post_add', 'post_remove']:
+    @receiver(post_save)
+    def save_handler(sender, **kwargs):
         kwargs['deleted'] = False
         save_delete_handler(sender, **kwargs)
-        for id in (kwargs.get('pk_set') or []):
-            log_change(kwargs['model'].__name__, id)
 
+
+    @receiver(post_delete)
+    def delete_handler(sender, **kwargs):
+        kwargs['deleted'] = True
+        save_delete_handler(sender, **kwargs)
+
+
+    @receiver(m2m_changed)
+    def m2m_handler(sender, **kwargs):
+        if kwargs.get('action') in ['post_add', 'post_remove']:
+            kwargs['deleted'] = False
+            save_delete_handler(sender, **kwargs)
+            for id in (kwargs.get('pk_set') or []):
+                log_change(kwargs['model'].__name__, id)

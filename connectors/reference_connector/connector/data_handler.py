@@ -1,12 +1,21 @@
 import datetime, re
 from car_framework.context import context
-from car_framework.data_handler import BaseDataHandler
+from car_framework.data_handler import BaseDataHandler, JsonField
 
 
 # maps asset-server endpoints to CAR service endpoints
 endpoint_mapping = \
-    {'vulnerabilities' : 'vulnerability', 'sites' : 'site', 'assets' : 'asset', 'ip_addresses' : 'ipaddress',
+    {'vulnerabilities' : 'customvulnerability', 'sites' : 'site', 'assets' : 'asset', 'ip_addresses' : 'ipaddress',
     'mac_addresses' : 'macaddress', 'hosts' : 'hostname', 'apps' : 'application', 'ports' : 'port'}
+
+vertices_owning_edges = {
+    'asset': ['asset_vulnerability', 'site_asset'],
+    'ipaddress': ['asset_ipaddress'],
+    'macaddress': ['asset_macaddress'],
+    'hostname': ['asset_hostname'],
+    'application': ['application_vulnerability'],
+    'port': ['application_port', 'ipaddress_port'],
+}    
 
 # helper functions
 def extract_id(url):
@@ -28,10 +37,6 @@ def filter_out(source, *fields):
             res[key] = str(source[key])
     return res
 
-def get_report_time():
-    delta = datetime.datetime.utcnow() - datetime.datetime(1970, 1, 1)
-    milliseconds = delta.total_seconds() * 1000
-    return milliseconds
 
 class DataHandler(BaseDataHandler):
     
@@ -40,14 +45,6 @@ class DataHandler(BaseDataHandler):
         super().__init__()
 
 
-    def create_source_report_object(self):
-        if not (self.source and self.report):
-            # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.server, 'description': 'Reference Asset server'}
-            self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
-
-        return {'source': self.source, 'report': self.report}
-
     # Copies the source object to CAR data model object if attribute have same name
     def copy_fields(self, obj, *fields):
         res = {}
@@ -55,86 +52,155 @@ class DataHandler(BaseDataHandler):
             res[field] = obj[field]
         return res
 
+
+    def car_id(self, collection, source_db_id):
+        if collection == 'ipaddress': return context().args.source + '/0/' + str(source_db_id)
+        else: return context().args.source + '/' + str(source_db_id)
+
+
+    def car_ids(self, collection, source_db_ids):
+        return list(map(lambda item: self.car_id(collection, item), source_db_ids))
+
+
     # Handlers
     # Each endpoint defined in the above endpoint_mapping object should have a handle_* method
 
     # Create vulnerability Object as per CAR data model from data source
     def handle_vulnerabilities(self, obj):
-        res = self.copy_fields(obj, 'name', 'published_on', 'disclosed_on', 'updated_on', 'vcvssbmid', 'base_score', )
+        res = self.copy_fields(obj, 'name', 'published_on', 'disclosed_on', 'updated_on', 'base_score', )
+        res['source'] = context().args.source
+        res['reported_at'] = context().report_time
         res['external_id'] = str(obj['pk'])
-        res['vcvssbmid'] = str(obj['vcvssbmid'])
-        res['xref_properties'] = []
+        res['id'] = self.car_id('customvulnerability', obj['pk'])
+
+        properties = {}
+        properties['vcvssbmid'] = str(obj['vcvssbmid'])
+        res['properties'] = JsonField(properties)
+
+        xref_properties = []
         for xref in obj['xref_properties']:
-            res['xref_properties'].append(filter_out(find_by_id(self.xrefproperties, xref), 'pk'))
-        self.add_collection('vulnerability', res, 'external_id')
+            xref_properties.append(filter_out(find_by_id(self.xrefproperties, xref), 'pk'))
+        res['xref_properties'] = JsonField(xref_properties)
+
+        self.add_item_to_collection('customvulnerability', res)
+        return res['id']
 
     # Create asset Object as per CAR data model from data source
     def handle_assets(self, obj):
         res = self.copy_fields(obj, 'name', 'initial_value', )
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
         res['external_id'] = str(obj['pk'])
-        res['assetid'] = str(obj['pk'])
+        res['id'] = self.car_id('asset', obj['pk'])
+
         res['asset_type'] = str(obj['type'])
 
         for vuln in obj.get('vulnerabilities', []):
-            self.add_edge('asset_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln))})
+            self.add_edge('asset_vulnerability', {'asset_id': res['id'], 'vulnerability_id': self.car_id('customvulnerability', extract_id(vuln))})
 
         if (obj.get('site')):
-            self.add_edge('site_asset', {'_from_external_id': str(extract_id(obj['site'])), '_to_external_id': res['external_id'],
-                'source': context().args.source})
+            self.add_edge('site_asset', {'site_id': self.car_id('site', extract_id(obj['site'])), 'asset_id': res['id']})
 
-        self.add_collection('asset', res, 'external_id')
+        self.add_item_to_collection('asset', res)
+        return res['id']
 
     # Create ipaddress Object as per CAR data model from data source
     def handle_ip_addresses(self, obj):
         res = {}
-        res['_key'] = str(obj['address'])
-        self.add_edge('asset_ipaddress', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'ipaddress/' + res['_key']})
-        self.add_collection('ipaddress', res, '_key')
+        address = str(obj['address'])
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
+        res['external_id'] = '0/' + address
+        res['connecting_id'] = '0/' + address
+        res['name'] = address
+        res['id'] = self.car_id('ipaddress', address)
+        res['region_id'] = '0'
+        self.add_edge('asset_ipaddress', {'asset_id': self.car_id('asset', extract_id(obj['asset'])), 'ipaddress_id': res['id']})
+        self.add_item_to_collection('ipaddress', res)
+        return res['id']
 
     # Create mac address Object as per CAR data model from data source
     def handle_mac_addresses(self, obj):
         res = {}
-        res['_key'] = str(obj['address'])
-        self.add_edge('asset_macaddress', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'macaddress/' + res['_key']})
-        self.add_collection('macaddress', res, '_key')
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
+        res['external_id'] = str(obj['address'])
+        res['id'] = self.car_id('macaddress', obj['pk'])
+
+        res['name'] = str(obj['address'])
+        res['connecting_id'] = str(obj['address'])
+        self.add_edge('asset_macaddress', {'asset_id': self.car_id('asset', extract_id(obj['asset'])), 'macaddress_id': res['id']})
+        self.add_item_to_collection('macaddress', res)
+        return res['id']
 
     # Create hostname Object as per CAR data model from data source
     def handle_hosts(self, obj):
         res = {}
-        res['_key'] = str(obj['host'])
-        self.add_edge('asset_hostname', {'_from_external_id': str(extract_id(obj['asset'])), '_to': 'hostname/' + res['_key']})
-        self.add_collection('hostname', res, '_key')
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
+        res['external_id'] = str(obj['host'])
+        res['id'] = self.car_id('hostname', obj['pk'])
+
+        res['name'] = str(obj['host'])
+        res['connecting_id'] = str(obj['host'])
+        self.add_edge('asset_hostname', {'asset_id': self.car_id('asset', extract_id(obj['asset'])), 'hostname_id': res['id']})
+        self.add_item_to_collection('hostname', res)
+        return res['id']
 
     # Create application Object as per CAR data model from data source
     def handle_apps(self, obj):
         res = self.copy_fields(obj, 'name', )
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
         res['external_id'] = str(obj['pk'])
+        res['id'] = self.car_id('application', obj['pk'])
 
         for asset_url in obj.get('assets', []):
             asset = context().asset_server.get_object(asset_url)
             for vuln in asset.get('vulnerabilities', []):
-                self.add_edge('application_vulnerability', {'_from_external_id': res['external_id'], '_to_external_id': str(extract_id(vuln))})
+                self.add_edge('application_vulnerability', {'application_id': res['id'], 'vulnerability_id': self.car_id('customvulnerability', extract_id(vuln))})
 
-        self.add_collection('application', res, 'external_id')
+        self.add_item_to_collection('application', res)
+        return res['id']
 
     # Create port Object as per CAR data model from data source
     def handle_ports(self, obj):
-        res = self.copy_fields(obj, 'port_number', 'layer7application', 'protocol', )
+        res = self.copy_fields(obj, 'port_number', 'protocol', )
+        source = context().args.source
+        res['source'] = source
+        res['reported_at'] = context().report_time
         res['external_id'] = str(obj['pk'])
+        res['id'] = self.car_id('port', obj['pk'])
+
+        res['properties'] = {}
+        res['properties']['layer7application'] = str(obj['layer7application'])
 
         for app in obj.get('apps', []):
-            self.add_edge('application_port', {'_from_external_id': str(extract_id(app)), '_to_external_id': res['external_id']})
+            self.add_edge('application_port', {'application_id': self.car_id('application', extract_id(app)), 'port_id': res['id']})
 
         ids = []
         for ip_ref in obj.get('ip_addresses', []):
             ids.append(extract_id(ip_ref))
 
         for ip in context().asset_server.get_objects('ip_addresses', ids):
-            self.add_edge('ipaddress_port', {'_from': 'ipaddress/' + str(ip['address']), '_to_external_id': res['external_id']})
+            self.add_edge('ipaddress_port', {'ipaddress_id': self.car_id('ipaddress', ip['address']), 'port_id': res['id']})
 
-        self.add_collection('port', res, 'external_id')
+        self.add_item_to_collection('port', res)
+        return res['id']
 
     def handle_sites(self, obj):
         res = self.copy_fields(obj, 'name', 'address', )
+        res['source'] = context().args.source
+        res['reported_at'] = context().report_time
         res['external_id'] = str(obj['pk'])
-        self.add_collection('site', res, 'external_id')
+        res['id'] = self.car_id('site', obj['pk'])
+        self.add_item_to_collection('site', res)
+        return res['id']
+
+    def get_owned_edges(self, vertex_collection):
+        return vertices_owning_edges.get(vertex_collection)

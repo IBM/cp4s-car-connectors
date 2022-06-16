@@ -10,10 +10,6 @@ class FullImport(BaseFullImport):
         # If data source doesn't have external reference property None can be supplied as parameter.
         self.data_handler = DataHandler()
 
-    # Create source entry.
-    def create_source_report_object(self):
-        return self.data_handler.create_source_report_object()
-
     # Logic to import a collection; called by import_vertices
     def import_collection(self, asset_server_endpoint, name):
         collection = context().asset_server.get_collection(asset_server_endpoint)
