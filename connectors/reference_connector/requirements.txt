@@ -1,3 +1,5 @@
 car-connector-framework==3.0.0
 cryptography==3.3.2
 pyopenssl==19.1.0
+requests==2.27.1
+jsonpickle==2.2.0

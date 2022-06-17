@@ -1,4 +1,6 @@
 from django.db.models import Max
+
+from .change_log import init_event_receivers
 from .models import XRefProperty, Vulnerability, Asset, IPAddress, MACAddress, Host, App, Port, ChangeLog, Site
 from rest_framework import viewsets, permissions
 from assets import serializers
@@ -104,3 +106,5 @@ def delta(request):
         res[key] = {'updates':list(value['updates']), 'deletions':list(value['deletions'])}
 
     return JsonResponse({'delta' : res})
+
+init_event_receivers()

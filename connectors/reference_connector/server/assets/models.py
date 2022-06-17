@@ -102,5 +102,5 @@ class AssetModelSize(models.Model):
 
 class ChangeLog(models.Model):
     model = models.CharField(max_length=80)
-    uid = models.IntegerField()
+    uid = models.CharField(max_length=80)
     deleted = models.BooleanField(default=False)
