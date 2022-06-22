@@ -1,0 +1,40 @@
+{
+    "connection":{
+        "schedule": {
+            "frequency": {
+                "label": "Frequency",
+                "description": "Select how frequently this connection will pull data from the asset",
+                "optionLabels": {
+                    "4h"    : "4 hours",
+                    "6h"    : "6 hours",
+                    "12h"   : "12 hours",
+                    "daily" : "Daily"
+                }
+            },
+            "time": {
+                "label": "Time (UTC)",
+                "description": "Set the UTC time to run connector to pull data from data source"
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "subscription_id": {
+                "label": "Subscription ID",
+                "description": "Subscription ID of Microsoft Defender for Endpoint with access to the Microsoft Graph API"
+            },
+            "tenant_id": {
+                "label": "Tenant",
+                "description": "Tenant ID of Microsoft Defender for Endpoint with access to the Microsoft Graph API"
+            },
+            "client_id": {
+                "label": "Client Id",
+                "description": "Client ID of Microsoft Defender for Endpoint with access to the Microsoft Graph API"
+            },
+            "client_secret": {
+                "label": "Client Secret",
+                "description": "Client Secret of Microsoft Defender for Endpoint with access to the Microsoft Graph API"
+            }
+        }
+    }
+}
