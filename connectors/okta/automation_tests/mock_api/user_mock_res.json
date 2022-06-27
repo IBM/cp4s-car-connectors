@@ -1,0 +1,33 @@
+[{
+        "id": "00uu1y5ok0fhJDDYV696",
+        "status": "ACTIVE",
+        "created": "2022-04-21T07:52:04.000Z",
+        "activated": null,
+        "statusChanged": "2022-04-21T07:56:23.000Z",
+        "lastLogin": "2022-04-25T10:32:45.000Z",
+        "lastUpdated": "2022-04-21T07:56:23.000Z",
+        "passwordChanged": "2022-04-21T07:56:23.000Z",
+        "type": {
+            "id": "otyu1u592mSF8hMsD696"
+        },
+        "profile": {
+            "firstName": "ravi",
+            "lastName": "thummala",
+            "mobilePhone": null,
+            "secondEmail": null,
+            "login": "thummalar@abc.com",
+            "email": "thummalar@abc.com"
+        },
+        "credentials": {
+            "password": {},
+            "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "https://car.okta.com/api/v1/users/00uu1y5ok0fhJDDYV696"
+            }
+        }
+    }]
