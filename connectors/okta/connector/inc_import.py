@@ -102,6 +102,17 @@ class IncrementalImport(BaseIncrementalImport):
             delete_user = [edge['user_id'] for edge in user_account_edges if account_id in edge['account_id']]
             delete_user = delete_user[0].split('/', 1)[1]
             delete_nodes['user'].append(delete_user)
+
+        # user email address considered as external_id for the user node.
+        # if email changes new user node will be created, this case older user node to be removed.
+        for user in self.delta['user']:
+            if (float(self.last_model_state_id) > get_epoch_time(user['created']) and
+                    (float(self.last_model_state_id) < get_epoch_time(user['lastUpdated']))):
+                updated_user = [edge['user_id'].split('/', 1)[1] for edge in user_account_edges
+                                if user['id'] in edge['account_id']]
+                updated_user.remove(user['profile']['email'])
+                delete_nodes['user'] += updated_user
+
         return delete_nodes
 
     def inc_app_delete_vertices(self):

@@ -162,7 +162,6 @@ class DataHandler(BaseDataHandler):
                 res['email'] = asset['profile']['email']
                 res['username'] = asset['profile'].get('login')
                 res['user_category'] = asset['credentials']['provider']['type']
-                res['email'] = asset['profile']['email']
                 res['last_password_change'] = asset['passwordChanged']
                 res['last_login'] = asset['lastLogin']
                 if asset['profile'].get('firstName'):

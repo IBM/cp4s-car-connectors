@@ -183,10 +183,11 @@ class TestConnector(unittest.TestCase):
         inc_delete_collections = get_response('inc_delete_collections.json', True)
 
         # Mock get_model_state_delta return values:
-        delta = {'asset': [], 'application': [], 'client': []}
+        delta = {'user': [], 'application': [], 'client': []}
         mock_api.return_value = delta
 
-        mock_events.side_effect = [inc_delete_collections['user'], inc_delete_collections['user'], inc_delete_collections['application']]
+        mock_events.side_effect = [inc_delete_collections['user'], inc_delete_collections['user'],
+                                   inc_delete_collections['application']]
 
         # Initialization
         Context(Arguments)

@@ -93,7 +93,7 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         inc_import_obj.create_source_report_object()
         mock_car_delete.return_value = {'status': 'success'}
         mock_edge.return_value = {'status': 'success'}
-        delta = {'asset': [], 'application': [], 'client': []}
+        delta = {'user': [], 'application': [], 'client': []}
         mock_api.return_value = delta
 
         # user and application delete event log
