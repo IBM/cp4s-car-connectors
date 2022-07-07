@@ -1,0 +1,14 @@
+{
+  "images": [
+    {
+            "id": "sha256:7c06cfdba0ba61fa95e37483fe9ba62a71074dfe21b2aacfe983c781a4e963e7",
+            "name": "image-registry.openshift-image-registry.svc:5000/openshift/mysql@sha256:7c06cfdba0ba61fa95e37483fe9ba62a71074dfe21b2aacfe983c781a4e963e7",
+            "components": 278,
+            "cves": 191,
+            "fixableCves": 8,
+            "created": "2022-03-16T18:04:22.820208Z",
+            "lastUpdated": "2022-05-25T05:14:29.154037770Z",
+            "priority": "16"
+        }
+  ]
+}

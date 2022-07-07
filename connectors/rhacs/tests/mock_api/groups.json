@@ -1,0 +1,28 @@
+{
+    "groups": [
+        {
+            "props": {
+                "authProviderId": "41adda67-5e0d-43be-8a16-97eab85c26f0",
+                "key": "",
+                "value": ""
+            },
+            "roleName": "Vulnerability Management Approver"
+        },
+        {
+            "props": {
+                "authProviderId": "490d8a8c-9311-4f20-9116-9f573f7b79d5",
+                "key": "",
+                "value": ""
+            },
+            "roleName": "Analyst"
+        },
+        {
+            "props": {
+                "authProviderId": "d7680c05-2726-4ed3-a29d-206e6b21b507",
+                "key": "",
+                "value": ""
+            },
+            "roleName": "Analyst"
+        }
+    ]
+}
