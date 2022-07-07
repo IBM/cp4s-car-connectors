@@ -58,7 +58,7 @@ def epoch_to_datetime_conv(epoch_time):
     :return: date(utc format)
     """
     epoch_time = float(epoch_time) / 1000.0
-    date_time = datetime.fromtimestamp(epoch_time).replace(microsecond=0).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    date_time = datetime.fromtimestamp(epoch_time, timezone.utc).replace(microsecond=0).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     return date_time
 
 
