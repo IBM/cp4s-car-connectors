@@ -58,7 +58,8 @@ def epoch_to_datetime_conv(epoch_time):
     :return: date(utc format)
     """
     epoch_time = float(epoch_time) / 1000.0
-    date_time = datetime.fromtimestamp(epoch_time, timezone.utc).replace(microsecond=0).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    date_time = datetime.fromtimestamp(epoch_time,
+                                       timezone.utc).replace(microsecond=0).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     return date_time
 
 
@@ -115,9 +116,9 @@ class DataHandler(BaseDataHandler):
         """create asset object"""
         if obj:
             # user login client as asset
-            if obj[0].get('client'):
-                for asset in obj:
-                    res = {}
+            for asset in obj:
+                res = {}
+                if asset.get('client'):
                     user_id = asset['actor']['id']
                     # handling users assigned to an application
                     # this case asset, account nodes are present,
@@ -139,10 +140,8 @@ class DataHandler(BaseDataHandler):
                         # asset_account edge
                     self.add_edge('asset_account', {'_from_external_id': res['external_id'],
                                                     '_to_external_id': user_id})
-            else:
-                # Application as asset
-                for asset in obj:
-                    res = {}
+
+                else:
                     res['external_id'] = asset['id']
                     res['name'] = asset['label']
                     self.add_collection('asset', res, 'external_id')
@@ -191,30 +190,30 @@ class DataHandler(BaseDataHandler):
         """create user object"""
         if obj:
             # user log-in client
-            if obj[0].get('client'):
-                for app in [event for event in obj if event['eventType'] != 'application.user_membership.add']:
-                    # OS as application
-                    os_res = {}
-                    os_res['name'] = app['client']['userAgent']['os']
-                    os_res['external_id'] = app['client']['userAgent']['os']
-                    os_res['app_type'] = 'os'
-                    os_res['is_os'] = True
-                    self.add_collection('application', os_res, 'external_id')
-                    # Browser as application
-                    app_res = {}
-                    app_res['name'] = app['client']['userAgent']['browser']
-                    user_agent = app['client']['userAgent']['rawUserAgent']
-                    app_res['external_id'] = get_browser_version(user_agent)
-                    app_res['app_type'] = 'browser'
-                    app_res['is_os'] = False
-                    self.add_collection('application', app_res, 'external_id')
-                    asset_external_id = get_asset_id(app)
-                    for external_id in [os_res['external_id'], app_res['external_id']]:
-                        self.add_edge('asset_application', {'_from_external_id': asset_external_id,
-                                                            '_to_external_id': external_id})
-            else:
-                # login application
-                for app in obj:
+            for app in obj:
+                if app.get('client'):
+                    if app['eventType'] != 'application.user_membership.add':
+                        # OS as application
+                        os_res = {}
+                        os_res['name'] = app['client']['userAgent']['os']
+                        os_res['external_id'] = app['client']['userAgent']['os']
+                        os_res['app_type'] = 'os'
+                        os_res['is_os'] = True
+                        self.add_collection('application', os_res, 'external_id')
+                        # Browser as application
+                        app_res = {}
+                        app_res['name'] = app['client']['userAgent']['browser']
+                        user_agent = app['client']['userAgent']['rawUserAgent']
+                        app_res['external_id'] = get_browser_version(user_agent)
+                        app_res['app_type'] = 'browser'
+                        app_res['is_os'] = False
+                        self.add_collection('application', app_res, 'external_id')
+                        asset_external_id = get_asset_id(app)
+                        for external_id in [os_res['external_id'], app_res['external_id']]:
+                            self.add_edge('asset_application', {'_from_external_id': asset_external_id,
+                                                                '_to_external_id': external_id})
+                else:
+                    # login application
                     res = {}
                     res['name'] = app['label']
                     res['external_id'] = app['name'] + '_' + app['id']

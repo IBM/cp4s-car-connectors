@@ -176,7 +176,7 @@ class TestConnector(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_systemlogs')
     @patch('connector.server_access.AssetServer.get_asset_collections')
-    def test_delete_vertices(self, mock_api, mock_events):
+    def test_incremental_delete_vertices(self, mock_api, mock_events):
         """Unit test for delete vertices"""
 
         # mock application, user api
