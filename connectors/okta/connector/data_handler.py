@@ -155,19 +155,19 @@ class DataHandler(BaseDataHandler):
     def handle_user(self, obj):
         """create user object"""
         if obj:
-            for asset in obj:
+            for user in obj:
                 res = {}
-                res['external_id'] = asset['profile']['email']
-                res['email'] = asset['profile']['email']
-                res['username'] = asset['profile'].get('login')
-                res['user_category'] = asset['credentials']['provider']['type']
-                res['last_password_change'] = asset['passwordChanged']
-                res['last_login'] = asset['lastLogin']
-                if asset['profile'].get('firstName'):
-                    res['given_name'] = asset['profile']['firstName']
-                if asset['profile'].get('lastName'):
-                    res['family_name'] = asset['profile']['lastName']
-                res['active'] = bool(asset['status'] == 'ACTIVE')
+                res['external_id'] = user['profile']['email']
+                res['email'] = user['profile']['email']
+                res['username'] = user['profile'].get('login')
+                res['user_category'] = user['credentials']['provider']['type']
+                res['last_password_change'] = user['passwordChanged']
+                res['last_login'] = user['lastLogin']
+                if user['profile'].get('firstName'):
+                    res['given_name'] = user['profile']['firstName']
+                if user['profile'].get('lastName'):
+                    res['family_name'] = user['profile']['lastName']
+                res['active'] = bool(user['status'] == 'ACTIVE')
 
                 self.add_collection('user', res, 'external_id')
 
@@ -175,14 +175,14 @@ class DataHandler(BaseDataHandler):
     def handle_account(self, obj):
         """create account object"""
         if obj:
-            for usr in obj:
+            for account in obj:
                 res = {}
-                res['name'] = usr['profile'].get('firstName') + usr['profile'].get('lastName')
+                res['name'] = account['profile'].get('firstName') + account['profile'].get('lastName')
                 # user account in okta tenant
-                res['external_id'] = usr['id']
+                res['external_id'] = account['id']
                 self.add_collection('account', res, 'external_id')
                 # user_account edge
-                self.add_edge('user_account', {'_from_external_id': usr['profile']['login'],
+                self.add_edge('user_account', {'_from_external_id': account['profile']['login'],
                                                '_to_external_id': res['external_id']})
 
     # Create Application Object as per CAR data model from data source
@@ -219,7 +219,7 @@ class DataHandler(BaseDataHandler):
                     res['external_id'] = app['name'] + '_' + app['id']
                     res['status'] = app['status']
                     res['app_type'] = app['signOnMode']
-                    app["is_os"] = False
+                    res["is_os"] = False
                     if app['_links'].get('appLinks'):
                         res['app_link'] = app['_links']['appLinks'][0]['href']
                     res['policies'] = app['_links']['policies']['href']
