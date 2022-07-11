@@ -1,0 +1,13 @@
+{
+	"source": "Okta",
+	"endpoint": {
+		"users": "/api/v1/users",
+		"apps": "/api/v1/apps",
+		"systemlogs": "/api/v1/logs"
+	},
+	"parameter": {
+		"headers": {
+			"Content-Type": "application/json"
+		}
+	}
+}

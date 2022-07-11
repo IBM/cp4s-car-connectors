@@ -1,0 +1,21 @@
+[{
+		"asset_account": [{
+			"asset_id": "okta_test_1_2_25210/0oa4rs2ulp6DmX0fP5d7",
+			"account_id": "okta_test_1_2_25210/0ua582dco032gDDwo5d7",
+			"source": "okta14june_1"
+		}]
+	}, {
+		"user_account": [{
+			"user_id": "okta14june_1/qetest1.brock@example.com",
+			"account_id": "okta14june_1/0ua582dco032gDDwo5d7",
+			"source": "okta14june_1"
+		}]
+	},
+	{
+		"asset_application": [{
+			"asset_id": "okta_test_1_2_25210/0oa4oexov63QrxhVt5d7",
+			"application_id": "okta_test_1_2_25210/0oa4rs2ulp6DmX0fP5d7",
+			"source": "okta14june_1"
+		}]
+	}
+]
