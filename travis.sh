@@ -6,6 +6,7 @@ CONNECTORS=(
     azure 
     proofpoint 
     okta
+	rhacs
     # reference_connector
 )
 
