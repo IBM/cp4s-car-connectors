@@ -1,4 +1,5 @@
 #!/bin/bash
+shopt -s expand_aliases #Used to enable exapnd alias in non-interactive shells
 
 
 TAG="Test"
@@ -10,6 +11,21 @@ validate_cmd () {
   if ! `command -v $1 &> /dev/null` ; then
       echo "Error: $1 could not be found"
       exit 1
+  else
+      echo "  found $1"
+  fi
+}
+
+validate_cmd_alias () {
+  if ! `command -v $1 &> /dev/null` ; then
+        if ! `command -v $2 &> /dev/null` ; then
+            echo "Error: $1 and $2 could not be found"
+            exit 1
+        else
+            echo "  found $2"
+            echo "creating docker as alias for podman"
+            alias docker="podman"
+        fi
   else
       echo "  found $1"
   fi
@@ -98,7 +114,7 @@ echo "Checking Prerequisites ... "
 validate_cmd openssl
 validate_cmd python3
 validate_cmd pip3
-validate_cmd docker
+validate_cmd_alias docker podman
 
 echo -n "Checking if it is possible to execute docker command... "
 docker ps > /dev/null

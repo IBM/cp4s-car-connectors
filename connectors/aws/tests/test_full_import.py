@@ -59,73 +59,6 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         ])
         assert validations is True
 
-    @patch('connector.data_collector.DataCollector.update_private_ipv4')
-    @patch('connector.server_access.AssetServer.get_instances')
-    @patch('car_framework.car_service.CarService.graph_search', return_value=Mock())
-    @patch('car_framework.car_service.CarService.graph_attribute_search', return_value=Mock())
-    @patch('connector.server_access.AssetServer.get_network_interface')
-    @patch('connector.server_access.AssetServer.event_logs', return_value=Mock())
-    def test_create_network(self, mock_event_details, mock_ntwrk_details, mock_attr_details,
-                                 mock_graph_details, mock_instance_details, mock_ip_details):
-        """Unit test for network_incremental"""
-        detach_ntwrk_log = JsonResponse(200, 'detach_ntwrk_log.json').json()
-        attach_ntwrk_log = JsonResponse(200, 'attach_ntwrk_log.json').json()
-        start_inst_log = JsonResponse(200, 'start_instance.json').json()
-        for item in detach_ntwrk_log:
-            item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
-        for item in attach_ntwrk_log:
-            item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
-        for item in start_inst_log:
-            item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
-        mock_event_details.side_effect = [detach_ntwrk_log, attach_ntwrk_log, start_inst_log]
-        mock_ntwrk_details.return_value = JsonResponse(200, 'ntwrk_interface_log.json').json()
-        mock_instance_details.return_value = JsonResponse(200, 'get_instance.json').json()
-        mock_ip_details.return_value = None
-        graph_attr_search = [{'key': 'key-123', 'source': ['AWS-TEST']}]
-        mock_attr_details.side_effect = [graph_attr_search, graph_attr_search, graph_attr_search]
-        graph_search_log = JsonResponse(200, 'graph_search_log.json').json()
-        mock_graph_details.side_effect = [graph_search_log, graph_search_log, graph_search_log, graph_search_log]
-        context_patch()
-
-        actual_response1, actual_response2 = context().data_collector.create_network()
-        
-        assert actual_response1 is not None
-        assert actual_response2 is not None
-
-        context().inc_importer.handle_data([
-            'ipaddress',
-            'hostname',
-            'macaddress',
-            'ipaddress_macaddress',
-            'asset_ipaddress',
-            'asset_hostname',
-            'asset_macaddress',
-        ], actual_response1)
-
-        context().inc_importer.handle_data([
-            'ipaddress',
-            'hostname',
-            'ipaddress_macaddress',
-            'asset_ipaddress',
-            'asset_hostname',
-        ], actual_response2)
-        
-        collections = context().inc_importer.data_handler.collections
-        edges = context().inc_importer.data_handler.edges
-        validate = TestConsumer()
-
-        validations = all([
-            validate.ip_adr_validate(collections.get('ipaddress')), 
-            validate.mac_validate(collections.get('macaddress')),
-            validate.host_validate(collections.get('hostname')), 
-            validate.edges_validate(edges.get('ipaddress_macaddress')),
-            validate.edges_validate(edges.get('asset_ipaddress')),
-            validate.edges_validate(edges.get('asset_hostname')),
-            validate.edges_validate(edges.get('asset_macaddress'))
-        ])
-
-        assert validations is True
-
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.security_alerts')
     def test_create_vulnerability(self, mock_alerts_response, mock_get_instances):
@@ -177,19 +110,17 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         assert validations is True
         
 
-    @patch('car_framework.car_service.CarService.graph_search')
     @patch('car_framework.car_service.CarService.graph_attribute_search')
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.event_logs')
-    def test_create_database(self, mock_cloudtrail_events, mock_db_data, search_data, attribute_search, db_graph_data):
+    def test_create_database(self, mock_cloudtrail_events, mock_db_data, search_data, attribute_search):
         """Unit test case for create RDS database"""
         mock_cloudtrail_events.return_value = JsonResponse(200, 'db_cloutrail_events.json').json()
         for item in mock_cloudtrail_events.return_value:
             item['CloudTrailEvent'] = json.dumps(item['CloudTrailEvent'])
         mock_db_data.return_value = JsonResponse(200, 'db_list_log.json').json()
         search_data.return_value = JsonResponse(200, 'db_search.json').json()
-        db_graph_data.return_value = JsonResponse(200, 'db_car_search.json').json()
         attribute_search.return_value = [{'external_id': ['AWS-TEST:db-GQNFWUQIV7BLAFOMGEDTPTN67M'], 'source':['AWS-TEST']}]
         context_patch()
         

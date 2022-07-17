@@ -5,6 +5,7 @@ CONNECTORS=(
     aws 
     azure 
     proofpoint 
+    okta
     # reference_connector
 )
 

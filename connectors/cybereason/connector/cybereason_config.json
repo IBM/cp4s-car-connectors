@@ -1,0 +1,23 @@
+{
+	"source": "Cybereason",
+	"endpoint": {
+		"auth": "/login.html",
+		"asset": "/rest/sensors/query",
+		"network": "/rest/visualsearch/query/simple",
+		"vulnerability": "/rest/detection/inbox",
+		"remediation" : "/rest/remediate/status"
+	},
+	"parameter": {
+		"headers": {
+			"Content-Type": "application/json"
+		}
+	},
+	"query_parameter": {
+		"network_fields": ["elementDisplayName", "ipAddress", "ownerMachine",
+                              "macAddressFormat", "id", "proxies"],
+		"timeout": 12000,
+		"result_limit": 10000,
+		"group_limit": 1,
+		"feature_limit": 1
+	}
+}

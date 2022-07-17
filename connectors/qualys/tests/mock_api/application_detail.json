@@ -1,0 +1,198 @@
+{
+	"responseMessage": "Valid API Access",
+	"count": 51,
+	"responseCode": "SUCCESS",
+	"lastSeenAssetId": 14063323,
+	"hasMore": 0,
+	"assetListData": {
+		"asset": [{
+			"assetId": 13263514,
+			"assetUUID": "f1888334-2ef8-4847-a9ab-f31827c55179",
+			"hostId": 7774720,
+			"lastModifiedDate": "2021-12-21T02:51:49.000Z",
+			"agentId": "None",
+			"createdDate": "2021-12-09T08:37:49.000Z",
+			"sensorLastUpdatedDate": "2021-12-21T02:51:49.000Z",
+			"assetType": "None",
+			"address": "177.77.77.777",
+			"dnsName": "ip-177-77-77-777.ec2.internal",
+			"assetName": "ip-177-77-77-777.ec2.internal",
+			"netbiosName": "None",
+			"timeZone": "None",
+			"biosDescription": "None",
+			"lastBoot": "None",
+			"totalMemory": "None",
+			"cpuCount": "None",
+			"lastLoggedOnUser": "None",
+			"hwUUID": "None",
+			"biosSerialNumber": "None",
+			"biosAssetTag": "None",
+			"isContainerHost": "False",
+			"operatingSystem": {
+				"osName": "Linux",
+				"fullName": "Linux",
+				"category": "Linux / Unidentified",
+				"category1": "Linux",
+				"category2": "Unidentified",
+				"productName": "Unidentified",
+				"publisher": "Unidentified",
+				"edition": "None",
+				"marketVersion": "None",
+				"version": "None",
+				"update": "None",
+				"architecture": "None",
+				"lifecycle": "None",
+				"taxonomy": {
+					"id": "None",
+					"name": "Linux / Unidentified",
+					"category1": "Linux",
+					"category2": "Unidentified"
+				},
+				"productUrl": "None",
+				"productFamily": "None",
+				"installDate": "None"
+			},
+			"hardware": {
+				"fullName": "Amazon Web Services",
+				"category": "Virtualized / Cloud Instance",
+				"category1": "Virtualized",
+				"category2": "Cloud Instance",
+				"manufacturer": "Amazon Web Services",
+				"productName": "Unidentified",
+				"model": "None",
+				"lifecycle": "None",
+				"taxonomy": {
+					"id": "None",
+					"name": "Virtualized / Cloud Instance",
+					"category1": "Virtualized",
+					"category2": "Cloud Instance"
+				},
+				"productUrl": "None",
+				"productFamily": "None"
+			},
+			"userAccountListData": "None",
+			"openPortListData": "None",
+			"volumeListData": "None",
+			"networkInterfaceListData": {
+				"networkInterface": [{
+					"hostname": "ip-177-77-77-777.ec2.internal",
+					"addressIpV4": "177.77.77.777",
+					"addressIpV6": "None",
+					"macAddress": "",
+					"interfaceName": "",
+					"dnsAddress": "None",
+					"gatewayAddress": "",
+					"manufacturer": "None",
+					"macVendorIntroDate": "None",
+					"addresses": "None"
+				}]
+			},
+			"softwareListData":
+				{"software": [{
+					"id": -2432392843928159632,
+					"fullName": "Qualys Cloud",
+					"softwareType": "Application",
+					"isIgnored": "False",
+					"ignoredReason": "None",
+					"category": "Security / Endpoint Management and Security",
+					"category1": "Security",
+					"category2": "Endpoint Management and Security",
+					"productName": "Cloud Agent",
+					"component": "None",
+					"publisher": "Qualys",
+					"edition": "None",
+					"marketVersion": "None",
+					"version": "4.7.0-35",
+					"update": "None",
+					"architecture": "None",
+					"installDate": "None",
+					"installPath": "None",
+					"lastUpdated": "2022-01-29T19:46:21.000Z",
+					"lastUseDate": "None",
+					"language": "None",
+					"formerlyKnownAs": "None",
+					"isPackage": "None",
+					"isPackageComponent": "None",
+					"packageName": "None",
+					"productUrl": "None",
+					"lifecycle": "None",
+					"supportStageDesc": "None",
+					"license": "None",
+					"authorization": "None"
+				}]
+			},
+			"provider": "AWS",
+			"cloudProvider": {
+				"aws": {
+					"ec2": {
+						"accountId": "999999999999999",
+						"availabilityZone": "us-east-1c",
+						"hasAgent": "False",
+						"hostname": "None",
+						"imageId": "ami-",
+						"instanceId": "i-",
+						"instanceState": "STOPPED",
+						"instanceType": "t2.micro",
+						"qualysScanner": "False",
+						"kernelId": "None",
+						"launchdate": 1636535615000,
+						"privateDNS": "ip-177-77-77-777.ec2.internal",
+						"privateIpAddress": "177.77.77.777",
+						"publicDNS": "None",
+						"publicIpAddress": "None",
+						"region": {
+							"code": "us-east-1",
+							"name": "US East (N. Virginia)"
+						},
+						"spotInstance": "False",
+						"subnetId": "subnet-",
+						"vpcId": "vpc-"
+					},
+					"tags": [{
+						"key": "Name",
+						"value": "ubuntu-uat"
+					}]
+				},
+				"azure": "None",
+				"gcp": "None",
+				"oci": "None"
+			},
+			"agent": "None",
+			"sensor": {
+				"activatedForModules": ["SCA", "VM"],
+				"pendingActivationForModules": [],
+				"lastVMScan": 0,
+				"lastComplianceScan": 0,
+				"lastFullScan": 0
+			},
+			"container": "None",
+			"inventory": {
+				"source": "INSTANCE_ID",
+				"created": 1639039069000,
+				"lastUpdated": 1640055109000
+			},
+			"activity": "None",
+			"tagList": {
+				"tag": [{
+					"tagId": 15939724,
+					"tagName": "ec2",
+					"foregroundColor": 0,
+					"backgroundColor": 0,
+					"businessImpact": "None",
+					"criticalityScore": "None"
+				}]
+			},
+			"serviceList": "None",
+			"lastLocation": "None",
+			"criticality": {
+				"score": 2,
+				"isDefault": "True",
+				"lastUpdated": "None"
+			},
+			"businessInformation": "None",
+			"assignedLocation": "None",
+			"businessAppListData": "None",
+			"processor": "None"
+		}]
+	}
+}
