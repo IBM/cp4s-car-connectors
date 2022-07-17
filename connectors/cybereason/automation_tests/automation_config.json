@@ -1,0 +1,5 @@
+{   "source": "Cybetest",
+    "car_service_apikey_url": "https://cp4s.xxxxxxxxxxxxxxcxxxxx.appdomain.cloud/api/car/v2",
+    "api_key": "xxxxxxxxxxxxxxxx",
+    "api_password": "xxxxxxxxxxxxxx"
+}

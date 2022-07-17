@@ -1,0 +1,23 @@
+{
+	"ipaddress": ["177.77.77.777"],
+
+	"macaddress": [
+		"12:B1:1D:B2:97:87"
+	],
+	"hostname": [
+		"ec2.172.16.4.124.amazon.com"
+	],
+	"account": [
+		"Guest"
+	],
+	"application": [
+		"a3eaf68ddf942307e8b"
+	],
+	"vulnerability": [
+		105484,
+		375537
+	],
+	"geolocation": [
+		"us-east-1"
+	]
+}

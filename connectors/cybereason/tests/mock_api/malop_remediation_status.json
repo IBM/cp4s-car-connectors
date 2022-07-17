@@ -1,0 +1,46 @@
+[
+    {
+        "malopId": null,
+        "remediationId": "98e13d84-e92d-4eca-889c-57f10877fb79",
+        "start": 1648203202885,
+        "end": 1648203429273,
+        "initiatingUser": "testuser@abc.com",
+        "statusLog": [
+            {
+                "machineId": "1673663194.1198775089551518743",
+                "targetId": "1673663194.1198775089551518743",
+                "status": "PENDING",
+                "actionType": "QUARANTINE_FILE",
+                "error": null,
+                "timestamp": 1648203203450
+            },
+            {
+                "machineId": "335595233.1198775089551518743",
+                "targetId": "335595233.-6523192141496942144",
+                "status": "IN_PROGRESS",
+                "actionType": "QUARANTINE_FILE",
+                "error": null,
+                "timestamp": 1648203203671
+            },
+            {
+                "machineId": "335595233.1198775089551518743",
+                "targetId": "335595233.-6523192141496942144",
+                "status": "PENDING",
+                "actionType": "QUARANTINE_FILE",
+                "error": null,
+                "timestamp": 1648203203675
+            },
+            {
+                "machineId": "335595233.1198775089551518743",
+                "targetId": "335595233.-6523192141496942144",
+                "status": "FAILURE",
+                "actionType": "QUARANTINE_FILE",
+                "error": {
+                    "message": "The probe couldn't find the file",
+                    "errorType": "PROBE_FILE_NOT_FOUND"
+                },
+                "timestamp": 1648203429266
+            }
+        ]
+    }
+]

@@ -1,0 +1,80 @@
+{
+	"ServiceResponse": {
+		"data": [{
+			"HostAsset": {
+				"modified": "2021-12-21T02:51:55Z",
+				"created": "2021-12-09T08:37:49Z",
+				"isDockerHost": "false",
+				"os": "Linux",
+				"tags": {
+					"list": [{
+						"TagSimple": {
+							"name": "ec2",
+							"id": 15939724
+						}
+					}]
+				},
+				"fqdn": "ip-177.77.7.777.ec2.internal",
+				"cloudProvider": "AWS",
+				"id": 13263515,
+				"networkInterface": {
+					"list": [{
+						"HostAssetInterface": {
+							"hostname": "ip-177.77.7.777.ec2.internal",
+							"type": "PRIVATE",
+							"interfaceId": "eni-7777777777777777",
+							"address": "177.77.77.777"
+						}
+					}]
+				},
+				"sourceInfo": {
+					"list": [{
+						"Ec2AssetSourceSimple": {
+							"type": "EC_2",
+							"groupName": "launch-wizard-5",
+							"region": "us-east-1",
+							"spotInstance": "false",
+							"firstDiscovered": "2021-12-09T08:38:01Z",
+							"reservationId": "r-7777777777777",
+							"zone": "VPC",
+							"assetId": 13263515,
+							"privateDnsName": "ip-177.77.7.777.ec2.internal",
+							"vpcId": "vpc-77777777777777",
+							"imageId": "ami-77777777777777777",
+							"instanceType": "t2.micro",
+							"accountId": "7777777777777777777",
+							"groupId": "sg-777777777777777777",
+							"createdDate": "2022-01-10T11:01:34Z",
+							"instanceId": "i-0343a9b7adbe00ad9",
+							"ec2InstanceTags": {
+								"tags": {
+									"list": [{
+										"EC2Tags": {
+											"key": "Name",
+											"value": "TestTAX server"
+										}
+									}]
+								}
+							},
+							"lastUpdated": "2021-12-21T02:51:55Z",
+							"subnetId": "subnet-77777777",
+							"monitoringEnabled": "false",
+							"availabilityZone": "us-east-1c",
+							"instanceState": "STOPPED",
+							"privateIpAddress": "177.77.77.777"
+						}
+					}]
+				},
+				"type": "HOST",
+				"dnsHostName": "ip-177.77.7.777.ec2.internal",
+				"address": "177.77.77.777",
+				"qwebHostId": 7774744,
+				"name": "ip-177.77.7.777.ec2.internal",
+				"trackingMethod": "INSTANCE_ID"
+			}
+		}],
+		"hasMoreRecords": "false",
+		"count": 50,
+		"responseCode": "SUCCESS"
+	}
+}

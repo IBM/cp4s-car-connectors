@@ -1,0 +1,15 @@
+{
+	"source": "Qualys",
+	"endpoint": {
+		"asset": "/qps/rest/2.0/search/am/hostasset",
+		"asset_vulnerability": "/api/2.0/fo/asset/host/vm/detection/?action=list",
+		"auth": "/auth",
+		"applications" : "/rest/2.0/search/am/asset?pageSize=300&softwareType=Application"
+	},
+	"parameter": {
+		"headers": {
+			"Accept": "application/json",
+			"X-Requested-With": "curl"
+		}
+	}
+}
