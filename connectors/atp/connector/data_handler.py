@@ -23,9 +23,6 @@ class DataHandler(BaseDataHandler):
         if obj:
             asset['external_id'] = obj['id']
             asset['name'] = obj['computerDnsName']
-            asset['os'] = obj['osPlatform']
-            asset['os_version'] = obj['version']
-            asset['os_architecture'] = obj['osArchitecture']
             if obj['aadDeviceId']:
                 asset['ad_device_id'] = obj['aadDeviceId']
             self.add_collection('asset', asset, 'external_id')
@@ -156,6 +153,8 @@ class DataHandler(BaseDataHandler):
             application['name'] = obj['osPlatform']
             application['is_os'] = ACTIVE
             application['external_id'] = obj['osPlatform']
+            application['os_version'] = obj['version']
+            application['os_architecture'] = obj['osArchitecture']
 
         if application:
             self.add_collection('application', application, 'external_id')
@@ -180,3 +179,17 @@ class DataHandler(BaseDataHandler):
                 obj['SoftwareVersion']
             application_vulnerability['_to_external_id'] = obj['CveId']
             self.add_edge('application_vulnerability', application_vulnerability)
+
+    def handle_unifiedaccount(self, obj):
+        account = dict()
+        if obj.get('accountName'):
+            account['external_id'] = obj['accountName']
+            account['uac_id'] = obj['accountName']
+            self.add_collection('unifiedaccount', account, 'external_id')
+
+    def handle_account_unifiedaccount(self, obj):
+        account_unifiedaccount = dict()
+        if obj.get('accountName'):
+            account_unifiedaccount['_from_external_id'] = obj['accountName']
+            account_unifiedaccount['_to_external_id'] = obj['accountName']
+            self.add_edge('account_unifiedaccount', account_unifiedaccount)

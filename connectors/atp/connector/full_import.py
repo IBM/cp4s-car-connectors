@@ -31,6 +31,7 @@ class FullImport(BaseFullImport):
 
         # asset and host catalog
         collection = context().data_collector.create_asset_host(incremental=False)
+        print(collection)
         if collection:
             self.handle_data([
                 'asset',
@@ -65,6 +66,8 @@ class FullImport(BaseFullImport):
                 'account_hostname',
                 'account',
                 'user_account',
+                'unifiedaccount',
+                'account_unifiedaccount'
             ], user_list)
 
         # vulnerability catalog
