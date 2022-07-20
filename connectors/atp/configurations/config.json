@@ -1,7 +1,7 @@
 {
     "connection": {
         "schedule": {
-            "default": "* */1 * * *",
+            "default": "0 */4 * * *",
             "type": "cron",
             "previous": ["frequency", "time"],
             "options": ["0 */4 * * *", "0 */6 * * *", "0 */12 * * *", "mm HH * * *"]
