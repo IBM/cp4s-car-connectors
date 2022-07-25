@@ -51,6 +51,7 @@ class DataHandler(BaseDataHandler):
             res['name'] = node['name']
             res['asset_type'] = 'node'
             res['risk'] = node['riskScore']
+            res['cluster_id'] = node['clusterId']
             self.add_collection('asset', res, 'external_id')
             # Handle ipaddresses
             self.handle_ipaddress(node, last_model_state_id)
@@ -68,6 +69,7 @@ class DataHandler(BaseDataHandler):
             res['external_id'] = item['instanceId']['id']
             res['name'] = item['containerName']
             res['image'] = item['imageDigest']
+            res['cluster_id'] = item['clusterId']
             self.add_collection('container', res, 'external_id')
 
             res['asset_type'] = 'container'

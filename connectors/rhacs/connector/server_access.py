@@ -139,6 +139,7 @@ class AssetServer:
                             images[instance_obj['imageDigest']] = json.loads(response.content)
 
                 instance_obj['image'] = images.get(instance_obj['imageDigest'], '')
+                instance_obj['clusterId'] = container_obj.get('clusterId', '')
                 containers.append(instance_obj)
 
         return containers
