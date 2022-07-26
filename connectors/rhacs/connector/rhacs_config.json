@@ -1,0 +1,20 @@
+{
+	"source": "Red Hat Advanced Cluster Security for Kubernetes",
+	"endpoint": {
+		"auth": "/v1/auth/status",
+		"clusters": "/v1/clusters",
+		"nodes": "/v1/nodes",
+		"containers": "/v1/pods",
+		"images": "/v1/images",
+		"deployments" : "/v1/deployments",
+		"roles" : "/v1/roles",
+		"groups" : "/v1/groups",
+		"users" : "/v1/users",
+		"defer_cve": "/v1/cve/requests"
+	},
+	"parameter": {
+		"headers": {
+			"Content-Type": "application/json"
+		}
+	}
+}

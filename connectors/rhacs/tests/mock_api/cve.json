@@ -1,0 +1,66 @@
+{
+    "requestInfos":
+    [
+      {
+            "id": "0c58622c-f702-4526-be7e-688c12bdc209",
+            "targetState": "DEFERRED",
+            "status": "APPROVED",
+            "expired": true,
+            "requestor": {
+                "id": "sso:4df1b98c-24ed-4073-a9ad-356aec6bb62d:admin",
+                "name": "admin"
+            },
+            "approvers": [
+                {
+                    "id": "sso:4df1b98c-24ed-4073-a9ad-356aec6bb62d:admin",
+                    "name": "admin"
+                }
+            ],
+            "createdAt": "2022-05-12T10:32:35.460215475Z",
+            "lastUpdated": "2022-05-28T00:13:42.405055936Z",
+            "comments": [
+                {
+                    "id": "bac01325-4b64-4dfe-a46e-970052f313c0",
+                    "message": "testing",
+                    "user": {
+                        "id": "sso:4df1b98c-24ed-4073-a9ad-356aec6bb62d:admin",
+                        "name": "admin"
+                    },
+                    "createdAt": "2022-05-12T10:32:35.460247577Z"
+                },
+                {
+                    "id": "778f062e-d3f6-4382-a000-543ffb0ec507",
+                    "message": "testing",
+                    "user": {
+                        "id": "sso:4df1b98c-24ed-4073-a9ad-356aec6bb62d:admin",
+                        "name": "admin"
+                    },
+                    "createdAt": "2022-05-12T10:36:06.906886253Z"
+                },
+                {
+                    "id": "fa3b1b25-760e-4f05-b94c-00136bdf8c15",
+                    "message": "[System Generated] Request expired",
+                    "user": null,
+                    "createdAt": "2022-05-28T00:13:42.405065671Z"
+                }
+            ],
+            "scope": {
+                "imageScope": {
+                    "registry": "image-registry.openshift-image-registry.svc:5000",
+                    "remote": "openshift/mysql",
+                    "tag": ""
+                }
+            },
+            "deferralReq": {
+                "expiry": {
+                    "expiresOn": "2022-05-27T16:03:40.311311311Z"
+                }
+            },
+            "cves": {
+                "ids": [
+                    "CVE-2022-26280"
+                ]
+            }
+        }
+    ]
+}

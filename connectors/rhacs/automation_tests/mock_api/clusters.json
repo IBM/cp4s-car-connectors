@@ -1,0 +1,193 @@
+{
+    "clusters": [
+	      {
+            "id": "726e735e-e94a-4e30-b93a-afb26e350afe",
+            "name": "rhacs-cluster",
+            "type": "OPENSHIFT4_CLUSTER",
+            "labels": {},
+            "mainImage": "registry.redhat.io/advanced-cluster-security/rhacs-main-rhel8@sha256:d02a267e12dc2e83a52b2e76d7670355ccd19347db7223a7da39f5e9c9f75447",
+            "collectorImage": "registry.redhat.io/advanced-cluster-security/rhacs-collector-rhel8@sha256:2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+            "centralApiEndpoint": "central.stackrox.svc:443",
+            "runtimeSupport": true,
+            "collectionMethod": "KERNEL_MODULE",
+            "admissionController": true,
+            "admissionControllerUpdates": true,
+            "admissionControllerEvents": true,
+            "status": {
+                "sensorVersion": "3.69.1",
+                "DEPRECATEDLastContact": null,
+                "providerMetadata": null,
+                "orchestratorMetadata": {
+                    "version": "v1.21.8+ee73ea2",
+                    "openshiftVersion": "4.8.36",
+                    "buildDate": "2022-03-10T05:52:32Z",
+                    "apiVersions": [
+                        "admissionregistration.k8s.io/v1",
+                        "admissionregistration.k8s.io/v1beta1",
+                        "apiextensions.k8s.io/v1",
+                        "apiextensions.k8s.io/v1beta1",
+                        "apiregistration.k8s.io/v1",
+                        "apiregistration.k8s.io/v1beta1",
+                        "apiserver.openshift.io/v1",
+                        "apps.openshift.io/v1",
+                        "apps/v1",
+                        "authentication.k8s.io/v1",
+                        "authentication.k8s.io/v1beta1",
+                        "authorization.k8s.io/v1",
+                        "authorization.k8s.io/v1beta1",
+                        "authorization.openshift.io/v1",
+                        "autoscaling/v1",
+                        "autoscaling/v2beta1",
+                        "autoscaling/v2beta2",
+                        "batch/v1",
+                        "batch/v1beta1",
+                        "build.openshift.io/v1",
+                        "certificates.k8s.io/v1",
+                        "certificates.k8s.io/v1beta1",
+                        "cloudcredential.openshift.io/v1",
+                        "config.openshift.io/v1",
+                        "console.openshift.io/v1",
+                        "console.openshift.io/v1alpha1",
+                        "coordination.k8s.io/v1",
+                        "coordination.k8s.io/v1beta1",
+                        "crd.projectcalico.org/v1",
+                        "discovery.k8s.io/v1",
+                        "discovery.k8s.io/v1beta1",
+                        "events.k8s.io/v1",
+                        "events.k8s.io/v1beta1",
+                        "extensions/v1beta1",
+                        "flowcontrol.apiserver.k8s.io/v1beta1",
+                        "helm.openshift.io/v1beta1",
+                        "ibm.com/v1alpha1",
+                        "image.openshift.io/v1",
+                        "imageregistry.operator.openshift.io/v1",
+                        "ingress.operator.openshift.io/v1",
+                        "k8s.cni.cncf.io/v1",
+                        "machineconfiguration.openshift.io/v1",
+                        "metal3.io/v1alpha1",
+                        "metrics.k8s.io/v1beta1",
+                        "migration.k8s.io/v1alpha1",
+                        "monitoring.coreos.com/v1",
+                        "monitoring.coreos.com/v1alpha1",
+                        "network.operator.openshift.io/v1",
+                        "networking.k8s.io/v1",
+                        "networking.k8s.io/v1beta1",
+                        "node.k8s.io/v1",
+                        "node.k8s.io/v1beta1",
+                        "oauth.openshift.io/v1",
+                        "operator.openshift.io/v1",
+                        "operator.openshift.io/v1alpha1",
+                        "operator.tigera.io/v1",
+                        "operators.coreos.com/v1",
+                        "operators.coreos.com/v1alpha1",
+                        "operators.coreos.com/v1alpha2",
+                        "operators.coreos.com/v2",
+                        "packages.operators.coreos.com/v1",
+                        "platform.stackrox.io/v1alpha1",
+                        "policy/v1",
+                        "policy/v1beta1",
+                        "project.openshift.io/v1",
+                        "quota.openshift.io/v1",
+                        "rbac.authorization.k8s.io/v1",
+                        "rbac.authorization.k8s.io/v1beta1",
+                        "route.openshift.io/v1",
+                        "samples.operator.openshift.io/v1",
+                        "scheduling.k8s.io/v1",
+                        "scheduling.k8s.io/v1beta1",
+                        "security.internal.openshift.io/v1",
+                        "security.openshift.io/v1",
+                        "snapshot.storage.k8s.io/v1",
+                        "snapshot.storage.k8s.io/v1beta1",
+                        "storage.k8s.io/v1",
+                        "storage.k8s.io/v1beta1",
+                        "template.openshift.io/v1",
+                        "tuned.openshift.io/v1",
+                        "user.openshift.io/v1",
+                        "v1",
+                        "whereabouts.cni.cncf.io/v1alpha1"
+                    ]
+                },
+                "upgradeStatus": {
+                    "upgradability": "UP_TO_DATE",
+                    "upgradabilityStatusReason": "sensor is running the same version as Central",
+                    "mostRecentProcess": null
+                },
+                "certExpiryStatus": {
+                    "sensorCertExpiry": "2023-04-19T09:32:00Z"
+                }
+            },
+            "dynamicConfig": {
+                "admissionControllerConfig": {
+                    "enabled": true,
+                    "timeoutSeconds": 3,
+                    "scanInline": false,
+                    "disableBypass": false,
+                    "enforceOnUpdates": true
+                },
+                "registryOverride": "",
+                "disableAuditLogs": false
+            },
+            "tolerationsConfig": {
+                "disabled": false
+            },
+            "priority": "2",
+            "healthStatus": {
+                "collectorHealthInfo": {
+                    "version": "2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+                    "totalDesiredPods": 2,
+                    "totalReadyPods": 2,
+                    "totalRegisteredNodes": 2,
+                    "statusErrors": []
+                },
+                "admissionControlHealthInfo": null,
+                "sensorHealthStatus": "UNHEALTHY",
+                "collectorHealthStatus": "HEALTHY",
+                "overallHealthStatus": "UNHEALTHY",
+                "admissionControlHealthStatus": "UNINITIALIZED",
+                "lastContact": "2022-05-18T13:09:36.625254Z",
+                "healthInfoComplete": true
+            },
+            "slimCollector": false,
+            "helmConfig": {
+                "dynamicConfig": {
+                    "admissionControllerConfig": {
+                        "enabled": true,
+                        "timeoutSeconds": 3,
+                        "scanInline": false,
+                        "disableBypass": false,
+                        "enforceOnUpdates": true
+                    },
+                    "registryOverride": "",
+                    "disableAuditLogs": false
+                },
+                "staticConfig": {
+                    "type": "OPENSHIFT4_CLUSTER",
+                    "mainImage": "registry.redhat.io/advanced-cluster-security/rhacs-main-rhel8@sha256:d02a267e12dc2e83a52b2e76d7670355ccd19347db7223a7da39f5e9c9f75447",
+                    "centralApiEndpoint": "central.stackrox.svc:443",
+                    "collectionMethod": "KERNEL_MODULE",
+                    "collectorImage": "registry.redhat.io/advanced-cluster-security/rhacs-collector-rhel8@sha256:2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+                    "admissionController": true,
+                    "admissionControllerUpdates": true,
+                    "tolerationsConfig": {
+                        "disabled": false
+                    },
+                    "slimCollector": false,
+                    "admissionControllerEvents": true
+                },
+                "configFingerprint": "48a13c8b978fbebb04ed79ee96e182a04f007e3978a8b28128f89c9add148228",
+                "clusterLabels": {}
+            },
+            "mostRecentSensorId": {
+                "systemNamespaceId": "2f83a665-0fe9-4a89-901a-9b2877e9956d",
+                "defaultNamespaceId": "72ab6093-11dc-4bf8-8b2c-fdc882a38f2e",
+                "appNamespace": "stackrox",
+                "appNamespaceId": "88e3fb45-9db9-4fe5-becf-b3bc14eb52dd",
+                "appServiceaccountId": "",
+                "k8sNodeName": "10.162.39.186"
+            },
+            "auditLogState": {},
+            "initBundleId": "b76d776a-2f1a-4925-8911-50a6954178c2",
+            "managedBy": "MANAGER_TYPE_KUBERNETES_OPERATOR"
+        }
+    ]
+}

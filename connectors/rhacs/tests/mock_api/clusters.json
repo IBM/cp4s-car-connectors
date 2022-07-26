@@ -1,0 +1,109 @@
+{
+    "clusters": [
+	      {
+            "id": "726e735e-e94a-4e30-b93a-afb26e350afe",
+            "name": "rhacs-cluster",
+            "type": "OPENSHIFT4_CLUSTER",
+            "labels": {},
+            "mainImage": "registry.redhat.io/advanced-cluster-security/rhacs-main-rhel8@sha256:d02a267e12dc2e83a52b2e76d7670355ccd19347db7223a7da39f5e9c9f75447",
+            "collectorImage": "registry.redhat.io/advanced-cluster-security/rhacs-collector-rhel8@sha256:2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+            "centralApiEndpoint": "central.stackrox.svc:443",
+            "runtimeSupport": true,
+            "collectionMethod": "KERNEL_MODULE",
+            "admissionController": true,
+            "admissionControllerUpdates": true,
+            "admissionControllerEvents": true,
+            "status": {
+                "sensorVersion": "3.69.1",
+                "DEPRECATEDLastContact": null,
+                "providerMetadata": null,
+                "orchestratorMetadata": {
+                    "version": "v1.21.8+ee73ea2",
+                    "openshiftVersion": "4.8.36",
+                    "buildDate": "2022-03-10T05:52:32Z",
+                    "apiVersions": []
+                },
+                "upgradeStatus": {
+                    "upgradability": "UP_TO_DATE",
+                    "upgradabilityStatusReason": "sensor is running the same version as Central",
+                    "mostRecentProcess": null
+                },
+                "certExpiryStatus": {
+                    "sensorCertExpiry": "2023-04-19T09:32:00Z"
+                }
+            },
+            "dynamicConfig": {
+                "admissionControllerConfig": {
+                    "enabled": true,
+                    "timeoutSeconds": 3,
+                    "scanInline": false,
+                    "disableBypass": false,
+                    "enforceOnUpdates": true
+                },
+                "registryOverride": "",
+                "disableAuditLogs": false
+            },
+            "tolerationsConfig": {
+                "disabled": false
+            },
+            "priority": "2",
+            "healthStatus": {
+                "collectorHealthInfo": {
+                    "version": "2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+                    "totalDesiredPods": 2,
+                    "totalReadyPods": 2,
+                    "totalRegisteredNodes": 2,
+                    "statusErrors": []
+                },
+                "admissionControlHealthInfo": null,
+                "sensorHealthStatus": "UNHEALTHY",
+                "collectorHealthStatus": "HEALTHY",
+                "overallHealthStatus": "UNHEALTHY",
+                "admissionControlHealthStatus": "UNINITIALIZED",
+                "lastContact": "2022-05-18T13:09:36.625254Z",
+                "healthInfoComplete": true
+            },
+            "slimCollector": false,
+            "helmConfig": {
+                "dynamicConfig": {
+                    "admissionControllerConfig": {
+                        "enabled": true,
+                        "timeoutSeconds": 3,
+                        "scanInline": false,
+                        "disableBypass": false,
+                        "enforceOnUpdates": true
+                    },
+                    "registryOverride": "",
+                    "disableAuditLogs": false
+                },
+                "staticConfig": {
+                    "type": "OPENSHIFT4_CLUSTER",
+                    "mainImage": "registry.redhat.io/advanced-cluster-security/rhacs-main-rhel8@sha256:d02a267e12dc2e83a52b2e76d7670355ccd19347db7223a7da39f5e9c9f75447",
+                    "centralApiEndpoint": "central.stackrox.svc:443",
+                    "collectionMethod": "KERNEL_MODULE",
+                    "collectorImage": "registry.redhat.io/advanced-cluster-security/rhacs-collector-rhel8@sha256:2c3336998a3f52aa02bd6da226c73bafd1d75a14c9fba0ef704f5c23cfcb911a",
+                    "admissionController": true,
+                    "admissionControllerUpdates": true,
+                    "tolerationsConfig": {
+                        "disabled": false
+                    },
+                    "slimCollector": false,
+                    "admissionControllerEvents": true
+                },
+                "configFingerprint": "48a13c8b978fbebb04ed79ee96e182a04f007e3978a8b28128f89c9add148228",
+                "clusterLabels": {}
+            },
+            "mostRecentSensorId": {
+                "systemNamespaceId": "2f83a665-0fe9-4a89-901a-9b2877e9956d",
+                "defaultNamespaceId": "72ab6093-11dc-4bf8-8b2c-fdc882a38f2e",
+                "appNamespace": "stackrox",
+                "appNamespaceId": "88e3fb45-9db9-4fe5-becf-b3bc14eb52dd",
+                "appServiceaccountId": "",
+                "k8sNodeName": "66.999.66.999"
+            },
+            "auditLogState": {},
+            "initBundleId": "b76d776a-2f1a-4925-8911-50a6954178c2",
+            "managedBy": "MANAGER_TYPE_KUBERNETES_OPERATOR"
+        }
+    ]
+}
