@@ -1,0 +1,122 @@
+{
+"nodes": [
+        {
+            "id": "3c704023-015d-4450-b966-50b26f964162",
+            "name": "10.111.10.111",
+            "taints": [],
+            "clusterId": "726e735e-e94a-4e30-b93a-afb26e350afe",
+            "clusterName": "rhacs-cluster",
+            "labels": {
+                "arch": "amd64",
+                "beta.kubernetes.io/arch": "amd64",
+                "beta.kubernetes.io/instance-type": "b3c.4x16.encrypted",
+                "beta.kubernetes.io/os": "linux",
+                "failure-domain.beta.kubernetes.io/region": "jp-tok",
+                "failure-domain.beta.kubernetes.io/zone": "che01",
+                "ibm-cloud.kubernetes.io/encrypted-docker-data": "true",
+                "ibm-cloud.kubernetes.io/external-ip": "169.38.131.24",
+                "ibm-cloud.kubernetes.io/iaas-provider": "softlayer",
+                "ibm-cloud.kubernetes.io/internal-ip": "10.111.10.111",
+                "ibm-cloud.kubernetes.io/machine-type": "b3c.4x16.encrypted",
+                "ibm-cloud.kubernetes.io/os": "REDHAT_7_64",
+                "ibm-cloud.kubernetes.io/region": "jp-tok",
+                "ibm-cloud.kubernetes.io/sgx-enabled": "false",
+                "ibm-cloud.kubernetes.io/worker-id": "kube-c9eeoagt01jsma9l0gkg-rhacsche01b-default-0000023d",
+                "ibm-cloud.kubernetes.io/worker-pool-id": "c9eeoagt01jsma9l0gkg-6593f67",
+                "ibm-cloud.kubernetes.io/worker-pool-name": "default",
+                "ibm-cloud.kubernetes.io/worker-version": "4.8.35_1553_openshift",
+                "ibm-cloud.kubernetes.io/zone": "che01",
+                "kubernetes.io/arch": "amd64",
+                "kubernetes.io/hostname": "10.111.10.111",
+                "kubernetes.io/os": "linux",
+                "node-role.kubernetes.io/master": "",
+                "node-role.kubernetes.io/worker": "",
+                "node.kubernetes.io/instance-type": "b3c.4x16.encrypted",
+                "node.openshift.io/os_id": "rhel",
+                "privateVLAN": "3175964",
+                "publicVLAN": "3175962",
+                "topology.kubernetes.io/region": "jp-tok",
+                "topology.kubernetes.io/zone": "che01"
+            },
+            "annotations": {
+                "projectcalico.org/IPv4Address": "10.111.10.111/26",
+                "projectcalico.org/IPv4IPIPTunnelAddr": "111.10.111.111"
+            },
+            "joinedAt": "2022-04-18T10:31:15Z",
+            "internalIpAddresses": [
+                "10.111.10.111"
+            ],
+            "externalIpAddresses": [
+                "111.10.111.10"
+            ],
+            "containerRuntimeVersion": "cri-o://1.21.5-3.rhaos4.8.gitaf64931.el7",
+            "containerRuntime": {
+                "type": "CRIO_CONTAINER_RUNTIME",
+                "version": "1.21.5-3.rhaos4.8.gitaf64931.el7"
+            },
+            "kernelVersion": "3.10.0-1160.62.1.el7.x86_64",
+            "operatingSystem": "",
+            "osImage": "Red Hat",
+            "kubeletVersion": "v1.21.8+ee73ea2",
+            "kubeProxyVersion": "v1.21.8+ee73ea2",
+            "lastUpdated": "2022-05-25T05:13:42.417471618Z",
+            "k8sUpdated": "2022-05-18T13:08:25.805476444Z",
+            "scan": {
+                "scanTime": "2022-05-25T05:13:42.399111471Z",
+                "operatingSystem": "centos:7",
+                "components": [
+                    {
+                        "name": "cri-o",
+                        "version": "1.21.5-3.rhaos4.8.gitaf64931.el7",
+                        "vulns": [
+                            {
+                                "cve": "CVE-2022-0811",
+                                "cvss": 8.8,
+                                "summary": "A flaw introduced in CRI-O version 1.19 which an attacker can use to bypass the safeguards and set arbitrary kernel parameters on the host. As a result, anyone with rights to deploy a pod on a Kubernetes cluster that uses the CRI-O runtime can abuse the “kernel.core_pattern” kernel parameter to achieve container escape and arbitrary code execution as root on any node in the cluster.",
+                                "link": "https://nvd.nist.gov/vuln/detail/CVE-2022-0811",
+                                "fixedBy": "1.21.6",
+                                "scoreVersion": "V3",
+                                "cvssV2": null,
+                                "cvssV3": {
+                                    "vector": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                                    "exploitabilityScore": 2.8,
+                                    "impactScore": 5.9,
+                                    "attackVector": "ATTACK_NETWORK",
+                                    "attackComplexity": "COMPLEXITY_LOW",
+                                    "privilegesRequired": "PRIVILEGE_LOW",
+                                    "userInteraction": "UI_NONE",
+                                    "scope": "UNCHANGED",
+                                    "confidentiality": "IMPACT_HIGH",
+                                    "integrity": "IMPACT_HIGH",
+                                    "availability": "IMPACT_HIGH",
+                                    "score": 8.8,
+                                    "severity": "HIGH"
+                                },
+                                "publishedOn": "2022-03-16T00:00:00Z",
+                                "lastModified": "2022-03-16T00:00:00Z",
+                                "vulnerabilityType": "UNKNOWN_VULNERABILITY",
+                                "vulnerabilityTypes": [
+                                    "NODE_VULNERABILITY"
+                                ],
+                                "suppressed": true,
+                                "suppressActivation": "2022-05-12T10:22:43.479977710Z",
+                                "suppressExpiry": "2022-06-11T10:22:43Z",
+                                "firstSystemOccurrence": "2022-04-19T12:07:13.822786980Z",
+                                "firstImageOccurrence": null,
+                                "firstNodeOccurrence": "2022-04-19T12:07:13.822786980Z",
+                                "severity": "UNKNOWN_VULNERABILITY_SEVERITY",
+                                "state": "OBSERVED"
+                            }],
+				"priority": "0",
+				"topCvss": 8.8,
+				"riskScore": 0
+			}]
+		},
+		"components": 4,
+		"cves": 336,
+		"fixableCves": 3,
+		"priority": "1",
+		"riskScore": 0,
+		"topCvss": 8.8
+	}]
+}

@@ -1,0 +1,34 @@
+{
+    "users": [
+        {
+            "id": "IAM#ramananr@abc.com",
+            "authProviderId": "d7680c05-2726-4ed3-a29d-206e6b21b507",
+            "attributes": [
+                {
+                    "key": "groups",
+                    "value": "IAM#AccessGroupId-1819c2d5-597c-4019-80b4-7ad3ed3293d9"
+                },
+                {
+                    "key": "groups",
+                    "value": "IAM#AccessGroupId-5011bc0e-41cf-421a-aedf-51ec7ec54198"
+                },
+                {
+                    "key": "groups",
+                    "value": "system:authenticated"
+                },
+                {
+                    "key": "groups",
+                    "value": "system:authenticated:oauth"
+                },
+                {
+                    "key": "name",
+                    "value": "IAM#ramananr@abc.com"
+                },
+                {
+                    "key": "userid",
+                    "value": "c93a01f1-d595-4d91-b952-4297f34714c3"
+                }
+            ]
+        }
+    ]
+}

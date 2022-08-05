@@ -1,10 +1,14 @@
 # Developing a CAR connector
+
+## Before you begin
+
+Read up on the [best practices](best-practices.md) for developing a CAR connector.
 ## Copy the reference connector
-Create a fork of the `cp4s-car-reference-connector` project and create a working branch off of `develop`. 
+Create a fork of the `cp4s-car-connectors` project and create a working branch off of `develop`. 
 
 ## Update your copy of the reference connector
 
-The `reference_connector` is located in the connectors sub folder. Copy the reference connector and rename it to reflect the target data source. The following directories and files are modified to create a new CAR connector:
+The [`reference_connector`](https://github.com/IBM/cp4s-car-connectors/tree/develop/connectors/reference_connector) is located in the connectors sub folder. Copy the reference connector and rename it to reflect the target data source. The following directories and files are modified to create a new CAR connector:
 
 ### `server` directory
 Delete the server folder. This is only used to provide dummy data to demo the connector locally. Since your new connector will use to a real data source, this folder is no longer needed.

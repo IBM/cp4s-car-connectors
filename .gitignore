@@ -111,3 +111,5 @@ car_framework
 
 deployment/backup*
 connectors/proofpoint/tests/tmp
+tmp/
+

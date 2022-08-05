@@ -1,0 +1,84 @@
+{
+    "roles": [
+        {
+            "name": "Admin",
+            "description": "For users: use it to provide read and write access to all the resources",
+            "permissionSetId": "io.stackrox.authz.permissionset.admin",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Analyst",
+            "description": "For users: use it to give read-only access to all the resources",
+            "permissionSetId": "io.stackrox.authz.permissionset.analyst",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Continuous Integration",
+            "description": "For automation: it includes the permissions required to enforce deployment policies",
+            "permissionSetId": "io.stackrox.authz.permissionset.continuousintegration",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "None",
+            "description": "For users: use it to provide no read and write access to any resource",
+            "permissionSetId": "io.stackrox.authz.permissionset.none",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Scope Manager",
+            "description": "For users: use it to create and modify scopes for the purpose of access control or vulnerability reporting",
+            "permissionSetId": "io.stackrox.authz.permissionset.scopemanager",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Sensor Creator",
+            "description": "For automation: it consists of the permissions to create Sensors in secured clusters",
+            "permissionSetId": "io.stackrox.authz.permissionset.sensorcreator",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Vulnerability Management Approver",
+            "description": "For users: use it to provide access to approve vulnerability deferrals or false positive requests",
+            "permissionSetId": "io.stackrox.authz.permissionset.vulnmgmtapprover",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Vulnerability Management Requester",
+            "description": "For users: use it to provide access to request vulnerability deferrals or false positives",
+            "permissionSetId": "io.stackrox.authz.permissionset.vulnmgmtrequester",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "Vulnerability Report Creator",
+            "description": "For users: use it to create and manage vulnerability reporting configurations for scheduled vulnerability reports",
+            "permissionSetId": "io.stackrox.authz.permissionset.vulnreporter",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        },
+        {
+            "name": "testuser",
+            "description": "test user",
+            "permissionSetId": "io.stackrox.authz.permissionset.analyst",
+            "accessScopeId": "io.stackrox.authz.accessscope.unrestricted",
+            "globalAccess": "NO_ACCESS",
+            "resourceToAccess": {}
+        }
+    ]
+}

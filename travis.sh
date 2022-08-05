@@ -5,8 +5,10 @@ CONNECTORS=(
     aws
     azure
     cybereason
+    okta
     proofpoint
     qualys
+    rhacs
     # reference_connector
 )
 

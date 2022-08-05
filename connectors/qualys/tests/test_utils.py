@@ -25,6 +25,7 @@ class Arguments:
     description = "description"
     debug = None
     connector_name = "Qualys"
+    version = "1.0.0.0"
 
 
 def full_import_initialization():

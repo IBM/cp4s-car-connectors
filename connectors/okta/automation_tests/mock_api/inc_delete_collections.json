@@ -1,0 +1,210 @@
+{
+  "user": [{
+	"actor": {
+		"id": "00u50tsj51Rf0LtNA5d7",
+		"type": "User",
+		"alternateId": "preethi-g@abc.com",
+		"displayName": "Preethi G",
+		"detailEntry": null
+	},
+	"client": {
+		"userAgent": {
+			"rawUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.41",
+			"os": "Windows 10",
+			"browser": "CHROMIUM_EDGE"
+		},
+		"zone": "null",
+		"device": "Computer",
+		"id": null,
+		"ipAddress": "148.64.12.237",
+		"geographicalContext": {
+			"city": null,
+			"state": null,
+			"country": "India",
+			"postalCode": null,
+			"geolocation": {
+				"lat": 21.9974,
+				"lon": 79.0011
+			}
+		}
+	},
+	"device": null,
+	"authenticationContext": {
+		"authenticationProvider": null,
+		"credentialProvider": null,
+		"credentialType": null,
+		"issuer": null,
+		"interface": null,
+		"authenticationStep": 0,
+		"externalSessionId": "102UQwZ6Sa9TEaTj2QCl0Bnmw"
+	},
+	"displayMessage": "Remove user's application membership",
+	"eventType": "application.user_membership.remove",
+	"outcome": {
+		"result": "SUCCESS",
+		"reason": null
+	},
+	"published": "2022-06-17T06:08:14.278Z",
+	"securityContext": {
+		"asNumber": 396982,
+		"asOrg": "avago technologies u.s. inc.",
+		"isp": "google",
+		"domain": ".",
+		"isProxy": false
+	},
+	"severity": "INFO",
+	"debugContext": {
+		"debugData": {
+			"requestId": "YqwaTkzH4w5v5VisJw4r4QAAAt0",
+			"requestUri": "/api/v1/users/00u57aphja3Wa9oWt5d7/roles/ra1582dcnzpdUoWkf5d7",
+			"url": "/api/v1/users/00u57aphja3Wa9oWt5d7/roles/ra1582dcnzpdUoWkf5d7?"
+		}
+	},
+	"legacyEventType": "app.generic.provision.deactivate_user_from_app",
+	"transaction": {
+		"type": "WEB",
+		"id": "YqwaTkzH4w5v5VisJw4r4QAAAt0",
+		"detail": {}
+	},
+	"uuid": "df728667-ee03-11ec-92c3-1f43be99dd93",
+	"version": "0",
+	"request": {
+		"ipChain": [{
+			"ip": "148.64.12.237",
+			"geographicalContext": {
+				"city": null,
+				"state": null,
+				"country": "India",
+				"postalCode": null,
+				"geolocation": {
+					"lat": 21.9974,
+					"lon": 79.0011
+				}
+			},
+			"version": "V4",
+			"source": null
+		}]
+	},
+	"target": [{
+			"id": "00uu1y5ok0fhJDDYV696",
+			"type": "User",
+			"alternateId": "unknown",
+			"displayName": "Yasodha G",
+			"detailEntry": null
+		},
+		{
+			"id": "00uu1y5ok0fhJDDYV696",
+			"type": "AppInstance",
+			"alternateId": "Okta Admin Console",
+			"displayName": "Okta Admin Console",
+			"detailEntry": null
+		},
+		{
+			"id": "00u57aphja3Wa9oWt5d7",
+			"type": "User",
+			"alternateId": "gyasodha.g@abc.com",
+			"displayName": "Yasodha G",
+			"detailEntry": null
+		}
+	]
+}],
+  "application": [
+    {
+        "actor": {
+            "id": "00u4umwkoyAh4h6lU5d7",
+            "type": "User",
+            "alternateId": "thummalar@abc.com",
+            "displayName": "Ravi Thummala",
+            "detailEntry": null
+        },
+        "client": {
+            "userAgent": {
+                "rawUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36",
+                "os": "Windows 10",
+                "browser": "CHROME"
+            },
+            "zone": "null",
+            "device": "Computer",
+            "id": null,
+            "ipAddress": "44.202.182.148",
+            "geographicalContext": {
+                "city": "Ashburn",
+                "state": "Virginia",
+                "country": "United States",
+                "postalCode": "20149",
+                "geolocation": {
+                    "lat": 39.0469,
+                    "lon": -77.4903
+                }
+            }
+        },
+        "device": null,
+        "authenticationContext": {
+            "authenticationProvider": null,
+            "credentialProvider": null,
+            "credentialType": null,
+            "issuer": null,
+            "interface": null,
+            "authenticationStep": 0,
+            "externalSessionId": "102oBxayznSThqVuhTszhaGlw"
+        },
+        "displayMessage": "Delete application",
+        "eventType": "application.lifecycle.delete",
+        "outcome": {
+            "result": "SUCCESS",
+            "reason": null
+        },
+        "published": "2022-06-01T06:50:15.619Z",
+        "securityContext": {
+            "asNumber": 14618,
+            "asOrg": "amazon data services nova",
+            "isp": "amazon.com  inc.",
+            "domain": "amazonaws.com",
+            "isProxy": false
+        },
+        "severity": "INFO",
+        "debugContext": {
+            "debugData": {
+                "requestId": "YpcMJ700c2YLtiaJ_9d9LAAAA6Q",
+                "requestUri": "/api/v1/apps/0oa4rs2ulp6DmX0fP5d7",
+                "url": "/api/v1/apps/0oa4rs2ulp6DmX0fP5d7?"
+            }
+        },
+        "legacyEventType": "app.generic.config.app_deleted",
+        "transaction": {
+            "type": "WEB",
+            "id": "YpcMJ700c2YLtiaJ_9d9LAAAA6Q",
+            "detail": {}
+        },
+        "uuid": "17aca13a-e177-11ec-a5a4-b148745d52ff",
+        "version": "0",
+        "request": {
+            "ipChain": [
+                {
+                    "ip": "44.202.182.148",
+                    "geographicalContext": {
+                        "city": "Ashburn",
+                        "state": "Virginia",
+                        "country": "United States",
+                        "postalCode": "20149",
+                        "geolocation": {
+                            "lat": 39.0469,
+                            "lon": -77.4903
+                        }
+                    },
+                    "version": "V4",
+                    "source": null
+                }
+            ]
+        },
+        "target": [
+            {
+                "id": "0oau1u58hh0PLgyax696",
+                "type": "AppInstance",
+                "alternateId": "My API Services App 1",
+                "displayName": "OpenID Connect Client",
+                "detailEntry": null
+            }
+        ]
+    }]
+}
