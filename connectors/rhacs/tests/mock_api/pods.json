@@ -1,0 +1,50 @@
+{
+	"pods": [
+	  {
+			"id": "42b3bc51-80f9-5a20-a8a1-18105475942c",
+			"name": "node-resolver-shdcg",
+			"deploymentId": "02cc1af9-fc37-4a98-b4ed-0dd9d924544b",
+			"namespace": "openshift-dns",
+			"clusterId": "726e735e-e94a-4e30-b93a-afb26e350afe",
+			"liveInstances": [{
+				"instanceId": {
+					"containerRuntime": "CRIO_CONTAINER_RUNTIME",
+					"id": "5af50ec2b5228b79aa5ebcc2712241d3816ca2898036b01fd8abe2e21200fc91",
+					"node": "66.999.66.999"
+				},
+				"containingPodId": "node-resolver-shdcg.openshift-dns@bb1fda21-d8f7-49d7-8341-ec8b0f994619",
+				"containerName": "dns-node-resolver",
+				"containerIps": [
+					"66.999.66.999"
+				],
+				"started": "2022-05-02T04:30:15Z",
+				"imageDigest": "sha256:7c06cfdba0ba61fa95e37483fe9ba62a71074dfe21b2aacfe983c781a4e963e7",
+				"finished": null,
+				"exitCode": 0,
+				"terminationReason": ""
+			}],
+			"terminatedInstances": [   {
+                    "instances": [
+                        {
+                            "instanceId": {
+                                "containerRuntime": "CRIO_CONTAINER_RUNTIME",
+                                "id": "675f78d442bee70c374eecbdf2644b80cf4e8bce4f4a7606c603cf909e2b10b7",
+                                "node": "10.111.10.111"
+                            },
+                            "containingPodId": "ca2fd610968384bbb4b2bdd8d034598e9e329186e8de9ee0855abf0b807724j.openshift-marketplace@58105083-b4db-4f1f-981e-f3e986fcb7d4",
+                            "containerName": "extract",
+                            "containerIps": [
+                                "172.11.11.111"
+                            ],
+                            "started": "2022-05-02T15:25:29Z",
+                            "imageDigest": "sha256:ed4c8f152dbb29de8bf155a86e30b504a33673593ae5d5f4fa23749db0beb0e7",
+                            "finished": "2022-05-02T15:25:29Z",
+                            "exitCode": 0,
+                            "terminationReason": "Completed"
+                        }
+                    ]
+                }],
+			"started": "2022-05-26T22:52:16Z"
+		}
+	]
+}

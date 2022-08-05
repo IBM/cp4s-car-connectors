@@ -1,10 +1,14 @@
 #!/bin/sh
 
 CONNECTORS=(
-    atp 
-    aws 
-    azure 
-    proofpoint 
+    atp
+    aws
+    azure
+    cybereason
+    okta
+    proofpoint
+    qualys
+    rhacs
     # reference_connector
 )
 

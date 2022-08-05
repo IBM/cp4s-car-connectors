@@ -1,0 +1,14 @@
+{
+	"deployments": [
+		{
+			"id": "928e60a0-3ae3-493d-9ce8-6e2a164de07e",
+			"hash": "12253194877000086047",
+			"name": "ibm-rabbitmq-udi-rabbit-ss",
+			"cluster": "cp4s-cluster",
+			"clusterId": "a9bb4695-8335-473b-beea-8dc4fd44c6ba",
+			"namespace": "cp4s",
+			"created": "2022-05-02T15:56:08Z",
+			"priority": "1"
+		}
+	]
+}
