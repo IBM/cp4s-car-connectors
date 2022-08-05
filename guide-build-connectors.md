@@ -25,6 +25,7 @@ If connector needs to extend the schema more information can be found in [schema
 This is where the data source APIs are implemented to fetch that data that will be pushed to the CAR service. 
 - Update  the `__init__` function for api authentication to call the data source API.
 - Update `get_collection` to get the list of asset data.
+- Update `test_connection` to ping datasource to check if the datasource is reachable.
 - Update `get_object` and `get_objects` to get a single or list of objects based on identifier.
 - If data source has any save points, `get_model_state_id` can be updated  to get that save point and `get_model_state_delta` to gather information to get data between two save points.
 
@@ -164,7 +165,11 @@ Update `travis.sh` file, including the name of the new connector in a new line i
 
 ### `README.md`
 
-Update `README.md` to include an overview of the target data source and any setup information. Remove reference to the server since the server folder should have been deleted. 
+Update `README.md` to include an overview of the target data source and any setup information. Remove reference to the server since the server folder should have been deleted.
+
+### `travis.sh`
+
+Update `travis.sh` to execute unit test every time there is an update.
 
 ## Testing your connector
 
