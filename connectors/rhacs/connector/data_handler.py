@@ -195,7 +195,7 @@ class DataHandler(BaseDataHandler):
                 add_vuln = True
                 first_occurrence = vuln["firstSystemOccurrence"]
                 if 'NODE_VULNERABILITY' in vuln['vulnerabilityTypes']:
-                    first_occurrence = vuln["firstNodeOccurrence"]
+                    first_occurrence = vuln.get("firstNodeOccurrence", first_occurrence)
                 elif 'IMAGE_VULNERABILITY' in vuln['vulnerabilityTypes']:
                     first_occurrence = vuln["firstImageOccurrence"]
 
