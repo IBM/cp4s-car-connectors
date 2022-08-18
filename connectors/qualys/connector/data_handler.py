@@ -140,22 +140,23 @@ class DataHandler(BaseDataHandler):
                                         '_to_external_id': str(vuln['QID']),
                                         'risk_score': score}
                     self.add_edge('asset_vulnerability', asset_vulnerability)
-                else:
-                    res = self.copy_fields(obj, )
-                    score = int(vuln.get('SEVERITY', 0)) * 2  # converting score range (1-5) into (1-10)
-                    res['external_id'] = vuln['QID']
-                    res['name'] = 'Host Instance Vulnerability'
-                    res['source'] = context().args.source
-                    res['base_score'] = score
-                    res['description'] = vuln['RESULTS']
+            else:
+                vuln = obj['HostAsset']['vmdrVulnList']
+                res = self.copy_fields(obj, )
+                score = int(vuln.get('SEVERITY', 0)) * 2  # converting score range (1-5) into (1-10)
+                res['external_id'] = vuln['QID']
+                res['name'] = 'Host Instance Vulnerability'
+                res['source'] = context().args.source
+                res['base_score'] = score
+                res['description'] = vuln['RESULTS']
 
-                    self.add_collection('vulnerability', res, 'external_id')
+                self.add_collection('vulnerability', res, 'external_id')
 
-                    # asset vulnerability edge creation
-                    asset_vulnerability = {'_from_external_id': str(obj['HostAsset']['id']),
-                                        '_to_external_id': str(vuln['QID']),
-                                        'risk_score': score}
-                    self.add_edge('asset_vulnerability', asset_vulnerability)
+                # asset vulnerability edge creation
+                asset_vulnerability = {'_from_external_id': str(obj['HostAsset']['id']),
+                                    '_to_external_id': str(vuln['QID']),
+                                    'risk_score': score}
+                self.add_edge('asset_vulnerability', asset_vulnerability)
 
 
     # Create asset Object as per CAR data model from data source
