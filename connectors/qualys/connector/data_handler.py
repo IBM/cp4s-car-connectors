@@ -1,4 +1,5 @@
 import datetime
+import collections.abc
 from car_framework.context import context
 from car_framework.data_handler import BaseDataHandler
 
@@ -122,22 +123,40 @@ class DataHandler(BaseDataHandler):
     # Create vulnerability Object as per CAR data model from data source
     def handle_vulnerability(self, obj):
         if obj and 'vmdrVulnList' in obj['HostAsset']:
-            for vuln in obj['HostAsset']['vmdrVulnList']:
-                res = self.copy_fields(obj, )
-                score = int(vuln.get('SEVERITY', 0)) * 2  # converting score range (1-5) into (1-10)
-                res['external_id'] = vuln['QID']
-                res['name'] = 'Host Instance Vulnerability'
-                res['source'] = context().args.source
-                res['base_score'] = score
-                res['description'] = vuln['RESULTS']
+            if isinstance(obj['HostAsset']['vmdrVulnList'], collections.abc.Sequence):
+                for vuln in obj['HostAsset']['vmdrVulnList']:
+                    res = self.copy_fields(obj, )
+                    score = int(vuln.get('SEVERITY', 0)) * 2  # converting score range (1-5) into (1-10)
+                    res['external_id'] = vuln['QID']
+                    res['name'] = 'Host Instance Vulnerability'
+                    res['source'] = context().args.source
+                    res['base_score'] = score
+                    res['description'] = vuln['RESULTS']
 
-                self.add_collection('vulnerability', res, 'external_id')
+                    self.add_collection('vulnerability', res, 'external_id')
 
-                # asset vulnerability edge creation
-                asset_vulnerability = {'_from_external_id': str(obj['HostAsset']['id']),
-                                       '_to_external_id': str(vuln['QID']),
-                                       'risk_score': score}
-                self.add_edge('asset_vulnerability', asset_vulnerability)
+                    # asset vulnerability edge creation
+                    asset_vulnerability = {'_from_external_id': str(obj['HostAsset']['id']),
+                                        '_to_external_id': str(vuln['QID']),
+                                        'risk_score': score}
+                    self.add_edge('asset_vulnerability', asset_vulnerability)
+                else:
+                    res = self.copy_fields(obj, )
+                    score = int(vuln.get('SEVERITY', 0)) * 2  # converting score range (1-5) into (1-10)
+                    res['external_id'] = vuln['QID']
+                    res['name'] = 'Host Instance Vulnerability'
+                    res['source'] = context().args.source
+                    res['base_score'] = score
+                    res['description'] = vuln['RESULTS']
+
+                    self.add_collection('vulnerability', res, 'external_id')
+
+                    # asset vulnerability edge creation
+                    asset_vulnerability = {'_from_external_id': str(obj['HostAsset']['id']),
+                                        '_to_external_id': str(vuln['QID']),
+                                        'risk_score': score}
+                    self.add_edge('asset_vulnerability', asset_vulnerability)
+
 
     # Create asset Object as per CAR data model from data source
     def handle_asset(self, obj):
@@ -146,8 +165,12 @@ class DataHandler(BaseDataHandler):
             res['external_id'] = obj['HostAsset']['id']
             res['name'] = obj['HostAsset']['name'].lower()
             res['asset_type'] = obj['HostAsset']['type']
-            res['description'] = " ".join([obj['HostAsset']['os'], obj['HostAsset']['type'].lower(),
-                                           obj['HostAsset']['name']])
+            if "os" in obj['HostAsset']:
+                res['description'] = " ".join([obj['HostAsset']['os'], obj['HostAsset']['type'].lower(),
+                                            obj['HostAsset']['name']])
+            else:
+                res['description'] = " ".join([obj['HostAsset']['type'].lower(),
+                                            obj['HostAsset']['name']])
             res['source'] = context().args.source
             self.add_collection('asset', res, 'external_id')
 
@@ -167,11 +190,18 @@ class DataHandler(BaseDataHandler):
                 self.add_edge('asset_ipaddress', asset_ipaddress)
 
                 if 'vmdrVulnList' in obj['HostAsset']:
-                    for vuln in obj['HostAsset']['vmdrVulnList']:
+                    if isinstance(obj['HostAsset']['vmdrVulnList'], collections.abc.Sequence):
+                        for vuln in obj['HostAsset']['vmdrVulnList']:
+                            ipaddress_vul = {}
+                            ipaddress_vul['_from'] = 'ipaddress/' + interface['HostAssetInterface']['address']
+                            ipaddress_vul['_to'] = str(vuln['QID'])
+                            self.add_edge('ipaddress_vulnerability', ipaddress_vul)
+                    else:
                         ipaddress_vul = {}
                         ipaddress_vul['_from'] = 'ipaddress/' + interface['HostAssetInterface']['address']
-                        ipaddress_vul['_to'] = str(vuln['QID'])
+                        ipaddress_vul['_to'] = str(obj['HostAsset']['vmdrVulnList']['QID'])
                         self.add_edge('ipaddress_vulnerability', ipaddress_vul)
+
 
     # Create mac address Object as per CAR data model from data source
     def handle_macaddress(self, obj):
@@ -269,7 +299,7 @@ class DataHandler(BaseDataHandler):
 
     # Create geo location object as per CAR data model from data source
     def handle_geo_location(self, obj):
-        if obj:
+        if "sourceInfo" in obj['HostAsset']:
             for row in obj['HostAsset']['sourceInfo']['list']:
                 for asset_location in row:
                     res = self.copy_fields(obj, )
