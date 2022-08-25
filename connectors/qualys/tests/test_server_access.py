@@ -122,7 +122,7 @@ class TestAssetServer(unittest.TestCase):
         # mock host asset api
         application = get_response('application_detail_error.json', True)
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application = Mock(status_code=404)
@@ -136,3 +136,22 @@ class TestAssetServer(unittest.TestCase):
             error = str(e)
 
         assert 'Unauthorized' in error
+
+    @patch('connector.server_access.AssetServer.get_collection')
+    def test_get_bearer_token(self, mock_api):
+        """Unit test for get_bearer_token. If invalid credentials provided"""
+        # Initialization
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+
+        # token generation api failed
+        mock_header = Mock(status_code=401)
+        mock_header.json.return_value = {'status': 401, 'message': 'authenticationFailure.InvalidCredentialsException'}
+        mock_api.side_effect = [mock_header]
+
+        try:
+            context().asset_server.get_bearer_token()
+        except Exception as e:
+            error = str(e)
+
+        assert 'authenticationFailure' in error

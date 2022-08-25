@@ -63,7 +63,7 @@ class TestConnector(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -80,7 +80,7 @@ class TestConnector(unittest.TestCase):
         context().full_importer.run()
 
         # Check the assets pushed in CAR DB
-        assets = context().car_service.graph_attribute_search('asset', 'external_id', '13263514')
+        assets = context().car_service.search_collection("asset", "source", context().args.source, ['external_id'])
 
         assert assets is not None
 
@@ -99,7 +99,7 @@ class TestConnector(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -118,7 +118,7 @@ class TestConnector(unittest.TestCase):
         context().inc_import.import_edges()
 
         # Validate the incremental creation
-        asset = context().car_service.graph_search('asset', '13263515')
+        asset = context().car_service.search_collection("asset", "source", context().args.source, ['external_id'])
 
         assert '13263515' in str(asset)
 
@@ -137,7 +137,7 @@ class TestConnector(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -158,7 +158,7 @@ class TestConnector(unittest.TestCase):
         context().inc_import.import_edges()
 
         # Validate the incremental update
-        asset = context().car_service.graph_search('asset', '13263514')
+        asset = context().car_service.search_collection("asset", "source", context().args.source, ['name'])
 
         # validate the new asset name updated.
         assert 'ip-177-77-77-777.ec2.internal' in str(asset)
@@ -179,7 +179,7 @@ class TestConnector(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -204,3 +204,127 @@ class TestConnector(unittest.TestCase):
         result = context().inc_import.query_active_edges(edge_type, asset_edge_id, "ipaddress")
         # Validate the asset_ipaddress edge is inactive for the asset
         assert '11:11:11:11:11:11:11:11' not in str(result)
+
+    @patch('connector.server_access.AssetServer.get_collection')
+    def test_full_import_without_sourceinfo(self, mock_api):
+        """
+        Test full import.
+        Host asset API doesn't have a source info
+        """
+        # mock host asset, vulnerability, application api
+        res_host_asset = get_response('host_asset_without_sourceinfo.json', True)
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
+        res_app_detail = get_response('application_detail.json', True)
+
+        mock_host_asset = Mock(status_code=200)
+        mock_host_asset.json.return_value = res_host_asset
+
+        mock_vulnerability_detail = Mock(status_code=200)
+        mock_vulnerability_detail.text = res_vulnerability_detail
+
+        mock_header = Mock(status_code=201)
+        mock_header.text = 'abcd'
+
+        mock_application_detail = Mock(status_code=200)
+        mock_application_detail.json.return_value = res_app_detail
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+
+        # Initialization
+        Context(Arguments)
+        context().asset_server = AssetServer()
+        context().full_importer = FullImport()
+
+        # full import initiation
+        context().full_importer.run()
+
+        # Check the assets pushed in CAR DB
+        assets = context().car_service.search_collection("asset_geolocation", "source", context().args.source,
+                                                         ['asset_id', 'geolocation_id'])
+        # validate geolocation in asset
+        assert '13263556' not in str(assets)
+
+    @patch('connector.server_access.AssetServer.get_collection')
+    def test_full_import_without_osinfo(self, mock_api):
+        """
+        Test full import.
+        Host asset API doesn't have a os info
+        """
+        # mock host asset, vulnerability, application api
+        res_host_asset = get_response('host_asset_without_osinfo.json', True)
+        res_vulnerability_detail = get_response('vulnerability_detail.xml')
+        res_app_detail = get_response('application_detail.json', True)
+
+        mock_host_asset = Mock(status_code=200)
+        mock_host_asset.json.return_value = res_host_asset
+
+        mock_vulnerability_detail = Mock(status_code=200)
+        mock_vulnerability_detail.text = res_vulnerability_detail
+
+        mock_header = Mock(status_code=201)
+        mock_header.text = 'abcd'
+
+        mock_application_detail = Mock(status_code=200)
+        mock_application_detail.json.return_value = res_app_detail
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+
+        # Initialization
+        Context(Arguments)
+        context().asset_server = AssetServer()
+        context().full_importer = FullImport()
+
+        # full import initiation
+        context().full_importer.run()
+
+        # Check the assets pushed in CAR DB
+        assets = context().car_service.search_collection("asset", "source", context().args.source,
+                                                         ['external_id', 'description'])
+        description = None
+
+        # find the asset description value
+        for asset in assets['asset']:
+            if asset['external_id'] == '13263555':
+                description = asset['description']
+
+        # validate the asset description
+        assert description is not None
+
+    @patch('connector.server_access.AssetServer.get_collection')
+    def test_full_import_with_single_vuln(self, mock_api):
+        """
+        Test full import.
+        Vulnerability API have only one detection
+        """
+        # mock host asset, vulnerability, application api
+        res_host_asset = get_response('host_asset_single_vuln.json', True)
+        res_vulnerability_detail = get_response('vulnerability_detail_single_detection.xml')
+        res_app_detail = get_response('application_detail.json', True)
+
+        mock_host_asset = Mock(status_code=200)
+        mock_host_asset.json.return_value = res_host_asset
+
+        mock_vulnerability_detail = Mock(status_code=200)
+        mock_vulnerability_detail.text = res_vulnerability_detail
+
+        mock_header = Mock(status_code=201)
+        mock_header.text = 'abcd'
+
+        mock_application_detail = Mock(status_code=200)
+        mock_application_detail.json.return_value = res_app_detail
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+
+        # Initialization
+        Context(Arguments)
+        context().asset_server = AssetServer()
+        context().full_importer = FullImport()
+
+        # full import initiation
+        context().full_importer.run()
+
+        # Check the assets pushed in CAR DB
+        vulnerability = context().car_service.search_collection("vulnerability", "source", context().args.source,
+                                                         ['external_id'])
+        # single vulnerability processed
+        assert '101111' in str(vulnerability)
