@@ -10,9 +10,6 @@ class FullImport(BaseFullImport):
         # initialize the data handler.
         self.data_handler = DataHandler()
 
-    # Create source entry.
-    def create_source_report_object(self):
-        return self.data_handler.create_source_report_object()
 
     # Logic to import a collection; called by import_vertices
     def import_collection(self):
@@ -29,7 +26,7 @@ class FullImport(BaseFullImport):
     def get_new_model_state_id(self):
         # If server doesn't have save point it can just return current time
         # So that it can be used for next incremental import
-        return str(self.data_handler.timestamp)
+        return str(context().report_time)
 
     # Import all vertices from data source
     def import_vertices(self):

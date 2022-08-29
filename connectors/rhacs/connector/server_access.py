@@ -81,6 +81,7 @@ class AssetServer:
                         self.cluster_node_list.append(node_obj['id'])   # collecting all cluster & node id
                     nodes.append(node_obj)
                 clusters.append(obj)
+                break
 
         return clusters, nodes
 
@@ -97,6 +98,7 @@ class AssetServer:
             for obj in response.get('deployments'):
                 if last_model_state_id < timestamp_conv(obj['created']):
                     application.append(obj)
+                break
         else:  # full import
             application = response.get('deployments', [])
 
@@ -141,6 +143,7 @@ class AssetServer:
                 instance_obj['image'] = images.get(instance_obj['imageDigest'], '')
                 instance_obj['clusterId'] = container_obj.get('clusterId', '')
                 containers.append(instance_obj)
+            break
 
         return containers
 
@@ -234,4 +237,5 @@ class AssetServer:
                         'edge_type': 'asset_vulnerability'}
 
                     edges.append(temp)
+            break
         return edges

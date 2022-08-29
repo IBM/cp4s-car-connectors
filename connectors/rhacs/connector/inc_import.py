@@ -9,18 +9,14 @@ class IncrementalImport(BaseIncrementalImport):
         super().__init__()
         # initialize the data handler.
         self.data_handler = DataHandler()
-        self.create_source_report_object()
         self.delta = {}
         self.last_model_state_id = ""
         self.assets_list = {}
 
     # Pulls the save point for last import
     def get_new_model_state_id(self):
-        return str(self.data_handler.timestamp)
+        return str(context().report_time)
 
-    # Create source entry.
-    def create_source_report_object(self):
-        return self.data_handler.create_source_report_object()
 
     # Gather information to get data from last save point and new save point
     def get_data_for_delta(self, last_model_state_id, new_model_state_id):

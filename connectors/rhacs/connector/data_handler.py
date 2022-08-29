@@ -16,21 +16,10 @@ class DataHandler(BaseDataHandler):
     def __init__(self):
         super().__init__()
 
-    def create_source_report_object(self):
-        if not (self.source and self.report):
-            # create source and report entry
-            self.source = {'_key': context().args.source,
-                           'name': "RHACS",
-                           'description': 'Red Hat® Advanced Cluster Security for Kubernetes is an enterprise-ready,'
-                                          ' Kubernetes-native security solution, equipping organizations to more '
-                                          'securely build, deploy, and run cloud-native applications.',
-                           'product_link': "https://www.redhat.com/en/technologies/cloud-computing/openshift/"
-                                           "advanced-cluster-security-kubernetes"}
-            self.report = {'_key': str(self.timestamp),
-                           'timestamp': self.timestamp,
-                           'type': 'RHACS',
-                           'description': 'RHACS reports'}
-        return {'source': self.source, 'report': self.report}
+    #Prefix "<source>/" to given string
+    def prefixSource(self, external_id):
+        return (context().args.source + '/' + str(external_id))
+
 
     # Handle cluster from data source
     def handle_cluster(self, obj, last_model_state_id=None):
@@ -40,7 +29,7 @@ class DataHandler(BaseDataHandler):
             res['external_id'] = cluster['id']
             res['name'] = cluster['name']
             res['asset_type'] = 'cluster'
-            self.add_collection('asset', res, 'external_id')
+            self.add_item_to_collection('asset', res)
 
     # Handle nodes from data source
     def handle_node(self, obj, last_model_state_id=None):
@@ -52,7 +41,7 @@ class DataHandler(BaseDataHandler):
             res['asset_type'] = 'node'
             res['risk'] = node['riskScore']
             res['cluster_id'] = node['clusterId']
-            self.add_collection('asset', res, 'external_id')
+            self.add_item_to_collection('asset', res)
             # Handle ipaddresses
             self.handle_ipaddress(node, last_model_state_id)
             # Handle components
@@ -70,17 +59,19 @@ class DataHandler(BaseDataHandler):
             res['name'] = item['containerName']
             res['image'] = item['imageDigest']
             res['cluster_id'] = item['clusterId']
-            self.add_collection('container', res, 'external_id')
+            self.add_item_to_collection('container', res)
 
             res['asset_type'] = 'container'
-            self.add_collection('asset', res, 'external_id')
+            self.add_item_to_collection('asset', res)
 
             # asset_container (node as asset) edge
             nodes = obj.get('nodes')
             for node in nodes:
                 if node['name'] == item['instanceId']['node']:
-                    asset_container = {'_from_external_id': node['id'],
-                                       '_to_external_id': item['instanceId']['id']}
+                    # asset_container = {'_from_external_id': node['id'],
+                    #                    '_to_external_id': item['instanceId']['id']}
+                    asset_container = {'asset_id': self.prefixSource(node['id']),
+                                       'container_id': self.prefixSource(item['instanceId']['id'])}
                     self.add_edge('asset_container', asset_container)
                     break
 
@@ -99,10 +90,10 @@ class DataHandler(BaseDataHandler):
                 res = {}
                 res['name'] = application['name']
                 res['external_id'] = application['id']
-                self.add_collection('application', res, 'external_id')
+                self.add_item_to_collection('application', res)
                 # asset application edge
-                asset_application = {'_from_external_id': application['clusterId'],
-                                     '_to_external_id': application['id']}
+                asset_application = {'asset_id': self.prefixSource(application['clusterId']),
+                                     'application_id': self.prefixSource(application['id'])}
                 self.add_edge('asset_application', asset_application)
         else:
             # adding components as application(CAR) nodes
@@ -124,17 +115,17 @@ class DataHandler(BaseDataHandler):
                     res = {}
                     res['name'] = application['name']
                     res['external_id'] = '{} {}'.format(application['name'], application['version'])
-                    self.add_collection('application', res, 'external_id')
+                    self.add_item_to_collection('application', res)
 
                     # asset application edge
                     asset_application = {}
                     if obj.get('imageDigest'):
                         # container as asset
-                        asset_application['_from_external_id'] = obj['instanceId']['id']
+                        asset_application['asset_id'] = self.prefixSource(obj['instanceId']['id'])
                     else:
                         # node as asset
-                        asset_application['_from_external_id'] = obj['id']
-                    asset_application['_to_external_id'] = '{} {}'.format(application['name'], application['version'])
+                        asset_application['asset_id'] = self.prefixSource(obj['id'])
+                    asset_application['application_id'] = self.prefixSource('{} {}'.format(application['name'], application['version']))
                     self.add_edge('asset_application', asset_application)
                 # handle vulnerability for component
                 self.handle_vulnerability(obj, last_model_state_id)
@@ -151,7 +142,7 @@ class DataHandler(BaseDataHandler):
             res['name'] = central_stockrox
             res['asset_type'] = 'static'
             res['description'] = 'This static asset is used to link with accounts.'
-            self.add_collection('asset', res, 'external_id')
+            self.add_item_to_collection('asset', res)
 
         if obj.get("accounts"):
             account_list = obj['accounts']
@@ -159,11 +150,11 @@ class DataHandler(BaseDataHandler):
                 res = {}
                 res['name'] = account['name']
                 res['external_id'] = account['name']
-                self.add_collection('account', res, 'external_id')
+                self.add_item_to_collection('account', res)
 
                 # Add asset_account edge (static asset and account)
-                asset_account = {'_from_external_id': central_stockrox,
-                                 '_to_external_id': account['name']}
+                asset_account = {'asset_id': self.prefixSource(central_stockrox),
+                                 'account_id': self.prefixSource(account['name'])}
                 self.add_edge('asset_account', asset_account)
 
     # Handle users from data source
@@ -174,9 +165,9 @@ class DataHandler(BaseDataHandler):
             res['username'] = user_obj['id']
             res['employee_id'] = user_obj['authProviderId']
             res['external_id'] = user_obj['id']
-            self.add_collection('user', res, 'external_id')
-            user_account = {'_from_external_id': user_obj['id'],
-                            '_to_external_id': user_obj['role']}
+            self.add_item_to_collection('user', res)
+            user_account = {'user_id': self.prefixSource(user_obj['id']),
+                            'account_id': self.prefixSource(user_obj['role'])}
             self.add_edge('user_account', user_account)
 
     # Create vulnerability Object as per CAR data model from data source
@@ -213,17 +204,17 @@ class DataHandler(BaseDataHandler):
                     res["published_on"] = vuln["publishedOn"]
                     res["updated_on"] = vuln["lastModified"]
                     res["base_score"] = vuln["cvss"]
-                    self.add_collection('vulnerability', res, 'external_id')
+                    self.add_item_to_collection('customvulnerability', res)
 
                     # asset vulnerability edge creation
                     asset_vulnerability = {}
-                    asset_vulnerability['_from_external_id'] = asset_id
-                    asset_vulnerability['_to_external_id'] = vuln['cve']
+                    asset_vulnerability['asset_id'] = self.prefixSource(asset_id)
+                    asset_vulnerability['vulnerability_id'] = self.prefixSource(vuln['cve'])
                     self.add_edge('asset_vulnerability', asset_vulnerability)
 
                     # application vulnerability edge, component as application
-                    application_vulnerability = {'_from_external_id': component['name'],
-                                                 '_to_external_id': vuln['cve']}
+                    application_vulnerability = {'application_id': self.prefixSource(component['name']),
+                                                 'vulnerability_id': self.prefixSource(vuln['cve'])}
                     self.add_edge('application_vulnerability', application_vulnerability)
 
     # Create ip address Object as per CAR data model from data source
@@ -241,14 +232,16 @@ class DataHandler(BaseDataHandler):
 
         for item in items:
             res = {}
-            res['_key'] = item
-            self.add_collection('ipaddress', res, '_key')
-            asset_ipaddress = {'_from_external_id': asset_id,
-                               '_to': res['_key']}
+            res['external_id'] = item
+            res['name'] = item
+            res['region_id'] = "0"
+            self.add_item_to_collection('ipaddress', res)
+            asset_ipaddress = {'asset_id': self.prefixSource(asset_id),
+                               'ipaddress_id': self.prefixSource(res['region_id'] + res['external_id'])}
             self.add_edge('asset_ipaddress', asset_ipaddress)
 
             # ipaddress_container edge, container as container
             if obj.get("containerIps"):  # from pods->container(image) node
-                ipaddress_container = {'_from': 'ipaddress/' + item,
-                                       '_to_external_id': obj['instanceId']['id']}
+                ipaddress_container = {'ipaddress_id': self.prefixSource(res['region_id'] + res['external_id']),
+                                       'container_id': self.prefixSource(obj['instanceId']['id'])}
                 self.add_edge('ipaddress_container', ipaddress_container)

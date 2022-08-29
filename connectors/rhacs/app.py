@@ -7,6 +7,8 @@ from connector.full_import import FullImport
 from connector.inc_import import IncrementalImport
 from car_framework.context import context
 
+from car_framework.extension import SchemaExtension
+
 version = '1.0.0'
 
 
@@ -25,6 +27,35 @@ class App(BaseApp):
         context().asset_server = AssetServer()
         context().full_importer = FullImport()
         context().inc_importer = IncrementalImport()
+    
+    def get_schema_extension(self):
+
+        # The following extension adds "site" vertex collection, "site_asset" edge collection and adds "initial_value" field to "asset" collection
+
+        return SchemaExtension(
+            key = 'c06ec385-0abc-4646-9c71-5c7a1ab8b1ad',   # generate your own UUID key!
+            owner = 'Reference Connector',
+            version = '2',
+            schema = '''
+            {
+                "vertices": [
+                    {
+                        "name": "asset",
+                        "properties": {
+                            "cluster_id": {
+                                "type": "text",
+                                "description": "cluster_id of give node or pod"
+                            },
+                            "image": {
+                                "type": "text",
+                                "description": "image of give pod"
+                            }
+                        }
+                    }
+                ]
+            }
+            '''
+        )
 
 
 app = App()
