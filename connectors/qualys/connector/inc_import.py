@@ -76,7 +76,7 @@ class IncrementalImport(BaseIncrementalImport):
                     asset_edges['account'].discard(account['HostAssetAccount']['username'])
 
             # remove active geo location from edge list
-            for row in asset['HostAsset']['sourceInfo']['list']:
+            for row in deep_get(asset, ['HostAsset', 'sourceInfo', 'list'], []):
                 for asset_location in row:
                     asset_edges['geolocation'].discard(find_location(row[asset_location]))
 

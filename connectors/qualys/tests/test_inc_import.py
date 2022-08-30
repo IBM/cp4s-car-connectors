@@ -27,7 +27,7 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -65,7 +65,7 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)
@@ -103,7 +103,7 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_vulnerability_detail = Mock(status_code=200)
         mock_vulnerability_detail.text = res_vulnerability_detail
 
-        mock_header = Mock(status_code=200)
+        mock_header = Mock(status_code=201)
         mock_header.text = 'abcd'
 
         mock_application_detail = Mock(status_code=200)

@@ -138,6 +138,14 @@ class AssetServer(object):
         data = 'username=%s&password=%s&token=true' % (context().args.username, context().args.password)
         header = {"Content-Type": "application/x-www-form-urlencoded"}
         response = self.get_collection(endpoint, headers=header, data=data)
+        # on successful token generation 201 status code will be returned
+        if response.status_code != 201:
+            response_json = response.json()
+            return_obj, error_msg = {}, {}
+            status_code = response.status_code
+            error_msg['message'] = response_json.get('message')
+            ErrorResponder.fill_error(return_obj, json.dumps(error_msg).encode(), status_code)
+            raise Exception(return_obj)
         return response.text
 
     def get_applications(self, last_model_state_id=None):
