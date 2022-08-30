@@ -67,7 +67,10 @@ def append_vuln_in_asset(host_list, vulnerability_list, applications_list):
             # qwebHostId will not be present if Host is terminated
             # Appending vulnerability list to corresponding host
             if 'qwebHostId' in host['HostAsset'] and host['HostAsset']['qwebHostId'] == int(host_vuln_list['ID']):
-                host['HostAsset']['vmdrVulnList'] = host_vuln_list['DETECTION_LIST']['DETECTION']
+                vuln_list = deep_get(host_vuln_list, ['DETECTION_LIST', 'DETECTION'], [])
+                if vuln_list and not isinstance(vuln_list, list):
+                    vuln_list = [vuln_list]                   # change the single record into list
+                host['HostAsset']['vmdrVulnList'] = vuln_list
         for host_app_list in applications_list:
             if 'id' in host['HostAsset'] and host['HostAsset']['id'] == int(host_app_list['assetId']):
                 if host_app_list.get('softwareListData'):
@@ -146,8 +149,9 @@ class DataHandler(BaseDataHandler):
             res['external_id'] = obj['HostAsset']['id']
             res['name'] = obj['HostAsset']['name'].lower()
             res['asset_type'] = obj['HostAsset']['type']
-            res['description'] = " ".join([obj['HostAsset']['os'], obj['HostAsset']['type'].lower(),
-                                           obj['HostAsset']['name']])
+            res['description'] = (" ".join([obj['HostAsset'].get('os', ''), obj['HostAsset'].get('type', '').lower(),
+                                           obj['HostAsset'].get('name', '')])).strip()
+
             res['source'] = context().args.source
             self.add_collection('asset', res, 'external_id')
 
@@ -270,7 +274,7 @@ class DataHandler(BaseDataHandler):
     # Create geo location object as per CAR data model from data source
     def handle_geo_location(self, obj):
         if obj:
-            for row in obj['HostAsset']['sourceInfo']['list']:
+            for row in deep_get(obj, ['HostAsset', 'sourceInfo', 'list'], []):
                 for asset_location in row:
                     res = self.copy_fields(obj, )
                     location = find_location(row[asset_location])

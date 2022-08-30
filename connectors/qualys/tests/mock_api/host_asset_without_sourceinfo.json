@@ -1,0 +1,54 @@
+{
+	"ServiceResponse": {
+		"data": [{
+			"HostAsset": {
+				"modified": "2021-12-21T02:51:49Z",
+				"created": "2021-12-09T08:37:49Z",
+				"isDockerHost": "false",
+				"os": "Linux",
+				"tags": {
+					"list": [{
+						"TagSimple": {
+							"name": "ec2",
+							"id": 15939724
+						}
+					}]
+				},
+				"fqdn": "ip-172-77-77-777.ec2.internal",
+				"cloudProvider": "AWS",
+				"id": 13263514,
+				"networkInterface": {
+					"list":[{
+						"HostAssetInterface": {
+							"gatewayAddress": "177.77.77.7",
+							"hostname": "EC2AMZ",
+							"address": "fe80:0:0:0:f558:672:7853:f978",
+							"interfaceName": "AWS PV Network Device #0",
+							"macAddress": "77:71:7D:72:77:77"
+						}
+					}]
+				},
+				"account": {
+					"list": [{
+						"HostAssetAccount": {
+							"username": "ubuntu"
+						}
+					}, {
+						"HostAssetAccount": {
+							"username": "root"
+						}
+					}]
+				},
+				"type": "HOST",
+				"dnsHostName": "ip-177-77-77-777.ec2.internal",
+				"address": "177.77.7.777",
+				"qwebHostId": 7774720,
+				"name": "ip-177-77-77-777.ec2.internal",
+				"trackingMethod": "INSTANCE_ID"
+			}
+		}],
+		"hasMoreRecords": "false",
+		"count": 50,
+		"responseCode": "SUCCESS"
+	}
+}
