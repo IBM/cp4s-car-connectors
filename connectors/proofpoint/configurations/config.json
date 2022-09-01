@@ -11,7 +11,8 @@
             "displayName": "ProofPoint"
         },
         "host": {
-            "type": "text"
+            "type": "text",
+            "previous": "configuration.auth.proofpoint_url"
         }
     },
     "configuration": {
