@@ -16,7 +16,7 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Parameters need to connect data source
-        self.parser.add_argument('-qualys_url', dest='server', default=os.getenv('CONFIGURATION_AUTH_QUALYS_URL', None),
+        self.parser.add_argument('-qualys_url', dest='server', default=os.getenv('CONNECTION_HOST', None),
                                  type=str, required=False, help='The url of the Qualys data source')
         self.parser.add_argument('-qualys_gateway', dest='gateway', default=os.getenv('CONFIGURATION_AUTH_QUALYS_GATEWAY', None),
                                  type=str, required=False, help='The gateway of the Qualys data source')
