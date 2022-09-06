@@ -11,7 +11,8 @@
             "displayName": "Qualys"
         },
         "host": {
-            "type": "text"
+            "type": "text",
+            "previous": "configuration.auth.qualys_url"
         }
     },
     "configuration": {
