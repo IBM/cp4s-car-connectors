@@ -9,14 +9,15 @@
         "type": {
             "type": "connectorType",
             "displayName": "Qualys"
+        },
+        "host": {
+            "type": "text",
+            "previous": "configuration.auth.qualys_url"
         }
     },
     "configuration": {
         "auth": {
             "type": "fields",
-            "qualys_url": {
-                "type": "text"
-            },
             "qualys_gateway": {
                 "type": "text"
             },

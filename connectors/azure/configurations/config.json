@@ -18,13 +18,16 @@
                 "type": "password"
             },
             "tenant": {
-                "type": "password"
+                "type": "password",
+                "previous": "tenant_id"
             },
             "clientId": {
-                "type": "password"
+                "type": "password",
+                "previous": "client_id"
             },
             "clientSecret": {
-                "type": "password"
+                "type": "password",
+                "previous": "client_secret"
             }
         }
     }

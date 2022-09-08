@@ -16,15 +16,15 @@
             "time": {
                 "label": "Time (UTC)",
                 "description": "Set the UTC time to run connector to pull data from data source"
+            },
+            "host": {
+                "label": "Qualys URL",
+                "description": "Qualys data source URL"
             }
         }
     },
     "configuration": {
         "auth": {
-            "qualys_url": {
-                "label": "Qualys URL",
-                "description": "Qualys data source URL"
-            },
             "qualys_gateway": {
                 "label": "Qualys Gateway",
                 "description": "Qualys data source Gateway"
