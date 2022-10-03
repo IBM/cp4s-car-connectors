@@ -11,8 +11,7 @@ from randori_api.api import default_api
 
 class AssetServer(BaseAssetServer):
     def __init__(self):
-        # Api authentication  to call data-source  API
-        # auth = base64.encodestring(('%s:%s' % (context().args.username, context().args.password)).encode()).decode().strip()
+        # Api authentication to call data-source  API
         with open('connector/randori_config.json', 'rb') as json_data:
             self.config = json.load(json_data)
         auth = context().args.access_token
@@ -44,12 +43,12 @@ class AssetServer(BaseAssetServer):
                     return None
                 else:
                     raise DatasourceFailure('Error when getting resource at %s/%s: %s' % (
-                    asset_server_endpoint, resource, resp.status_code))
+                        asset_server_endpoint, resource, resp.status_code))
             res = resp.json()
             self.cache[cache_key] = res
             return res
-        except BaseException as e:
-            raise DatasourceFailure(e.args[0])
+        except Exception as e:
+            raise e
 
     # Pulls asset data for all collection entities
     def get_collection(self, asset_server_endpoint):
@@ -62,36 +61,13 @@ class AssetServer(BaseAssetServer):
                 self._cache(asset_server_endpoint, obj)
             return json_data
         except Exception as e:
-            raise DatasourceFailure(e.args[0])
+            raise e
 
     # Cache object entity for later use
     def _cache(self, endpoint, obj):
         id = obj.get('id')
         if id:
             self.cache['%s/%s/%s' % (context().args.server, endpoint, id)] = obj
-
-    #
-    # # To get the save point in data source. If data source doesn't have it then this function can be deleted.
-    # def get_model_state_id(self):
-    #     try:
-    #         resp = requests.get('%s/model_state_id' % context().args.server, headers=self.server_headers)
-    #         if resp.status_code != 200:
-    #             return None
-    #         json_data = resp.json()
-    #         return json_data.get('model_state_id')
-    #     except Exception as e:
-    #         raise DatasourceFailure(e.args[0])
-    #
-    # # This function has logic to gather all information required to pull data between two save points
-    # def get_model_state_delta(self, last_model_state_id, new_model_state_id):
-    #     try:
-    #         resp = requests.get('%s/delta' % context().args.server, params={'from':last_model_state_id, 'to': new_model_state_id}, headers=self.server_headers)
-    #         if resp.status_code != 200:
-    #             raise DatasourceFailure('Error when trying to retrieve asset model delta: %d' % resp.status_code)
-    #         delta = resp.json()
-    #         return delta.get('delta', {})
-    #     except Exception as e:
-    #         raise DatasourceFailure(e.args[0])
 
     # GET /recon/api/v1/entity/{entity_id}/comment
     def get_comment(self, entity_id):
@@ -108,23 +84,7 @@ class AssetServer(BaseAssetServer):
             self.cache[cache_key] = json_data
             return json_data
         except Exception as e:
-            raise DatasourceFailure(e.args[0])
-
-    # def get_detections_for_target(self, offset=1, limit=1, sort=None, q="", reversed_nulls=False):
-    #     if sort is None:
-    #         sort = ["-affiliation_state"]
-    #     try:
-    #         endpoint = self.config['endpoint']['detections_for_target']
-    #         url = \
-    #             f"{context().args.server}/{endpoint}?offset={offset}&limit={limit}&sort={sort}&q={q}&reversed_nulls={reversed_nulls}"
-    #         resp = requests.get(url, headers=self.server_headers)
-    #
-    #         if resp.status_code != 200:
-    #             raise DatasourceFailure('Error when getting resources: %s' % resp.status_code)
-    #         json_data = resp.json()
-    #         return json_data
-    #     except Exception as e:
-    #         raise DatasourceFailure(e.args[0])
+            raise e
 
     def get_detections_for_target(self, offset, limit, sort, q, reversed_nulls):
         """
@@ -155,4 +115,4 @@ class AssetServer(BaseAssetServer):
                                                                           reversed_nulls=reversed_nulls)
                 return api_response
             except randori_api.ApiException as e:
-                print("Exception when calling DefaultApi->get_all_detections_for_target: %s\n" % e)
+                raise e

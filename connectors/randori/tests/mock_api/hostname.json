@@ -1,0 +1,18 @@
+{
+  "affiliation_state": "None",
+  "authority": true,
+  "authority_distance": 0,
+  "authority_override": false,
+  "characteristic_tags": [],
+  "confidence": 75,
+  "deleted": false,
+  "first_seen": "2022-07-06T14:16:36.755044+00:00",
+  "hostname": "internal.webernets.online",
+  "id": "0237c69b-4faf-41d7",
+  "impact_score": "None",
+  "ip_count": 1,
+  "ips": [
+      "3.208.240.249"
+  ],
+  "is_prime": false
+}
