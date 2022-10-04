@@ -7,7 +7,7 @@ class TestAssetServer(unittest.TestCase):
     """Unit test for server access functions"""
 
     def test_get_collection_error(self):
-        """unit test for get_collection"""
+        """unit test for get_collection when there is an error"""
         try:
             full_import_obj = full_import_initialization()
             full_import_obj.create_source_report_object()
@@ -19,7 +19,7 @@ class TestAssetServer(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_object')
     def test_get_object(self, mock_object):
-        """unit test for test object"""
+        """unit test for test get_object"""
         # Initialization
         full_import_obj = full_import_initialization()
         full_import_obj.create_source_report_object()
@@ -35,7 +35,7 @@ class TestAssetServer(unittest.TestCase):
         assert '0237c69b-4faf-41d7' in actual_response.json()
 
     @patch('connector.server_access.AssetServer.get_collection')
-    def test_get_assets(self, mock_collections):
+    def test_get_collection(self, mock_collections):
         """Unit test for get_collection"""
 
         # Initialization
