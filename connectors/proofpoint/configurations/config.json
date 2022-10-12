@@ -8,7 +8,8 @@
         },
         "type": {
             "type": "connectorType",
-            "displayName": "ProofPoint"
+            "displayName": "ProofPoint",
+            "group": "proofpoint"
         },
         "host": {
             "type": "text",
