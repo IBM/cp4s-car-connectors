@@ -1,0 +1,11 @@
+{
+	"source": "Randori",
+	"endpoint": {
+		"detections_for_target": "/recon/api/v1/all-detections-for-target"
+	},
+	"parameter": {
+		"headers": {
+			"Content-Type": "application/json"
+		}
+	}
+}

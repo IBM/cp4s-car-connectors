@@ -1,0 +1,40 @@
+ [
+    {
+      "affiliation_state": "None",
+      "authority": true,
+      "authority_distance": 0,
+      "authority_override": false,
+      "characteristic_tags": [],
+      "confidence": 75,
+      "deleted": false,
+      "first_seen": "2022-07-06T14:16:36.755044+00:00",
+      "hostname": "internal.webernets.online",
+      "id": "0237c69b-4faf",
+      "impact_score": "None",
+      "ip_count": 1,
+      "ips": [
+          "127.0.0.1"
+      ]
+  },
+  {
+      "affiliation_state": "None",
+      "authority": true,
+      "authority_distance": 0,
+      "authority_override": false,
+      "characteristic_tags": [],
+      "confidence": 75,
+      "deleted": false,
+      "first_seen": "2022-07-06T14:16:36.755044+00:00",
+      "hostname": "ftp.webernets.online",
+      "id": "08cbbbaa-d609",
+      "impact_score": "None",
+      "ip_count": 1,
+      "ips": [
+          "127.0.0.2"
+      ],
+      "is_prime": false,
+      "last_seen": "2022-10-01T22:00:36.392085+00:00",
+      "lens_id": "08a90512-fb94-4766-9cc7-7a945e934638",
+      "lens_view": "public"
+    }
+ ]
