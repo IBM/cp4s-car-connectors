@@ -58,9 +58,23 @@ class DataHandler(BaseDataHandler):
     def handle_assets(self, obj):
         res = {}
         res['external_id'] = obj['target_id']
-        res['name'] = "%s, %s, %s" % (obj['vendor'], obj['service_id'], obj['version'] )
-        res['risk'] = obj['priority_score']/6.6   # update
-        res['business_value'] = 0 #obj['impact_score']/6.6 # update
+        res['name'] = "%s, %s, %s" % (obj['vendor'], obj['service_id'], obj['version'] ) # TODO service_id ??
+
+        # TODO confirm
+        if obj['priority_score'] <= 40:
+            res['risk'] = obj['priority_score']/40 * 7
+        else:
+            res['risk'] = 7 + ((obj['priority_score']-40)/160 * 3)
+
+        # TODO confirm
+        if obj['impact_score'] == "Low":
+            res['business_value'] = 2
+        elif obj['impact_score'] == "Medium":
+            res['business_value'] = 5
+        elif obj['impact_score'] == "High":
+            res['business_value'] = 8
+        else:
+            res['business_value'] = 0
 
         self.add_collection('asset', res, 'external_id')
 
