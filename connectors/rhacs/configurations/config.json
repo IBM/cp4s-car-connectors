@@ -7,6 +7,12 @@
         "host": {
             "type": "text",
             "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"
+        },
+        "selfSignedCert": {
+            "type": "password"
+        },
+        "sni": {
+            "type": "text"
         }
     },
     "configuration": {

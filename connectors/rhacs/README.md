@@ -35,6 +35,9 @@ required arguments in command line:
 positional arguments:
 -host                       :RHACS API server name or IP
 -token                      :RHACS API authentication token
+-selfSignedCert             :Self Signed Certificate (starting with "-----BEGIN CERTIFICATE-----\n"
+                              and ending with "\n-----END CERTIFICATE-----")
+-sni                        :Host name
 -url                        :CAR DB url
 -api_key                    :api_key
 -password                   :password
@@ -86,10 +89,10 @@ II.	Setting PYTHONPATH permanently.
 1. goto the connector folder ` <cp4s-car-connectors/connectors/rhacs>`
 
 2. To run the initial import which is the full dump of the data source assets, run this command:
-   ` python app.py -host <RHACS hostname or IP> -token <'token'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<RHACS>"`
+   ` python app.py -host <RHACS hostname or IP> -token <'token'> -selfSignedCert <self signed certificate> -sni <Host name>  -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<RHACS>"`
 
 3. To run the incremental update, create a cronjob that runs every 4hours, the command to run is:
-   ` python app.py -host <RHACS hostname or IP> -token <'token'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<RHACS>"`
+   ` python app.py -host <RHACS hostname or IP> -token <'token'> -selfSignedCert <self signed certificate> -sni <Host name> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<RHACS>"`
 
 V. INITIAL IMPORT
 -----------------------------------------------------------------
