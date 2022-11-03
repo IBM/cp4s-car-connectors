@@ -2,7 +2,7 @@
 from car_framework.full_import import BaseFullImport
 from car_framework.context import context
 from connector.data_handler import DataHandler, endpoint_mapping
-import json
+import json, datetime
 from base64 import b64encode
 
 
@@ -24,14 +24,33 @@ class FullImport(BaseFullImport):
         """
         context().logger.debug('Import collection started')
 
-        # TODO
-        query = "eyJjb25kaXRpb24iOiJBTkQiLCJydWxlcyI6W3siY29uZGl0aW9uIjoiT1IiLCJydWxlcyI6W3sibGFiZWwiOiJtZWRpdW0iLCJjb25kaXRpb24iOiJBTkQiLCJydWxlcyI6W3siaWQiOiJ0YWJsZS5jb25maWRlbmNlIiwiZmllbGQiOiJ0YWJsZS5jb25maWRlbmNlIiwidHlwZSI6ImludGVnZXIiLCJpbnB1dCI6Im51bWJlciIsIm9wZXJhdG9yIjoiZ3JlYXRlcl9vcl9lcXVhbCIsInZhbHVlIjo2MH0seyJpZCI6InRhYmxlLmNvbmZpZGVuY2UiLCJmaWVsZCI6InRhYmxlLmNvbmZpZGVuY2UiLCJ0eXBlIjoiaW50ZWdlciIsImlucHV0IjoibnVtYmVyIiwib3BlcmF0b3IiOiJsZXNzX29yX2VxdWFsIiwidmFsdWUiOjc0fV19LHsibGFiZWwiOiJoaWdoIiwiY29uZGl0aW9uIjoiQU5EIiwicnVsZXMiOlt7ImlkIjoidGFibGUuY29uZmlkZW5jZSIsImZpZWxkIjoidGFibGUuY29uZmlkZW5jZSIsInR5cGUiOiJpbnRlZ2VyIiwiaW5wdXQiOiJudW1iZXIiLCJvcGVyYXRvciI6ImdyZWF0ZXJfb3JfZXF1YWwiLCJ2YWx1ZSI6NzV9LHsiaWQiOiJ0YWJsZS5jb25maWRlbmNlIiwiZmllbGQiOiJ0YWJsZS5jb25maWRlbmNlIiwidHlwZSI6ImludGVnZXIiLCJpbnB1dCI6Im51bWJlciIsIm9wZXJhdG9yIjoibGVzc19vcl9lcXVhbCIsInZhbHVlIjoxMDB9XX1dLCJ1aV9pZCI6ImNvbmZpZGVuY2UifSx7InVpX2lkIjoidW5hZmZpbGlhdGVkIiwiY29uZGl0aW9uIjoiT1IiLCJydWxlcyI6W3sidWlfaWQiOiJzaG93X25vX2FmZmlsaWF0aW9uIiwiaWQiOiJ0YWJsZS5hZmZpbGlhdGlvbl9zdGF0ZSIsImZpZWxkIjoidGFibGUuYWZmaWxpYXRpb25fc3RhdGUiLCJ0eXBlIjoib2JqZWN0IiwiaW5wdXQiOiJ0ZXh0Iiwib3BlcmF0b3IiOiJlcXVhbCIsInZhbHVlIjoiTm9uZSJ9XX1dLCJ1aV9pZCI6ImJhc2UifQ=="
+        three_months_back = datetime.datetime.now() - datetime.timedelta(days=90)
+        three_months_back = three_months_back.isoformat() 
+        query = {
+            'condition': "AND",
+            'rules': [
+                {
+                    'condition': "OR",
+                    'rules': [
+                        {
+                            'field': "table.target_first_seen",
+                            'operator': "greater_or_equal",
+                            'value': three_months_back
+                        },
+                        {
+                            'field': "table.temptation_last_modified",
+                            'operator': "greater_or_equal",
+                            'value': three_months_back
+                        }
+                    ]
+                }
+            ]
+        }
+        # We need the query to be a string in order to base64 encode it easily
+        query = json.dumps(query)
 
-        # # We need the query to be a string in order to base64 encode it easily
-        # query = json.dumps(query)
-
-        # # Randori expects the 'q' query string to be base64 encoded
-        # query = b64encode(query.encode())
+        # Randori expects the 'q' query to be base64 encoded in string format
+        query = b64encode(query.encode()).decode()
 
         # this need to be implemeted as we build data handler
         allDetectionsForTarget = context().asset_server.get_detections_for_target(offset=1, limit=100, sort=["last_seen"], q=query, reversed_nulls=True)
