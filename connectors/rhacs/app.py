@@ -19,6 +19,12 @@ class App(BaseApp):
                                  type=str, required=False, help='The url of the RHACS data source')
         self.parser.add_argument('-token', dest='token', default=os.getenv('CONFIGURATION_AUTH_TOKEN', None),
                                  type=str, required=False, help='The authentication token of the RHACS data source')
+        self.parser.add_argument('-selfSignedCert', dest='selfsignedcert',
+                                 default=os.getenv('CONNECTION_SELFSIGNEDCERT', None),
+                                 type=str, required=False, help='Self Signed Certificate for RHACS data source')
+        self.parser.add_argument('-sni', dest='sni', default=os.getenv('CONNECTION_SNI', None),
+                                 required=False, type=str,
+                                 help='The SNI enables a separate hostname to be provided for SSL authentication')
 
     def setup(self):
         super().setup()
