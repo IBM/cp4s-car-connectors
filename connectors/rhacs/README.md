@@ -121,3 +121,4 @@ VI. INCREMENTAL IMPORT
 - Incremental Imports are expected to be based on a time-range and RHACS doesn't have time range parameters for APIs. Hence, we are identifying the same with the help of the timestamps present in the response.
 - Incremental imports deletes Asset and container based on the comparison with the latest list from data source.
 - Since deffered vulnerabilities are approved for some time period and are listed again once that time period is over, those vulnerabilities will be preset whoever edges corresponding to those vulnerabilities are deleted.
+
