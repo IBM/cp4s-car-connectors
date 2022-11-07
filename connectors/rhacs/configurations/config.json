@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "RHACS (StackRox)"
+            "displayName": "RHACS (StackRox)",
+            "group": "rhacs"
         },
         "host": {
             "type": "text",

@@ -8,7 +8,8 @@
         },
         "type": {
             "type": "connectorType",
-            "displayName": "Qualys"
+            "displayName": "Qualys",
+            "group": "qualys"
         },
         "host": {
             "type": "text",
