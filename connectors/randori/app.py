@@ -3,10 +3,13 @@ import time
 import os
 
 from car_framework.app import BaseApp
+from car_framework.context import context
+from car_framework.extension import SchemaExtension
+
 from connector.server_access import AssetServer
 from connector.full_import import FullImport
 from connector.inc_import import IncrementalImport
-from car_framework.context import context
+
 
 version = '1.0.0'
 
@@ -27,6 +30,51 @@ class App(BaseApp):
         context().full_importer = FullImport()
         context().inc_importer = IncrementalImport()
 
+    def get_schema_extension(self):
+
+        # The following extension adds "site" vertex collection, "site_asset" edge collection and adds "initial_value" field to "asset" collection
+
+        return SchemaExtension(
+            key = 'd1cfe02a-7296-46d9-8f59-72df470688c2',   # generate your own UUID key!
+            owner = 'Randori Connector',
+            version = '1',
+            schema = '''
+            {
+                "vertices": [
+                    {
+                        "name": "asset",
+                        "properties": {
+                            "perspective_name": {
+                                "description": "internal or external; from where the info for the asset is acquired",
+                                "type": "text"
+                            },
+                            "randori_notes": {
+                                "description": "Notes in randori entered by user",
+                                "type": "text"
+                            },
+                            "first_seen": {
+                                "description": "First seen by the scanner",
+                                "type": "numeric"
+                            },
+                            "last_seen": {
+                                "description": "Last seen by the scanner",
+                                "type": "numeric"
+                            }
+                        }
+                    },
+                    {
+                        "name": "hostname",
+                        "properties": {
+                            "path": {
+                                "description": "path where service is running",
+                                "type": "text"
+                            }
+                        }
+                    }
+                ]
+            }
+            '''
+        )
 
 app = App()
 app.setup()

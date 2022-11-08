@@ -58,15 +58,18 @@ class DataHandler(BaseDataHandler):
     def handle_assets(self, obj):
         res = {}
         res['external_id'] = obj['target_id']
-        res['name'] = "%s, %s, %s" % (obj['vendor'], obj['service_id'], obj['version'] ) # TODO service_id ??
+        res['description'] = obj['description']
+        res['name'] = "%s, %s, %s" % (obj['vendor'], obj['name'], obj['version'] )
+        res['perspective_name'] = obj['perspective_name']
+        res['randori_notes'] = obj['randori_notes']
+        res['first_seen'] = obj['first_seen'].timestamp()
+        res['last_seen'] = obj['last_seen'].timestamp()
 
-        # TODO confirm
         if obj['priority_score'] <= 40:
             res['risk'] = obj['priority_score']/40 * 7
         else:
             res['risk'] = 7 + ((obj['priority_score']-40)/160 * 3)
 
-        # TODO confirm
         if obj['impact_score'] == "Low":
             res['business_value'] = 2
         elif obj['impact_score'] == "Medium":
@@ -90,6 +93,8 @@ class DataHandler(BaseDataHandler):
     def handle_hostname(self, obj):
         res = {}
         res['_key'] = str(obj['hostname'])
+        res['path'] = obj['path']
+
         self.add_edge('asset_hostname', {'_from_external_id': obj['target_id'], '_to': 'hostname/' + res['_key']})
         self.add_collection('hostname', res, '_key')
 
@@ -97,7 +102,7 @@ class DataHandler(BaseDataHandler):
     def handle_application(self, obj):
         res = {}
         res['external_id'] = str(obj['target_id'])
-        res['name'] = "%s %s" % (str(obj['vendor']), str(obj['version']))
+        res['name'] = "%s, %s %s" % (str(obj['vendor']), obj['name'], str(obj['version']))
         
         self.add_edge('asset_application', {'_from_external_id': obj['target_id'], '_to_external_id': 'application/' + res['external_id']})
         self.add_collection('application', res, 'external_id')

@@ -103,7 +103,6 @@ class AssetServer(BaseAssetServer):
 
         configuration = randori_api.Configuration(
             host=self.server,
-            # TODO long lived token
             access_token=context().args.access_token
         )
 
