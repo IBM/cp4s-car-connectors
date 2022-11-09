@@ -1,7 +1,7 @@
 import os
 import json
 from unittest.mock import patch, Mock
-# from tests import data_handler_validator
+from tests import data_handler_validator
 from car_framework.context import Context, context
 from connector import full_import, server_access, inc_import
 
@@ -43,12 +43,6 @@ class RandoriMockResponse:
 def create_vertices_edges(import_obj, mock_import=None, mock_import_status=None):
     """tests for vertices and edges"""
 
-    import_obj.data_handler.collections = {}
-
-    # mock api's
-    mock_import.return_value = Mock()
-    mock_import_status.return_value = Mock()
-
     import_obj.import_vertices()
     import_obj.import_edges()
 
@@ -83,21 +77,17 @@ def get_response(filename, json_format=None):
             response = json.loads(response)
         return response
 
+def validate_all_handler(actual_response):
+    """validate the actual response from data handler"""
 
-# def validate_all_handler(actual_response):
-#     """validate the actual response from data handler"""
-#
-#     data_handler_obj = data_handler_validator.TestConsumer()
-#
-#     # validations = all([data_handler_obj.handle_cluster(actual_response['asset']),
-#     #                    data_handler_obj.handle_node(actual_response['asset']),
-#     #                    data_handler_obj.handle_container(actual_response['asset']),
-#     #                    data_handler_obj.handle_application(actual_response['application']),
-#     #                    data_handler_obj.handle_account(actual_response['account']),
-#     #                    data_handler_obj.handle_user(actual_response['user']),
-#     #                    data_handler_obj.handle_vulnerability(actual_response['vulnerability']),
-#     #                    data_handler_obj.handle_ipaddress(actual_response['ipaddress'])])
-#     return validations
+    data_handler_obj = data_handler_validator.TestConsumer()
+
+    validations = all([data_handler_obj.handle_assets(actual_response),
+                       data_handler_obj.handle_ipaddress(actual_response),
+                       data_handler_obj.handle_hostname(actual_response),
+                       data_handler_obj.handle_ports(actual_response),
+                       data_handler_obj.handle_application(actual_response)])
+    return validations
 
 
 def mocking_apis():
