@@ -55,7 +55,6 @@ class FullImport(BaseFullImport):
         # this need to be implemeted as we build data handler
         allDetectionsForTarget = context().asset_server.get_detections_for_target(offset=1, limit=100, sort=["last_seen"], q=query, reversed_nulls=True)
 
-        print(allDetectionsForTarget.data)
         for detection in allDetectionsForTarget.data:
             for node in endpoint_mapping["get_detections_for_target"]:
                 getattr(self.data_handler, 'handle_' + node.lower())(detection)
