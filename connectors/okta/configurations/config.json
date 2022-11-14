@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "Okta"
+            "displayName": "Okta",
+            "group": "okta"
         },
         "host": {
             "type": "text"
