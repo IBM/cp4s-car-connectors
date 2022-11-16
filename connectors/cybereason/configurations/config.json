@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "Cybereason"
+            "displayName": "Cybereason",
+            "group": "cybereason"
         },
         "host": {
             "type": "text",
