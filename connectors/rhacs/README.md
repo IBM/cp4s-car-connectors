@@ -86,6 +86,8 @@ II.	Setting PYTHONPATH permanently.
 
 ### Command To Run the script
 
+Note : RHACS(StackRox) supports both ca and self-signed certificates. Below given script is based on self-signed. In case of trusted ca issued server certificate, it is not required to pass sni and self-signed parameter as they are optional.
+
 1. goto the connector folder ` <cp4s-car-connectors/connectors/rhacs>`
 
 2. To run the initial import which is the full dump of the data source assets, run this command:

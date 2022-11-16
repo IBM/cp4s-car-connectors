@@ -47,7 +47,8 @@ class AssetServer:
         try:
             return_obj = {}
 
-            if context().args.selfsignedcert is not None:       # Create temporary certificate file
+            # Create temporary certificate file
+            if isinstance(context().args.selfsignedcert, str):
                 self.cert_file_name = context().args.export_data_dir + "\\cert.pem"
                 self.header["Host"] = context().args.sni
                 with open(self.cert_file_name, 'w') as f:
