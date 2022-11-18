@@ -1,9 +1,11 @@
+import os
 import json
 import requests
 from car_framework.context import context
 from car_framework.util import DatasourceFailure
 from connector.data_handler import timestamp_conv
 from connector.error_response import ErrorResponder
+from requests_toolbelt.adapters import host_header_ssl
 
 
 class AssetServer:
@@ -17,6 +19,8 @@ class AssetServer:
         self.container_list = []    # list will be used for deletion
         self.cluster_node_list = []  # list will be used for deletion
         self.user_list = []  # list will be used for deletion
+        self.cert_file_name = True
+        self.header = {"Authorization": "Bearer " + context().args.token}
 
     def test_connection(self):
         """test the connection"""
@@ -42,8 +46,19 @@ class AssetServer:
         """
         try:
             return_obj = {}
-            api_response = requests.get("https://" + context().args.host + asset_server_endpoint,
-                                        headers={"Authorization": "Bearer " + context().args.token})
+
+            # Create temporary certificate file
+            if isinstance(context().args.selfsignedcert, str):
+                self.cert_file_name = context().args.export_data_dir + "\\cert.pem"
+                self.header["Host"] = context().args.sni
+                with open(self.cert_file_name, 'w') as f:
+                    f.write(context().args.selfsignedcert.replace('\\n', '\n'))
+
+            # Create session and making api calls
+            session = requests.Session()
+            session.mount('https://', host_header_ssl.HostHeaderSSLAdapter())
+            endpoint = "https://" + context().args.host + asset_server_endpoint
+            api_response = session.get(endpoint, headers=self.header, verify=self.cert_file_name)
 
             if not check_status:  # without checking the status code return the response
                 return api_response
@@ -59,6 +74,10 @@ class AssetServer:
             if not return_obj:
                 ErrorResponder.fill_error(return_obj, ex)
             raise Exception(return_obj)
+
+        finally:
+            if isinstance(self.cert_file_name, str):        # remove the temporary certificate file
+                os.remove(self.cert_file_name)
 
     def get_assets(self, last_model_state_id=None):
         """
