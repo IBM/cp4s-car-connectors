@@ -16,7 +16,6 @@ class AssetServer(BaseAssetServer):
             self.config = json.load(json_data)
         auth = context().args.access_token
         self.server_headers = {'Accept': 'application/json', 'Authorization': auth}
-        self.server = "https://" + context().args.server
         self.cache = {}
 
     def test_connection(self):
@@ -28,63 +27,6 @@ class AssetServer(BaseAssetServer):
             code = 1
         return code
 
-    # Get entity for the specific id cached
-    def get_object(self, asset_server_endpoint, resource):
-        try:
-            cache_key = f"{context().args.server}/{asset_server_endpoint}/{resource}"
-            cache_value = self.cache.get(cache_key)
-            if cache_value:
-                return cache_value
-
-            resp = requests.get('%s/%s/%s' % (context().args.server, asset_server_endpoint, resource),
-                                headers=self.server_headers)
-            if resp.status_code != 200:
-                if resp.status_code == 404:
-                    return None
-                else:
-                    raise DatasourceFailure('Error when getting resource at %s/%s: %s' % (
-                        asset_server_endpoint, resource, resp.status_code))
-            res = resp.json()
-            self.cache[cache_key] = res
-            return res
-        except Exception as e:
-            raise e
-
-    # Pulls asset data for all collection entities
-    def get_collection(self, asset_server_endpoint):
-        try:
-            resp = requests.get(f"{context().args.server}/{asset_server_endpoint}", headers=self.server_headers)
-            if resp.status_code != 200:
-                raise DatasourceFailure('Error when getting resources: %s' % (resp.status_code))
-            json_data = resp.json()
-            for obj in json_data['data']:
-                self._cache(asset_server_endpoint, obj)
-            return json_data
-        except Exception as e:
-            raise e
-
-    # Cache object entity for later use
-    def _cache(self, endpoint, obj):
-        id = obj.get('id')
-        if id:
-            self.cache['%s/%s/%s' % (context().args.server, endpoint, id)] = obj
-
-    # GET /recon/api/v1/entity/{entity_id}/comment
-    def get_comment(self, entity_id):
-        try:
-            cache_key = '%s/recon/api/v1/entity/%s/comment' % (context().args.server, entity_id)
-            cache_value = self.cache.get(cache_key)
-            if cache_value:
-                return cache_value
-            resp = requests.get('%s/recon/api/v1/entity/%s/comment' % (context().args.server, entity_id),
-                                headers=self.server_headers)
-            if resp.status_code != 200:
-                raise DatasourceFailure('Error when getting resources: %s' % resp.status_code)
-            json_data = resp.json()
-            self.cache[cache_key] = json_data
-            return json_data
-        except Exception as e:
-            raise e
 
     def get_detections_for_target(self, offset, limit, sort, q, reversed_nulls):
         """
@@ -102,7 +44,6 @@ class AssetServer(BaseAssetServer):
         """
 
         configuration = randori_api.Configuration(
-            host=self.server,
             access_token=context().args.access_token
         )
 
