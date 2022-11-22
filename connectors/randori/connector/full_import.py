@@ -24,7 +24,7 @@ class FullImport(BaseFullImport):
         """
         context().logger.debug('Import collection started')
 
-        three_months_back = datetime.datetime.now() - datetime.timedelta(days=90)
+        three_months_back = self.data_handler.timestamp - datetime.timedelta(days=90)
         three_months_back = three_months_back.isoformat() 
         query = {
             'condition': "AND",

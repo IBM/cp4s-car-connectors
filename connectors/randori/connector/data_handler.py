@@ -32,6 +32,16 @@ def get_report_time():
     milliseconds = delta.total_seconds() * 1000
     return milliseconds
 
+def epoch_to_datetime_conv(epoch_time):
+    """
+    Convert epoch time to date format time
+    :param epoch_time: time in epoch
+    :return: date(iso format)
+    """
+    epoch_time = float(epoch_time) / 1000.0
+    date_time = datetime.datetime.fromtimestamp(epoch_time).replace(microsecond=0).isoformat()
+    return date_time
+
 class DataHandler(BaseDataHandler):
     
     xrefproperties = []
