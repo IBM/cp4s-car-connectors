@@ -1,7 +1,7 @@
 
 from car_framework.full_import import BaseFullImport
 from car_framework.context import context
-from connector.data_handler import DataHandler, endpoint_mapping
+from connector.data_handler import DataHandler, endpoint_mapping, epoch_to_datetime_conv
 import json, datetime
 from base64 import b64encode
 
@@ -24,7 +24,7 @@ class FullImport(BaseFullImport):
         """
         context().logger.debug('Import collection started')
 
-        three_months_back = self.data_handler.timestamp - datetime.timedelta(days=90)
+        three_months_back = epoch_to_datetime_conv(self.data_handler.timestamp) - datetime.timedelta(days=90)
         three_months_back = three_months_back.isoformat() 
         query = {
             'condition': "AND",

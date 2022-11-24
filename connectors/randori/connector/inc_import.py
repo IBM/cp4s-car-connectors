@@ -42,7 +42,7 @@ class IncrementalImport(BaseIncrementalImport):
         """
         context().logger.debug('Import collection started')
 
-        last_run = epoch_to_datetime_conv(self.last_model_state_id)
+        last_run = epoch_to_datetime_conv(self.last_model_state_id).isoformat()
 
         query = {
             'condition': "AND",
