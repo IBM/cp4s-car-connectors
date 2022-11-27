@@ -19,14 +19,13 @@ class AssetServer(BaseAssetServer):
         self.cache = {}
 
     def test_connection(self):
-        try:
-            self.get_collection('recon/api/v1/hostname')
-            code = 0
-        except DatasourceFailure as e:
-            context().logger.error(e)
+        resp = requests.get(f"{context().args.server}/recon/api/v1/hostname", headers=self.server_headers)
+        if resp.status_code != 200:
+            context().logger.error('Error testing connection: %s' % (resp.status_code))
             code = 1
+        else:
+            code = 0
         return code
-
 
     def get_detections_for_target(self, offset, limit, sort, q, reversed_nulls):
         """
