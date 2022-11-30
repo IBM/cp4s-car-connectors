@@ -12,16 +12,12 @@ from randori_api.api import default_api
 class AssetServer(BaseAssetServer):
     def __init__(self):
         # Api authentication to call data-source  API
-        auth = context().args.access_token
-        self.server_headers = {'Accept': 'application/json', 'Authorization': auth}
-        self.cache = {}
-
-    def test_connection(self):
-
-        configuration = randori_api.Configuration(
+        self.configuration = randori_api.Configuration(
             access_token=context().args.access_token
         )
-        with randori_api.ApiClient(configuration) as api_client:
+
+    def test_connection(self):
+        with randori_api.ApiClient(self.configuration) as api_client:
             # Create an instance of the API class
             api_instance = default_api.DefaultApi(api_client)
             sort = [
@@ -50,13 +46,8 @@ class AssetServer(BaseAssetServer):
             AllDetectionsForTargetGetOutput,
             see https://github.com/RandoriDev/randori-api-sdk/blob/master/docs/AllDetectionsForTargetGetOutput.md
         """
-
-        configuration = randori_api.Configuration(
-            access_token=context().args.access_token
-        )
-
         # Enter a context with an instance of the API client
-        with randori_api.ApiClient(configuration) as api_client:
+        with randori_api.ApiClient(self.configuration) as api_client:
             # Create an instance of the API class
             api_instance = default_api.DefaultApi(api_client)
             try:
