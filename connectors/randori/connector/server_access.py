@@ -19,12 +19,23 @@ class AssetServer(BaseAssetServer):
         self.cache = {}
 
     def test_connection(self):
-        resp = requests.get(f"{context().args.server}/recon/api/v1/hostname", headers=self.server_headers)
-        if resp.status_code != 200:
-            context().logger.error('Error testing connection: %s' % (resp.status_code))
-            code = 1
-        else:
-            code = 0
+
+        configuration = randori_api.Configuration(
+            access_token=context().args.access_token
+        )
+        with randori_api.ApiClient(configuration) as api_client:
+            # Create an instance of the API class
+            api_instance = default_api.DefaultApi(api_client)
+            sort = [
+                "-affiliation_state",
+            ]
+            q = "q_example"
+            try:
+                api_response = api_instance.get_hostname(offset=1, limit=1, sort=sort, q=q, reversed_nulls=True)
+                code = 0
+            except randori_api.ApiException as e:
+                context().logger.error('Error testing connection: %s' % e)
+                code = 1
         return code
 
     def get_detections_for_target(self, offset, limit, sort, q, reversed_nulls):
