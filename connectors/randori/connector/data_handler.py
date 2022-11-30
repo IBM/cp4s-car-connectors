@@ -39,7 +39,7 @@ def epoch_to_datetime_conv(epoch_time):
     :return: date(iso format)
     """
     epoch_time = float(epoch_time) / 1000.0
-    date_time = datetime.datetime.fromtimestamp(epoch_time).replace(microsecond=0).isoformat()
+    date_time = datetime.datetime.fromtimestamp(epoch_time).replace(microsecond=0)
     return date_time
 
 class DataHandler(BaseDataHandler):
