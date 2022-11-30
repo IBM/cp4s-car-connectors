@@ -31,7 +31,7 @@ class AssetServer(BaseAssetServer):
         """
         Fetch data /recon/api/v1/all-detections-for-target
         parameters:
-            offset	int	offset into avilable records after filtering	[optional]
+            offset	int	offset into available records after filtering [optional]
             limit	int	maximum number of records to return	[optional]
             sort	[str]	fields in the object to sort by, in order of precedence, minus indicates descending	[optional]
             q	    str	base64 encoded jquery querybuilder complex search field	[optional]
