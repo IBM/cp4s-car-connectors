@@ -7,6 +7,7 @@ from car_framework.server_access import BaseAssetServer
 
 import randori_api
 from randori_api.api import default_api
+from base64 import b64encode
 
 
 class AssetServer(BaseAssetServer):
@@ -20,12 +21,26 @@ class AssetServer(BaseAssetServer):
         with randori_api.ApiClient(self.configuration) as api_client:
             # Create an instance of the API class
             api_instance = default_api.DefaultApi(api_client)
-            sort = [
-                "-affiliation_state",
-            ]
-            q = "q_example"
+            query = {
+                "condition": "OR",
+                "rules": [{
+                     "field": "table.affiliation_state",
+                     "id": "table.affiliation_state",
+                     "input": "text",
+                     "operator": "equal",
+                     "type": "object",
+                     "ui_id": "show_unaffiliated",
+                     "value": "Unaffiliated"
+                }]
+            }
+
+            # We need the query to be a string in order to base64 encode it easily
+            query = json.dumps(query)
+
+            # Randori expects the 'q' query to be base64 encoded in string format
+            query = b64encode(query.encode()).decode()
             try:
-                api_response = api_instance.get_hostname(offset=1, limit=1, sort=sort, q=q, reversed_nulls=True)
+                api_response = api_instance.get_hostname(offset=1, limit=1, sort=["last_seen"], q=query, reversed_nulls=True)
                 code = 0
             except randori_api.ApiException as e:
                 context().logger.error('Error testing connection: %s' % e)
