@@ -12,8 +12,6 @@ from randori_api.api import default_api
 class AssetServer(BaseAssetServer):
     def __init__(self):
         # Api authentication to call data-source  API
-        with open('connector/randori_config.json', 'rb') as json_data:
-            self.config = json.load(json_data)
         auth = context().args.access_token
         self.server_headers = {'Accept': 'application/json', 'Authorization': auth}
         self.cache = {}
