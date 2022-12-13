@@ -30,6 +30,7 @@ class Arguments:
     debug = None
     connector_name = args['source']
     gateway = ''
+    update_existing_vulnerability_cve = False
 
 
 def get_response(filename, json_format=None):
@@ -69,7 +70,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -105,7 +111,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -143,7 +154,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -185,7 +201,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -228,7 +249,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -267,7 +293,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)
@@ -313,7 +344,12 @@ class TestConnector(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initialization
         Context(Arguments)

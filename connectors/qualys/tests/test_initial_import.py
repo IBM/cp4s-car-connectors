@@ -33,7 +33,12 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initiate full import
         actual_response = create_vertices_edges(full_import_obj)
@@ -69,7 +74,12 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_app_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initiate full import
         actual_response = create_vertices_edges(full_import)
@@ -117,7 +127,12 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initiate full import
         actual_response = create_vertices_edges(full_import_obj)
@@ -153,7 +168,12 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initiate full import
         actual_response = create_vertices_edges(full_import_obj)
@@ -189,7 +209,12 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
 
         # Initiate full import
         actual_response = create_vertices_edges(full_import_obj)

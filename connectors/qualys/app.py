@@ -24,6 +24,9 @@ class App(BaseApp):
                                  type=str, required=False, help='Username for the Qualys data source')
         self.parser.add_argument('-password', dest='password', default=os.getenv('CONFIGURATION_AUTH_PASSWORD', None),
                                  type=str, required=False, help='Password for the Qualys data source')
+        self.parser.add_argument('-update_existing_vulnerability_cve', dest='update_existing_vulnerability_cve',
+                                 action='store_true', default=os.getenv('UPDATE_EXISTING_VULNERABILITY_CVE', False),
+                                 help='Update existing vulnerability nodes with CVE information')
 
     def setup(self):
         super().setup()

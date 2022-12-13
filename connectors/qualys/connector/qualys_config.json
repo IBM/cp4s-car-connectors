@@ -4,7 +4,8 @@
 		"asset": "/qps/rest/2.0/search/am/hostasset",
 		"asset_vulnerability": "/api/2.0/fo/asset/host/vm/detection/?action=list",
 		"auth": "/auth",
-		"applications" : "/rest/2.0/search/am/asset?pageSize=300&softwareType=Application"
+		"applications" : "/rest/2.0/search/am/asset?pageSize=300&softwareType=Application",
+		"vuln_knowledgebase" : "/api/2.0/fo/knowledge_base/vuln/?action=list"
 	},
 	"parameter": {
 		"headers": {
