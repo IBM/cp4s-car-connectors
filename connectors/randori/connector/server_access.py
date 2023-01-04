@@ -2,7 +2,7 @@ import json
 import requests, base64
 
 from car_framework.context import context
-from car_framework.util import DatasourceFailure
+from car_framework.util import DatasourceFailure, ErrorCode
 from car_framework.server_access import BaseAssetServer
 
 import randori_api
@@ -69,5 +69,7 @@ class AssetServer(BaseAssetServer):
                 api_response = api_instance.get_all_detections_for_target(offset=offset, limit=limit, sort=sort, q=q,
                                                                           reversed_nulls=reversed_nulls)
                 return api_response
+            except randori_api.exceptions.UnauthorizedException as e:
+                raise DatasourceFailure(e, ErrorCode.DATASOURCE_FAILURE_AUTH.value)
             except randori_api.ApiException as e:
                 raise e
