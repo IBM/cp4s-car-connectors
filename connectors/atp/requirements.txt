@@ -1,4 +1,2 @@
 adal==1.2.2
-cryptography==3.3.2
-pyopenssl==19.1.0
 car-connector-framework==3.0.0

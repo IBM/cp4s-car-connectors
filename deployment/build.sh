@@ -141,8 +141,8 @@ python -V
 python3 -V
 docker version
 
-pip3 install 'cryptography==3.3.2'
-pip3 install 'pyopenssl==19.1.0'
+pip3 install 'cryptography==3.4.7'
+pip3 install 'pyopenssl==21.0.0'
 
 
 if [ ! -d "$BUILD_HOME" ]; then
@@ -215,7 +215,7 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
         fi
 
         echo "Building image: $REGISTRY_IMAGE_PATH"
-        docker build -t $REGISTRY_IMAGE_PATH $CONNECTOR_BUILD_FOLDER
+        docker build -t $REGISTRY_IMAGE_PATH $CONNECTOR_BUILD_FOLDER --platform linux/amd64
 
         echo "Pushing image: $REGISTRY_IMAGE_PATH"
         docker push $REGISTRY_IMAGE_PATH
@@ -232,7 +232,7 @@ if [ -d "$CONNECTOR_SOURCE_FOLDER" ]; then
         fi
     else
         echo "Building local image: $IMAGE:$TAG"
-        docker build -t $IMAGE:$TAG $CONNECTOR_BUILD_FOLDER
+        docker build -t $IMAGE:$TAG $CONNECTOR_BUILD_FOLDER --platform linux/amd64
     fi
     
     echo "*****************************************"
