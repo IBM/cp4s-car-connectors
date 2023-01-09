@@ -10,7 +10,7 @@
         "auth": {
             "type": "fields",
             "token": {
-                "type": "text"
+                "type": "password"
             }
         }
     }
