@@ -33,7 +33,12 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
         inc_import_obj.get_data_for_delta(data_handler.get_report_time(), None)
 
         # Initiate incremental create and update
@@ -71,7 +76,12 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
         inc_import_obj.get_data_for_delta(data_handler.get_report_time(), None)
 
         # Initiate incremental create and update
@@ -109,7 +119,12 @@ class TestIncImportFunctions(unittest.TestCase):
         mock_application_detail = Mock(status_code=200)
         mock_application_detail.json.return_value = res_application_detail
 
-        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_header, mock_application_detail]
+        # Mock vulnerability kb details for detections
+        vuln_kb = get_response('vulnerability_kb_details.xml')
+        mock_kb = Mock(status_code=200)
+        mock_kb.text = vuln_kb
+
+        mock_api.side_effect = [mock_host_asset, mock_vulnerability_detail, mock_kb, mock_header, mock_application_detail]
         active_edge = {}
         for key, value in res_active_edges.items():
             active_edge[key] = set(value)

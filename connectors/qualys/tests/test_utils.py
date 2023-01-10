@@ -26,6 +26,7 @@ class Arguments:
     debug = None
     connector_name = "Qualys"
     version = "1.0.0.0"
+    update_existing_vulnerability_cve = False
 
 
 def full_import_initialization():

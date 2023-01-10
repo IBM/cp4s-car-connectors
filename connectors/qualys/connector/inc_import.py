@@ -1,8 +1,8 @@
 import json
 from car_framework.context import context
 from car_framework.inc_import import BaseIncrementalImport
-from connector.data_handler import DataHandler, endpoint_mapping, get_epoch_time, find_location, deep_get
-
+from connector.data_handler import DataHandler, endpoint_mapping, get_epoch_time, find_location, deep_get,\
+    update_vuln_node_with_kb
 
 class IncrementalImport(BaseIncrementalImport):
     def __init__(self):
@@ -32,6 +32,10 @@ class IncrementalImport(BaseIncrementalImport):
         returns:
             None
         """
+        # Update vulnerability nodes if update_vulnerability flag enabled
+        if context().args.update_existing_vulnerability_cve:
+            self.update_existing_vulnerability_cve()
+
         resources = endpoint_mapping['asset'] + endpoint_mapping['vulnerability']
 
         # process the recent records from data source
@@ -153,3 +157,26 @@ class IncrementalImport(BaseIncrementalImport):
             self.compute_inactive_edges(asset)
         self.disable_edges()
         context().logger.info('Delete vertices started')
+
+    def update_existing_vulnerability_cve(self):
+        """
+        Update existing vulnerabilities with knowledgebase details
+        """
+        # Get vulnerability nodes from CAR DB
+        vuln_nodes = context().car_service.search_collection('vulnerability', 'source', context().args.source,
+                                                         ['external_id', 'name', 'base_score', 'description'])
+        # Get vulnerability ids from nodes
+        vuln_ids = [vuln_id['external_id'] for vuln_id in vuln_nodes['vulnerability']]
+
+        # Vulnerability knowledgebase details
+        if vuln_ids:
+            vuln_kb = context().asset_server.get_knowledge_base_vuln_list(vuln_ids)
+            vuln_kb = {vuln['QID']: vuln for vuln in vuln_kb}
+            for node in vuln_nodes['vulnerability']:
+                kb = vuln_kb[node['external_id']]
+                update_vuln_node_with_kb(node, kb)
+                self.data_handler.add_collection('vulnerability', node, 'external_id')
+        self.data_handler.send_collections(self)
+        # Reset the collections once updated vulnerability nodes are imported to CAR DB
+        self.data_handler.collections = {}
+        self.data_handler.collection_keys = {}
