@@ -1,6 +1,6 @@
 from datetime import datetime
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from car_framework.context import context
 from tests.test_utils import full_import_initialization
 from tests.convert_from_json import JsonResponse
@@ -10,9 +10,32 @@ from connector import full_import, server_access, data_handler
 class TestAssetServer(unittest.TestCase):
     """Unit test for API"""
 
-    def test_get_collection(self):
+    @patch('connector.server_access.requests')
+    def test_get_collection(self, mock_requests):
         """Unit test for proofpoint api"""
 
+        # Mocking the requests.get response
+        mock_requests.get.return_value = JsonResponse(
+            200, 'siem_api_click_msg.json')
+        full_import_initialization()
+        full_import.FullImport()
+        response = server_access.AssetServer.get_collection(
+                context().asset_server, 'v2')
+        assert response is not None
+
+    @patch('connector.server_access.requests')
+    def test_get_collection_with_exception(self, mock_requests):
+        """Unit test for proofpoint api,
+        raises exception when time range is beyond 7 days"""
+
+        # Mocking the requests.get res
+        api_response = Mock()
+        api_response.status_code = 400
+        api_response.content = b'The requested start time is too far into the past.' \
+                               b'Requests for information up to 7.00d are accepted'
+        api_response.text = "The requested start time is too far into the past"
+        api_response.json.return_value = []
+        mock_requests.get.return_value = api_response
         full_import_initialization()
         full_import.FullImport()
         error_response = None
@@ -23,6 +46,24 @@ class TestAssetServer(unittest.TestCase):
             error_response = str(e)
 
         assert error_response is not None
+
+    @patch('connector.server_access.requests')
+    def test_get_collection_with_error(self, mock_requests):
+        """Unit test for proofpoint api call failures"""
+
+        # Mocking the requests.get res
+        api_response = Mock()
+        api_response.status_code = 404
+        api_response.text = ''
+        api_response.content = b'{"message":"HTTP 404 Not Found"}\n'
+        api_response.json.return_value = []
+        mock_requests.get.return_value = api_response
+        full_import_initialization()
+        full_import.FullImport()
+        with self.assertRaises(SystemExit) as ex:
+            server_access.AssetServer.get_collection(
+                context().asset_server, 'v2')
+        self.assertEqual(ex.exception.code, 50)
 
     @patch('connector.server_access.AssetServer.get_collection')
     @patch('connector.server_access.AssetServer.get_siem_api')

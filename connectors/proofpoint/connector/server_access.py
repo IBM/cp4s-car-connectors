@@ -1,9 +1,12 @@
 import requests
 import json
+import sys
 from connector.error_response import ErrorResponder
 from requests.auth import HTTPBasicAuth
+from requests.exceptions import ConnectionError, ConnectTimeout
 from datetime import datetime, timedelta
 from car_framework.context import context
+from car_framework.util import ErrorCode
 
 
 class AssetServer(object):
@@ -25,12 +28,21 @@ class AssetServer(object):
         returns:
             json_data(dict): Api response
         """
-        resp = requests.get('%s/%s' % (context().args.server, asset_server_endpoint),
-                            auth=self.basic_auth, headers=self.config['parameter']['headers'])
-        if resp.status_code != 200:
-            return_obj = {}
-            ErrorResponder.fill_error(return_obj, resp.content, resp.status_code)
-            raise Exception(return_obj)
+        return_obj = {}
+        try:
+            resp = requests.get('%s/%s' % (context().args.server, asset_server_endpoint),
+                                auth=self.basic_auth, headers=self.config['parameter']['headers'])
+            if resp.status_code != 200:
+                ErrorResponder.fill_error(return_obj, resp.content, resp.status_code)
+                # This exception handled in full import for time range beyond 7 days.
+                if "The requested start time is too far into the past" in resp.text:
+                    raise Exception(return_obj)
+        except (ConnectionError, ConnectTimeout) as ex:
+            # Catching requests general exceptions
+            ErrorResponder.fill_error(return_obj, ex)
+        if return_obj:
+            context().logger.error("ProofPoint API returned error, error details : %s", return_obj)
+            sys.exit(ErrorCode.DATASOURCE_FAILURE_DEFAULT.value)
         return resp.json()
 
     def get_model_state_delta(self, last_model_state_id, new_model_state_id):
