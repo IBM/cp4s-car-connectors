@@ -1,4 +1,5 @@
 import datetime
+from html2text import html2text
 from car_framework.context import context
 from car_framework.data_handler import BaseDataHandler
 
@@ -50,6 +51,71 @@ def deep_get(_dict, keys, default=None):
         else:
             return default
     return _dict
+
+# Get list of CVE ids from vulnerability knowledgebase
+def get_cve_ids(cve_list):
+    if isinstance(cve_list, list):
+        return ','.join([id['ID'] for id in cve_list])
+    return cve_list['ID']
+
+
+def get_base_score(cvss=None, cvss_v3=None):
+    """
+    Vulnerability CVSS score, if vulnerability has both CVSS and CVSS_V3 scores
+    the highest value considered as base score
+    """
+    base_score = 0
+    cvss_score = 0
+    cvss_v3_score = 0
+    if cvss:
+        if deep_get(cvss, ['BASE', '#text']):
+            cvss_score = float(deep_get(cvss, ['BASE', '#text']))
+        else:
+            cvss_score = float(deep_get(cvss, ['BASE']))
+    if cvss_v3:
+        if deep_get(cvss_v3, ['BASE', '#text']):
+            cvss_v3_score = float(deep_get(cvss_v3, ['BASE', '#text']))
+        else:
+            cvss_v3_score = float(deep_get(cvss_v3, ['BASE']))
+    if cvss and cvss_v3:
+        base_score = max(cvss_score, cvss_v3_score)
+    elif cvss:
+        base_score = cvss_score
+    else:
+        base_score = cvss_v3_score
+    return base_score
+
+
+def update_vuln_node_with_kb(node, kb_data):
+    """
+    Updating vulnerability node with, vulnerability knowledgebase information.
+    param
+        node: vulnerability vertices(dict)
+        kb_data: vulnerability knowledgebase information(dict)
+    return:
+    """
+    # Updating base-score from cvss score
+    if deep_get(kb_data, ['CVSS']) or deep_get(kb_data, ['CVSS_V3']):
+        score = get_base_score(cvss=deep_get(kb_data, ['CVSS']),
+                               cvss_v3=deep_get(kb_data, ['CVSS_V3']))
+        node['base_score'] = score
+    # Adding additional fields
+    for key in ['TITLE', 'CVE_LIST', 'DIAGNOSIS', 'CONSEQUENCE', 'SOLUTION', 'CVSS', 'CVSS_V3']:
+        if deep_get(kb_data, [key]):
+            if key == 'CVE_LIST':
+                node['cve_ids'] = get_cve_ids(kb_data[key]['CVE'])
+            elif key == 'TITLE':
+                node['name'] = kb_data[key]
+            elif key == 'CVSS' or key == 'CVSS_V3':
+                ref = 'xfr_cvss2_base'
+                if key == 'CVSS_V3':
+                    ref = 'xfr_cvss3_base'
+                if deep_get(kb_data[key], ['BASE', '#text']):
+                    node[ref] = float(deep_get(kb_data[key], ['BASE', '#text']))
+                else:
+                    node[ref] = float(deep_get(kb_data[key], ['BASE']))
+            else:
+                node[key.lower()] = html2text(kb_data[key])
 
 
 def append_vuln_in_asset(host_list, vulnerability_list, applications_list):
@@ -133,7 +199,9 @@ class DataHandler(BaseDataHandler):
                 res['source'] = context().args.source
                 res['base_score'] = score
                 res['description'] = vuln['RESULTS']
-
+                # Update node from vulnerability knowledgebase information
+                if deep_get(vuln, [vuln['QID']]):
+                    update_vuln_node_with_kb(res, vuln[vuln['QID']])
                 self.add_collection('vulnerability', res, 'external_id')
 
                 # asset vulnerability edge creation

@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "<CONNECTOR_NAME>"
+            "displayName": "<CONNECTOR_NAME>",
+            "group": "<DOWNCASED_CONNECTOR_NAME>"
         }
     },
     "configuration": {

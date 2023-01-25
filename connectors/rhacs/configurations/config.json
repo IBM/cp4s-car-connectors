@@ -2,11 +2,20 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "RHACS (StackRox)"
+            "displayName": "RHACS (StackRox)",
+            "group": "rhacs"
         },
         "host": {
             "type": "text",
             "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"
+        },
+        "selfSignedCert": {
+            "type": "password",
+            "optional": true
+        },
+        "sni": {
+            "type": "text",
+            "optional": true
         }
     },
     "configuration": {

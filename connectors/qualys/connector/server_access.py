@@ -4,7 +4,7 @@ import xmltodict
 from requests.auth import HTTPBasicAuth
 from car_framework.context import context
 from connector.error_response import ErrorResponder
-from connector.data_handler import epoch_to_datetime_conv, append_vuln_in_asset
+from connector.data_handler import epoch_to_datetime_conv, append_vuln_in_asset, deep_get
 
 
 class AssetServer(object):
@@ -127,7 +127,61 @@ class AssetServer(object):
                 server_endpoint = response['HOST_LIST_VM_DETECTION_OUTPUT']['RESPONSE']['WARNING']['URL']
             else:
                 pagination = False
+        # Update host vulnerability detections with vulnerability knowledgebase information
+        if results:
+            self.add_vuln_kb_info(results)
         return results
+
+    def add_vuln_kb_info(self, host_vuln_detections):
+        """
+        Add vulnerability knowledgebase information to host detection list
+        info added to vulnerability detections like {'<QID>' : '<QID knowledgebase details>'}
+        """
+        vuln_list = []
+        # Get the list of vulnerabilities from the detection
+        for host_vuln_detection in host_vuln_detections:
+            host_vuln_list = deep_get(host_vuln_detection, ['DETECTION_LIST', 'DETECTION'], [])
+            if host_vuln_list and not isinstance(host_vuln_list, list):
+                host_vuln_list = [host_vuln_list]
+            vuln_list = vuln_list + [vuln['QID'] for vuln in host_vuln_list]
+        vuln_list = set(vuln_list)
+
+        # Get the vulnerability information from knowledgebase
+        knowledge_base_vuln_list = self.get_knowledge_base_vuln_list(vuln_list)
+        knowledge_base_vuln_list = {vuln['QID']:vuln for vuln in knowledge_base_vuln_list}
+
+        # Add Knowledge base vuln info to host detection vulnerabilities
+        for host_vuln_detection in host_vuln_detections:
+            host_vuln_list = deep_get(host_vuln_detection, ['DETECTION_LIST', 'DETECTION'], [])
+            if host_vuln_list and not isinstance(host_vuln_list, list):
+                qid = host_vuln_detection['DETECTION_LIST']['DETECTION']['QID']
+                host_vuln_detection['DETECTION_LIST']['DETECTION'][qid]= knowledge_base_vuln_list.get(qid)
+            else:
+                for i in range(0, len(host_vuln_detection['DETECTION_LIST']['DETECTION'])):
+                    qid = host_vuln_detection['DETECTION_LIST']['DETECTION'][i]['QID']
+                    host_vuln_detection['DETECTION_LIST']['DETECTION'][i][qid] = knowledge_base_vuln_list.get(qid)
+
+    def get_knowledge_base_vuln_list(self, qid_list):
+        """
+        Get QID associated CVE and general information from Qualys knowledgebase
+        """
+        headers = self.config['parameter']['headers']
+        auth = self.basic_auth
+        server_endpoint = context().args.server + self.config['endpoint']['vuln_knowledgebase']
+        server_endpoint = server_endpoint + '&ids=' + ','.join(qid_list)
+        response = self.get_collection(server_endpoint, headers=headers, auth=auth)
+        if response.status_code != 200:
+            response = xmltodict.parse(response.text)
+            return_obj = {}
+            status_code = response['SIMPLE_RETURN']['RESPONSE']['CODE']
+            error_message = response['SIMPLE_RETURN']['RESPONSE']['TEXT']
+            ErrorResponder.fill_error(return_obj, error_message.encode('utf'), status_code)
+            raise Exception(return_obj)
+        response = xmltodict.parse(response.text)
+        knowledge_base_vuln_list = deep_get(response, ['KNOWLEDGE_BASE_VULN_LIST_OUTPUT', 'RESPONSE', 'VULN_LIST', 'VULN'], [])
+        if knowledge_base_vuln_list and not isinstance(knowledge_base_vuln_list, list):
+            knowledge_base_vuln_list = [knowledge_base_vuln_list]
+        return knowledge_base_vuln_list
 
     def get_bearer_token(self):
         """
@@ -168,7 +222,6 @@ class AssetServer(object):
         server_endpoint = asset_server_endpoint
         response_json = None
         while pagination:
-
             response = self.get_collection(server_endpoint, headers=headers, data=data)
             if response.text:
                 response_json = response.json()
@@ -180,7 +233,7 @@ class AssetServer(object):
                     raise Exception(return_obj)
                 results = results + response_json['assetListData']['asset']
 
-                # check previous api call response hasMoreRecords
+            # check previous api call response hasMoreRecords
             if response_json and response_json['hasMore']:
                 server_endpoint = asset_server_endpoint + '&lastSeenAssetId=%s' % (response_json['lastSeenAssetId'])
             else:
