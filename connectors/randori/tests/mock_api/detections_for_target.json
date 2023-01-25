@@ -1,0 +1,286 @@
+ [
+    {
+        "affiliation_state": "None",
+        "applicability": 5,
+        "attack_note": null,
+        "authority": true,
+        "authority_distance": 0,
+        "authority_override": false,
+        "authorization_state": "None",
+        "banners_uuid": null,
+        "cert_uuid": null,
+        "characteristic_tags": [
+            "INTERESTING+Defa",
+            "INTERESTING+Expirert"
+        ],
+        "characteristics_count": 2,
+        "confidence": 75,
+        "cpe": {
+            "cpe_version": "2.3",
+            "edition": null,
+            "language": null,
+            "other": null,
+            "part": "a",
+            "product": "nginx",
+            "str": "cpe:2.3:a:nginx:nginx:1.13.12:*:*:*:*:*:*:*",
+            "sw_edition": null,
+            "target_hw": null,
+            "target_sw": null,
+            "update": null,
+            "vendor": "nginx",
+            "version": "1.13.12"
+        },
+        "criticality": 3,
+        "deleted": false,
+        "description": "nginx is a webserver, reverse proxy, and generic proxy.",
+        "detection_criteria": {
+            "http": {
+                "host": "nginx.webernets.online",
+                "method": "GET",
+                "path": "/",
+                "version": 1.1
+            },
+            "ip": {
+                "address": "0000:1f18:0000:ad00:0000:48d3:1cb6:0000",
+                "version": 6
+            },
+            "tcp": {
+                "port": 443
+            }
+        },
+        "detection_relevance": 1120,
+        "enumerability": 4,
+        "exploitability": 1,
+        "first_seen": "2022-07-07T02:05:22.7",
+        "headers_uuid": "a30a10b-49b4-b539-4201b9a",
+        "hostname": "nginx.webernets.online",
+        "hostname_id": "938c7-25d7-45c0-a36e-6b2762e",
+        "id": "183791a9-5cb8",
+        "impact_score": "None",
+        "ip": "2600:0000:6670:0000:3dbe:0000:1cb6:0000",
+        "ip_id": "3c6b-a1d8-445d-b9b5-7293e",
+        "ip_str": "2600xxx81b",
+        "last_seen": "2022-09-25T20:08:53.724265+00:00",
+        "lens_id": "08a90512-fb94-4766-9cc7-7a945e934638",
+        "lens_view": "public",
+        "name": "nginx",
+        "org_id": "923af508411e",
+        "path": "/",
+        "perspective": "00000000-0000-0000-0000-000000000000",
+        "perspective_name": "PUBLIC",
+        "poc_email": null,
+        "poc_id": null,
+        "port": 443,
+        "post_exploit": 3,
+        "priority_impact_factor": 0.0,
+        "priority_score": 30.799999999999997,
+        "priority_status_factor": 0.0,
+        "priority_tags_factor": 0.043999999999999984,
+        "private_weakness": 0,
+        "protocol": "tcp",
+        "public_weakness": 1,
+        "randori_notes": "nginx has numerous historical versions with impactful vulnerabilities, but recent versions have been very clean.",
+        "randori_tags": [
+            "INTERESTING+DefaultPage",
+            "INTERESTING+ExpiredSSLCert"
+        ],
+        "reference": "https://nginx.org",
+        "research": 3,
+        "screenshot_uuid": "88ee4576-8adb-4fb8-a0b4-5375c74d720c",
+        "service_id": "866081e9-4ff5-413-146d43fdfd6f",
+        "status": "None",
+        "tags": {
+            "Amazon": {
+                "content": "Amazon",
+                "display": true,
+                "entity_id": "28ee111b-9b01-4eb3-a3fd-38a89f71d55e",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-07-08T15:00:34.812889+00:00"
+            },
+            "INTERESTING+DefaultPage": {
+                "content": "INTERESTING+DefaultPage",
+                "display": true,
+                "entity_id": "28ee111b-9b01-4eb3-a3fd-38a89f71d55e",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-09-25T16:25:53.392755+00:00"
+            },
+            "INTERESTING+ExpiredSSLCert": {
+                "content": "INTERESTING+ExpiredSSLCert",
+                "display": true,
+                "entity_id": "28ee111b-9b01-4eb3-a3fd-38a89f71d55e",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-09-26T09:24:32.528778+00:00"
+            },
+            "Unknown - By Tenable": {
+                "content": "Unknown - By Tenable",
+                "display": true,
+                "entity_id": "28ee111b-9b01-4eb3-a3fd-38a89f71d55e",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-09-27T15:00:35.333564+00:00"
+            }
+        },
+        "target_confidence": 75,
+        "target_first_seen": "2022-07-07T01:21:25.224851+00:00",
+        "target_id": "28ee111b-9b01-4eb3-a3fd-38a89f71d55e",
+        "target_last_seen": "2022-09-26T09:24:32.848748+00:00",
+        "target_num_detections": 7,
+        "target_temptation": 22,
+        "tech_category": [
+            "Web Servers"
+        ],
+        "temptation_last_modified": "2021-01-25T22:47:22.901969+00:00",
+        "thumbnail_uuid": "56fbf35e-f425-4d42-bcda-86e8764f7ec4",
+        "user_tags": [
+            "Amazon",
+            "Unknown - By Tenable"
+        ],
+        "user_tags_list": [
+            "Amazon",
+            "Unknown - By Tenable"
+        ],
+        "vendor": "nginx",
+        "version": "1.13.12"
+    },
+    {
+        "affiliation_state": "None",
+        "applicability": 5,
+        "attack_note": null,
+        "authority": true,
+        "authority_distance": 0,
+        "authority_override": false,
+        "authorization_state": "None",
+        "banners_uuid": null,
+        "cert_uuid": null,
+        "characteristic_tags": [
+            "INTERESTING+DefaultPage"
+        ],
+        "characteristics_count": 1,
+        "confidence": 75,
+        "cpe": {
+            "cpe_version": "2.3",
+            "edition": null,
+            "language": null,
+            "other": null,
+            "part": "a",
+            "product": "nginx",
+            "str": "cpe:2.3:a:nginx:nginx:1.13.12:*:*:*:*:*:*:*",
+            "sw_edition": null,
+            "target_hw": null,
+            "target_sw": null,
+            "update": null,
+            "vendor": "nginx",
+            "version": "1.13.12"
+        },
+        "criticality": 3,
+        "deleted": false,
+        "description": "nginx is a webserver, reverse proxy, and generic proxy.",
+        "detection_criteria": {
+            "http": {
+                "host": "www.webernets.online",
+                "method": "GET",
+                "path": "/",
+                "version": 1.1
+            },
+            "ip": {
+                "address": "3.95.96.197",
+                "version": 4
+            },
+            "tcp": {
+                "port": 80
+            }
+        },
+        "detection_relevance": 1120,
+        "enumerability": 4,
+        "exploitability": 1,
+        "first_seen": "2022-07-07T02:05:22.741389+00:00",
+        "headers_uuid": "6329898a-5486-4dc4-8439-855f4602d14b",
+        "hostname": "www.webernets.online",
+        "hostname_id": "ba435a62-8444-48ae-ac0f-5a597b632947",
+        "id": "1eeb1047-f4405aab9decab,2a342ec6-661f228",
+        "impact_score": "None",
+        "ip": "3.95.96.197",
+        "ip_id": "7c08dffe7a-3a6b993171e3",
+        "ip_str": "3.95.96.197",
+        "last_seen": "2022-09-27T00:40:26.755860+00:00",
+        "lens_id": "08a90512-fb94-4766-9cc7-7a945e934638",
+        "lens_view": "public",
+        "name": "nginx",
+        "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+        "path": "/",
+        "perspective": "00000000-0000-0000-0000-000000000000",
+        "perspective_name": "PUBLIC",
+        "poc_email": null,
+        "poc_id": null,
+        "port": 80,
+        "post_exploit": 3,
+        "priority_impact_factor": 0.0,
+        "priority_score": 26.4,
+        "priority_status_factor": 0.0,
+        "priority_tags_factor": 0.021999999999999992,
+        "private_weakness": 0,
+        "protocol": "tcp",
+        "public_weakness": 1,
+        "randori_notes": "nginx has numerous historical versions with impactful vulnerabilities, but recent versions have been very clean.",
+        "randori_tags": [
+            "INTERESTING+DefaultPage"
+        ],
+        "reference": "https://nginx.org",
+        "research": 3,
+        "screenshot_uuid": "8f5d3e01-2e8c-4aa6-0a293172f34d",
+        "service_id": "866081e5-146d43fdfd6f",
+        "status": "None",
+        "tags": {
+            "Amazon": {
+                "content": "Amazon",
+                "display": true,
+                "entity_id": "2a342ec6-669f-45c0-a280-116df3c1f228",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-07-08T15:00:34.834387+00:00"
+            },
+            "INTERESTING+DefaultPage": {
+                "content": "INTERESTING+DefaultPage",
+                "display": true,
+                "entity_id": "2a342ec6-669f-45c0-a280-116df3c1f228",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-09-27T00:52:36.452885+00:00"
+            },
+            "Non-TLS Pages": {
+                "content": "Non-TLS Pages",
+                "display": true,
+                "entity_id": "2a342ec6-669f-45c0-a280-116df3c1f228",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-07-08T15:00:29.843611+00:00"
+            },
+            "Unknown - By Tenable": {
+                "content": "Unknown - By Tenable",
+                "display": true,
+                "entity_id": "2a342ec6-669f-45c0-a280-116df3c1f228",
+                "org_id": "923af5dd-50ce-4d80-a55f-707dfe08411e",
+                "time_added": "2022-09-27T15:00:35.349353+00:00"
+            }
+        },
+        "target_confidence": 75,
+        "target_first_seen": "2022-07-07T01:21:17.663138+00:00",
+        "target_id": "2a342ec6-669f-45c0-a280-116df3c1f228",
+        "target_last_seen": "2022-09-27T00:52:32.202870+00:00",
+        "target_num_detections": 7,
+        "target_temptation": 22,
+        "tech_category": [
+            "Web Servers"
+        ],
+        "temptation_last_modified": "2021-01-25T22:47:22.901969+00:00",
+        "thumbnail_uuid": "31dc3215-9a14-4d15-b72a-d15418349ce9",
+        "user_tags": [
+            "Amazon",
+            "Non-TLS Pages",
+            "Unknown - By Tenable"
+        ],
+        "user_tags_list": [
+            "Amazon",
+            "Non-TLS Pages",
+            "Unknown - By Tenable"
+        ],
+        "vendor": "nginx",
+        "version": "1.13.12"
+    }
+]
