@@ -1,0 +1,4 @@
+pyopenssl==19.1.0
+car-connector-framework==3.0.0
+httpagentparser==1.9.2
+git+https://github.com/RandoriDev/randori-api-sdk#egg=randori_api

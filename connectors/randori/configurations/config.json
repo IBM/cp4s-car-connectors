@@ -1,0 +1,17 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Randori",
+            "group": "randori"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "token": {
+                "type": "password"
+            }
+        }
+    }
+}

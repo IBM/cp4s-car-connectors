@@ -1,0 +1,11 @@
+{
+
+    "configuration": {
+        "auth": {
+            "token": {
+                "label": "Auth Token",
+                "description": "Authentication token required for data source authentication"
+            }
+        }
+    }
+}
