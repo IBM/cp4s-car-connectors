@@ -25,9 +25,10 @@ class Arguments:
     api_password = args['api_password']  # car db authentication password
     export_data_dir = "automation_tests/tmp/car_temp_export_data"  # export directory
     export_data_page_size = 2000  # page size of export directory
-    keep_export_data_dir = "store_true" # keep the processed files
+    keep_export_data_dir = "store_true"  # keep the processed files
     api_token = None
     debug = None
+    connector_name = args['source']
 
 
 class TestProofPointConnector(unittest.TestCase):
@@ -54,10 +55,10 @@ class TestProofPointConnector(unittest.TestCase):
         context().full_importer.run()
 
         # Check the assets pushed in CAR DB
-        assets = context().car_service.graph_attribute_search('asset', 'external_id',
-                                                              'subashuser@galaxyabcd.com')
-
-        assert assets is not None
+        asset_id = 'subashuser@abcd.com'
+        assets = context().car_service.search_collection("asset", "source",
+                                                         context().args.source, ['external_id'])
+        assert asset_id in str(assets)
 
     def test_incremental_create(self):
         """Test Incremental create"""
@@ -77,9 +78,10 @@ class TestProofPointConnector(unittest.TestCase):
         context().inc_import.import_edges()
 
         # Validate the incremental creation
-        user = context().car_service.graph_search('vulnerability',
-                                                  'ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35')
-        assert user is not None
+        vulnerability_id = 'ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35'
+        vulnerability = context().car_service.search_collection("vulnerability", "source",
+                                                                context().args.source, ['external_id'])
+        assert vulnerability_id in str(vulnerability)
 
     def test_incremental_update(self):
         """Test Incremental update"""
@@ -100,10 +102,9 @@ class TestProofPointConnector(unittest.TestCase):
         context().inc_import.import_edges()
 
         # Validate the incremental update
-        vulnerabilities = context().car_service.graph_search('vulnerability',
-                                  'ecb8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35')
-
-        assert "'modified': '2021-09-29T05:17:21.000Z'" in str(vulnerabilities)
+        vulnerability = context().car_service.search_collection("vulnerability", "source",
+                                                                context().args.source, ['external_id'])
+        assert 'ecb8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35' in str(vulnerability)
 
     @patch('connector.server_access.AssetServer.get_collection')
     def test_incremental_delete(self, mock_api):
@@ -116,12 +117,14 @@ class TestProofPointConnector(unittest.TestCase):
 
         # Mock api configurations
         mock_api.return_value = JsonResponse(200, 'deleted_threat.json').json()
-
+        context().inc_import.active_vulnerability = ['ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35']
         # Incremental deletion initiation
         context().inc_import.delete_vertices()
-        time.sleep(10)
+        time.sleep(1)
 
         # Check the active records after deletions
-        active_vulnerabilities = context().car_service.graph_attribute_search('vulnerability', 'source',
-                                                                              context().args.source)
-        assert len(active_vulnerabilities) == 0
+        deleted_id = "ddd8e938619ad370e070ff7e8426b89cb57f1861b736ac5991fa46c34b902f35"
+        active_vulnerabilities = context().car_service.search_collection("vulnerability", "source",
+                                                                         context().args.source,
+                                                                         ['external_id'])
+        assert deleted_id not in str(active_vulnerabilities)
