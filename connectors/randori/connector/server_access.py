@@ -14,7 +14,8 @@ class AssetServer(BaseAssetServer):
     def __init__(self):
         # Api authentication to call data-source  API
         self.configuration = randori_api.Configuration(
-            access_token=context().args.access_token
+            access_token=context().args.access_token,
+            host= 'https://{}'.format(context().args.host)
         )
 
     def test_connection(self):
