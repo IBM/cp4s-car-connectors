@@ -10,6 +10,7 @@ class Arguments:
     """Test args for Unit test case"""
     server = " https://app.randori.io"
     access_token = "whatever"
+    host = "demo.randori.io"
     source = "randori"
     car_service_apikey_url = "https://app.demo.isc.ibm"
     api_key = "abcdef"
