@@ -25,9 +25,10 @@ If connector needs to extend the schema more information can be found in [schema
 This is where the data source APIs are implemented to fetch that data that will be pushed to the CAR service. 
 - Update  the `__init__` function for api authentication to call the data source API.
 - Update `get_collection` to get the list of asset data.
-- Update `test_connection` to ping datasource to check if the datasource is reachable.
+- Update `test_connection` to ping datasource to check if the datasource is reachable. Make sure that the method return 0 on successful connection, or [a corresponding error code](https://github.com/IBM/cp4s-car-connector-framework/blob/99554ac2cfa0732af090c46be9e356beb015934e/car_framework/util.py#L35) on failure (Example: `return ErrorCode.TRANSMISSION_AUTH_CREDENTIALS.value`). 
 - Update `get_object` and `get_objects` to get a single or list of objects based on identifier.
 - If data source has any save points, `get_model_state_id` can be updated  to get that save point and `get_model_state_delta` to gather information to get data between two save points.
+- For any kind of caught exception raise [DatasourceFailure](https://github.com/IBM/cp4s-car-connector-framework/blob/99554ac2cfa0732af090c46be9e356beb015934e/car_framework/util.py#L92) with [a corresponding error code](https://github.com/IBM/cp4s-car-connector-framework/blob/99554ac2cfa0732af090c46be9e356beb015934e/car_framework/util.py#L35)
 
 ### `connector/data_handler.py`
 
@@ -64,6 +65,27 @@ The `IncrementalImport` class is responsible for the periodic import of data int
 - Update the `get_data_for_delta` method with logic to gather data from last save point and new save point. 
 - Update the `import_collection` method with logic that imports a single collection only for the data between two save points.
 - Update the `delete_vertices` method with logic to delete any vertices from the CAR database that have been deleted on the data source since the last import.
+
+## Error handling
+
+The errors occuring in the connector code must be well handled.
+Consider raising DatasourceFailure with [a corresponding error code](https://github.com/IBM/cp4s-car-connector-framework/blob/99554ac2cfa0732af090c46be9e356beb015934e/car_framework/util.py#L35) whenever you need to have try/raise blocks. 
+Example: 
+
+```python
+try:
+    ...
+    header = {
+        "Authorization": "Bearer {}".format(self.get_access_token())
+    }
+    response = self.call_api(self.AUTH_URL, 'GET', header)
+    ...
+
+except Exception as e:
+    raise DatasourceFailure(e, ErrorCode.DATASOURCE_FAILURE_AUTH.value)
+```
+
+If an error is not handled, the framework will raise a [GENERAL_APPLICATION_FAILURE](https://github.com/IBM/cp4s-car-connector-framework/blob/99554ac2cfa0732af090c46be9e356beb015934e/car_framework/app.py#L106) (Unknown error) and print the error stack. 
 
 ## Configuration files
 
