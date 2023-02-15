@@ -41,3 +41,11 @@ Running the connector:
 python3 app.py -server=http://localhost:8000 -username=admin -password=admin -car-service-url=<car-service-url> -car-service-key=<car-service-key> -car-service-password=<car-service-password> -source=<source>
 
 ```
+
+## Developer Guide
+
+See the [developer](https://github.com/IBM/cp4s-car-connectors/blob/develop/guide-build-connectors.md) guide for building a new CAR connector.
+
+## Deploy connector in CP4S cluster
+
+See the [build and deploy guide](https://github.com/IBM/cp4s-car-connectors/blob/develop/deployment/README.md) to install connector in CP4S cluster
