@@ -47,21 +47,12 @@ class IncrementalImport(BaseIncrementalImport):
         query = {
             'condition': "AND",
             'rules': [
-                {
-                    'condition': "OR",
-                    'rules': [
                         {
-                            'field': "table.target_first_seen",
+                            'field': "table.target_last_seen",
                             'operator': "greater_or_equal",
                             'value': last_run
-                        },
-                        {
-                            'field': "table.temptation_last_modified",
-                            'operator': "greater_or_equal",
-                            'value': last_run
+                            # pull in Randori information when last_seen > the last_run
                         }
-                    ]
-                }
             ]
         }
         # We need the query to be a string in order to base64 encode it easily

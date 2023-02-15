@@ -30,20 +30,11 @@ class FullImport(BaseFullImport):
             'condition': "AND",
             'rules': [
                 {
-                    'condition': "OR",
-                    'rules': [
-                        {
-                            'field': "table.target_first_seen",
-                            'operator': "greater_or_equal",
-                            'value': three_months_back
-                        },
-                        {
-                            'field': "table.temptation_last_modified",
-                            'operator': "greater_or_equal",
-                            'value': three_months_back
-                        }
-                    ]
-                }
+                  'field': "table.target_last_seen",
+                  'operator': "greater_or_equal",
+                  'value': three_months_back
+                  # pull in all Randori informaiton for assets scanned over the last three months 
+                 }             
             ]
         }
         # We need the query to be a string in order to base64 encode it easily
