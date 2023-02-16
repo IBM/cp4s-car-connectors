@@ -1,2 +1,2 @@
 adal==1.2.2
-car-connector-framework==3.0.0
+car-connector-framework==3.0.1

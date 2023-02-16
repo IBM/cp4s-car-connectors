@@ -1,4 +1,4 @@
-car-connector-framework==3.0.0
+car-connector-framework==3.0.1
 xmltodict==0.12.0
 pytest==7.0.0
 html2text==2020.1.16
