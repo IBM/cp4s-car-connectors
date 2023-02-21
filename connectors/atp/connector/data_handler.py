@@ -1,5 +1,7 @@
 from car_framework.context import context
 from car_framework.data_handler import BaseDataHandler
+from datetime import datetime
+import dateutil.parser as dparser
 
 ACTIVE = True
 BASE_SCORE_MAP = {"high": 8, "medium": 5, "low": 2, "informational": 0}
@@ -117,7 +119,7 @@ class DataHandler(BaseDataHandler):
                 vulnerability['external_id'] = obj['CveId']
                 vulnerability['name'] = obj['CveId']
                 vulnerability['description'] = obj['VulnerabilityDescription']
-                vulnerability['published_on'] = obj['PublishedDate']
+                vulnerability['published_on'] = dparser.parse(obj['PublishedDate']).timestamp()
                 vulnerability['base_score'] = round(obj['CvssScore'])
                 self.add_collection('vulnerability', vulnerability, 'external_id')
 
@@ -125,8 +127,8 @@ class DataHandler(BaseDataHandler):
             vulnerability['external_id'] = obj['id']
             vulnerability['name'] = obj['title']
             vulnerability['description'] = obj['description']
-            vulnerability['disclosed_on'] = obj['firstEventTime']
-            vulnerability['published_on'] = obj['alertCreationTime']
+            vulnerability['disclosed_on'] = dparser.parse(obj['firstEventTime']).timestamp()
+            vulnerability['published_on'] = dparser.parse(obj['alertCreationTime']).timestamp()
             vulnerability['base_score'] = BASE_SCORE_MAP.get(obj['severity'].lower(), 0)
             self.add_collection('vulnerability', vulnerability, 'external_id')
 

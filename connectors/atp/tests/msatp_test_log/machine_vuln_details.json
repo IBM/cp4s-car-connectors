@@ -93,7 +93,7 @@
 		       "SoftwareVersion":"x1234",
 	           "CveId": "c-id-123",
 		       "VulnerabilityDescription": "sample description",
-		       "PublishedDate": "sample_date",
+		       "PublishedDate": "2022-09-21T17:11:54.4338957Z",
 		       "CvssScore": 122.34567,
 		       "DeviceId": "7594a7860caaf0bdb5a3b68c341773bf004e3e14"
 	}]
