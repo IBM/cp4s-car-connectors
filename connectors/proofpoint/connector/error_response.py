@@ -32,7 +32,7 @@ class ErrorResponder:
         else:
             structure_map = message_structure
             error_code = status_code
-            error_msg = message_structure.decode('utf-8')
+            error_msg = message_structure.decode('utf-8', errors='ignore')
 
             if ErrorResponder.is_plain_string(error_msg):
                 structure_map = error_msg
