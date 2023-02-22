@@ -1,2 +1,2 @@
-car-connector-framework==3.0.1
+car-connector-framework==3.0.0
 httpagentparser==1.9.2
