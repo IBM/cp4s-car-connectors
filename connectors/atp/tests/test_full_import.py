@@ -9,12 +9,14 @@ ACCESS_TOKEN = 'xyz-abc-123'
 class TestImportFull(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_machine_list')
-    def test_create_asset_host(self, mock_machine_list):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_asset_host(self, schema, mock_machine_list):
         """
              Summary unit test for create asset host.
         """
         context_patch(incremental=False)
         mock_machine_list.return_value = JsonResponse(200, 'vm_details_log.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         actual_response = context().data_collector.create_asset_host(incremental=False)
         assert actual_response is not None
         context().full_importer.handle_data([
@@ -41,13 +43,15 @@ class TestImportFull(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_machine_list')
     @patch('connector.server_access.AssetServer.mac_private_ip_information')
-    def test_create_ip_mac(self, mock_private_ip_response, mock_machine_list):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_ip_mac(self, schema, mock_private_ip_response, mock_machine_list):
         """
              Summary unit test for create ipaddress macaddress.
         """
         context_patch(incremental=False)
         mock_machine_list.return_value = JsonResponse(200, 'vm_details_log.json').json()
         mock_private_ip_response.return_value = JsonResponse(200, 'private_ip_log.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         actual_response, _, _, _ = context().data_collector.create_ipaddress_macaddress(incremental=False)
         assert actual_response is not None
         context().full_importer.handle_data([
@@ -85,7 +89,8 @@ class TestImportFull(unittest.TestCase):
     @patch('connector.server_access.AssetServer.vulnerability_information')
     @patch('connector.server_access.AssetServer.get_alerts_list')
     @patch('connector.server_access.AssetServer.get_machine_list')
-    def test_create_vulnerability(self, mock_machine_list, mock_alert_log, mock_vuln_vm_details):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_vulnerability(self, schema, mock_machine_list, mock_alert_log, mock_vuln_vm_details):
         """
              Summary unit test for create vulnerability.
         """
@@ -94,6 +99,7 @@ class TestImportFull(unittest.TestCase):
         mock_machine_list.return_value = JsonResponse(200, 'vm_details_log.json').json()
         mock_alert_log.return_value = JsonResponse(200, 'alerts_log.json').json()
         mock_vuln_vm_details.return_value = JsonResponse(200, 'machine_vuln_details.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         actual_response, _, _, _, _ = context().data_collector.create_vulnerability(incremental=False)
   
         assert actual_response is not None
@@ -120,13 +126,15 @@ class TestImportFull(unittest.TestCase):
     @patch('connector.server_access.AssetServer.get_access_token')
     @patch('connector.server_access.RestApiClient.call_api')
     @patch('connector.server_access.AssetServer.get_machine_list')
-    def test_create_user(self, mock_machine_list, mock_user_details, mock_access_token):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_user(self, schema, mock_machine_list, mock_user_details, mock_access_token):
         """
              Summary unit test for create user.
         """
         context_patch(incremental=False)
         mock_access_token.return_value = ACCESS_TOKEN
         mock_machine_list.return_value = JsonResponse(200, 'vm_details_log.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         mock_user_details.return_value = JsonResponse(200, 'user_details_log.json')
         actual_response = context().data_collector.create_user(incremental=False)
         assert actual_response is not None

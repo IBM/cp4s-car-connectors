@@ -50,6 +50,8 @@ class RestApiClient(BaseAssetServer):
                 for header_key in headers:
                     actual_headers[header_key] = headers[header_key]
 
+            actual_headers["Content-Type"] = "application/json"
+
             if urldata is not None:
                 urldata = urllib.parse.urlencode(urldata)
                 if '?' in endpoint:
