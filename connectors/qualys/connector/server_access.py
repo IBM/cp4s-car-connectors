@@ -50,16 +50,20 @@ class AssetServer(object):
         data = None
         results = []
         pagination = True
+        asset_count = 0
         headers = self.config['parameter']['headers']
         auth = self.basic_auth
         asset_server_endpoint = context().args.server + self.config['endpoint']['asset']
 
         # adding filter for incremental run
+        data = '<ServiceRequest>' \
+               '<preferences><limitResults>1000</limitResults></preferences>' \
+               '</ServiceRequest>'
         if last_model_state_id:
             data = '<ServiceRequest>' \
+                   '<preferences><limitResults>1000</limitResults></preferences>' \
                    '<filters><Criteria field="updated" operator="GREATER">%s</Criteria></filters>' \
                    '</ServiceRequest>' % last_model_state_id
-
         while pagination:
             response = self.get_collection(asset_server_endpoint, headers=headers, auth=auth, data=data)
             response_json = response.json()
@@ -76,17 +80,20 @@ class AssetServer(object):
             # check previous api call response hasMoreRecords
             if response_json['ServiceResponse'].get('hasMoreRecords') and \
                     response_json['ServiceResponse']['hasMoreRecords'] == 'true':
-
+                asset_count += response_json['ServiceResponse']['count']
+                context().logger.debug("Total host records fetched: %s", asset_count)
                 # adding filter and pagination for incremental run
                 if last_model_state_id:
                     data = '<ServiceRequest>' \
-                           '<preferences><startFromOffset>%s</startFromOffset></preferences>' \
+                           '<preferences><startFromOffset>%s</startFromOffset>' \
+                           '<limitResults>1000</limitResults></preferences>' \
                            '<filters><Criteria field="updated" operator="GREATER">%s</Criteria></filters>' \
-                           '</ServiceRequest>' % (response_json['ServiceResponse']['count'] + 1, last_model_state_id)
+                           '</ServiceRequest>' % (asset_count + 1, last_model_state_id)
                 else:  # adding filter and pagination for full import
                     data = '<ServiceRequest>' \
-                           '<preferences><startFromOffset>%s</startFromOffset></preferences>' \
-                           '</ServiceRequest>' % (response_json['ServiceResponse']['count'] + 1)
+                           '<preferences><startFromOffset>%s</startFromOffset>' \
+                           '<limitResults>1000</limitResults></preferences>' \
+                           '</ServiceRequest>' % (asset_count + 1)
             else:
                 pagination = False
 
@@ -148,14 +155,14 @@ class AssetServer(object):
 
         # Get the vulnerability information from knowledgebase
         knowledge_base_vuln_list = self.get_knowledge_base_vuln_list(vuln_list)
-        knowledge_base_vuln_list = {vuln['QID']:vuln for vuln in knowledge_base_vuln_list}
+        knowledge_base_vuln_list = {vuln['QID']: vuln for vuln in knowledge_base_vuln_list}
 
         # Add Knowledge base vuln info to host detection vulnerabilities
         for host_vuln_detection in host_vuln_detections:
             host_vuln_list = deep_get(host_vuln_detection, ['DETECTION_LIST', 'DETECTION'], [])
             if host_vuln_list and not isinstance(host_vuln_list, list):
                 qid = host_vuln_detection['DETECTION_LIST']['DETECTION']['QID']
-                host_vuln_detection['DETECTION_LIST']['DETECTION'][qid]= knowledge_base_vuln_list.get(qid)
+                host_vuln_detection['DETECTION_LIST']['DETECTION'][qid] = knowledge_base_vuln_list.get(qid)
             else:
                 for i in range(0, len(host_vuln_detection['DETECTION_LIST']['DETECTION'])):
                     qid = host_vuln_detection['DETECTION_LIST']['DETECTION'][i]['QID']
@@ -178,7 +185,8 @@ class AssetServer(object):
             ErrorResponder.fill_error(return_obj, error_message.encode('utf'), status_code)
             raise Exception(return_obj)
         response = xmltodict.parse(response.text)
-        knowledge_base_vuln_list = deep_get(response, ['KNOWLEDGE_BASE_VULN_LIST_OUTPUT', 'RESPONSE', 'VULN_LIST', 'VULN'], [])
+        knowledge_base_vuln_list = deep_get(response,
+                                            ['KNOWLEDGE_BASE_VULN_LIST_OUTPUT', 'RESPONSE', 'VULN_LIST', 'VULN'], [])
         if knowledge_base_vuln_list and not isinstance(knowledge_base_vuln_list, list):
             knowledge_base_vuln_list = [knowledge_base_vuln_list]
         return knowledge_base_vuln_list
