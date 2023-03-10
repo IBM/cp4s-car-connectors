@@ -14,6 +14,10 @@
             "type": "text",
             "hidden": true,
             "default": "{image_link}"
+        },
+        "type": {
+            "maxConnections": 1,
+            "maxConfigurations": 1
         }
     }
 }
