@@ -1,0 +1,17 @@
+{
+    "connection": {
+        "host": {
+            "label": "Management IP address or Hostname",
+            "placeholder": "app.randori.io",
+            "description": "Specify the IP address or  hostname of the data source so that IBM Cloud Pak for Security can communicate with it"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "token": {
+                "label": "Auth Token",
+                "description": "Authentication token required for data source authentication"
+            }
+        }
+    }
+}

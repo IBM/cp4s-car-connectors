@@ -1,0 +1,58 @@
+{
+  "data": {
+    "endpoints": {
+      "edges": [
+        {
+          "node": {
+            "id": "1",
+            "eidFirstSeen": "2023-03-14:06:27",
+            "eidLastSeen": "2023-03-14:06:29",
+            "name": "ip-172-31-76-205.ec2.internal",
+            "domainName": "ec2.internal",
+            "serialNumber": "ec2a2577-8108-f1a1-d7e9-9617d4e10de6",
+            "manufacturer": "Amazon EC2",
+            "ipAddress": "172.31.76.205",
+            "ipAddresses": ["172.31.76.205", "fe80::4a5:dff:fe47:cd83"],
+            "macAddresses": ["06:a5:0d:47:cd:83"],
+            "primaryUser": {
+              "name": "N/A on Linux"
+              },
+            "lastLoggedInUser": "ec2-user",
+            "isVirtual": "True",
+            "isEncrypted": "False",
+            "chassisType": "Virtual",
+            "os": {
+              "name": "Amazon Linux release 2 (Karoo)"
+            },
+            "services": [
+              {
+                "name": "acpid.service"
+              },
+              {
+                "name": "amazon-cloudwatch-agent.service"
+              }
+            ],
+            "disks": [
+              {
+                "free": "3.4G",
+                "total": "8.0G",
+                "usedPercentage": "58%",
+                "usedSpace": "4.6G"
+              }
+            ],
+            "eventCounts": {
+              "network": 0
+            },
+            "discover": {
+              "natIpAddress": "none",
+              "openPorts": [111, 22]
+            },
+            "risk": {
+              "totalScore": 299.431
+            }
+          }
+        }
+      ]
+    }
+  }
+}
