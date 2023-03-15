@@ -1,2 +1,2 @@
-car-connector-framework==3.0.1
+car-connector-framework==3.0.0
 git+https://github.com/RandoriDev/randori-api-sdk#egg=randori_api
