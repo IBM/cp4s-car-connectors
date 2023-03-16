@@ -62,7 +62,10 @@ class DataHandler(BaseDataHandler):
     def handle_assets(self, obj):
         res = {}
         res['external_id'] = obj['id']
-        res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
+        if obj['manufacturer']:
+            res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
+        else:
+            res['name'] = obj['name']
         res['first_seen'] = obj['eidFirstSeen']
         res['last_seen'] = obj['eidLastSeen']
 

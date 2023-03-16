@@ -22,7 +22,7 @@ class App(BaseApp):
                                  type=str, required=False, help='The url of the tanium data source')
         self.parser.add_argument('-port', dest='port', default=os.getenv('CONNECTION_PORT', 8443),
                                  type=str, required=False, help='The url of the tanium data source')
-        self.parser.add_argument('-access_token', dest='access_token', default=os.getenv('CONFIGURATION_TOKEN', None),
+        self.parser.add_argument('-access_token', dest='access_token', default=os.getenv('CONFIGURATION_AUTH_TOKEN', None),
                                  type=str, required=False, help='Access token of the tanium data source')
 
     def setup(self):

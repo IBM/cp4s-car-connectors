@@ -71,17 +71,10 @@ class AssetServer(BaseAssetServer):
                           os {
                             name
                           },
-                          disks {
-                            free
-                            total
-                            usedPercentage
-                            usedSpace
-                          },
                           eventCounts{
                             network
                           },
                         discover {
-                          natIpAddress,
                           openPorts
                         }
                         risk {

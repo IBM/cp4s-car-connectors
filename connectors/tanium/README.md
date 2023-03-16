@@ -38,6 +38,5 @@ pip3 install -r requirements.txt
 
 Running the connector:
 ```
-python3 app.py -server=http://localhost:8000 -username=admin -password=admin -car-service-url=<car-service-url> -car-service-key=<car-service-key> -car-service-password=<car-service-password> -source=<source>
-
+python3 app.py -host <The url of the tanium data source> -access_token <Access token of the tanium data source> -car-service-key "<car-service-key>" -car-service-password "<car-service-password>" -car-service-url "<car-service-url>" -source tanium
 ```
