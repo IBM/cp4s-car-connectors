@@ -66,7 +66,7 @@ class DataHandler(BaseDataHandler):
         res['first_seen'] = obj['eidFirstSeen']
         res['last_seen'] = obj['eidLastSeen']
         res['risk'] = obj['risk']['totalScore'] / 100
-
+        self.add_collection('asset', res, 'external_id')
 
     # Create ipaddress Object as per CAR data model from data source
     def handle_ipaddress(self, obj):
