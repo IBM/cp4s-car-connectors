@@ -58,6 +58,16 @@ class AssetServer(BaseAssetServer):
                     edges {
                         node {
                           id,
+                          name,
+                          manufacturer,
+                          eidFirstSeen,
+                          eidLastSeen,
+                          services {
+                            status
+                            startupMode
+                          },
+                          eidFirstSeen,
+                          eidLastSeen,
                           ipAddress,
                           ipAddresses,
                           macAddresses,
