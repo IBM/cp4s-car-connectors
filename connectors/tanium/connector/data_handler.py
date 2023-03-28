@@ -62,18 +62,10 @@ class DataHandler(BaseDataHandler):
     def handle_assets(self, obj):
         res = {}
         res['external_id'] = obj['id']
-        if obj['manufacturer']:
-            res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
-        else:
-            res['name'] = obj['name']
+        res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
         res['first_seen'] = obj['eidFirstSeen']
         res['last_seen'] = obj['eidLastSeen']
-
-        if obj['risk']['totalScore'] <= 40:
-            res['risk'] = obj['risk']['totalScore'] / 40 * 7
-        else:
-            res['risk'] = 7 + ((obj['risk']['totalScore'] - 40) / 160 * 3)
-
+        res['risk'] = obj['risk']['totalScore'] / 100
         self.add_collection('asset', res, 'external_id')
 
     # Create ipaddress Object as per CAR data model from data source
