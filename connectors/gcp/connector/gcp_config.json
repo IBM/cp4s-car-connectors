@@ -1,0 +1,24 @@
+{
+  "source": "GCP",
+  "endpoint": {
+    "token_uri": "https://oauth2.googleapis.com/token"
+  },
+  "asset_type": {
+    "vm": "compute.googleapis.com/Instance",
+    "vm_os_pkgs": "compute.googleapis.com/Instance",
+    "os_pkg_vuln": "osconfig.googleapis.com/VulnerabilityReport"
+  },
+  "asset_name_prefix": {
+    "vm": "//compute.googleapis.com/",
+    "os_pkg_vuln": "//osconfig.googleapis.com/"
+  },
+  "asset_create_log_filter": {
+    "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.insert\""
+  },
+  "asset_update_log_filter": {
+  "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName=~\"compute.instances.(stop|start|update|setName)\""
+  },
+  "asset_del_log_filter": {
+    "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.delete\""
+  }
+}

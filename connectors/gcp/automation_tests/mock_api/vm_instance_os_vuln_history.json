@@ -1,0 +1,194 @@
+[
+  {
+    "name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-a/instances/6808925113337708402/vulnerabilityReport",
+    "assetType": "osconfig.googleapis.com/VulnerabilityReport",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://osconfig.googleapis.com/$discovery/rest",
+      "discoveryName": "VulnerabilityReport",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/951111111111",
+      "data": {
+        "name": "projects/951111111111/locations/us-central1-a/instances/6808925113337708402/vulnerabilityReport",
+        "vulnerabilities": [
+          {
+            "installedInventoryItemIds": [
+              "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+            ],
+            "createTime": "2023-03-19T17:12:49.088353Z",
+            "details": {
+              "description": "Out-of-bounds Read in GitHub repository vim/vim prior to 9.0.0104.",
+              "references": [
+                {
+                  "source": "Distro",
+                  "url": "https://security-tracker.debian.org/tracker/CVE-2022-2581"
+                },
+                {
+                  "source": "NVD",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-2581"
+                }
+              ],
+              "cvssV3": {
+                "integrityImpact": "IMPACT_HIGH",
+                "impactScore": 5.9000001,
+                "availabilityImpact": "IMPACT_HIGH",
+                "scope": "SCOPE_UNCHANGED",
+                "attackVector": "ATTACK_VECTOR_LOCAL",
+                "userInteraction": "USER_INTERACTION_REQUIRED",
+                "baseScore": 7.8000002,
+                "exploitabilityScore": 1.8,
+                "attackComplexity": "ATTACK_COMPLEXITY_LOW",
+                "confidentialityImpact": "IMPACT_HIGH",
+                "privilegesRequired": "PRIVILEGES_REQUIRED_NONE"
+              },
+              "severity": "LOW",
+              "cvssV2Score": 7.8000002,
+              "cve": "CVE-2022-2581"
+            },
+            "items": [
+              {
+                "installedInventoryItemId": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1",
+                "fixedCpeUri": "cpe:/o:debian:debian_linux:11"
+              }
+            ],
+            "updateTime": "2023-03-19T17:12:49.088353Z"
+          },
+          {
+            "installedInventoryItemIds": [
+              "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+            ],
+            "createTime": "2023-03-19T17:12:49.088438Z",
+            "details": {
+              "description": "Use After Free in GitHub repository vim/vim prior to 8.2.",
+              "references": [
+                {
+                  "source": "Distro",
+                  "url": "https://security-tracker.debian.org/tracker/CVE-2022-2042"
+                },
+                {
+                  "source": "NVD",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-2042"
+                }
+              ],
+              "cvssV3": {
+                "integrityImpact": "IMPACT_HIGH",
+                "impactScore": 5.9000001,
+                "availabilityImpact": "IMPACT_HIGH",
+                "scope": "SCOPE_UNCHANGED",
+                "userInteraction": "USER_INTERACTION_REQUIRED",
+                "attackVector": "ATTACK_VECTOR_LOCAL",
+                "baseScore": 7.8000002,
+                "exploitabilityScore": 1.8,
+                "attackComplexity": "ATTACK_COMPLEXITY_LOW",
+                "confidentialityImpact": "IMPACT_HIGH",
+                "privilegesRequired": "PRIVILEGES_REQUIRED_NONE"
+              },
+              "severity": "LOW",
+              "cvssV2Score": 6.8000002,
+              "cve": "CVE-2022-2042"
+            },
+            "items": [
+              {
+                "installedInventoryItemId": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1",
+                "fixedCpeUri": "cpe:/o:debian:debian_linux:11"
+              }
+            ],
+            "updateTime": "2023-03-19T17:12:49.088438Z"
+          },
+          {
+            "installedInventoryItemIds": [
+              "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+            ],
+            "createTime": "2023-03-19T17:12:49.088416Z",
+            "details": {
+              "description": "NULL Pointer Dereference in GitHub repository vim/vim prior to 8.2.",
+              "references": [
+                {
+                  "source": "Distro",
+                  "url": "https://security-tracker.debian.org/tracker/CVE-2022-2231"
+                },
+                {
+                  "source": "NVD",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-2231"
+                }
+              ],
+              "cvssV3": {
+                "integrityImpact": "IMPACT_NONE",
+                "impactScore": 3.5999999,
+                "availabilityImpact": "IMPACT_HIGH",
+                "scope": "SCOPE_UNCHANGED",
+                "attackVector": "ATTACK_VECTOR_LOCAL",
+                "userInteraction": "USER_INTERACTION_REQUIRED",
+                "exploitabilityScore": 1.8,
+                "baseScore": 5.5,
+                "attackComplexity": "ATTACK_COMPLEXITY_LOW",
+                "confidentialityImpact": "IMPACT_NONE",
+                "privilegesRequired": "PRIVILEGES_REQUIRED_NONE"
+              },
+              "severity": "LOW",
+              "cvssV2Score": 4.3000002,
+              "cve": "CVE-2022-2231"
+            },
+            "items": [
+              {
+                "installedInventoryItemId": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1",
+                "fixedCpeUri": "cpe:/o:debian:debian_linux:11"
+              }
+            ],
+            "updateTime": "2023-03-19T17:12:49.088416Z"
+          },
+          {
+            "installedInventoryItemIds": [
+              "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+            ],
+            "createTime": "2024-03-19T17:12:49.088415Z",
+            "details": {
+              "cvssV3": {
+                "integrityImpact": "IMPACT_NONE",
+                "impactScore": 3.5999999,
+                "availabilityImpact": "IMPACT_HIGH",
+                "scope": "SCOPE_UNCHANGED",
+                "userInteraction": "USER_INTERACTION_REQUIRED",
+                "attackVector": "ATTACK_VECTOR_LOCAL",
+                "baseScore": 5.5,
+                "exploitabilityScore": 1.8,
+                "attackComplexity": "ATTACK_COMPLEXITY_LOW",
+                "confidentialityImpact": "IMPACT_NONE",
+                "privilegesRequired": "PRIVILEGES_REQUIRED_NONE"
+              },
+              "references": [
+                {
+                  "source": "Distro",
+                  "url": "https://security-tracker.debian.org/tracker/CVE-2022-2923"
+                },
+                {
+                  "source": "NVD",
+                  "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-2923"
+                }
+              ],
+              "description": "NULL Pointer Dereference in GitHub repository vim/vim prior to 9.0.0240.",
+              "severity": "LOW",
+              "cvssV2Score": 5.5,
+              "cve": "CVE-2022-2923"
+            },
+            "items": [
+              {
+                "installedInventoryItemId": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1",
+                "fixedCpeUri": "cpe:/o:debian:debian_linux:11"
+              }
+            ],
+            "updateTime": "2023-03-19T17:12:49.088415Z"
+          }
+        ],
+        "updateTime": "2023-03-19T17:12:49.088593Z"
+      },
+      "location": "us-central1-a",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-03-19T17:12:49.099516Z",
+    "orgPolicy": []
+  }
+]

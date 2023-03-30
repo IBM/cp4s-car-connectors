@@ -1,0 +1,248 @@
+{
+  "update_time": {
+    "seconds": 1662147575,
+    "nanos": 315351000
+  },
+  "name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-a/instances/8466577108601329971/vulnerabilityReport",
+  "asset_type": "osconfig.googleapis.com/VulnerabilityReport",
+  "resource": {
+    "version": "v1",
+    "discovery_document_uri": "https://osconfig.googleapis.com/$discovery/rest",
+    "discovery_name": "VulnerabilityReport",
+    "parent": "//cloudresourcemanager.googleapis.com/projects/951111111111",
+    "data": {
+      "pb":
+{"vulnerabilities":
+  {"list_value":{
+   "values": {
+     "struct_value" :{
+       "fields" : {
+         "key": "updateTime",
+         "value": {
+           "string_value": "2022-08-31T13:57:46.061122Z"
+         }
+       }
+     }
+   },
+                "fields": {
+                  "key": "items",
+                  "value": {
+                    "list_value": {
+                      "values": {
+                        "struct_value": {
+                          "fields": {
+                            "key": "installedInventoryItemId",
+                            "value": {
+                              "string_value": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+                            }
+                          },
+                          "fields": {
+                            "key": "fixedCpeUri",
+                            "value": {
+                              "string_value": "cpe:/o:debian:debian_linux:11"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "fields": {
+                  "key": "installedInventoryItemIds",
+                  "value": {
+                    "list_value": {
+                      "values": {
+                        "string_value": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+                      }
+                    }
+                  }
+                },
+                "fields": {
+                  "key": "details",
+                  "value": {
+                    "struct_value": {
+                      "fields": {
+                        "key": "severity",
+                        "value": {
+                          "string_value": "LOW"
+                        }
+                      },
+                      "fields": {
+                        "key": "references",
+                        "value": {
+                          "list_value": {
+                            "values": {
+                              "struct_value": {
+                                "fields": {
+                                  "key": "url",
+                                  "value": {
+                                    "string_value": "https://security-tracker.debian.org/tracker/CVE-2022-2042"
+                                  }
+                                },
+                                "fields": {
+                                  "key": "source",
+                                  "value": {
+                                    "string_value": "Distro"
+                                  }
+                                }
+                              }
+                            },
+                            "values": {
+                              "struct_value": {
+                                "fields": {
+                                  "key": "url",
+                                  "value": {
+                                    "string_value": "https://nvd.nist.gov/vuln/detail/CVE-2022-2042"
+                                  }
+                                },
+                                "fields": {
+                                  "key": "source",
+                                  "value": {
+                                    "string_value": "NVD"
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fields": {
+                        "key": "description",
+                        "value": {
+                          "string_value": "Use After Free in GitHub repository vim/vim prior to 8.2."
+                        }
+                      },
+                      "fields": {
+                        "key": "cvssV3",
+                        "value": {
+                          "struct_value": {
+                            "fields": {
+                              "key": "userInteraction",
+                              "value": {
+                                "string_value": "USER_INTERACTION_NONE"
+                              }
+                            },
+                            "fields": {
+                              "key": "scope",
+                              "value": {
+                                "string_value": "SCOPE_UNCHANGED"
+                              }
+                            },
+                            "fields": {
+                              "key": "privilegesRequired",
+                              "value": {
+                                "string_value": "PRIVILEGES_REQUIRED_NONE"
+                              }
+                            },
+                            "fields": {
+                              "key": "integrityImpact",
+                              "value": {
+                                "string_value": "IMPACT_HIGH"
+                              }
+                            },
+                            "fields": {
+                              "key": "impactScore",
+                              "value": {
+                                "number_value": 5.9000001
+                              }
+                            },
+                            "fields": {
+                              "key": "exploitabilityScore",
+                              "value": {
+                                "number_value": 3.9000001
+                              }
+                            },
+                            "fields": {
+                              "key": "confidentialityImpact",
+                              "value": {
+                                "string_value": "IMPACT_HIGH"
+                              }
+                            },
+                            "fields": {
+                              "key": "baseScore",
+                              "value": {
+                                "number_value": 9.8000002
+                              }
+                            },
+                            "fields": {
+                              "key": "availabilityImpact",
+                              "value": {
+                                "string_value": "IMPACT_HIGH"
+                              }
+                            },
+                            "fields": {
+                              "key": "attackVector",
+                              "value": {
+                                "string_value": "ATTACK_VECTOR_NETWORK"
+                              }
+                            },
+                            "fields": {
+                              "key": "attackComplexity",
+                              "value": {
+                                "string_value": "ATTACK_COMPLEXITY_LOW"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "fields": {
+                        "key": "cvssV2Score",
+                        "value": {
+                          "number_value": 7.5
+                        }
+                      },
+                      "fields": {
+                        "key": "cve",
+                        "value": {
+                          "string_value": "CVE-2022-2042"
+                        }
+                      }
+                    }
+                  }
+                },
+                "fields": {
+                  "key": "createTime",
+                  "value": {
+                    "string_value": "2022-08-31T13:57:46.061122Z"
+                  }
+                }
+              }
+            },
+            "values": {
+              "struct_value": {
+                "fields": {
+                  "key": "updateTime",
+                  "value": {
+                    "string_value": "2022-08-31T13:57:46.062351Z"
+                  }
+                },
+                "fields": {
+                  "key": "items",
+                  "value": {
+                    "list_value": {
+                      "values": {
+                        "struct_value": {
+                          "fields": {
+                            "key": "installedInventoryItemId",
+                            "value": {
+                              "string_value": "installedPackage-vim:x86_64:2:8.2.2434-3+deb11u1"
+                            }
+                          },
+                          "fields": {
+                            "key": "fixedCpeUri",
+                            "value": {
+                              "string_value": "cpe:/o:debian:debian_linux:11"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+

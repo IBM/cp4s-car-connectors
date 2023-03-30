@@ -1,0 +1,28 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Google Cloud Platform"
+        },
+        "selfSignedCert": {
+			"type": "password"
+		},
+        "options": {
+            "type": "fields",
+            "page_size": {
+                "type": "number",
+                "default": 100,
+                "min": 1,
+                "max": 1000
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "client_email": {
+                "type": "password"
+            }
+        }
+    }
+}

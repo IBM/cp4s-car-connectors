@@ -1,0 +1,128 @@
+[
+  {
+    "name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/instance-1",
+    "assetType": "compute.googleapis.com/Instance",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/compute/v1/rest",
+      "discoveryName": "Instance",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/951111111111",
+      "data": {
+        "cpuPlatform": "Intel Broadwell",
+        "creationTimestamp": "2023-03-17T06:02:38.761-07:00",
+        "allocationAffinity": {
+          "consumeAllocationType": "ANY_ALLOCATION"
+        },
+        "status": "RUNNING",
+        "scheduling": {
+          "automaticRestart": true,
+          "onHostMaintenance": "MIGRATE",
+          "preemptible": false,
+          "provisioningModel": "STANDARD"
+        },
+        "disks": [
+          {
+            "interface": "SCSI",
+            "licenses": [
+              "https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-11-bullseye"
+            ],
+            "type": "PERSISTENT",
+            "index": 0.0,
+            "architecture": "X86_64",
+            "source": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/disks/instance-1",
+            "diskSizeGb": "10",
+            "mode": "READ_WRITE",
+            "boot": true,
+            "guestOsFeatures": [
+              {
+                "type": "UEFI_COMPATIBLE"
+              },
+              {
+                "type": "VIRTIO_SCSI_MULTIQUEUE"
+              },
+              {
+                "type": "GVNIC"
+              }
+            ],
+            "deviceName": "instance-1",
+            "autoDelete": true
+          }
+        ],
+        "name": "instance-1",
+        "networkInterfaces": [
+          {
+            "stackType": "IPV4_ONLY",
+            "networkIP": "10.128.15.201",
+            "network": "https://www.googleapis.com/compute/v1/projects/project/global/networks/default",
+            "subnetwork": "https://www.googleapis.com/compute/v1/projects/project/regions/us-central1/subnetworks/default",
+            "accessConfigs": [
+              {
+                "type": "ONE_TO_ONE_NAT",
+                "natIP": "34.171.61.120",
+                "networkTier": "PREMIUM",
+                "name": "External NAT"
+              }
+            ],
+            "fingerprint": "Q9yxbop+TgM=",
+            "name": "nic0"
+          }
+        ],
+        "lastStopTimestamp": "2023-03-17T06:48:58.292-07:00",
+        "lastStartTimestamp": "2023-03-19T10:09:14.550-07:00",
+        "resourceStatus": {},
+        "zone": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a",
+        "keyRevocationActionType": "NONE_ON_KEY_REVOCATION",
+        "fingerprint": "MHbZO6swmKE=",
+        "shieldedInstanceIntegrityPolicy": {
+          "updateAutoLearnPolicy": true
+        },
+        "description": "",
+        "tags": {
+          "fingerprint": "42WmSpB8rSM="
+        },
+        "confidentialInstanceConfig": {
+          "enableConfidentialCompute": false
+        },
+        "id": "6971825620782799361",
+        "serviceAccounts": [
+          {
+            "email": "951111111111-compute@developer.gserviceaccount.com",
+            "scopes": [
+              "https://www.googleapis.com/auth/devstorage.read_only",
+              "https://www.googleapis.com/auth/logging.write",
+              "https://www.googleapis.com/auth/monitoring.write",
+              "https://www.googleapis.com/auth/servicecontrol",
+              "https://www.googleapis.com/auth/service.management.readonly",
+              "https://www.googleapis.com/auth/trace.append"
+            ]
+          }
+        ],
+        "shieldedInstanceConfig": {
+          "enableSecureBoot": false,
+          "enableIntegrityMonitoring": true,
+          "enableVtpm": true
+        },
+        "deletionProtection": false,
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/instances/instance-1",
+        "startRestricted": false,
+        "machineType": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/machineTypes/e2-micro",
+        "reservationAffinity": {
+          "consumeReservationType": "ANY_ALLOCATION"
+        },
+        "displayDevice": {
+          "enableDisplay": false
+        },
+        "canIpForward": false,
+        "labelFingerprint": "42WmSpB8rSM="
+      },
+      "location": "us-central1-a",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-03-19T17:09:14.709749Z",
+    "orgPolicy": []
+  }
+]

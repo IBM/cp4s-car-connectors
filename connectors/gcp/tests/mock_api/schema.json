@@ -1,0 +1,2554 @@
+{"schema" :
+{
+    "$id": "car.asset/schemas/schema.json",
+    "additionalProperties": true,
+    "type": "object",
+    "properties": {
+        "report": {
+            "type": "object",
+            "properties": {
+                "_key": {
+                    "description": "a unique identifier for report",
+                    "pattern": "^[a-zA-Z0-9_:@=;!''%\\-\\.\\(\\)\\+\\,\\$\\*]+$",
+                    "minLength": 1,
+                    "maxLength": 254
+                },
+                "type": {
+                    "description": "type of the report",
+                    "type": "string"
+                },
+                "parameters": {
+                    "description": "parameters",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "value",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "number",
+                    "description": "epoch in milliseconds"
+                },
+                "description": {
+                    "description": "report description",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "timestamp"
+            ]
+        },
+        "source": {
+            "type": "object",
+            "properties": {
+                "tag": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                },
+                "untag": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                },
+                "_key": {
+                    "type": "string",
+                    "unique": true,
+                    "pattern": "^[a-zA-Z0-9_:@=;!''%%\\-\\.\\(\\)\\+\\,\\$\\*]+$"
+                },
+                "name": {
+                    "description": "name of a source",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "source description",
+                    "type": "string"
+                },
+                "product_link": {
+                    "description": "product link",
+                    "type": "string"
+                },
+                "properties": {
+                    "type": "object",
+                    "properties": {}
+                }
+            },
+            "required": [
+                "_key"
+            ]
+        },
+        "asset": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier",
+                        "indexed": true
+                    },
+                    "name": {
+                        "description": "name of an asset",
+                        "type": "string",
+                        "indexed": true
+                    },
+                    "business_value": {
+                        "description": "business value of the asset, should be a number of a scale 1 to 10",
+                        "type": "number"
+                    },
+                    "risk": {
+                        "description": "risk related to the asset should be a number (float) from 1 - 10",
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 10,
+                        "error_message": "Invalid risk value: %. Value must be between 0 and 10"
+                    },
+                    "description": {
+                        "description": "description for asset",
+                        "type": "string"
+                    },
+                    "asset_type": {
+                        "description": "type for asset",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "required": [
+                    "external_id",
+                    "name"
+                ]
+            }
+        },
+        "container": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "name": {
+                        "description": "name of the container",
+                        "type": "string"
+                    },
+                    "image": {
+                        "description": "image of the container",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "name",
+                    "external_id"
+                ]
+            }
+        },
+        "ipaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "name": {
+                        "type": "string",
+                        "indexed": true,
+                        "pattern": "^[a-fA-F0-9:\\.]+$",
+                        "minLength": 1,
+                        "maxLength": 254
+                    },
+                    "region_id": {
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "_key"
+                ]
+            }
+        },
+        "ipregion": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "connecting_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "name of the IP address region",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "external_id",
+                    "id"
+                ]
+            }
+        },
+        "user": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "username": {
+                        "description": "username",
+                        "type": "string"
+                    },
+                    "fullname": {
+                        "description": "full name",
+                        "type": "string"
+                    },
+                    "job_title": {
+                        "description": "job_title",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "email",
+                        "type": "string",
+                        "indexed": true
+                    },
+                    "description": {
+                        "description": "user description",
+                        "type": "string"
+                    },
+                    "role": {
+                        "description": "role of the user",
+                        "type": "string"
+                    },
+                    "family_name": {
+                        "description": "The family name of the user, or typically the last name in most western languages.",
+                        "type": "string"
+                    },
+                    "given_name": {
+                        "description": "The given name of the user, or typically the first name in most western languages.",
+                        "type": "string"
+                    },
+                    "upn": {
+                        "description": "upn",
+                        "type": "string"
+                    },
+                    "user_category": {
+                        "description": "User Category - employee, vendor, customer, etc",
+                        "type": "string"
+                    },
+                    "title": {
+                        "description": "Title for person",
+                        "type": "string"
+                    },
+                    "employee_id": {
+                        "description": "User Code - employee number",
+                        "type": "string"
+                    },
+                    "active": {
+                        "description": "True if the person is active",
+                        "type": "boolean"
+                    },
+                    "department": {
+                        "description": "department name",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "Last time when data source definition was modified. epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "cumulative_score": {
+                        "description": "Overall Risk score",
+                        "type": "number"
+                    },
+                    "current_score": {
+                        "description": "Risk score from recent risk analysis",
+                        "type": "number"
+                    },
+                    "critical": {
+                        "description": "number of critical severity violations",
+                        "type": "number"
+                    },
+                    "high": {
+                        "description": "number of high severity violations",
+                        "type": "number"
+                    },
+                    "medium": {
+                        "description": "number of medium severity violations",
+                        "type": "number"
+                    },
+                    "low": {
+                        "description": "number of low severity violations",
+                        "type": "number"
+                    },
+                    "first_occurrence": {
+                        "description": "Epoch Time when first risk was seen",
+                        "type": "number"
+                    },
+                    "last_occurrence": {
+                        "description": "Epoch Time when latest risk was seen",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "searchable name",
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "external_id"
+                ]
+            }
+        },
+        "account": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier",
+                        "indexed": true
+                    },
+                    "name": {
+                        "description": "name of account",
+                        "type": "string",
+                        "indexed": true
+                    },
+                    "created": {
+                        "description": "creation date (ms since epoch)",
+                        "type": "number"
+                    },
+                    "active": {
+                        "description": "True if the account is active",
+                        "type": "boolean"
+                    },
+                    "compliance_status": {
+                        "description": "True if the account is compliant",
+                        "type": "boolean"
+                    },
+                    "modified": {
+                        "description": "Last time when account was modified. ms since epoch",
+                        "type": "number"
+                    },
+                    "cumulative_score": {
+                        "description": "Overall Risk score",
+                        "type": "number"
+                    },
+                    "current_score": {
+                        "description": "Risk score from recent risk analysis",
+                        "type": "number"
+                    },
+                    "critical": {
+                        "description": "number of critical severity violations",
+                        "type": "number"
+                    },
+                    "high": {
+                        "description": "number of high severity violations",
+                        "type": "number"
+                    },
+                    "medium": {
+                        "description": "number of medium severity violations",
+                        "type": "number"
+                    },
+                    "low": {
+                        "description": "number of low severity violations",
+                        "type": "number"
+                    },
+                    "first_occurrence": {
+                        "description": "Epoch Time when first risk was seen",
+                        "type": "number"
+                    },
+                    "last_occurrence": {
+                        "description": "Epoch Time when latest risk was seen",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "required": [
+                    "external_id",
+                    "name"
+                ]
+            }
+        },
+        "application": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "application description",
+                        "type": "string"
+                    },
+                    "cpe": {
+                        "description": "cpe",
+                        "type": "string"
+                    },
+                    "is_os": {
+                        "type": "boolean",
+                        "description": "True if the application is an operating system"
+                    },
+                    "owner": {
+                        "description": "name of an application owner",
+                        "type": "string"
+                    },
+                    "owner_code": {
+                        "description": "employee id of owner",
+                        "type": "string"
+                    },
+                    "last_access_time": {
+                        "description": "time when application was last accessed (ms since epoch)",
+                        "type": "number"
+                    },
+                    "threat_score": {
+                        "type": "number",
+                        "description": "threat score for application from X-Force"
+                    },
+                    "app_type": {
+                        "description": "application type",
+                        "type": "string"
+                    },
+                    "cumulative_score": {
+                        "description": "Overall Risk score",
+                        "type": "number"
+                    },
+                    "current_score": {
+                        "description": "Risk score from recent risk analysis",
+                        "type": "number"
+                    },
+                    "critical": {
+                        "description": "number of critical severity violations",
+                        "type": "number"
+                    },
+                    "high": {
+                        "description": "number of high severity violations",
+                        "type": "number"
+                    },
+                    "medium": {
+                        "description": "number of medium severity violations",
+                        "type": "number"
+                    },
+                    "low": {
+                        "description": "number of low severity violations",
+                        "type": "number"
+                    },
+                    "first_occurrence": {
+                        "description": "Epoch Time when first risk was seen",
+                        "type": "number"
+                    },
+                    "last_occurrence": {
+                        "description": "Epoch Time when latest risk was seen",
+                        "type": "number"
+                    },
+                    "status": {
+                        "description": "Application status",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "name",
+                    "external_id"
+                ]
+            }
+        },
+        "hostname": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier",
+                        "indexed": true,
+                        "pattern": "^[^&#^|?<>\\[\\]]+$"
+                    },
+                    "host_name": {
+                        "description": "searchable name",
+                        "type": "string",
+                        "indexed": true
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "required": [
+                    "host_name"
+                ]
+            }
+        },
+        "businessprocess": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "name": {
+                        "description": "name of the business process",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "businsess process description",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "name",
+                    "external_id"
+                ]
+            }
+        },
+        "database": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "name": {
+                        "description": "name of the database",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "database description",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "database engine type",
+                        "type": "string"
+                    },
+                    "modified": {
+                        "description": "Last time when data source definition was modified. epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "protocol": {
+                        "description": "Database protocol",
+                        "type": "string"
+                    },
+                    "port": {
+                        "description": "Database server port",
+                        "type": "string"
+                    },
+                    "datasource_name": {
+                        "description": "datasource name",
+                        "type": "string"
+                    },
+                    "traffic_seen": {
+                        "description": "traffic seen",
+                        "type": "boolean"
+                    },
+                    "last_seen_at": {
+                        "description": "epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "agent_status": {
+                        "description": "is stap installed and well on datasource",
+                        "type": "string"
+                    },
+                    "status_date": {
+                        "description": "epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "name",
+                    "external_id"
+                ]
+            }
+        },
+        "macaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier",
+                        "indexed": true
+                    },
+                    "name": {
+                        "description": "searchable name",
+                        "type": "string",
+                        "pattern": "^(?:[0-9A-Fa-f]{2}(:))(?:[0-9A-Fa-f]{2}\\1){4,6}(?:[0-9A-Fa-f]{2,4}){0,1}|(?:[0-9A-Fa-f]{4}(:)){3}(?:[0-9A-Fa-f]{4})$"
+                    },
+                    "interface": {
+                        "description": "interface",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    }
+                },
+                "required": [
+                    "_key"
+                ]
+            }
+        },
+        "port": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "port_number": {
+                        "description": "port number",
+                        "type": "integer"
+                    },
+                    "status": {
+                        "description": "port status",
+                        "type": "string"
+                    },
+                    "protocol": {
+                        "description": "protocol",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "port description",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "searchable name",
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "port_number",
+                    "protocol",
+                    "external_id"
+                ]
+            }
+        },
+        "vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "xref_properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_properties": {
+                        "description": "external_properties",
+                        "type": "string"
+                    },
+                    "external_reference": {
+                        "description": "external_reference",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "name",
+                        "type": "string"
+                    },
+                    "base_score": {
+                        "description": "base_score",
+                        "type": "number"
+                    },
+                    "description": {
+                        "description": "vulnerability description",
+                        "type": "string"
+                    },
+                    "disclosed_on": {
+                        "description": "disclosed_on: epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "published_on": {
+                        "description": "published_on: epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "updated_on": {
+                        "description": "updated_on: epoch in milliseconds",
+                        "type": "number"
+                    },
+                    "xfr_opportune": {
+                        "description": "opportune",
+                        "type": "number"
+                    },
+                    "xfr_ml_opportune": {
+                        "description": "ml_opportune",
+                        "type": "number"
+                    },
+                    "xfr_utility": {
+                        "description": "utility",
+                        "type": "number"
+                    },
+                    "xfr_ml_utility": {
+                        "description": "ml_utility",
+                        "type": "number"
+                    },
+                    "xfr_wx": {
+                        "description": "exploit",
+                        "type": "number"
+                    },
+                    "xfr_cvss2_base": {
+                        "description": "cvss2 score",
+                        "type": "number"
+                    },
+                    "xfr_cvss3_base": {
+                        "description": "cvss3 score",
+                        "type": "number"
+                    },
+                    "xfr_threat_score": {
+                        "description": "threat score",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": [
+                    "name",
+                    "external_id"
+                ]
+            }
+        },
+        "geolocation": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "tag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to add to the document. When tag array property is provided, tags that are in this array will be added. If tag is not provided or empty then no updates/inserts of tags will occur."
+                    },
+                    "untag": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Tags to remove from the document. When untag array property is provided, tags that are in this array will be removed from the document. If untag property is empty or not provided then no removal of tags will occur."
+                    },
+                    "region": {
+                        "description": "name of region the asset is located in",
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "description": "longitude"
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "description": "latitude"
+                    },
+                    "description": {
+                        "description": "geolocation description",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "_key": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "searchable name",
+                        "type": "string"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "oneOf": [
+                    {
+                        "required": [
+                            "longitude",
+                            "latitude"
+                        ]
+                    },
+                    {
+                        "required": [
+                            "region"
+                        ]
+                    }
+                ]
+            }
+        },
+        "asset_vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "port": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "risk_score": {
+                        "description": "use risk score on the edge if you need to override the vulnerability base score value",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_ipaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_macaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_hostname": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_account": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_container": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_application": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_database": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "asset_geolocation": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "application_port": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "account_application": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "user_id": {
+                        "description": "user id of person who owns account",
+                        "type": "string"
+                    },
+                    "last_access_time": {
+                        "description": "time when application was last accessed (ms since epoch)",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "application_ipaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "mappingtype": {
+                        "description": "Mapping Relationship between Ip address and Application",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "businessprocess_application": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "businessprocess_account": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "application_database": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "application_vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "database_ipaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "database_vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "version_level": {
+                        "description": "Database version level",
+                        "type": "string"
+                    },
+                    "patch_level": {
+                        "description": "Database patch level",
+                        "type": "string"
+                    },
+                    "full_version_info": {
+                        "description": "Database full version info",
+                        "type": "string"
+                    },
+                    "result_text": {
+                        "description": "Test result text",
+                        "type": "string"
+                    },
+                    "recommendation": {
+                        "description": "Recommendation",
+                        "type": "string"
+                    },
+                    "severity": {
+                        "description": "severity",
+                        "type": "string"
+                    },
+                    "category": {
+                        "description": "Test Category",
+                        "type": "string"
+                    },
+                    "assessment_description": {
+                        "description": "Vulnerability Assessment Description",
+                        "type": "string"
+                    },
+                    "result_details": {
+                        "description": "Test result details",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_container": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_macaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_hostname": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_geolocation": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "ipaddress_port": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "user_account": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "last_access_time": {
+                        "description": "time when account was last accessed (ms since epoch)",
+                        "type": "number"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "account_database": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "account_hostname": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "account_ipaddress": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "total_risk_score": {
+                        "description": "Total Risk Score",
+                        "type": "number"
+                    },
+                    "threat_analytics_score": {
+                        "description": "Threat analytics Score",
+                        "type": "number"
+                    },
+                    "violations_score": {
+                        "description": "Violations Score",
+                        "type": "number"
+                    },
+                    "vulnerability_score": {
+                        "description": "Vulnerability Score",
+                        "type": "number"
+                    },
+                    "sensitive_objects_score": {
+                        "description": "Sensitive Objects Score",
+                        "type": "number"
+                    },
+                    "select_queries_score": {
+                        "description": "Select Queries Score",
+                        "type": "number"
+                    },
+                    "ddl_queries_score": {
+                        "description": "DDL Queries Score",
+                        "type": "number"
+                    },
+                    "dml_queries_score": {
+                        "description": "DML Queries Score",
+                        "type": "number"
+                    },
+                    "administrative_queries_score": {
+                        "description": "Administrative Queries Score",
+                        "type": "number"
+                    },
+                    "high_volume_activity_score": {
+                        "description": "High Volume Activity Score",
+                        "type": "number"
+                    },
+                    "off_work_activity_score": {
+                        "description": "Off Work Activity Score",
+                        "type": "number"
+                    },
+                    "group_state_description": {
+                        "description": "Group State Description",
+                        "type": "string"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        },
+        "port_vulnerability": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "_from_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "_to_external_id": {
+                        "type": "string",
+                        "v2_only": true
+                    },
+                    "created": {
+                        "type": "number",
+                        "description": "epoch in milliseconds",
+                        "graphql_name": "created"
+                    },
+                    "modified": {
+                        "type": "number",
+                        "description": "this field should be missed when there is no update and should contain the last modified timestamp when there is an update "
+                    },
+                    "report": {
+                        "type": "string",
+                        "description": "the report _key"
+                    },
+                    "active": {
+                        "type": "boolean",
+                        "description": "True if the edge is active, false if the edge is disabled"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "the source id"
+                    },
+                    "properties": {
+                        "type": "object",
+                        "properties": {}
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "description": "external identifier"
+                    }
+                },
+                "required": []
+            }
+        }
+    }
+}
+}

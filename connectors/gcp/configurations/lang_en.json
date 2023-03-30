@@ -1,0 +1,22 @@
+{
+    "connection": {
+        "selfSignedCert": {
+                "label": "Private Key (Required)",
+                "description": "Private Key is a mandatory authentication parameter to communicate with the GCP datasource."
+        },
+        "options": {
+            "page_size": {
+                "label": "GCP API Page Size",
+                "description": "Google Cloud Platform API response page size"
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "client_email": {
+                "label": "Client email address",
+                "description": "Client email address required for data source authentication"
+            }
+        }
+    }
+}
