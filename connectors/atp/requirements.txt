@@ -1,3 +1,2 @@
 adal==1.2.2
---extra-index-url https://test.pypi.org/simple/
-car-connector-framework==3.0.1rc243
+car-connector-framework==3.0.1rc257
