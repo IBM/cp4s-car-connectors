@@ -10,7 +10,7 @@
             "description": "Use self-signed SSL certificate or CA content(root and intermediate) of datasource"
         },
         "sni": {
-            "label": "Server name indicator",
+            "label": "Server Name Indicator",
             "description": "The Server Name Indicator (SNI) enables a separate hostname to be provided for SSL authentication"
         }
     },
