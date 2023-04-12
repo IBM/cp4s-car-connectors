@@ -23,7 +23,7 @@ def context_patch(incremental=True):
 
 
     context_args = {
-        'car_service_apikey_url': 'https://example.com/api/car/v2',
+        'CAR_SERVICE_URL': 'https://example.com/api/car/v2',
         'CAR_SERVICE_KEY': None,
         'CAR_SERVICE_PASSWORD': 'abc-xyz',
         'CAR_SERVICE_AUTHTOKEN': None,
