@@ -252,17 +252,17 @@ class DataCollector(object):
         inc_asset = list()
         for machine_id in new_asset:
             destination_users, destination_ips, destination_macs = set(), set(), set()
-            search_result = context().car_service.graph_search('asset', context().args.source + ':' + machine_id['id'])
+            search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' + machine_id['id'])
             if search_result['result'] and search_result['related']:
                 for car_ip in search_result['related']:
                     if 'ipaddress/' in str(deep_get(car_ip, ["node", "_id"])) and deep_get(car_ip, ["node", "_key"]) \
-                            and context().args.source in deep_get(car_ip, ["link", "source"]):
+                            and context().args.CONNECTION_NAME in deep_get(car_ip, ["link", "source"]):
                         destination_ips.add(deep_get(car_ip, ["node", "_key"]))
                     if 'macaddress/' in str(deep_get(car_ip, ["node", "_id"])) and deep_get(car_ip, ["node", "_key"]) \
-                            and context().args.source in deep_get(car_ip, ["link", "source"]):
+                            and context().args.CONNECTION_NAME in deep_get(car_ip, ["link", "source"]):
                         destination_macs.add(deep_get(car_ip, ["node", "_key"]))
                     if 'account/' in str(deep_get(car_ip, ["node", "_id"])) and deep_get(car_ip, ["node", "external_id"]) and \
-                            context().args.source in deep_get(car_ip, ["node", "source"]):
+                            context().args.CONNECTION_NAME in deep_get(car_ip, ["node", "source"]):
                         destination_users.add(deep_get(car_ip, ["node", "external_id"]))
 
                 # Public ip (ip vertice/asset ip)
@@ -302,7 +302,7 @@ class DataCollector(object):
                             if search_ip['related']:
                                 for car_ip in search_ip['related']:
                                     if 'macaddress/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                            deep_get(car_ip, ["node", "key"]) and context().args.source in \
+                                            deep_get(car_ip, ["node", "key"]) and context().args.CONNECTION_NAME in \
                                             deep_get(car_ip, ["node", "source"]):
                                         update_mac.add(deep_get(car_ip, ["node", "key"]))
                             if machine_id['MacAddress'] not in update_mac:
@@ -416,14 +416,14 @@ class DataCollector(object):
             vuln_mapping[value['DeviceId']].append(value)
 
         for machine_id in vuln_mapping:  # iterating asset for app vulnerability create and update
-            search_result = context().car_service.graph_search('asset', context().args.source + ':' + machine_id)
+            search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' + machine_id)
             dest_vuln, dest_app, temp_vuln, temp_app = list(), list(), set(), set()
             for car_data in search_result['related']:
                 if 'vulnerability/' in str(deep_get(car_data, ["node", "_id"])) and \
-                        deep_get(car_data, ["node", "disclosed_on"]) is None and context().args.source in \
+                        deep_get(car_data, ["node", "disclosed_on"]) is None and context().args.CONNECTION_NAME in \
                         deep_get(car_data, ["node", "source"]):
                     dest_vuln.append(deep_get(car_data, ["node", "external_id"]))
-                if 'application/' in str(deep_get(car_data, ["node", "_id"])) and context().args.source in \
+                if 'application/' in str(deep_get(car_data, ["node", "_id"])) and context().args.CONNECTION_NAME in \
                         deep_get(car_data, ["node", "source"]):
                     dest_app.append(deep_get(car_data, ["node", "external_id"]))
             for value in vuln_mapping[machine_id]:
@@ -442,11 +442,11 @@ class DataCollector(object):
                     update_data['vulnerability_update'].append(value)
                     temp_app.add(app_id)
                 elif app_id in dest_app and vuln_id in dest_vuln:  # application vulnerability edge check
-                    search_result = context().car_service.graph_search('application', context().args.source + ':' + app_id)
+                    search_result = context().car_service.graph_search('application', context().args.CONNECTION_NAME + ':' + app_id)
                     temp = []
                     for car_data in search_result['related']:
                         if 'vulnerability/' in str(deep_get(car_data, ["node", "_id"])) and \
-                                deep_get(car_data, ["node", "disclosed_on"]) is None and context().args.source in \
+                                deep_get(car_data, ["node", "disclosed_on"]) is None and context().args.CONNECTION_NAME in \
                                 deep_get(car_data, ["node", "source"]):
                             temp.append(deep_get(car_data, ["node", "external_id"]))
                     if vuln_id not in temp:
@@ -478,9 +478,9 @@ class DataCollector(object):
         context().logger.info('Disabling edges')
         for edge in self.update_edge:
             if 'last_modified' in edge:
-                context().car_service.edge_patch(context().args.source, edge, {"last_modified": edge['last_modified']})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"last_modified": edge['last_modified']})
             else:
-                context().car_service.edge_patch(context().args.source, edge, {"active": False})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"active": False})
         context().logger.info('Disabling edges done: %s', len(self.update_edge))
 
     def delete_vertices(self):
