@@ -1,0 +1,34 @@
+[
+  {
+    "name": "//appengine.googleapis.com/apps/cp4sdev/services/app1/versions/20220804t105216",
+    "assetType": "appengine.googleapis.com/Version",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+      "discoveryName": "Version",
+      "parent": "//appengine.googleapis.com/apps/cp4sdev/services/app1",
+      "data": {
+        "threadsafe": true,
+        "deployment": {},
+        "versionUrl": "https://20220804t105216-dot-app1-dot-cp4sdev.appspot.com",
+        "id": "20220804t105216",
+        "runtimeChannel": "default",
+        "network": {},
+        "instanceClass": "F1",
+        "runtime": "python39",
+        "env": "standard",
+        "servingStatus": "SERVING",
+        "createTime": "2022-08-04T10:52:56Z",
+        "name": "apps/cp4sdev/services/app1/versions/20220804t105216"
+      },
+      "resourceUrl": "",
+      "location": ""
+    },
+    "ancestors": [
+      "projects/958613152635",
+      "organizations/409845928929"
+    ],
+    "updateTime": "2023-03-30T11:42:52.442Z",
+    "orgPolicy": []
+  }
+]

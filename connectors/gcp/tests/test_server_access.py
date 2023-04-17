@@ -35,7 +35,7 @@ class TestAssetServer(unittest.TestCase):
             error_response = None
             full_import_obj = full_import_initialization()
             full_import_obj.create_source_report_object()
-            context().asset_server.set_credentials_and_project_list()
+            context().asset_server.set_credentials_and_projects()
         except Exception as ex:
             error_response = str(ex)
         assert error_response is not None
@@ -127,22 +127,40 @@ class TestAssetServer(unittest.TestCase):
         actual_response = context().asset_server.test_connection()
         assert actual_response is not None
 
-    @patch('connector.server_access.AssetServer.get_logs')
-    def test_get_vm_instance_created(self, mock_logs):
-        """Unit test for vm instances created"""
+    def test_connection_with_error(self):
+        """unit test for test connection failure"""
+        # Initialization
         full_import_obj = full_import_initialization()
         full_import_obj.create_source_report_object()
-        mock_logs.return_value = get_response('vm_create_log.json', True)
-        actual_response = context().asset_server.get_vm_instance_created('project', 1679238834)
+        context().asset_server.project_list = ['project']
+        actual_response = context().asset_server.test_connection()
+        assert actual_response == 1
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_web_applications(self, mock_asset_list):
+        """unit test for web application created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('web_app.json', True)
+        actual_response = context().asset_server.get_web_applications('project')
         assert actual_response is not None
 
-    @patch('connector.server_access.AssetServer.get_logs')
-    def test_get_vm_instance_updated(self, mock_logs):
-        """Unit test for vm instances created"""
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_web_app_services(self, mock_asset_list):
+        """unit test for web application services created"""
         full_import_obj = full_import_initialization()
         full_import_obj.create_source_report_object()
-        mock_logs.return_value = get_response('vm_update_log.json', True)
-        actual_response = context().asset_server.get_vm_instance_updated('project', 1679238834)
+        mock_asset_list.return_value = get_response('web_app_service.json', True)
+        actual_response = context().asset_server.get_web_app_services('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def get_web_app_service_versions(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('web_app_service_version.json', True)
+        actual_response = context().asset_server.web_app_service_versions('project')
         assert actual_response is not None
 
     @patch('connector.server_access.AssetServer.get_vulnerabilities')

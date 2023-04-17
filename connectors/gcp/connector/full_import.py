@@ -1,6 +1,6 @@
 from car_framework.context import context
 from car_framework.full_import import BaseFullImport
-from connector.data_handler import DataHandler
+from connector.data_handler import DataHandler, deep_get
 
 
 class FullImport(BaseFullImport):
@@ -30,9 +30,16 @@ class FullImport(BaseFullImport):
 
             vm_vulnerabilities = context().asset_server.get_instance_vulnerabilities(project)
             getattr(self.data_handler, 'handle_vm_vulnerabilities')(vm_vulnerabilities, project)
-
+            # Handle app engine services
+            web_apps = context().asset_server.get_web_applications(project)
+            app_hostname = deep_get(web_apps[0], ['resource', 'data', 'defaultHostname'])
+            web_app_services = context().asset_server.get_web_app_services(project)
+            getattr(self.data_handler, 'handle_web_app_services')(web_app_services, web_apps)
+            web_app_service_versions = context().asset_server.get_web_app_service_versions(project,)
+            getattr(self.data_handler, 'handle_web_app_service_versions')(web_app_service_versions)
+            web_service_names = [service['name'] for service in web_app_services]
             vulnerability = context().asset_server.get_scc_vulnerability(project)
-            getattr(self.data_handler, 'handle_scc_vulnerability')(vulnerability)
+            getattr(self.data_handler, 'handle_scc_vulnerability')(vulnerability, web_service_names,  app_hostname)
 
     # Get save point from server
     def get_new_model_state_id(self):

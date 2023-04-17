@@ -77,7 +77,7 @@ class IncrementalImport(BaseIncrementalImport):
         self.asset_list = {}
         self.vm_instances = []
         self.deleted_vertices = {'asset': set(), 'hostname': set(), 'ipaddress': set(),
-                                 'vulnerability': set()}
+                                 'application': set(), 'vulnerability': set()}
         self.update_edge = []
         self.projects = []
         self.deleted_vulnerabilities = []
@@ -93,7 +93,7 @@ class IncrementalImport(BaseIncrementalImport):
     # Gather information to get data from last save point and new save point
     def get_data_for_delta(self, last_model_state_id, new_model_state_id):
         # There is some delay in GCP Audit logs update, when an event occurs (eg: update name of VM)
-        # due to which during incremental import some logs are missing. 
+        # due to which during incremental import some logs are missing.
         # Hence, keeping 60 sec before the last runtime to avoid missing logs.
         self.last_model_state_id = float(last_model_state_id) - int(60000)
 
@@ -107,9 +107,11 @@ class IncrementalImport(BaseIncrementalImport):
         for project, project_name in self.projects.items():
             # VM instances
             self.incremental_vm_instances(project, project_name)
+            # App Engine Service handling
+            app_hostname, service_name = self.incremental_web_applications(project)
             # scc vulnerability handling
             vulnerability = context().asset_server.get_scc_vulnerability(project, self.last_model_state_id)
-            getattr(self.data_handler, 'handle_scc_vulnerability')(vulnerability)
+            getattr(self.data_handler, 'handle_scc_vulnerability')(vulnerability, service_name, app_hostname)
 
     def import_vertices(self):
         context().logger.debug('Import vertices started')
@@ -184,9 +186,13 @@ class IncrementalImport(BaseIncrementalImport):
 
     def incremental_vm_instances(self, project, project_name):
         """Handling VM instances incremental create, update """
-        deleted_instances = context().asset_server.get_vm_instance_deleted(project, self.last_model_state_id)
+        # resource type
+        resource_type = 'vm_instance'
+        deleted_instances = context().asset_server.get_resource_names_from_log(project, self.last_model_state_id,
+                                                                               resource_type, event_type='delete')
         # Incremental create
-        new_instances_created = context().asset_server.get_vm_instance_created(project, self.last_model_state_id)
+        new_instances_created = context().asset_server.get_resource_names_from_log(project, self.last_model_state_id,
+                                                                                   resource_type, event_type='create')
         # remove deleted instances
         new_instances = new_instances_created - deleted_instances
         created_instances = context().asset_server.get_vm_instances(project, list(new_instances),
@@ -201,7 +207,8 @@ class IncrementalImport(BaseIncrementalImport):
         getattr(self.data_handler, 'handle_vm_vulnerabilities')(new_vm_vulnerabilities, project)
 
         # Incremental update
-        updated_instances = context().asset_server.get_vm_instance_updated(project, self.last_model_state_id)
+        updated_instances = context().asset_server.get_resource_names_from_log(project, self.last_model_state_id,
+                                                                               resource_type, event_type='update')
         # remove deleted and newly created instances from update list
         updated_instances = updated_instances - set(list(new_instances) + list(deleted_instances))
         updated_assets = context().asset_server.get_asset_history(project, list(updated_instances),
@@ -218,7 +225,6 @@ class IncrementalImport(BaseIncrementalImport):
         getattr(self.data_handler, 'handle_vm_software_pkgs')(package_updated_instances)
         vulnerability_updated_instances = self.compute_os_vuln_updated_instances(project, project_name)
         getattr(self.data_handler, 'handle_vm_vulnerabilities')(vulnerability_updated_instances, project)
-
 
     def compute_inactive_vm_edges(self, updated_instances, new_instances, deleted_instances):
         """ Get the vm edges to disable. Get active edges from CAR DB,
@@ -326,6 +332,45 @@ class IncrementalImport(BaseIncrementalImport):
             deleted_vulnerabilities = set(instance_edges) - set(vulnerabilities)
             self.updated_edges(asset_name, deleted_vulnerabilities, 'asset_vulnerability')
         return updated_instances
+
+    def incremental_web_applications(self, project):
+        """Incremental application handling"""
+        resource_type = 'web_app'
+        new_apps = context().asset_server.get_resource_names_from_log(project, self.last_model_state_id, resource_type,
+                                                                      event_type='create')
+        if new_apps:
+            web_apps = context().asset_server.get_web_applications(project)
+            app_hostname = deep_get(web_apps[0], ['resource', 'data', 'defaultHostname'])
+            web_app_services = context().asset_server.get_web_app_services(project)
+            getattr(self.data_handler, 'handle_web_app_services')(web_app_services, web_apps)
+            web_app_service_versions = context().asset_server.get_web_app_service_versions(project, )
+            getattr(self.data_handler, 'handle_web_app_service_versions')(web_app_service_versions)
+            web_service_names = [service['name'] for service in web_app_services]
+            return app_hostname, web_service_names
+
+        web_app = context().asset_server.get_web_applications(project)
+        app_hostname = deep_get(web_app[0], ['resource', 'data', 'defaultHostname'])
+        services_versions = context().asset_server.get_web_app_services_versions(project, self.last_model_state_id)
+        if services_versions['updated_services']:
+            updated_services = context().asset_server.get_asset_history(project, services_versions['updated_services'],
+                                                                        asset_v1.ContentType.RESOURCE,
+                                                                        self.last_model_state_id)
+            getattr(self.data_handler, 'handle_web_app_services')(updated_services, web_app)
+        versions = services_versions['updated_versions'] | services_versions['created_versions']
+        if versions:
+            updated_versions = context().asset_server.get_asset_history(project, versions,
+                                                                        asset_v1.ContentType.RESOURCE,
+                                                                        self.last_model_state_id)
+            getattr(self.data_handler, 'handle_web_app_service_versions')(updated_versions)
+        # Deleted service and versions
+        deleted_services = [name.replace('//', '') for name in services_versions['deleted_services']]
+        self.deleted_vertices['asset'].update(deleted_services)
+        # delete hostname vertices
+        service_host_names = [name.split('/')[-1] + '-dot-' + app_hostname for name in deleted_services]
+        self.deleted_vertices['hostname'].update(service_host_names)
+        deleted_versions = [name.replace('//', '') for name in services_versions['deleted_versions']]
+        self.deleted_vertices['application'].update(deleted_versions)
+        return app_hostname, services_versions['updated_services']
 
     def delete_vertices(self):
         """ Delete asset and disable the inactive asset_vulnerability edges. """

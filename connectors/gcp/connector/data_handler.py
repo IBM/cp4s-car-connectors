@@ -20,6 +20,8 @@ def timestamp_conv(time_string):
 def timestamp_conv_tz(time_string):
     """ Convert UTC date time to epoch time format. """
     time_pattern = "%Y-%m-%dT%H:%M:%S.%f%z"
+    if len(time_string) <= 20:
+        time_pattern = "%Y-%m-%dT%H:%M:%S%z"
     epoch = datetime.datetime(1970, 1, 1, tzinfo=datetime.timezone.utc)
     converted_time = int(((datetime.datetime.strptime(str(time_string),
                                                       time_pattern) - epoch).total_seconds()) * 1000)
@@ -73,33 +75,23 @@ class DataHandler(BaseDataHandler):
         return {'source': self.source, 'report': self.report}
 
     # Handle asset from data source
-    def handle_asset(self, obj):
+    def handle_asset(self, asset_id, name, **fields):
         """create asset object"""
         res = {}
-        res['name'] = deep_get(obj, ['resource', 'data', 'name'])
-        asset_id = deep_get(obj, ['resource', 'data', 'id'])
-        res['external_id'] = (deep_get(obj, ['name']).replace(res['name'], asset_id)).replace("//", '')
-        res['asset_type'] = obj.get('assetType')
-        description = deep_get(obj, ['resource', 'data', 'description'])
-        if description: res['description'] = description
-        res['properties'] = {"id": asset_id}
+        res['name'] = name
+        res['external_id'] = asset_id
+        for key, value in fields.items():
+            if value:
+                res[key] = value
         self.add_collection('asset', res, 'external_id')
 
-    def handle_hostname(self, obj):
+    def handle_hostname(self, asset_id, host_name):
         """Create hostname object"""
-        if obj:
+        if host_name:
             res = {}
-            host_name = deep_get(obj, ['resource', 'data', 'hostname'])
-            if not host_name:
-                host_name = deep_get(obj, ['resource', 'data', 'name'])
             res['host_name'] = host_name
             res['_key'] = host_name
             self.add_collection('hostname', res, '_key')
-
-            asset_id = deep_get(obj, ['name'])
-            asset_id = asset_id.replace('//', '')
-            asset_id = asset_id.replace(deep_get(obj, ['resource', 'data', 'name']),
-                                        deep_get(obj, ['resource', 'data', 'id']))
             # asset hostname edge creation
             asset_hostname = {'_from_external_id': asset_id, '_to': host_name}
             self.add_edge('asset_hostname', asset_hostname)
@@ -115,11 +107,17 @@ class DataHandler(BaseDataHandler):
                 res[key] = value
             if value:
                 res[key] = value
-
         self.add_collection('application', res, 'external_id')
-        # asset_application edge
+        if asset_id:
+            # asset_application edge
+            asset_application = {'_from_external_id': asset_id,
+                                 '_to_external_id': app_id}
+            self.add_edge('asset_application', asset_application)
+
+    def handle_asset_application(self, asset_id, app_id):
+        """asset_application edg"""
         asset_application = {'_from_external_id': asset_id,
-                             '_to': app_id}
+                             '_to_external_id': app_id}
         self.add_edge('asset_application', asset_application)
 
     # Handle ipaddress from data source
@@ -177,11 +175,11 @@ class DataHandler(BaseDataHandler):
         self.add_edge('application_vulnerability', application_vulnerability)
 
     # Handle vulnerability from data source
-    def handle_scc_vulnerability(self, obj):
+    def handle_scc_vulnerability(self, obj, web_service=[], web_app_domain=None):
         """create vulnerability object from scc findings"""
         for vuln in obj:
             finding = deep_get(vuln, ['finding'])
-            name = deep_get(vuln, ['finding', 'name'])
+            name = deep_get(vuln, ['finding', 'canonical_name'])
             if name:
                 res = {}
                 res['name'] = finding.get('category')
@@ -198,14 +196,25 @@ class DataHandler(BaseDataHandler):
                     res['base_score'] = base_score
 
                 self.add_collection('vulnerability', res, 'external_id')
-                # asset_vulnerability edge
-                asset_id = finding['resource_name']
-                asset_id = asset_id.replace("//", '')
-                asset_vulnerability = {
-                    '_from_external_id': asset_id,
-                    '_to_external_id': res['external_id']
-                }
-                self.add_edge('asset_vulnerability', asset_vulnerability)
+                # asset_application edge
+                if deep_get(finding, ['source_properties', 'reproductionUrl']):
+                    reproduction_url = deep_get(finding, ['source_properties', 'reproductionUrl'])
+                    if web_app_domain and web_app_domain in reproduction_url:
+                        for asset in web_service:
+                            asset_name = asset.split("/")[-1]
+                            if asset_name + '-dot' in reproduction_url:
+                                self.add_edge('asset_vulnerability', {'_from_external_id': asset.replace('//', ''),
+                                                                      '_to_external_id': res['external_id']
+                                                                      })
+                else:
+                    # asset_vulnerability edge
+                    asset_id = finding['resource_name']
+                    asset_id = asset_id.replace("//", '')
+                    asset_vulnerability = {
+                        '_from_external_id': asset_id,
+                        '_to_external_id': res['external_id']
+                    }
+                    self.add_edge('asset_vulnerability', asset_vulnerability)
 
     def handle_vm_instance_ip(self, obj):
         """Create VM instance ipaddress node and associated edges"""
@@ -223,17 +232,17 @@ class DataHandler(BaseDataHandler):
             for ip in [addr for addr in [deep_get(interface, ['ipv6Address']), deep_get(interface, ['networkIP'])] if
                        addr]:
                 self.handle_ipaddress(ip, asset_id, location,
-                                      region_id=region_id, properties={"access_type": "Private"})
+                                      region_id=region_id, access_type="Private")
             if deep_get(interface, ['accessConfigs']):
                 for config in deep_get(interface, ['accessConfigs']):
                     if config.get('natIP'):
                         self.handle_ipaddress(config.get('natIP'), asset_id, location,
-                                              region_id=region_id, properties={"access_type": "Public"})
+                                              region_id=region_id, access_type="Public")
             if deep_get(interface, ['ipv6AccessConfigs']):
                 for config in deep_get(interface, ['ipv6AccessConfigs']):
                     if config.get('natIP'):
                         self.handle_ipaddress(config.get('natIP'), asset_id, location,
-                                              region_id=region_id, properties={"access_type": "Public"})
+                                              region_id=region_id, access_type="Public")
 
     def handle_vm_instances(self, obj):
         """ handling VM instance node and edges"""
@@ -243,8 +252,17 @@ class DataHandler(BaseDataHandler):
                                         deep_get(instance, ['resource', 'data', 'id']))
             # remove '//' from name
             asset_id = asset_id.replace('//', '')
-            self.handle_asset(instance)
-            self.handle_hostname(instance)
+            name = deep_get(instance, ['resource', 'data', 'name'])
+            res = {'asset_type': instance.get('assetType')}
+            # key values are same as node car-schema filelds
+            description = deep_get(instance, ['resource', 'data', 'description'])
+            if description: res['description'] = description
+            res['instance_id'] = deep_get(instance, ['resource', 'data', 'id'])
+            self.handle_asset(asset_id, name, **res)
+            host_name = deep_get(instance, ['resource', 'data', 'hostname'])
+            if not host_name:
+                host_name = deep_get(instance, ['resource', 'data', 'name'])
+            self.handle_hostname(asset_id, host_name)
             self.handle_vm_instance_ip(instance)
             self.handle_geolocation(instance, asset_id)
 
@@ -310,3 +328,33 @@ class DataHandler(BaseDataHandler):
             # OS as application
             if deep_get(vuln, ['resource', 'data', 'vulnerabilities']):
                 self.handle_app_vuln(vuln, asset_id)
+
+    def handle_web_app_services(self, obj, web_app=None):
+        """Handle web application services"""
+        for service in obj:
+            asset_id = service['name'].replace('//', '')
+            name = deep_get(service, ['resource', 'data', 'id'])
+            resource_type = deep_get(service, ['assetType'])
+            self.handle_asset(asset_id, name, asset_type=resource_type)
+            if web_app:
+                # service DNS name is in format of '<service name>-dot-<default domain name>'
+                host_name = name + '-dot-' + deep_get(web_app[0], ['resource', 'data', 'defaultHostname'])
+                if name == 'default':
+                    host_name = deep_get(web_app[0], ['resource', 'data', 'defaultHostname'])
+                self.handle_geolocation(web_app[0], asset_id)
+                self.handle_hostname(asset_id, host_name)
+
+    def handle_web_app_service_versions(self, obj):
+        """Handle web app service versions"""
+        for version in obj:
+            external_id = deep_get(version, ['name']).replace('//', '')
+            name = deep_get(version, ['resource', 'data', 'id'])
+            asset_id = deep_get(version, ['resource', 'parent']).replace('//', '')
+            # other application fields
+            fields = {}
+            fields['is_os'] = False
+            fields['app_type'] = deep_get(version, ['assetType'])
+            fields['status'] = deep_get(version, ['resource', 'data', 'servingStatus'])
+            fields['runtime'] = deep_get(version, ['resource', 'data', 'runtime'])
+            fields['environment'] = deep_get(version, ['resource', 'data', 'env'])
+            self.handle_application(external_id, name, asset_id, **fields)

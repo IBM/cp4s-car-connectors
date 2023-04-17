@@ -120,7 +120,11 @@ def mock_response():
     vm_instance = get_response('vm_instances.json', True)
     vm_instance_os_pkgs = get_response('vm_instance_os_pkgs.json', True)
     vm_instance_os_vuln = get_response('vm_instance_os_vuln.json', True)
-    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln]
+    web_app = get_response('web_app.json', True)
+    web_app_service = get_response('web_app_service.json', True)
+    web_app_service_version = get_response('web_app_service_version.json', True)
+    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
+                web_app, web_app_service, web_app_service_version]
     return mock_obj
 
 
@@ -132,6 +136,10 @@ def mock_history_response():
     vm_instance_update = get_response('vm_instance_update_history.json', True)
     vm_instance_os_pkgs_updated = get_response('vm_instance_os_pkgs_history.json', True)
     vm_instance_os_vuln_updated = get_response('vm_instance_os_vuln_history.json', True)
+    web_app = get_response('web_app.json', True)
+    web_app_service = get_response('web_app_service.json', True)
+    web_app_service_version = get_response('web_app_service_version.json', True)
     mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
-                vm_instance_update, vm_instance_os_pkgs_updated, vm_instance_os_vuln_updated]
+                vm_instance_update, vm_instance_os_pkgs_updated, vm_instance_os_vuln_updated,
+                web_app, web_app_service, web_app_service_version]
     return mock_obj

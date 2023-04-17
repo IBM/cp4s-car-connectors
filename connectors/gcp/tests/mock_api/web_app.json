@@ -1,0 +1,38 @@
+[
+  {
+    "name": "//appengine.googleapis.com/apps/cp4sdev",
+    "assetType": "appengine.googleapis.com/Application",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+      "discoveryName": "Application",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/958613152635",
+      "data": {
+        "serviceAccount": "cp4sdev@appspot.gserviceaccount.com",
+        "defaultHostname": "cp4sdev.uc.r.appspot.com",
+        "authDomain": "gmail.com",
+        "defaultCookieExpiration": "604800s",
+        "id": "cp4sdev",
+        "defaultBucket": "cp4sdev.appspot.com",
+        "databaseType": "CLOUD_DATASTORE_COMPATIBILITY",
+        "featureSettings": {
+          "useContainerOptimizedOs": true,
+          "splitHealthChecks": true
+        },
+        "codeBucket": "staging.cp4sdev.appspot.com",
+        "gcrDomain": "us.gcr.io",
+        "servingStatus": "USER_DISABLED",
+        "locationId": "us-central",
+        "name": "apps/cp4sdev"
+      },
+      "location": "us-central",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/958613152635",
+      "organizations/409845928929"
+    ],
+    "updateTime": "2023-03-31T14:55:00.551160Z",
+    "orgPolicy": []
+  }
+]

@@ -175,6 +175,33 @@ class AssetServer:
         except Exception as ex:
             raise DatasourceFailure(ex)
 
+    def get_resource_names_from_log(self, project, last_model_state_id, resource_type, event_type):
+        """
+        Fetch the resource names from logs based on lifecycle operations.
+        parameters:
+            project(str): project name
+            last_model_state_id(int): Last run time(epoch time)
+            resource_type(str): type of the resource, supported types are [ vm_instance, web_app, web_app_service,
+                                web_app_service_version]
+            event_type(str): type of event log, supported types are [ create, update, delete ]
+        returns:
+            resource_name(list): list of resource names
+        """
+        resource_names = set()
+        time_filter = f' AND timestamp>="{epoch_to_datetime_conv(last_model_state_id)}"'
+        logs = self.get_logs(project,
+                             self.config['log_filter'][event_type][resource_type] + time_filter)
+        for log in logs:
+            resource_name = deep_get(log, ['protoPayload', 'resourceName'])
+            resource_name = self.config['asset_name_prefix'][resource_type] + resource_name
+            if resource_type == 'vm_instance':
+                resource_id = deep_get(log, ['protoPayload', 'response', 'targetId'])
+                if not resource_id:
+                    continue
+                resource_name = re.sub("instances/.*", "instances/" + resource_id, resource_name)
+            resource_names.add(resource_name)
+        return resource_names
+
     def get_vm_instances(self, project, asset_names=None, last_model_state_id=None):
         """
         Fetch the instance records from data source.
@@ -191,7 +218,7 @@ class AssetServer:
                                                       asset_v1.ContentType.RESOURCE,
                                                       last_model_state_id)
         else:
-            vm_instance_list = self.get_asset_list(project, self.config['asset_type']['vm'],
+            vm_instance_list = self.get_asset_list(project, self.config['asset_type']['vm_instance'],
                                                    asset_v1.ContentType.RESOURCE)
         return vm_instance_list
 
@@ -211,7 +238,7 @@ class AssetServer:
                                                        asset_v1.ContentType.OS_INVENTORY,
                                                        last_model_state_id)
         else:
-            vm_instances_pkgs = self.get_asset_list(project, self.config['asset_type']['vm'],
+            vm_instances_pkgs = self.get_asset_list(project, self.config['asset_type']['vm_instance'],
                                                     asset_v1.ContentType.OS_INVENTORY)
         return vm_instances_pkgs
 
@@ -235,70 +262,83 @@ class AssetServer:
                                                    asset_v1.ContentType.RESOURCE)
         return vm_instance_vuln
 
-    def get_vm_instance_created(self, project, last_model_state_id=None):
-        """Get created VM instances names from logs
+    def get_web_applications(self, project):
+        """
+        Fetch the App Engine application records from data source.
         parameters:
             project(str): project name
-            last_model_state_id(int): Last run time(epochtime)
         returns:
-            resource_names(list): resource names
+            application(list): application list
         """
-        resource_names = set()
-        time_filter = f' AND timestamp>="{epoch_to_datetime_conv(last_model_state_id)}"'
-        logs = self.get_logs(project,
-                             self.config['asset_create_log_filter']['vm_instance'] + time_filter)
-        for log in logs:
-            resource_name = deep_get(log, ['protoPayload', 'resourceName'])
-            resource_name = self.config['asset_name_prefix']['vm'] + resource_name
-            resource_id = deep_get(log, ['protoPayload', 'response', 'targetId'])
-            if not resource_id:
-                continue
-            resource_name = re.sub("instances/.*", "instances/" + resource_id, resource_name)
-            resource_names.add(resource_name)
-        return resource_names
+        application = self.get_asset_list(project, self.config['asset_type']['web_app'],
+                                          asset_v1.ContentType.RESOURCE)
+        return application
 
-    def get_vm_instance_updated(self, project, last_model_state_id=None):
-        """Get updated VM instances names from logs
+    def get_web_app_services(self, project):
+        """
+        Fetch the App Engine application services records from data source.
         parameters:
             project(str): project name
-            last_model_state_id(int): Last run time(epochtime)
         returns:
-            resource_names(list): resource names
+            services(list): services list
         """
-        resource_names = set()
-        time_filter = f' AND timestamp>="{epoch_to_datetime_conv(last_model_state_id)}"'
-        logs = self.get_logs(project,
-                             self.config['asset_update_log_filter']['vm_instance'] + time_filter)
-        for log in logs:
-            resource_name = deep_get(log, ['protoPayload', 'resourceName'])
-            resource_name = self.config['asset_name_prefix']['vm'] + resource_name
-            resource_id = deep_get(log, ['protoPayload', 'response', 'targetId'])
-            if not resource_id:
-                continue
-            resource_name = re.sub("instances/.*", "instances/" + resource_id, resource_name)
-            resource_names.add(resource_name)
-        return resource_names
+        services = self.get_asset_list(project, self.config['asset_type']['web_app_service'],
+                                       asset_v1.ContentType.RESOURCE)
+        return services
 
-    def get_vm_instance_deleted(self, project, last_model_state_id=None):
-        """Get deleted VM instances names from logs
+    def get_web_app_service_versions(self, project):
+        """
+        Fetch the App Engine application service version records from data source.
+        parameters:
+            project(str): project name
+        returns:
+            versins(list): versions list
+        """
+        versions = self.get_asset_list(project, self.config['asset_type']['web_app_service_version'],
+                                       asset_v1.ContentType.RESOURCE)
+        return versions
+
+    def get_web_app_services_versions(self, project, last_model_state_id=None):
+        """Get created/updated/deleted App Engine service and version names from logs
         parameters:
             project(str): project name
             last_model_state_id(int): Last run time(epochtime)
         returns:
             resource_names(list): resource names
         """
-        resource_names = set()
-        time_filter = f' AND timestamp>="{epoch_to_datetime_conv(last_model_state_id)}"'
-        logs = self.get_logs(project,
-                             self.config['asset_del_log_filter']['vm_instance'] + time_filter)
+        resource_names = {"updated_versions": set(), "updated_services": set(),
+                          "deleted_versions": set(), "deleted_services": set(),
+                          "created_versions": set()}
+        time_filter = f'timestamp>="{epoch_to_datetime_conv(last_model_state_id)}"'
+        logs = self.get_logs(project, time_filter + ' AND '
+                             + '(' + self.config['log_filter']['update']['web_app_service'] + ')' + ' OR '
+                             + '(' + self.config['log_filter']['delete']['web_app_service'] + ')' + ' OR '
+                             + '(' + self.config['log_filter']['create']['web_app_service_version'] + ')' + ' OR '
+                             + '(' + self.config['log_filter']['update']['web_app_service_version'] + ')' + ' OR '
+                             + '(' + self.config['log_filter']['delete']['web_app_service_version'] + ')')
         for log in logs:
-            resource_name = deep_get(log, ['protoPayload', 'resourceName'])
-            resource_name = self.config['asset_name_prefix']['vm'] + resource_name
-            resource_id = deep_get(log, ['protoPayload', 'response', 'targetId'])
-            if not resource_id:
-                continue
-            resource_name = re.sub("instances/.*", "instances/" + resource_id, resource_name)
-            resource_names.add(resource_name)
+            method_name = deep_get(log, ['protoPayload', 'methodName'])
+            item = self.config['asset_name_prefix']['web_app'] + deep_get(log, ['protoPayload', 'resourceName'])
+            if "CreateVersion" in method_name:
+                resource_names['created_versions'].add(item)
+            elif 'UpdateVersion' in method_name:
+                if item not in resource_names['created_versions']:
+                    resource_names['updated_versions'].add(item)
+            elif 'DeleteVersion' in method_name:
+                if item in resource_names['created_versions']:
+                    resource_names['created_versions'].remove(item)
+                elif item in resource_names['updated_versions']:
+                    resource_names['updated_versions'].remove(item)
+                    resource_names['deleted_versions'].add(item)
+                else: resource_names['deleted_versions'].add(item)
+            elif 'UpdateService' in method_name:
+                resource_names['updated_services'].add(item)
+                if item in resource_names['deleted_services']:
+                    resource_names['deleted_services'].remove(item)
+            elif 'DeleteService' in method_name:
+                if item in resource_names['updated_services']:
+                    resource_names['updated_services'].remove(item)
+                resource_names['deleted_services'].add(item)
         return resource_names
 
     def get_scc_vulnerability(self, project, last_model_state_id=None, status='ACTIVE'):
@@ -313,6 +353,9 @@ class AssetServer:
         """
         scc_vulnerabilities = []
         api_filter = f'state = \"{status}\"'
+        # Vulnerability filter for resources and vulnerable URLs(Web Security Scanner - App Engine)
+        resource_filter = " OR ".join(self.config['scc_vulnerability'].values())
+        api_filter = api_filter + ' AND ' + f'({resource_filter})'
         try:
             if last_model_state_id:
                 api_filter = api_filter + ' AND ' + f'event_time >= {int(last_model_state_id)}'

@@ -4,21 +4,43 @@
     "token_uri": "https://oauth2.googleapis.com/token"
   },
   "asset_type": {
-    "vm": "compute.googleapis.com/Instance",
+    "vm_instance": "compute.googleapis.com/Instance",
     "vm_os_pkgs": "compute.googleapis.com/Instance",
-    "os_pkg_vuln": "osconfig.googleapis.com/VulnerabilityReport"
+    "os_pkg_vuln": "osconfig.googleapis.com/VulnerabilityReport",
+    "web_app": "appengine.googleapis.com/Application",
+    "web_app_service": "appengine.googleapis.com/Service",
+    "web_app_service_version": "appengine.googleapis.com/Version"
   },
   "asset_name_prefix": {
-    "vm": "//compute.googleapis.com/",
-    "os_pkg_vuln": "//osconfig.googleapis.com/"
+    "vm_instance": "//compute.googleapis.com/",
+    "os_pkg_vuln": "//osconfig.googleapis.com/",
+    "web_app": "//appengine.googleapis.com/"
   },
-  "asset_create_log_filter": {
-    "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.insert\""
+  "log_filter": {
+    "create": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.insert\"",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.CreateApplication\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.CreateVersion\" AND operation.last=\"true\""
+    },
+    "update": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName=~\"compute.instances.(stop|start|update|setName)\"",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.UpdateApplication\" AND operation.last=\"true\"",
+      "web_app_service": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Services.UpdateService\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.UpdateVersion\" AND operation.last=\"true\""
+    },
+    "delete": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.delete\"",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.DeleteApplication\" AND operation.last=\"true\"",
+      "web_app_service": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Services.DeleteService\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.DeleteVersion\""
+    }
   },
-  "asset_update_log_filter": {
-  "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName=~\"compute.instances.(stop|start|update|setName)\""
-  },
-  "asset_del_log_filter": {
-    "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.delete\""
+  "scc_vulnerability": {
+    "vm_instance": "resource.type=\"google.compute.Instance\"",
+    "web_app": "resource.type=\"google.appengine.Application\"",
+    "web_app_service":  "resource.type=\"google.appengine.Service\"",
+    "web_app_service_version": "resource.type=\"google.appengine.Version\"",
+    "vuln_url": "source_properties.reproductionUrl: \"-dot-\""
+
   }
 }

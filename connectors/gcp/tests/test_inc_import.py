@@ -36,7 +36,10 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         # Mock logs:
         mock_logs.side_effect = [get_response('vm_create_log.json', True),
                                  get_response('vm_update_log.json', True),
-                                 get_response('vm_create_log.json', True)]
+                                 get_response('vm_create_log.json', True),
+                                 [],
+                                 get_response('web_app_update_log.json', True),
+                                 get_response('web_app_service_version_log.json', True)]
 
         # mock search collection
         mock_collections = get_response('car_edges.json', True)

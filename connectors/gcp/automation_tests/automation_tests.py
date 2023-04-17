@@ -65,7 +65,11 @@ def mock_response():
     vm_instance = get_response('vm_instances.json', True)
     vm_instance_os_pkgs = get_response('vm_instance_os_pkgs.json', True)
     vm_instance_os_vuln = get_response('vm_instance_os_vuln.json', True)
-    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln]
+    web_app = get_response('web_app.json', True)
+    web_app_service = get_response('web_app_service.json', True)
+    web_app_service_version = get_response('web_app_service_version.json', True)
+    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
+                web_app, web_app_service, web_app_service_version]
     return mock_obj
 
 
@@ -77,8 +81,12 @@ def mock_history_response():
     vm_instance_update = get_response('vm_instance_update_history.json', True)
     vm_instance_os_pkgs_updated = get_response('vm_instance_os_pkgs_history.json', True)
     vm_instance_os_vuln_updated = get_response('vm_instance_os_vuln_history.json', True)
+    web_app = get_response('web_app.json', True)
+    web_app_service = get_response('web_app_service.json', True)
+    web_app_service_version = get_response('web_app_service_version.json', True)
     mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
-                vm_instance_update, vm_instance_os_pkgs_updated, vm_instance_os_vuln_updated]
+                vm_instance_update, vm_instance_os_pkgs_updated, vm_instance_os_vuln_updated,
+                web_app, web_app_service, web_app_service_version]
     return mock_obj
 
 
@@ -122,8 +130,10 @@ class TestConnector(unittest.TestCase):
 
         # Check the assets pushed in CAR DB
         asset_id = '6971825620782799361'
+        web_app_service = "apps/cp4sdev/services/app1"
         asset = context().car_service.search_collection("asset", "source", context().args.source, ['external_id'])
         assert asset_id in str(asset)
+        assert web_app_service in str(asset)
 
     @patch('connector.server_access.AssetServer.get_asset_history')
     @patch('connector.server_access.AssetServer.get_logs')
@@ -145,7 +155,10 @@ class TestConnector(unittest.TestCase):
         # Mock logs:
         mock_logs.side_effect = [get_response('vm_create_log.json', True),
                                  get_response('vm_update_log.json', True),
-                                 get_response('vm_update_log.json', True)]
+                                 get_response('vm_create_log.json', True),
+                                 [],
+                                 get_response('web_app_update_log.json', True),
+                                 get_response('web_app_service_version_log.json', True)]
         # Initialization
         Context(Arguments)
         context().asset_server = AssetServer()
@@ -180,7 +193,8 @@ class TestConnector(unittest.TestCase):
         context().inc_import = IncrementalImport()
         context().inc_import.get_data_for_delta(1651375759000, None)
         context().inc_import.projects = ['project']
-        context().inc_import.deleted_vertices = {'asset': {'compute.googleapis.com/projects/project/zones/us-central1-a/instances/6808925113337708402'}}
+        context().inc_import.deleted_vertices = \
+            {'asset': {'compute.googleapis.com/projects/project/zones/us-central1-a/instances/6808925113337708402'}}
         context().inc_import.delete_vertices()
 
         # Validate incremental deletion
