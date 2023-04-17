@@ -343,7 +343,8 @@ class DataCollector(object):
                             temp['IpAddress'].append(ipv6['Ipv6Address'])
                     count = count + 1
                     temp['IpAddress'].append(ip_data['PrivateIpAddress'])
-                    temp['DnsName'].append(ip_data['PrivateDnsName'])
+                    if 'PrivateDnsName' in ip_data:
+                        temp['DnsName'].append(ip_data['PrivateDnsName'])
                 instance['networkData'].append(temp)
         return instance
 
