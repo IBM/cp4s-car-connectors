@@ -63,26 +63,30 @@ class AssetServer(BaseAssetServer):
                           eidFirstSeen,
                           eidLastSeen,
                           services {
+                            name,
+                            displayName,
                             status
-                            startupMode
                           },
-                          eidFirstSeen,
-                          eidLastSeen,
+                          installedApplications {
+                            name,
+                            version
+                          },
+                          deployedSoftwarePackages {
+                            id,
+                            vendor,
+                            version
+                          },
                           ipAddress,
                           ipAddresses,
+                          domainName,
                           macAddresses,
                           primaryUser{
-                            name
+                            name,
+                            email,
+                            department
                           },
-                          lastLoggedInUser,
-                          isVirtual,
-                          isEncrypted,
-                          chassisType,
                           os {
                             name
-                          },
-                          eventCounts{
-                            network
                           },
                         discover {
                           openPorts

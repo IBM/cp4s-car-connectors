@@ -5,7 +5,7 @@ from car_framework.data_handler import BaseDataHandler
 # maps asset-server endpoints to CAR service endpoints
 endpoint_mapping = \
     {'tanium_endpoints': [
-        'assets', 'ipaddress', 'ipaddresses', 'ports', 'hostname', 'application', 'macaddress']
+        'assets', 'ipaddresses', 'ports', 'hostname', 'application', 'macaddress', 'account', 'user']
     }
 
 
@@ -63,8 +63,10 @@ class DataHandler(BaseDataHandler):
         res = {}
         res['external_id'] = obj['id']
         res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
-        res['first_seen'] = obj['eidFirstSeen']
-        res['last_seen'] = obj['eidLastSeen']
+        if obj['eidFirstSeen']:
+            res['first_seen'] = obj['eidFirstSeen']
+        if obj['eidLastSeen']:
+            res['last_seen'] = obj['eidLastSeen']
         res['risk'] = obj['risk']['totalScore'] / 100
         self.add_collection('asset', res, 'external_id')
 
@@ -82,37 +84,87 @@ class DataHandler(BaseDataHandler):
             self.add_collection('ipaddress', res, '_key')
 
     def handle_macaddress(self, obj):
-        res = {}
-        key = obj.get('macAddresses', "")
-        res['_key'] = key
-        self.add_collection('macaddress', res, '_key')
+        for mac in obj['macAddresses']:
+            res = {'_key': mac}
+            self.add_edge('asset_macaddress', {'_from_external_id': obj['id'], '_to': 'macaddress/' + res['_key']})
 
-        # asset mac address edge creation
-        asset_macaddress = {'_from_external_id': str(obj['id']),
-                            '_to': "macaddress/" + obj.get('macAddress', "")}
-        self.add_edge('asset_macaddress', asset_macaddress)
-
-        # ip address mac address edge creation
-        for ip in obj['ipAddresses']:
-            ipaddress_mac = {'_from': "ipaddress/" + ip,
-                             '_to': "macaddress/" + obj.get('macAddress', "")}
-            self.add_edge('ipaddress_macaddress', ipaddress_mac)
+            self.add_edge('ipaddress_macaddress',
+                          {'_from': 'ipaddress/' + obj['ipAddress'], '_to': 'macaddress/' + res['_key']})
+            self.add_collection('macaddress', res, '_key')
 
     # Create hostname Object as per CAR data model from data source
     def handle_hostname(self, obj):
         res = {}
-        res['_key'] = str(obj['name'])
+        res['_key'] = str(obj['domainName'])
 
         self.add_edge('asset_hostname', {'_from_external_id': obj['id'], '_to': 'hostname/' + res['_key']})
         self.add_collection('hostname', res, '_key')
 
+    def handle_account(self, obj):
+        res = {}
+        user = obj['primaryUser']
+        if user['email']:
+            res['external_id'] = str(user['email'])
+            res['name'] = user['name']
+
+            self.add_edge('asset_account', {'_from_external_id': obj['id'], '_to_external_id': 'account/' + res['external_id']})
+            self.add_collection('account', res, 'external_id')
+
+    
+    # Create user Object as per CAR data model from data source
+    def handle_user(self, obj):
+        res = {}
+        user = obj['primaryUser']
+        if user['email']:
+            res['external_id'] = str(user['email'])
+            res['fullname'] = user['name']
+            res['email'] = user['email']
+            res['department'] = user['department']
+
+            self.add_edge('user_account', {'_from_external_id': res['external_id'], '_to_external_id': 'account/' + res['external_id']})
+            self.add_collection('user', res, 'external_id')
+
     # Create application Object as per CAR data model from data source
     def handle_application(self, obj):
-        # pass
+        # Import OS
+        os = obj['os']
         res = {}
-        res['external_id'] = str(obj['id'])
+        res['external_id'] = str(os['name'])
+        res['name'] = os['name']
+        res['is_os'] = True
+        self.add_edge('asset_application',
+                        {'_from_external_id': obj['id'], '_to_external_id': 'application/' + res['external_id']})
+        self.add_collection('application', res, 'external_id')
+        
+        # Import deployedSoftwarePackages
+        for package in obj['deployedSoftwarePackages']:
+            res = {}
+            res['external_id'] = package['id']
+            res['name'] = package['vendor']
+            res['description'] = "%s: %s" % (package['vendor'], package['version'])
+            res['app_type'] = "SoftwarePackages"
+            self.add_edge('asset_application',
+                          {'_from_external_id': obj['id'], '_to_external_id': 'application/' + res['external_id']})
+            self.add_collection('application', res, 'external_id')
+
+        # Import installedApplications
+        for app in obj['installedApplications']:
+            res = {}
+            res['external_id'] = str(app['name'])
+            res['name'] = app['name']
+            res['description'] = "%s: %s" % (app['name'], app['version'])
+            res['app_type'] = "application"
+            self.add_edge('asset_application',
+                          {'_from_external_id': obj['id'], '_to_external_id': 'application/' + res['external_id']})
+            self.add_collection('application', res, 'external_id')
+
+        # Import services
         for svc in obj['services']:
-            res['name'] = svc['name']
+            res = {}
+            res['external_id'] = str(obj['name'])
+            res['name'] = svc['displayName']
+            res['status'] = svc['status']
+            res['app_type'] = "services"
             self.add_edge('asset_application',
                           {'_from_external_id': obj['id'], '_to_external_id': 'application/' + res['external_id']})
             self.add_collection('application', res, 'external_id')
@@ -123,6 +175,7 @@ class DataHandler(BaseDataHandler):
         res['external_id'] = str(obj['id'])
         for port in obj['discover']['openPorts']:
             res['port_number'] = port
+            res['protocol'] = "N/A"
             self.add_edge('application_port',
                           {'_from_external_id': obj['id'], '_to_external_id': res['external_id']})
             self.add_edge('ipaddress_port',
