@@ -3,7 +3,7 @@
     "finding": {
       "name": "organizations/401111111111/sources/18000155212282853446/findings/a8d09475deb0745618ba22d83982fc28",
       "parent": "organizations/401111111111/sources/18000155212282853446",
-      "resource_name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6971825620782799361",
+      "resource_name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6000000000000000001",
       "state": 1,
       "category": "PUBLIC_IP_ADDRESS",
       "external_uri": "https://console.cloud.google.com/compute/instancesDetail/zones/us-central1-a/instances/instance-1?project=project",
@@ -107,7 +107,7 @@
       "files": []
     },
     "resource": {
-      "name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6971825620782799361",
+      "name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6000000000000000001",
       "project_name": "//cloudresourcemanager.googleapis.com/projects/951111111111",
       "project_display_name": "project",
       "parent_name": "//cloudresourcemanager.googleapis.com/projects/951111111111",

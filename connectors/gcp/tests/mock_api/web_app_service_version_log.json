@@ -1,13 +1,13 @@
 [
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
         "zone": "",
-        "module_id": "login-pass-1",
+        "module_id": "service1",
         "version_id": "20230401t152526",
-        "project_id": "cp4sdev"
+        "project_id": "dummyproj"
       }
     },
     "insertId": "jfh750c44g",
@@ -21,7 +21,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -29,7 +29,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Versions.CreateVersion",
-      "resourceName": "apps/cp4sdev/services/login-pass-1/versions/20230401t152526",
+      "resourceName": "apps/dummyapp/services/service1/versions/20230401t152526",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -38,12 +38,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-1",
+        "project_id": "dummyproj",
+        "module_id": "service1",
         "version_id": "",
         "zone": ""
       }
@@ -59,7 +59,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -67,7 +67,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Services.UpdateService",
-      "resourceName": "apps/cp4sdev/services/login-pass-1",
+      "resourceName": "apps/dummyapp/services/service1",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -76,12 +76,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-1",
+        "project_id": "dummyproj",
+        "module_id": "service1",
         "version_id": "20230401t152657",
         "zone": ""
       }
@@ -97,7 +97,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -105,7 +105,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Versions.CreateVersion",
-      "resourceName": "apps/cp4sdev/services/login-pass-1/versions/20230401t152657",
+      "resourceName": "apps/dummyapp/services/service1/versions/20230401t152657",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -114,14 +114,14 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
         "zone": "",
-        "module_id": "login-pass-1",
+        "module_id": "service1",
         "version_id": "",
-        "project_id": "cp4sdev"
+        "project_id": "dummyproj"
       }
     },
     "insertId": "2s8l5ucmpq",
@@ -135,7 +135,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -143,7 +143,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Services.UpdateService",
-      "resourceName": "apps/cp4sdev/services/login-pass-1",
+      "resourceName": "apps/dummyapp/services/service1",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -152,12 +152,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-2",
+        "project_id": "dummyproj",
+        "module_id": "service2",
         "version_id": "20230401t152848",
         "zone": ""
       }
@@ -173,7 +173,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -181,7 +181,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Versions.CreateVersion",
-      "resourceName": "apps/cp4sdev/services/login-pass-2/versions/20230401t152848",
+      "resourceName": "apps/dummyapp/services/service2/versions/20230401t152848",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -190,12 +190,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-2",
+        "project_id": "dummyproj",
+        "module_id": "service2",
         "version_id": "",
         "zone": ""
       }
@@ -211,7 +211,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -219,7 +219,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Services.UpdateService",
-      "resourceName": "apps/cp4sdev/services/login-pass-2",
+      "resourceName": "apps/dummyapp/services/service2",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -228,12 +228,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-2",
+        "project_id": "dummyproj",
+        "module_id": "service2",
         "version_id": "20230401t152848",
         "zone": ""
       }
@@ -248,7 +248,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -256,7 +256,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Versions.DeleteVersion",
-      "resourceName": "apps/cp4sdev/services/login-pass-2/versions/20230401t152848",
+      "resourceName": "apps/dummyapp/services/service2/versions/20230401t152848",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"
@@ -265,12 +265,12 @@
     }
   },
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
-        "project_id": "cp4sdev",
-        "module_id": "login-pass-2",
+        "project_id": "dummyproj",
+        "module_id": "service2",
         "version_id": "",
         "zone": ""
       }
@@ -286,7 +286,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -294,7 +294,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Services.DeleteService",
-      "resourceName": "apps/cp4sdev/services/login-pass-2",
+      "resourceName": "apps/dummyapp/services/service2",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"

@@ -1,6 +1,6 @@
 [
   {
-    "name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-a/instances/6808925113337708402/vulnerabilityReport",
+    "name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-a/instances/6000000000000000002/vulnerabilityReport",
     "assetType": "osconfig.googleapis.com/VulnerabilityReport",
     "resource": {
       "version": "v1",
@@ -137,7 +137,7 @@
             "updateTime": "2023-03-19T17:12:49.088415Z"
           }
         ],
-        "name": "projects/951111111111/locations/us-central1-a/instances/6808925113337708402/vulnerabilityReport"
+        "name": "projects/951111111111/locations/us-central1-a/instances/6000000000000000002/vulnerabilityReport"
       },
       "location": "us-central1-a",
       "resourceUrl": ""

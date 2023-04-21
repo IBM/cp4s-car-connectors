@@ -1,13 +1,13 @@
 [
   {
-    "logName": "projects/cp4sdev/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gae_app",
       "labels": {
         "zone": "",
         "module_id": "",
         "version_id": "",
-        "project_id": "cp4sdev"
+        "project_id": "dummyproj"
       }
     },
     "insertId": "atll48cl60",
@@ -21,7 +21,7 @@
     "protoPayload": {
       "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
       "authenticationInfo": {
-        "principalEmail": "thummalar@hcl.com"
+        "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
         "requestAttributes": {},
@@ -29,7 +29,7 @@
       },
       "serviceName": "appengine.googleapis.com",
       "methodName": "google.appengine.v1.Applications.UpdateApplication",
-      "resourceName": "apps/cp4sdev",
+      "resourceName": "apps/dummyapp",
       "resourceLocation": {
         "currentLocations": [
           "us-central1"

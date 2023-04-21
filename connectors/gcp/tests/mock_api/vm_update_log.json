@@ -5,7 +5,7 @@
       "type": "gce_instance",
       "labels": {
         "project_id": "project",
-        "instance_id": "6971825620782799361",
+        "instance_id": "6000000000000000001",
         "zone": "us-central1-a"
       }
     },
@@ -23,7 +23,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "44.204.224.104",
+        "callerIp": "1.0.0.6",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
         "requestAttributes": {
           "time": "2023-03-17T13:48:13.335502Z",
@@ -63,7 +63,7 @@
         "startTime": "2023-03-17T06:48:13.301-07:00",
         "insertTime": "2023-03-17T06:48:13.287-07:00",
         "@type": "type.googleapis.com/operation",
-        "targetId": "6971825620782799361"
+        "targetId": "6000000000000000001"
       },
       "resourceLocation": {
         "currentLocations": [
@@ -78,7 +78,7 @@
       "type": "gce_instance",
       "labels": {
         "zone": "us-central1-a",
-        "instance_id": "6971825620782799361",
+        "instance_id": "6000000000000000001",
         "project_id": "project"
       }
     },
@@ -96,7 +96,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "44.204.224.104",
+        "callerIp": "1.0.0.6",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
       },
       "serviceName": "compute.googleapis.com",
@@ -113,7 +113,7 @@
       "type": "gce_instance",
       "labels": {
         "zone": "us-central1-a",
-        "instance_id": "6971825620782799361",
+        "instance_id": "6000000000000000001",
         "project_id": "project"
       }
     },
@@ -131,7 +131,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "35.170.71.200",
+        "callerIp": "10.0.0.1",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
         "requestAttributes": {
           "time": "2023-03-19T17:09:07.252842Z",
@@ -171,7 +171,7 @@
         "startTime": "2023-03-19T10:09:07.216-07:00",
         "insertTime": "2023-03-19T10:09:07.201-07:00",
         "@type": "type.googleapis.com/operation",
-        "targetId": "6971825620782799361"
+        "targetId": "6000000000000000001"
       },
       "resourceLocation": {
         "currentLocations": [
@@ -186,7 +186,7 @@
       "type": "gce_instance",
       "labels": {
         "project_id": "project",
-        "instance_id": "6971825620782799361",
+        "instance_id": "6000000000000000001",
         "zone": "us-central1-a"
       }
     },
@@ -204,7 +204,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "35.170.71.200",
+        "callerIp": "10.0.0.1",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
       },
       "serviceName": "compute.googleapis.com",

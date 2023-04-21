@@ -1,5 +1,5 @@
 {
-	"name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-c/instances/2938274790656233993/vulnerabilityReport",
+	"name": "//osconfig.googleapis.com/projects/951111111111/locations/us-central1-c/instances/2900000000000000001/vulnerabilityReport",
 	"assetType": "osconfig.googleapis.com/VulnerabilityReport",
 	"resource": {
 		"version": "v1",

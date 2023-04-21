@@ -20,7 +20,7 @@ class TestAssetServer(unittest.TestCase):
         mock_account.return_value.signer_email = "cp4s@project.com"
         # Mock GCP project
         project_obj = Mock()
-        project_obj.display_name = 'project'
+        project_obj.display_name = 'dummyproj'
         project_obj.project_id = 'cp4s_dev'
         mock_projects.return_value = [project_obj]
         self.projects = context().asset_server.set_credentials_and_projects()

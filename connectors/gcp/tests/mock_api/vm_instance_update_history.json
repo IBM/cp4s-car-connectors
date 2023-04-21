@@ -52,13 +52,13 @@
         "networkInterfaces": [
           {
             "stackType": "IPV4_ONLY",
-            "networkIP": "10.128.15.201",
+            "networkIP": "1.0.0.4",
             "network": "https://www.googleapis.com/compute/v1/projects/project/global/networks/default",
             "subnetwork": "https://www.googleapis.com/compute/v1/projects/project/regions/us-central1/subnetworks/default",
             "accessConfigs": [
               {
                 "type": "ONE_TO_ONE_NAT",
-                "natIP": "34.171.61.120",
+                "natIP": "1.0.0.5",
                 "networkTier": "PREMIUM",
                 "name": "External NAT"
               }
@@ -83,7 +83,7 @@
         "confidentialInstanceConfig": {
           "enableConfidentialCompute": false
         },
-        "id": "6971825620782799361",
+        "id": "6000000000000000001",
         "serviceAccounts": [
           {
             "email": "951111111111-compute@developer.gserviceaccount.com",

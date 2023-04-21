@@ -75,5 +75,5 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         patchs[8].side_effect = [{'status': 'success'}, {'status': 'success'}]
         # Mock logs:
         mock_logs.side_effect = [get_response('vm_create_log.json', True)]
-        inc_import_obj.projects = ["project"]
+        inc_import_obj.projects = ["dummyproj"]
         assert inc_import_obj.delete_vertices() is None

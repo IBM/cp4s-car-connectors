@@ -3,10 +3,10 @@
     "finding": {
       "name": "organizations/401111111111/sources/18000155212282853446/findings/a8d09475deb0745618ba22d83982fc28",
       "parent": "organizations/401111111111/sources/18000155212282853446",
-      "resource_name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6971825620782799361",
+      "resource_name": "//compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000001",
       "state": 1,
       "category": "PUBLIC_IP_ADDRESS",
-      "external_uri": "https://console.cloud.google.com/compute/instancesDetail/zones/us-central1-a/instances/instance-1?project=project",
+      "external_uri": "https://console.cloud.google.com/compute/instancesDetail/zones/us-central1-a/instances/instance-1?project=dummyproj",
       "source_properties": {
         "compliance_standards": {
           "pci": [
@@ -39,9 +39,9 @@
             }
           ]
         },
-        "Recommendation": "If this is unintended, please go to https://console.cloud.google.com/compute/instancesDetail/zones/us-central1-a/instances/instance-1?project=project and click  For each interface under the \"Network interfaces\" heading, set \"External IP\" to \"None\", then click \"Done\" and \"Save\". If you would like to learn more about securing access to your infrastructure, see https://cloud.google.com/solutions/connecting-securely.",
+        "Recommendation": "If this is unintended, please go to https://console.cloud.google.com/compute/instancesDetail/zones/us-central1-a/instances/instance-1?project=dummyproj and click  For each interface under the \"Network interfaces\" heading, set \"External IP\" to \"None\", then click \"Done\" and \"Save\". If you would like to learn more about securing access to your infrastructure, see https://cloud.google.com/solutions/connecting-securely.",
         "ResourcePath": [
-          "projects/project/",
+          "projects/dummyproj/",
           "organizations/401111111111/"
         ],
         "VulnerableNetworkInterfaceNames": [
@@ -107,11 +107,11 @@
       "files": []
     },
     "resource": {
-      "name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/6971825620782799361",
+      "name": "//compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000001",
       "project_name": "//cloudresourcemanager.googleapis.com/projects/951111111111",
-      "project_display_name": "project",
+      "project_display_name": "dummyproj",
       "parent_name": "//cloudresourcemanager.googleapis.com/projects/951111111111",
-      "parent_display_name": "project",
+      "parent_display_name": "dummyproj",
       "type_": "google.compute.Instance",
       "display_name": "instance-1",
       "folders": []

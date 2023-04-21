@@ -1,30 +1,30 @@
 [
   {
-    "name": "//appengine.googleapis.com/apps/cp4sdev/services/app1",
+    "name": "//appengine.googleapis.com/apps/dummyapp/services/app1",
     "assetType": "appengine.googleapis.com/Service",
     "resource": {
       "version": "v1",
       "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
       "discoveryName": "Service",
-      "parent": "//appengine.googleapis.com/apps/cp4sdev",
+      "parent": "//appengine.googleapis.com/apps/dummyapp",
       "data": {
         "split": {
           "allocations": {
-            "20220804t105216": 1.0
+            "2022v1": 1.0
           }
         },
         "networkSettings": {
           "ingressTrafficAllowed": "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY"
         },
         "id": "app1",
-        "name": "apps/cp4sdev/services/app1"
+        "name": "apps/dummyapp/services/app1"
       },
       "resourceUrl": "",
       "location": ""
     },
     "ancestors": [
-      "projects/958613152635",
-      "organizations/409845928929"
+      "projects/951111111111",
+      "organizations/401111111111"
     ],
     "updateTime": "2023-01-24T10:42:02.063481Z",
     "orgPolicy": []

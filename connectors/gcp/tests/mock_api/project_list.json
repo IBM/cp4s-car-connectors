@@ -1,9 +1,9 @@
 {
 		"name": "projects/951111111111",
 		"parent": "organizations/401111111111",
-		"project_id": "project",
+		"project_id": "dummyproj",
 		"state": "ACTIVE",
-		"display_name": "project",
+		"display_name": "dummyproj",
 		"create_time": {
 			"seconds": 1651483320,
 			"nanos": 670000000

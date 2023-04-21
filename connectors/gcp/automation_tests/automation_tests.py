@@ -129,8 +129,8 @@ class TestConnector(unittest.TestCase):
         context().full_importer.run()
 
         # Check the assets pushed in CAR DB
-        asset_id = '6971825620782799361'
-        web_app_service = "apps/cp4sdev/services/app1"
+        asset_id = '6000000000000000001'
+        web_app_service = "apps/dummyapp/services/app1"
         asset = context().car_service.search_collection("asset", "source", context().args.source, ['external_id'])
         assert asset_id in str(asset)
         assert web_app_service in str(asset)
@@ -192,15 +192,15 @@ class TestConnector(unittest.TestCase):
         context().asset_server = AssetServer()
         context().inc_import = IncrementalImport()
         context().inc_import.get_data_for_delta(1651375759000, None)
-        context().inc_import.projects = ['project']
+        context().inc_import.projects = ['dummyproj']
         context().inc_import.deleted_vertices = \
-            {'asset': {'compute.googleapis.com/projects/project/zones/us-central1-a/instances/6808925113337708402'}}
+            {'asset': {'compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000002'}}
         context().inc_import.delete_vertices()
 
         # Validate incremental deletion
         time.sleep(1)
         # below asset id is deleted from car db
-        instance_id = 'compute.googleapis.com/projects/project/zones/us-central1-a/instances/6808925113337708402'
+        instance_id = 'compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000002'
         asset = context().car_service.search_collection("asset", "source",
                                                         context().args.source, ['external_id'])
 

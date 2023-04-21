@@ -15,7 +15,7 @@ class Arguments:
     certificate = "hjhdskjfhlahlfoiewhfo"
     page_size = 10
     source = "GCP"
-    car_service_apikey_url = "https://app.demo.isc.ibm"
+    car_service_apikey_url = "https://dummyapp.demo.isc.ibm"
     api_key = "abcdef"
     api_password = ""
     car_service_token_url = None

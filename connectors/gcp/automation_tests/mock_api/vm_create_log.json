@@ -1,12 +1,12 @@
 [
   {
-    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
     "resource": {
       "type": "gce_instance",
       "labels": {
         "zone": "us-central1-a",
-        "instance_id": "6808925113337708402",
-        "project_id": "project"
+        "instance_id": "6000000000000000002",
+        "project_id": "dummyproj"
       }
     },
     "insertId": "3m6bewe18am2",
@@ -23,7 +23,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "35.170.71.200",
+        "callerIp": "10.0.0.1",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
         "requestAttributes": {
           "time": "2023-03-19T17:08:46.098596Z",
@@ -40,7 +40,7 @@
           "granted": true,
           "resourceAttributes": {
             "service": "compute",
-            "name": "projects/project/zones/us-central1-a/instances/instance-2",
+            "name": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
             "type": "compute.instances"
           }
         },
@@ -49,7 +49,7 @@
           "granted": true,
           "resourceAttributes": {
             "service": "compute",
-            "name": "projects/project/zones/us-central1-a/disks/instance-2",
+            "name": "projects/dummyproj/zones/us-central1-a/disks/instance-2",
             "type": "compute.disks"
           }
         },
@@ -58,7 +58,7 @@
           "granted": true,
           "resourceAttributes": {
             "service": "compute",
-            "name": "projects/project/regions/us-central1/subnetworks/default",
+            "name": "projects/dummyproj/regions/us-central1/subnetworks/default",
             "type": "compute.subnetworks"
           }
         },
@@ -67,7 +67,7 @@
           "granted": true,
           "resourceAttributes": {
             "service": "compute",
-            "name": "projects/project/regions/us-central1/subnetworks/default",
+            "name": "projects/dummyproj/regions/us-central1/subnetworks/default",
             "type": "compute.subnetworks"
           }
         },
@@ -76,12 +76,12 @@
           "granted": true,
           "resourceAttributes": {
             "service": "compute",
-            "name": "projects/project/zones/us-central1-a/instances/instance-2",
+            "name": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
             "type": "compute.instances"
           }
         }
       ],
-      "resourceName": "projects/project/zones/us-central1-a/instances/instance-2",
+      "resourceName": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
       "request": {
         "description": "",
         "confidentialInstanceConfig": {
@@ -108,7 +108,7 @@
         "disks": [
           {
             "initializeParams": {
-              "diskType": "projects/project/zones/us-central1-a/diskTypes/pd-balanced",
+              "diskType": "projects/dummyproj/zones/us-central1-a/diskTypes/pd-balanced",
               "sourceImage": "projects/debian-cloud/global/images/debian-11-bullseye-v20230306",
               "diskSizeGb": "10"
             },
@@ -135,13 +135,13 @@
               }
             ],
             "stackType": "IPV4_ONLY",
-            "subnetwork": "projects/project/regions/us-central1/subnetworks/default"
+            "subnetwork": "projects/dummyproj/regions/us-central1/subnetworks/default"
           }
         ],
         "reservationAffinity": {
           "consumeReservationType": "ANY_ALLOCATION"
         },
-        "machineType": "projects/project/zones/us-central1-a/machineTypes/e2-micro",
+        "machineType": "projects/dummyproj/zones/us-central1-a/machineTypes/e2-micro",
         "displayDevice": {
           "enableDisplay": false
         },
@@ -163,7 +163,7 @@
         "startTime": "2023-03-19T10:08:46.013-07:00",
         "zone": "https://www.googleapis.com/compute/beta/projects/project/zones/us-central1-a",
         "@type": "type.googleapis.com/operation",
-        "targetId": "6808925113337708402"
+        "targetId": "6000000000000000002"
       },
       "resourceLocation": {
         "currentLocations": [
@@ -178,7 +178,7 @@
       "type": "gce_instance",
       "labels": {
         "project_id": "project",
-        "instance_id": "6808925113337708402",
+        "instance_id": "6000000000000000002",
         "zone": "us-central1-a"
       }
     },
@@ -196,7 +196,7 @@
         "principalEmail": "user1@gcp.com"
       },
       "requestMetadata": {
-        "callerIp": "35.170.71.200",
+        "callerIp": "10.0.0.1",
         "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
       },
       "serviceName": "compute.googleapis.com",
