@@ -1,2 +1,2 @@
 adal==1.2.2
-car-connector-framework==3.0.2rc269
+car-connector-framework==testSevEnv
