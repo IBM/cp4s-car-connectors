@@ -273,7 +273,11 @@ class AssetServer(object):
                 if response.status_code not in [200, 204] or response_json['responseCode'] != 'SUCCESS':
                     return_obj, error_msg = {}, {}
                     status_code = response_json['responseCode']
-                    error_msg['message'] = response_json['responseErrorDetails']
+                    context().logger.error("get_applications function failed, status code: %s , error details: %s",
+                                           status_code, response_json)
+                    error_msg['message'] = "get_applications function failed"
+                    if response_json.get('responseErrorDetails'):
+                        error_msg['message'] = response_json['responseErrorDetails']
                     ErrorResponder.fill_error(return_obj, json.dumps(error_msg).encode(), status_code)
                     raise Exception(return_obj)
                 results = results + response_json['assetListData']['asset']
