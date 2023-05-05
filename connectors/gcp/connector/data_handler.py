@@ -50,13 +50,21 @@ def deep_get(_dict, keys, default=None):
     return _dict
 
 
-def has_key(dict_val, keys):
-    """ Find the keys are present in the dictionary """
-    value = True
-    for key in keys:
-        if key not in dict_val:
-            value = False
-    return value
+def get_vm_id_from_cluster_nodes(cluster_nodes):
+    """Constructs VM instance id from cluster nodes
+        This helps to map VM instance node to cluster"""
+    cluster_vm_ids = {}
+    for node in cluster_nodes:
+        instance_id = deep_get(node, ['resource', 'data', 'metadata', 'annotations',
+                                      'container.googleapis.com/instance_id'])
+        node_id = deep_get(node, ['name']).replace('//', '')
+        node_name = node_id.replace('container.', 'compute.')
+        node_name = re.sub('clusters/.*', 'instances/' + instance_id, node_name)
+        instance_name = deep_get(node, ['resource', 'data', 'metadata', 'name'])
+        cluster_name = re.findall('clusters/(.*?)(?=/)', node_id)[0]
+        cluster_vm_ids[instance_name] = {'instance_id': node_name,
+                                         'cluster_name': cluster_name}
+    return cluster_vm_ids
 
 
 class DataHandler(BaseDataHandler):
@@ -115,7 +123,7 @@ class DataHandler(BaseDataHandler):
             self.add_edge('asset_application', asset_application)
 
     def handle_asset_application(self, asset_id, app_id):
-        """asset_application edg"""
+        """asset_application edge"""
         asset_application = {'_from_external_id': asset_id,
                              '_to_external_id': app_id}
         self.add_edge('asset_application', asset_application)
@@ -153,7 +161,51 @@ class DataHandler(BaseDataHandler):
                                  }
             self.add_edge('asset_geolocation', asset_geolocation)
 
-    def handle_vulnerability(self, vuln_id, name, asset_id, **fields):
+    def handle_database(self, asset_id, databases, db_version):
+        """Create database object"""
+        for db in databases:
+            database = dict()
+            database['name'] = db['name']
+            database['external_id'] = "projects/" + db['project'] + '/instances/' + db['instance'] + '/databases/' + \
+                                      db['name']
+            database['type'] = db_version
+            database['database_kind'] = db['kind']
+            self.add_collection('database', database, 'external_id')
+
+            # asset database edge creation
+            asset_database = {'_from_external_id': asset_id,
+                              '_to_external_id': database['external_id']}
+            self.add_edge('asset_database', asset_database)
+
+    def handle_account(self, asset_id, obj):
+        """ Account object creation"""
+        for ac in obj:
+            account = dict()
+            account['name'] = ac['name']
+            account['external_id'] = "projects/" + ac['project'] + '/instances/' + ac['instance'] + '/users/' + \
+                                     ac['name']
+            self.add_collection('account', account, 'external_id')
+
+            # asset account edge creation
+            asset_account = {'_from_external_id': asset_id,
+                             '_to_external_id': account['external_id']}
+            self.add_edge('asset_account', asset_account)
+
+    def handle_user(self, obj):
+        """User object creation"""
+        for usr in obj:
+            user = dict()
+            user['username'] = usr['name']
+            user['external_id'] = "projects/" + usr['project'] + '/instances/' + usr['instance'] + '/users/' + \
+                                  usr['name']
+            self.add_collection('user', user, 'external_id')
+
+            # user account edge creation
+            user_account = {'_from_external_id': user['external_id'],
+                            '_to_external_id': user['external_id']}
+            self.add_edge('user_account', user_account)
+
+    def handle_vulnerability(self, vuln_id, name, asset_id=None, **fields):
         """create vulnerability object"""
         res = {}
         res['name'] = name
@@ -164,8 +216,15 @@ class DataHandler(BaseDataHandler):
         self.add_collection('vulnerability', res, 'external_id')
 
         # asset_vulnerability edge
+        if asset_id:
+            asset_vulnerability = {'_from_external_id': asset_id,
+                                   '_to_external_id': vuln_id}
+            self.add_edge('asset_vulnerability', asset_vulnerability)
+
+    def handle_asset_vulnerability(self, asset_id, vulnerability_id):
+        """asset_vulnerability edge object"""
         asset_vulnerability = {'_from_external_id': asset_id,
-                               '_to_external_id': vuln_id}
+                               '_to_external_id': vulnerability_id}
         self.add_edge('asset_vulnerability', asset_vulnerability)
 
     def handle_application_vulnerability(self, app_id, vuln_id):
@@ -173,6 +232,26 @@ class DataHandler(BaseDataHandler):
         application_vulnerability = {'_from_external_id': app_id,
                                      '_to_external_id': vuln_id}
         self.add_edge('application_vulnerability', application_vulnerability)
+
+    def handle_container(self, container_id, name, **fields):
+        """create asset object"""
+        res = {}
+        res['name'] = name
+        res['external_id'] = container_id
+        for key, value in fields.items():
+            if value:
+                res[key] = value
+        self.add_collection('container', res, 'external_id')
+
+    def handle_ipaddress_container(self, ip_addr, container_id):
+        """ipaddress_container edge object"""
+        ipaddress_container = {'_from_external_id': ip_addr, '_to_external_id': container_id}
+        self.add_edge('ipaddress_container', ipaddress_container)
+
+    def handle_asset_container(self, asset_id, container_id):
+        """asset_container edge object"""
+        asset_container = {'_from_external_id': asset_id, '_to_external_id': container_id}
+        self.add_edge('asset_container', asset_container)
 
     # Handle vulnerability from data source
     def handle_scc_vulnerability(self, obj, web_service=[], web_app_domain=None):
@@ -244,7 +323,7 @@ class DataHandler(BaseDataHandler):
                         self.handle_ipaddress(config.get('natIP'), asset_id, location,
                                               region_id=region_id, access_type="Public")
 
-    def handle_vm_instances(self, obj):
+    def handle_vm_instances(self, obj, cluster_vm_instances):
         """ handling VM instance node and edges"""
         for instance in obj:
             asset_id = deep_get(instance, ['name'])
@@ -258,6 +337,8 @@ class DataHandler(BaseDataHandler):
             description = deep_get(instance, ['resource', 'data', 'description'])
             if description: res['description'] = description
             res['instance_id'] = deep_get(instance, ['resource', 'data', 'id'])
+            if deep_get(cluster_vm_instances, [name]):
+                res['cluster_name'] = cluster_vm_instances[name]['cluster_name']
             self.handle_asset(asset_id, name, **res)
             host_name = deep_get(instance, ['resource', 'data', 'hostname'])
             if not host_name:
@@ -358,3 +439,127 @@ class DataHandler(BaseDataHandler):
             fields['runtime'] = deep_get(version, ['resource', 'data', 'runtime'])
             fields['environment'] = deep_get(version, ['resource', 'data', 'env'])
             self.handle_application(external_id, name, asset_id, **fields)
+
+    def handle_cluster(self, obj):
+        """Handle GKE cluster"""
+        for cluster in obj:
+            name = deep_get(cluster, ['resource', 'data', 'name'])
+            cluster_id = deep_get(cluster, ['name']).replace('//', '')
+            cluster_type = deep_get(cluster, ['assetType'])
+            cluster_status = deep_get(cluster, ['resource', 'data', 'status'])
+            if deep_get(cluster, ['resource', 'data', 'autopilot']):
+                mode = 'autopilot'
+            else:
+                mode = 'standard'
+            self.handle_asset(cluster_id, name, asset_type=cluster_type, status=cluster_status,
+                              deployment_mode=mode)
+            ip_addr = deep_get(cluster, ['resource', 'data', 'endpoint'])
+            location = deep_get(cluster, ['resource', 'location'])
+            self.handle_ipaddress(ip_addr, cluster_id, location)
+            self.handle_geolocation(cluster, cluster_id)
+
+    def handle_cluster_nodes(self, obj):
+        """Handle GKE cluster nodes"""
+        for node in obj:
+            node_id = deep_get(node, ['name']).replace('//', '')
+            name = deep_get(node, ['resource', 'data', 'metadata', 'name'])
+            node_type = deep_get(node, ['assetType'])
+            cluster_name = re.findall('clusters/.*?(?=/)', node_id)[0]
+            self.handle_asset(node_id, name, asset_type=node_type, cluster_name=cluster_name)
+            self.handle_geolocation(node, node_id)
+            location = deep_get(node, ['resource', 'location'])
+            # handle ip address
+            for address in deep_get(node, ['resource', 'data', 'status', 'addresses']):
+                if deep_get(address, ['type']):
+                    if address['type'] in ['InternalIP', 'ExternalIP']:
+                        self.handle_ipaddress(address['address'], node_id, location)
+                    elif address['type'] == 'Hostname':
+                        self.handle_hostname(node_id, address['type'])
+
+    def handle_pods(self, obj, cluster_vm_instances, vulnerabilities):
+        """Handle GKE cluster pods"""
+        for pod in obj:
+            pod_ip = deep_get(pod, ['resource', 'data', 'status', 'podIP'])
+            cluster_name = re.findall('clusters/(.*?)(?=/)', deep_get(pod, ['name']))[0]
+            # cluster_name = cluster_name.split('/')[1]
+            node_name = deep_get(pod, ['resource', 'data', 'spec', 'nodeName'])
+            pod_name = deep_get(pod, ['name']).replace('//', '')
+            node_id = re.sub('namespaces/.*', 'nodes/' + node_name, pod_name)
+            if deep_get(cluster_vm_instances, [node_name, 'instance_id']):
+                node_id = cluster_vm_instances[node_name]['instance_id']
+            app_id = deep_get(pod, ['resource', 'data', 'metadata', 'labels', 'app'])
+            if not app_id:
+                app_id = deep_get(pod, ['resource', 'data', 'metadata', 'labels', 'k8s-app'])
+            if deep_get(pod, ['resource', 'data', 'status', 'containerStatuses']):
+                for container in deep_get(pod, ['resource', 'data', 'status', 'containerStatuses']):
+                    container_id = deep_get(container, ['containerID']). replace('//', '')
+                    if container_id:
+                        container_name = deep_get(container, ['name'])
+                        fields = {}
+                        fields['asset_type'] = 'container'
+                        fields['cluster_name'] = cluster_name
+                        fields['node_name'] = node_name
+                        fields['image'] = deep_get(container, ['imageID'])
+                        self.handle_asset(container_id, container_name, **fields)
+                        self.handle_geolocation(pod, container_id)
+                        image_name = deep_get(container, ['image'])
+                        # Container vulnerability mapping
+                        if deep_get(vulnerabilities, [cluster_name, image_name]):
+                            for vuln in vulnerabilities[cluster_name][image_name]:
+                                vulnerability_id = deep_get(vuln, ['cveId'])
+                                self.handle_asset_vulnerability(container_id, vulnerability_id)
+                        fields.pop('asset_type')
+                        self.handle_container(container_id, container_name, **fields)
+                        if pod_ip:
+                            self.handle_ipaddress(pod_ip, container_id)
+                            self.handle_ipaddress_container(pod_ip, container_id)
+                        self.handle_asset_container(node_id, container_id)
+                        self.handle_asset_application(container_id, app_id)
+
+    def handle_deployments(self, obj):
+        """Handle GKE cluster deployments"""
+        for deployment in obj:
+            app_name = deep_get(deployment, ['resource', 'data', 'metadata', 'labels'], {})
+            if app_name.get('app', None):
+                app_name = app_name.get('app', None)
+            elif app_name.get('k8s-app', None):
+                app_name = app_name.get('k8s-app', None)
+            else:
+                app_name = None
+            app_name = deep_get(deployment, ['resource', 'data', 'metadata', 'name'])
+            app_id = deep_get(deployment, ['name']).replace('//', '')
+            cluster_name = re.findall('.*/clusters/.*?(?=/)', app_id)[0]
+            if app_name:
+                self.handle_application(app_name, app_id, cluster_name,
+                                        app_type=deep_get(deployment, ['assetType']))
+
+    def handle_container_vulnerabilities(self, obj, cluster_names):
+        """GKE container vulnerabilities"""
+        # obj in the format of {<cluster>:{<image>:[<vulnerabilities>]}}
+        for cluster in [key for key in obj.keys() if key in cluster_names]:
+            for image in obj[cluster].keys():
+                for vuln in obj[cluster][image]:
+                    vuln_id = deep_get(vuln, ['cveId'])
+                    vuln_name = f"{deep_get(vuln, ['fixedPackage'])}:{deep_get(vuln, ['cveId'])}"
+                    self.handle_vulnerability(vuln_id, vuln_name, description=deep_get(vuln, ['description']),
+                                              base_score=deep_get(vuln, ['cvssScore']))
+
+    def handle_sql_instances(self, instances, databases, users):
+        """Handle SQL instances"""
+        for inst in instances:
+            asset_id = inst['name'].replace('//', '')
+            name = deep_get(inst, ['resource', 'data', 'name'])
+            db_version = deep_get(inst, ['resource', 'data', 'databaseVersion'])
+            res = {'asset_type': inst.get('assetType'),
+                   'status': deep_get(inst, ['resource', 'data', 'state'])}
+            self.handle_asset(asset_id, name, **res)
+
+            for ip in inst['resource']['data']['ipAddresses']:
+                if ip['type'] == 'PRIMARY':
+                    self.handle_ipaddress(ip['ipAddress'], asset_id, access_type="Public")
+            if databases and deep_get(databases, [name]):
+                self.handle_database(asset_id, databases[name], db_version)
+            self.handle_geolocation(inst, asset_id)
+            if users and deep_get(users, [name]):
+                self.handle_user(users[name])
+                self.handle_account(asset_id, users[name])

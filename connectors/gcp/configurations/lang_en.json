@@ -3,12 +3,6 @@
         "selfSignedCert": {
                 "label": "Private Key (Required)",
                 "description": "Private Key is a mandatory authentication parameter to communicate with the GCP datasource."
-        },
-        "options": {
-            "page_size": {
-                "label": "GCP API Page Size",
-                "description": "Google Cloud Platform API response page size"
-            }
         }
     },
     "configuration": {

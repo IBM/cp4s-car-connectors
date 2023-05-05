@@ -9,6 +9,8 @@ from tests.test_utils import full_import_initialization, \
 class TestInitialImportFunctions(unittest.TestCase):
     """Unit test for full import"""
 
+    @patch('googleapiclient.discovery.build')
+    @patch('connector.server_access.AssetServer.get_logs')
     @patch('car_framework.car_service.CarService.get_import_schema')
     @patch('connector.server_access.AssetServer.get_vulnerabilities')
     @patch('connector.server_access.AssetServer.get_asset_list')
@@ -16,7 +18,7 @@ class TestInitialImportFunctions(unittest.TestCase):
     @patch('google.cloud.resourcemanager_v3.SearchProjectsRequest')
     @patch('google.cloud.resourcemanager_v3.ProjectsClient.search_projects')
     def test_import_collection(self, mock_search_project, mock_search_request, mock_credentials,
-                               mock_asset_list, mock_vulnerability, mock_schema):
+                               mock_asset_list, mock_vulnerability, mock_schema, mock_log, mock_discovery):
         """unit test for import collection"""
 
         full_import_obj = full_import_initialization()
@@ -28,6 +30,11 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_asset_list.side_effect = mock_response()
         mock_vulnerability.side_effect = [get_response('scc_response.json', True)]
         mock_schema.return_value = get_response('schema.json', True)
+        mock_log.return_value = get_response('gke_workload_vulns.json', True)
+        mock_discovery.return_value.databases.return_value.list.return_value.execute.return_value = \
+            get_response('sql_db.json', True)
+        mock_discovery.return_value.users.return_value.list.return_value.execute.return_value = \
+            get_response('sql_user.json', True)
 
         actual_response = create_vertices_edges(full_import_obj)
         validations = validate_all_handler(actual_response)

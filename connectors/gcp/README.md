@@ -40,7 +40,6 @@ positional arguments:
 -password                   :password
 
 optional arguments:
--incremental_update         :boolean value initial import/incremental update
 -d                          :run code in debug mode
 
 suppressed arguments:
@@ -86,24 +85,26 @@ II.	Setting PYTHONPATH permanently.
 1. goto the connector folder ` <cp4s-car-connectors/connectors/gcp>`
 
 2. To run the initial import which is the full dump of the data source assets, run this command:
-   ` python app.py -client_email <GCP Client email> -certificate <'Private key'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<GCP>"`
+   ` python app.py -client_email <GCP Client email> -certificate <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
 
-3. To run the incremental update, create a cronjob that runs every 4hours, the command to run is:
-   ` python app.py -client_email <GCP Client email> -certificate <'Private key'> -url <"BASE_URL"> -api_key <"api_key"> -password <"password"> -source "<GCP>"`
+3. To run the incremental update, create a cronjob that runs, the command to run is:
+   ` python app.py -client_email <GCP Client email> -certificate <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
 
 V. INITIAL IMPORT
 -----------------------------------------------------------------
-When we run the connector First time. It loads all the asset and their entities available from the source into CAR database.​
-#####Service Account: (Authentication)
-    "google cloud service_account"
-#####Resource Manager: (Project information)
+When we run the connector First time. It loads all the asset and their entities available from the source into CAR database.
+##### Service Account: (Authentication)
+    "google oauth2 service_account"
+##### Resource Manager: (Project information)
     "google cloud resourcemanager_v3"
-#####Assets: (Asset information)
+##### Assets: (Asset and OS Packages vulnerability information)
     "google cloud asset_v1"
-#####Securitycenter: (Vulnerability information)
+##### Databases: (Database and User information)
+    "googleapiclient discovery"
+##### Securitycenter: (Vulnerability information)
     "google cloud securitycenter"
 
 VI. INCREMENTAL IMPORT
 -----------------------------------------------------------------
-- Incremental Imports are expected to be based on a time-range and hence we query the data source with time interval after initial import was run.
+- Incremental Imports are expected to be based on a time-range and hence we query the Audit log events in gcp to detect various resource actions.
 - Incremental imports deletes asset based on the audit logs from data source.

@@ -11,9 +11,8 @@ class Arguments:
     """Test args for Unit test case"""
 
     host = "test.com"
-    client_email = "test@gmail.com"
-    certificate = "hjhdskjfhlahlfoiewhfo"
-    page_size = 10
+    CONFIGURATION_AUTH_CLIENT_EMAIL = "test@gmail.com"
+    CONNECTION_SELFSIGNEDCERT = "hjhdskjfhlahlfoiewhfo"
     source = "GCP"
     car_service_apikey_url = "https://dummyapp.demo.isc.ibm"
     api_key = "abcdef"
@@ -64,6 +63,7 @@ def full_import_initialization():
     Context(Arguments)
     context().asset_server = server_access.AssetServer()
     full_import_obj = full_import.FullImport()
+    full_import_obj.new_model_state_id = 1682345211842
     return full_import_obj
 
 
@@ -123,8 +123,14 @@ def mock_response():
     web_app = get_response('web_app.json', True)
     web_app_service = get_response('web_app_service.json', True)
     web_app_service_version = get_response('web_app_service_version.json', True)
-    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
-                web_app, web_app_service, web_app_service_version]
+    gke_cluster = get_response('gke_cluster.json', True)
+    gke_cluster_node = get_response('gke_cluster_node.json', True)
+    gke_pods = get_response('gke_cluster_pod.json', True)
+    gke_deployments = get_response('gke_deployment.json', True)
+    sql_instance = get_response('sql_instance.json', True)
+    mock_obj = [gke_cluster, gke_cluster_node, gke_pods, gke_deployments,
+                vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
+                web_app, web_app_service, web_app_service_version, sql_instance]
     return mock_obj
 
 
@@ -136,10 +142,15 @@ def mock_history_response():
     vm_instance_update = get_response('vm_instance_update_history.json', True)
     vm_instance_os_pkgs_updated = get_response('vm_instance_os_pkgs_history.json', True)
     vm_instance_os_vuln_updated = get_response('vm_instance_os_vuln_history.json', True)
-    web_app = get_response('web_app.json', True)
     web_app_service = get_response('web_app_service.json', True)
     web_app_service_version = get_response('web_app_service_version.json', True)
-    mock_obj = [vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
+    gke_cluster = get_response('gke_cluster.json', True)
+    gke_cluster_node = get_response('gke_cluster_node.json', True)
+    gke_pods = get_response('gke_cluster_pod.json', True)
+    gke_deployments = get_response('gke_deployment.json', True)
+    sql_instance = get_response('sql_instance.json', True)
+    mock_obj = [gke_cluster, gke_cluster_node, gke_pods, gke_deployments,
+                vm_instance, vm_instance_os_pkgs, vm_instance_os_vuln,
                 vm_instance_update, vm_instance_os_pkgs_updated, vm_instance_os_vuln_updated,
-                web_app, web_app_service, web_app_service_version]
+                web_app_service, web_app_service_version, sql_instance]
     return mock_obj

@@ -19,8 +19,10 @@ from tests.test_utils import inc_import_initialization, create_vertices_edges, \
 class TestIncrementalImportFunctions(unittest.TestCase):
     """Unit test for incremental import"""
 
+    @patch('googleapiclient.discovery.build')
+    @patch('car_framework.car_service.CarService.query_graphql')
     @patch('connector.server_access.AssetServer.get_logs')
-    def test_incremental_create_update(self, mock_logs, *patchs):
+    def test_incremental_create_update(self, mock_logs, mock_query_result, mock_discovery, *patchs):
         """unit test for incremental create and update"""
 
         inc_import_obj = inc_import_initialization()
@@ -29,18 +31,30 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         patchs[2].return_value = '123'
         patchs[1].return_value = True
         patchs[0].return_value = [project_response()]
-        patchs[3].side_effect = mock_response()
+        patchs[3].side_effect = [get_response('web_app.json', True)]
         patchs[4].side_effect = [get_response('scc_response.json', True)]
         patchs[8].side_effect = mock_history_response()
         patchs[9].return_value = get_response('schema.json', True)
         # Mock logs:
-        mock_logs.side_effect = [get_response('vm_create_log.json', True),
+        mock_logs.side_effect = [get_response('gke_incremental_log.json', True),
+                                 get_response('gke_workload_vulns.json', True),
+                                 get_response('vm_create_log.json', True),
                                  get_response('vm_update_log.json', True),
                                  get_response('vm_create_log.json', True),
                                  [],
-                                 get_response('web_app_update_log.json', True),
-                                 get_response('web_app_service_version_log.json', True)]
-
+                                 get_response('web_app_service_version_log.json', True),
+                                 get_response('sql_incremental_log.json', True)]
+        # sql db and user details
+        mock_discovery.return_value.databases.return_value.list.return_value.execute.return_value = \
+            get_response('sql_db.json', True)
+        mock_discovery.return_value.users.return_value.list.return_value.execute.return_value = \
+            get_response('sql_user.json', True)
+        # mock graphql search
+        mock_query_result.side_effect = [{'data': {'asset': [{'external_id': 'cluster2'}]}},
+                                         {'data': {'asset': [{'external_id': 'cluster1'}]}},
+                                         {'data': {'asset_application': [{'application_id': 'source/nginx-1'}]}},
+                                         {'data': {'asset_database': [{'database_id': 'source/db1-1'}]}},
+                                         {'data': {'asset_account': [{'account_id': 'source/user1-1'}]}}]
         # mock search collection
         mock_collections = get_response('car_edges.json', True)
         patchs[5].side_effect = [mock_collections['asset_hostname'], mock_collections['asset_ipaddress'],
@@ -77,3 +91,17 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         mock_logs.side_effect = [get_response('vm_create_log.json', True)]
         inc_import_obj.projects = ["dummyproj"]
         assert inc_import_obj.delete_vertices() is None
+
+    @patch('connector.server_access.AssetServer.get_resource_names_from_log')
+    def test_incremental_web_applications_create(self, mock_resource, *patchs):
+        """unit test for incremental create web app"""
+        mock_resource.return_value = 'dummyapp'
+        patchs[3].side_effect = [get_response('web_app.json', True),
+                                 get_response('web_app_service.json', True),
+                                 get_response('web_app_service_version.json', True)]
+        patchs[9].return_value = get_response('schema.json', True)
+        inc_import_obj = inc_import_initialization()
+        inc_import_obj.create_source_report_object()
+        app, service = inc_import_obj. incremental_web_applications('project')
+        assert app is not None
+        assert service is not None

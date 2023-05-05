@@ -88,6 +88,26 @@ class TestAssetServer(unittest.TestCase):
         vuln_list = context().asset_server.get_vulnerabilities("project")
         assert vuln_list is not None
 
+    @patch('connector.server_access.logging_v2.services.logging_service_v2.LoggingServiceV2Client')
+    def test_get_logs(self, mock_client):
+        """unit test for get_logs"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_client.return_value.list_log_entries.return_value.pages.return_value.page.return_values.enties = \
+            [get_response('vm_create_log.json', True)]
+        logs = context().asset_server.get_logs("project", filters='')
+        assert logs is not None
+
+    @patch('connector.server_access.AssetServer.get_logs')
+    def test_get_resource_names_from_log(self, mock_logs):
+        """unit test for get_logs"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_logs.return_value = get_response('vm_create_log.json', True)
+        response = context().asset_server.get_resource_names_from_log("project", 123456,
+                                                                      'vm_instance', 'create')
+        assert response is not None
+
     @patch('connector.server_access.AssetServer.get_asset_list')
     def test_get_vm_instances(self, mock_asset_list):
         """unit test for get_instances"""
@@ -155,12 +175,115 @@ class TestAssetServer(unittest.TestCase):
         assert actual_response is not None
 
     @patch('connector.server_access.AssetServer.get_asset_list')
-    def get_web_app_service_versions(self, mock_asset_list):
+    def test_get_web_app_service_versions(self, mock_asset_list):
         """unit test for web application service versions created"""
         full_import_obj = full_import_initialization()
         full_import_obj.create_source_report_object()
         mock_asset_list.return_value = get_response('web_app_service_version.json', True)
-        actual_response = context().asset_server.web_app_service_versions('project')
+        actual_response = context().asset_server.get_web_app_service_versions('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_logs')
+    def test_get_web_app_services_versions(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('web_app_service_version_log.json', True)
+        actual_response = context().asset_server.get_web_app_services_versions('project', float(123456))
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_gke_cluster(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('gke_cluster.json', True)
+        actual_response = context().asset_server.get_gke_cluster('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_gke_nodes(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('gke_cluster_node.json', True)
+        actual_response = context().asset_server.get_gke_nodes('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_gke_pods(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('gke_cluster_pod.json', True)
+        actual_response = context().asset_server.get_gke_pods('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_gke_deployments(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('gke_deployment.json', True)
+        actual_response = context().asset_server.get_gke_deployments('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_logs')
+    def test_get_gke_workload_vulnerabilities(self, mock_logs):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_logs.return_value = get_response('gke_workload_vulns.json', True)
+        actual_response = context().asset_server.get_gke_workload_vulnerabilities('project')
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_logs')
+    def test_get_gke_changes(self, mock_logs):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_logs.return_value = get_response('gke_incremental_log.json', True)
+        actual_response = context().asset_server.get_gke_changes('project', float(1682340673))
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_asset_list')
+    def test_get_sql_instances(self, mock_asset_list):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_asset_list.return_value = get_response('sql_instance.json', True)
+        actual_response = context().asset_server.get_sql_instances('project')
+        assert actual_response is not None
+
+    @patch('googleapiclient.discovery.build')
+    def test_get_sql_instance_databases(self, mock_discovery):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_discovery.return_value.databases.return_value.list.return_value.execute.return_value = \
+            get_response('sql_db.json', True)
+        instances = ['testinstance']
+        actual_response = context().asset_server.get_sql_instance_databases('project', instances)
+        assert actual_response is not None
+
+    @patch('connector.server_access.AssetServer.get_logs')
+    def test_get_sql_changes(self, mock_logs):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_logs.return_value = get_response('sql_incremental_log.json', True)
+        actual_response = context().asset_server.get_sql_changes('project', float(1682340673))
+        assert actual_response is not None
+
+    @patch('googleapiclient.discovery.build')
+    def test_get_sql_instance_users(self, mock_discovery):
+        """unit test for web application service versions created"""
+        full_import_obj = full_import_initialization()
+        full_import_obj.create_source_report_object()
+        mock_discovery.return_value.users.return_value.list.return_value.execute.return_value = \
+            get_response('sql_user.json', True)
+        instances = ['testinstance']
+        actual_response = context().asset_server.get_sql_instance_users('project', instances)
         assert actual_response is not None
 
     @patch('connector.server_access.AssetServer.get_vulnerabilities')

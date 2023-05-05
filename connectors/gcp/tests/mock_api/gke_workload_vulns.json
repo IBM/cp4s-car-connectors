@@ -1,0 +1,90 @@
+[
+  {
+    "logName": "projects/dummyproj/logs/containersecurity.googleapis.com%2Ffinding",
+    "resource": {
+      "type": "k8s_cluster",
+      "labels": {
+        "cluster_name": "cluster-1",
+        "location": "us-central1-c",
+        "project_id": "951111111111"
+      }
+    },
+    "insertId": "152xxxxty5",
+    "severity": "INFO",
+    "timestamp": "2023-04-19T08:53:53.327707Z",
+    "jsonPayload": {
+      "resourceName": "apps/v1/namespaces/appengine/Deployment/nginx",
+      "type": "FINDING_TYPE_VULNERABILITY",
+      "vulnerability": {
+        "fixedPackage": "binutils",
+        "description": "The bfd_mach_o_i386_canonicalize_one_reloc function in bfd/mach-o-i386.c in the Binary File Descriptor (BFD) library (aka libbfd), as distributed in GNU Binutils 2.29 and earlier, allows remote attackers to cause an out of bounds heap read via a crafted mach-o file.",
+        "cvssVector": "<base:7.8;exploitability:1.8;impact:5.9;CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H>",
+        "packageName": "binutils",
+        "affectedImages": [
+          "us.gcr.io/dummyproj/appengine/pubsub.20230324t113517@sha256:69ad9e1ef4xxxxacc77c30e677602fea18a614e9"
+        ],
+        "relatedUrls": [
+          "http://people.ubuntu.com/~ubuntu-security/cve/CVE-2017-12452",
+          "https://security-tracker.debian.org/tracker/CVE-2017-12452",
+          "https://access.redhat.com/security/cve/CVE-2017-12452",
+          "https://nvd.nist.gov/vuln/detail/CVE-2017-12452",
+          "https://www.suse.com/security/cve/CVE-2017-12452"
+        ],
+        "cveId": "CVE-2017-12452",
+        "affectedPackageVersion": "2.26.1-1ubuntu1~16.04.8",
+        "fixedCpeUri": "cpe:/o:canonical:ubuntu_linux:16.04",
+        "fixedPackageVersion": "2.26.1-1ubuntu1~16.04.8+esm1",
+        "cpeUri": "cpe:/o:canonical:ubuntu_linux:16.04",
+        "cvssScore": 6.8,
+        "severity": "SEVERITY_LOW",
+        "packageType": "OS"
+      },
+      "state": "ACTIVE",
+      "severity": "SEVERITY_LOW",
+      "@type": "type.googleapis.com/cloud.kubernetes.security.containersecurity_logging.Finding",
+      "finding": "CVE-2017-12452;;binutils;;2.26.1-1ubuntu1~16.04.8;;OS;;cpe:/o:canonical:ubuntu_linux:16.04"
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/containersecurity.googleapis.com%2Ffinding",
+    "resource": {
+      "type": "k8s_cluster",
+      "labels": {
+        "cluster_name": "cluster-2",
+        "location": "us-central1-c",
+        "project_id": "951111111111"
+      }
+    },
+    "insertId": "152c1vnd1tyb",
+    "severity": "INFO",
+    "timestamp": "2023-04-19T08:53:53.330736Z",
+    "jsonPayload": {
+      "resourceName": "apps/v1/namespaces/appengine/Deployment/nginx",
+      "type": "FINDING_TYPE_VULNERABILITY",
+      "vulnerability": {
+        "fixedPackage": "linux",
+        "relatedUrls": [
+          "https://security-tracker.debian.org/tracker/CVE-2023-0045",
+          "https://access.redhat.com/security/cve/CVE-2023-0045",
+          "http://people.ubuntu.com/~ubuntu-security/cve/CVE-2023-0045",
+          "https://www.suse.com/security/cve/CVE-2023-0045"
+        ],
+        "cveId": "CVE-2023-0045",
+        "affectedPackageVersion": "4.4.0-210.242",
+        "fixedCpeUri": "cpe:/o:canonical:ubuntu_linux:16.04",
+        "fixedPackageVersion": "4.4.0-237.271",
+        "cpeUri": "cpe:/o:canonical:ubuntu_linux:16.04",
+        "severity": "SEVERITY_LOW",
+        "packageName": "linux",
+        "packageType": "OS",
+        "affectedImages": [
+          "us.gcr.io/dummyproj/appengine/pubsub.20230324t113517@sha256:69ad9e1ef447747a6eec23c152ee4d4b8532bfacc77c30e677602fea18a614e9"
+        ]
+      },
+      "state": "ACTIVE",
+      "severity": "SEVERITY_LOW",
+      "@type": "type.googleapis.com/cloud.kubernetes.security.containersecurity_logging.Finding",
+      "finding": "CVE-2023-0045;;linux;;4.4.0-210.242;;OS;;cpe:/o:canonical:ubuntu_linux:16.04"
+    }
+  }
+]

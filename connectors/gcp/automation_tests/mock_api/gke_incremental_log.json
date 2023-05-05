@@ -1,0 +1,982 @@
+[
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "gke_cluster",
+    "labels": {
+      "cluster_name": "cluster-2",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "timestamp": "2023-04-24T07:42:38.284272Z",
+  "operation": {
+    "producer": "container.googleapis.com",
+    "first": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "requestMetadata": {
+      "callerIp": "3.0.0.1",
+      "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+      "requestAttributes": {
+        "time": "2023-04-24T07:42:36.273863837Z",
+        "reason": "8uSyw93cw",
+        "auth": {}
+      },
+      "destinationAttributes": {}
+    },
+    "serviceName": "container.googleapis.com",
+    "methodName": "google.container.v1beta1.ClusterManager.CreateCluster",
+    "authorizationInfo": [
+      {
+        "permission": "container.clusters.create",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/dummyproj/zones/us-central1-c/clusters/cluster-2",
+    "request": {
+      "parent": "projects/dummyproj/locations/us-central1-c",
+      "cluster": {
+        "notificationConfig": {},
+        "networkPolicy": {},
+        "location": "us-central1-c",
+        "authenticatorGroupsConfig": {},
+        "locations": [
+          "us-central1-c"
+        ],
+        "network": "projects/dummyproj/global/networks/default",
+        "initialClusterVersion": "1.25.7-gke.1000",
+        "name": "cluster-2",
+        "binaryAuthorization": {
+          "evaluationMode": "DISABLED"
+        },
+        "releaseChannel": {
+          "channel": "REGULAR"
+        },
+        "ipAllocationPolicy": {
+          "stackType": "IPV4",
+          "useIpAliases": true
+        },
+        "defaultMaxPodsConstraint": {},
+        "monitoringConfig": {
+          "managedPrometheusConfig": {},
+          "componentConfig": {
+            "enableComponents": [
+              "SYSTEM_COMPONENTS"
+            ]
+          }
+        },
+        "addonsConfig": {
+          "httpLoadBalancing": {},
+          "dnsCacheConfig": {},
+          "gcePersistentDiskCsiDriverConfig": {
+            "enabled": true
+          },
+          "horizontalPodAutoscaling": {}
+        },
+        "shieldedNodes": {},
+        "subnetwork": "projects/dummyproj/regions/us-central1/subnetworks/default",
+        "networkConfig": {
+          "datapathProvider": "LEGACY_DATAPATH"
+        },
+        "autoscaling": {},
+        "loggingConfig": {
+          "componentConfig": {
+            "enableComponents": [
+              "SYSTEM_COMPONENTS",
+              "WORKLOADS"
+            ]
+          }
+        },
+        "databaseEncryption": {},
+        "masterAuthorizedNetworksConfig": {},
+        "nodePools": [
+          {
+            "name": "default-pool",
+            "networkConfig": {},
+            "management": {
+              "autoUpgrade": true,
+              "autoRepair": true
+            },
+            "initialNodeCount": 3.0,
+            "autoscaling": {},
+            "maxPodsConstraint": {},
+            "config": {
+              "machineType": "e2-small",
+              "metadata": {
+                "disable-legacy-endpoints": "true"
+              },
+              "diskSizeGb": 20.0,
+              "diskType": "pd-balanced",
+              "imageType": "COS_CONTAINERD",
+              "shieldedInstanceConfig": {},
+              "oauthScopes": [
+                "https://www.googleapis.com/auth/devstorage.read_only",
+                "https://www.googleapis.com/auth/logging.write",
+                "https://www.googleapis.com/auth/monitoring",
+                "https://www.googleapis.com/auth/servicecontrol",
+                "https://www.googleapis.com/auth/service.management.readonly",
+                "https://www.googleapis.com/auth/trace.append"
+              ]
+            },
+            "upgradeSettings": {
+              "maxSurge": 1.0,
+              "strategy": "SURGE"
+            }
+          }
+        ]
+      },
+      "@type": "type.googleapis.com/google.container.v1alpha1.CreateClusterRequest"
+    },
+    "response": {
+      "targetLink": "https://container.googleapis.com/v1alpha1/projects/951111111111/zones/us-central1-c/clusters/cluster-2",
+      "name": "operation-1682322158208-xxx-b64b189d6c6e",
+      "startTime": "2023-04-24T07:42:38.208022828Z",
+      "status": "RUNNING",
+      "@type": "type.googleapis.com/google.container.v1alpha1.Operation",
+      "selfLink": "https://container.googleapis.com/v1alpha1/projects/951111111111/zones/us-central1-c/operations/operation-1682322158208-aaed0f72-ded7-441a-a44b-b64b189d6c6e",
+      "operationType": "CREATE_CLUSTER"
+    },
+    "resourceLocation": {
+      "currentLocations": [
+        "us-central1-c"
+      ]
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "gke_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "insertId": "ptixxxa54q",
+  "severity": "NOTICE",
+  "timestamp": "2023-04-24T09:15:22.448320Z",
+  "operation": {
+    "id": "operation-1682327722387-xxxxxx-fee1f0f3aae9",
+    "producer": "container.googleapis.com",
+    "first": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "requestMetadata": {
+      "callerIp": "3.0.0.9",
+      "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+      "requestAttributes": {
+        "time": "2023-04-24T09:15:22.242637634Z",
+        "reason": "8uSywxxxxxbSBGbG93cw",
+        "auth": {}
+      },
+      "destinationAttributes": {}
+    },
+    "serviceName": "container.googleapis.com",
+    "methodName": "google.container.v1.ClusterManager.DeleteCluster",
+    "authorizationInfo": [
+      {
+        "permission": "container.clusters.delete",
+        "granted": true,
+        "resourceAttributes": {}
+      }
+    ],
+    "resourceName": "projects/dummyproj/zones/us-central1-c/clusters/cluster-1",
+    "request": {
+      "@type": "type.googleapis.com/google.container.v1alpha1.DeleteClusterRequest",
+      "name": "projects/dummyproj/locations/us-central1-c/clusters/cluster-1"
+    },
+    "response": {
+      "targetLink": "https://container.googleapis.com/v1alpha1/projects/951111111111/zones/us-central1-c/clusters/cluster-1",
+      "operationType": "DELETE_CLUSTER",
+      "startTime": "2023-04-24T09:15:22.387211Z",
+      "status": "RUNNING",
+      "@type": "type.googleapis.com/google.container.v1alpha1.Operation",
+      "selfLink": "https://container.googleapis.com/v1alpha1/projects/951111111111/zones/us-central1-c/operations/operation-1682327722387-9f508fd8-4ea1-49ab-89ab-fee1f0f3aae9",
+      "name": "operation-1682327722387-xxxx-fee1f0f3aae9"
+    },
+    "resourceLocation": {
+      "currentLocations": [
+        "us-central1-c"
+      ]
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "authorization.k8s.io/decision": "allow"
+  },
+  "insertId": "c23bxxxe17b",
+  "timestamp": "2023-04-24T08:50:00.436514Z",
+  "operation": {
+    "id": "c23bxxxxe17b",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "system:service"
+    },
+    "requestMetadata": {
+      "callerIp": "1.1.0.3",
+      "callerSuppliedUserAgent": "kube-controller-manager/v1.25.7 (linux/amd64) kubernetes/0a719a4/system:serviceaccount:kube-system:generic-garbage-collector"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.core.v1.pods.delete",
+    "authorizationInfo": [
+      {
+        "resource": "core/v1/namespaces/default/pods/nginx-1-5fcdb595fb-8d59r",
+        "permission": "io.k8s.core.v1.pods.delete",
+        "granted": true
+      }
+    ],
+    "resourceName": "core/v1/namespaces/default/pods/nginx-1-5fcdb595fb-8d59r",
+    "request": {
+      "propagationPolicy": "Background",
+      "kind": "DeleteOptions",
+      "preconditions": {
+        "uid": "4b26xxxx029b"
+      },
+      "@type": "meta.k8s.io/__internal.DeleteOptions",
+      "apiVersion": "meta.k8s.io/__internal"
+    },
+    "response": {
+      "status": {
+        "conditions": [
+          {
+            "lastProbeTime": "",
+            "type": "Initialized",
+            "status": "true",
+            "lastTransitionTime": "2023-04-24T07:48:43Z"
+          },
+          {
+            "lastProbeTime": "",
+            "type": "Ready",
+            "status": "true",
+            "lastTransitionTime": "2023-04-24T07:48:50Z"
+          },
+          {
+            "lastProbeTime": "",
+            "type": "ContainersReady",
+            "status": "true",
+            "lastTransitionTime": "2023-04-24T07:48:50Z"
+          },
+          {
+            "lastProbeTime": "",
+            "type": "PodScheduled",
+            "status": "true",
+            "lastTransitionTime": "2023-04-24T07:48:43Z"
+          }
+        ],
+        "podIP": "1.1.1.56",
+        "podIPs": [
+          {
+            "ip": "1.1.1.56"
+          }
+        ],
+        "containerStatuses": [
+          {
+            "started": true,
+            "image": "docker.io/library/nginx:latest",
+            "lastState": {},
+            "imageID": "docker.io/library/nginx@sha256:63b44e8ddb83d5dd8xxxxxxxxxxxxxxxxxxxxx8a6204df23be6e7e94",
+            "containerID": "containerd://7ac592b2e8xxxxxxxxxxxxxxxxxxxxxxxxxxxa4c9a91c9c50e4a4771e",
+            "restartCount": 0.0,
+            "ready": true,
+            "state": {
+              "running": {
+                "startedAt": "2023-04-24T07:48:49Z"
+              }
+            },
+            "name": "nginx-1"
+          }
+        ],
+        "hostIP": "1.1.1.57",
+        "startTime": "2023-04-24T07:48:43Z",
+        "phase": "Running",
+        "qosClass": "BestEffort"
+      },
+      "kind": "Pod",
+      "metadata": {
+        "ownerReferences": [
+          {
+            "name": "nginx-1-5fcdb595fb",
+            "uid": "e440xxxe17fa",
+            "blockOwnerDeletion": true,
+            "kind": "ReplicaSet",
+            "apiVersion": "apps/v1",
+            "controller": true
+          }
+        ],
+        "deletionGracePeriodSeconds": 30.0,
+        "uid": "4b26xxx029b",
+        "generateName": "nginx-1-5fcdb595fb-",
+        "labels": {
+          "app": "nginx-1",
+          "pod-template-hash": "5fcdb595fb"
+        },
+        "namespace": "default",
+        "creationTimestamp": "2023-04-24T07:48:43Z",
+        "resourceVersion": "34634",
+        "deletionTimestamp": "2023-04-24T08:50:30Z",
+        "name": "nginx-1-5fcdb595fb-8d59r"
+      },
+      "@type": "core.k8s.io/v1.Pod",
+      "apiVersion": "v1",
+      "spec": {
+        "volumes": [
+          {
+            "projected": {
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "path": "token",
+                    "expirationSeconds": 3607.0
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "fieldPath": "metadata.namespace",
+                          "apiVersion": "v1"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "defaultMode": 420.0
+            },
+            "name": "kube-api-access-9ssfm"
+          }
+        ],
+        "securityContext": {},
+        "schedulerName": "default-scheduler",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "tolerations": [
+          {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300.0
+          },
+          {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300.0
+          }
+        ],
+        "enableServiceLinks": true,
+        "nodeName": "gke-cluster-1-xxxx-vv3z",
+        "dnsPolicy": "ClusterFirst",
+        "containers": [
+          {
+            "volumeMounts": [
+              {
+                "readOnly": true,
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                "name": "kube-api-access-9ssfm"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "image": "nginx:latest",
+            "imagePullPolicy": "Always",
+            "terminationMessagePolicy": "File",
+            "resources": {},
+            "name": "nginx-1"
+          }
+        ],
+        "serviceAccount": "default",
+        "serviceAccountName": "default",
+        "terminationGracePeriodSeconds": 30.0,
+        "restartPolicy": "Always",
+        "priority": 0.0
+      }
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "pod-security.kubernetes.io/enforce-policy": "privileged:latest",
+    "authorization.k8s.io/decision": "allow"
+  },
+  "insertId": "5cb9xxxxbac9c",
+  "timestamp": "2023-04-24T08:57:06.767083Z",
+  "operation": {
+    "id": "5cb9xxxxac9c",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "system:servicecontroller"
+    },
+    "requestMetadata": {
+      "callerIp": "1.0.1.16",
+      "callerSuppliedUserAgent": "kube-controller-manager/v1.25.7 (linux/amd64) kubernetes/0a719a4/system:servicecontroller"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.core.v1.pods.create",
+    "authorizationInfo": [
+      {
+        "resource": "core/v1/namespaces/default/pods/nginx-1-5fcdb595fb-h5spl",
+        "permission": "io.k8s.core.v1.pods.create",
+        "granted": true
+      }
+    ],
+    "resourceName": "core/v1/namespaces/default/pods/nginx-1-5fcdb595fb-h5spl",
+    "request": {
+      "status": {},
+      "kind": "Pod",
+      "metadata": {
+        "labels": {
+          "app": "nginx-1",
+          "pod-template-hash": "5fcdb595fb"
+        },
+        "ownerReferences": [
+          {
+            "name": "nginx-1-5fcdb595fb",
+            "uid": "062bxxxxbd73",
+            "blockOwnerDeletion": true,
+            "kind": "ReplicaSet",
+            "apiVersion": "apps/v1",
+            "controller": true
+          }
+        ],
+        "generateName": "nginx-1-5fcdb595fb-",
+        "creationTimestamp": ""
+      },
+      "@type": "core.k8s.io/v1.Pod",
+      "apiVersion": "v1",
+      "spec": {
+        "containers": [
+          {
+            "terminationMessagePolicy": "File",
+            "terminationMessagePath": "/dev/termination-log",
+            "image": "nginx:latest",
+            "resources": {},
+            "imagePullPolicy": "Always",
+            "name": "nginx-1"
+          }
+        ],
+        "securityContext": {},
+        "schedulerName": "default-scheduler",
+        "enableServiceLinks": true,
+        "terminationGracePeriodSeconds": 30.0,
+        "dnsPolicy": "ClusterFirst",
+        "restartPolicy": "Always"
+      }
+    },
+    "response": {
+      "status": {
+        "phase": "Pending",
+        "qosClass": "BestEffort"
+      },
+      "kind": "Pod",
+      "metadata": {
+        "ownerReferences": [
+          {
+            "name": "nginx-1-5fcdb595fb",
+            "uid": "062bxxxxbd73",
+            "blockOwnerDeletion": true,
+            "kind": "ReplicaSet",
+            "apiVersion": "apps/v1",
+            "controller": true
+          }
+        ],
+        "uid": "df6axxxxx4e65",
+        "generateName": "nginx-1-5fcdb595fb-",
+        "labels": {
+          "app": "nginx-1",
+          "pod-template-hash": "5fcdb595fb"
+        },
+        "namespace": "default",
+        "creationTimestamp": "2023-04-24T08:57:06Z",
+        "managedFields": [
+          {
+            "manager": "kube-controller-manager",
+            "time": "2023-04-24T08:57:06Z",
+            "operation": "Update",
+            "apiVersion": "v1",
+            "fieldsType": "FieldsV1"
+          }
+        ],
+        "resourceVersion": "38342",
+        "name": "nginx-1-5fcdb595fb-h5spl"
+      },
+      "@type": "core.k8s.io/v1.Pod",
+      "apiVersion": "v1",
+      "spec": {
+        "containers": [
+          {
+            "volumeMounts": [
+              {
+                "readOnly": true,
+                "mountPath": "/var/run/serviceaccount",
+                "name": "kube-api-access-5kccp"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "image": "nginx:latest",
+            "imagePullPolicy": "Always",
+            "terminationMessagePolicy": "File",
+            "resources": {},
+            "name": "nginx-1"
+          }
+        ],
+        "securityContext": {},
+        "schedulerName": "default-scheduler",
+        "preemptionPolicy": "PreemptLowerPriority",
+        "serviceAccountName": "default",
+        "tolerations": [
+          {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300.0
+          },
+          {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300.0
+          }
+        ],
+        "priority": 0.0,
+        "serviceAccount": "default",
+        "volumes": [
+          {
+            "projected": {
+              "sources": [
+                {
+                  "serviceAccountToken": {
+                    "path": "token",
+                    "expirationSeconds": 3607.0
+                  }
+                },
+                {
+                  "configMap": {
+                    "items": [
+                      {
+                        "key": "ca.crt",
+                        "path": "ca.crt"
+                      }
+                    ],
+                    "name": "kube-root-ca.crt"
+                  }
+                },
+                {
+                  "downwardAPI": {
+                    "items": [
+                      {
+                        "fieldRef": {
+                          "fieldPath": "metadata.namespace",
+                          "apiVersion": "v1"
+                        },
+                        "path": "namespace"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "defaultMode": 420.0
+            },
+            "name": "kube-api-access-5kccp"
+          }
+        ],
+        "enableServiceLinks": true,
+        "terminationGracePeriodSeconds": 30.0,
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst"
+      }
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "authorization.k8s.io/reason": "access granted by IAM permissions.",
+    "authorization.k8s.io/decision": "allow"
+  },
+  "insertId": "e106xxxxc438",
+  "timestamp": "2023-04-24T08:57:06.571271Z",
+  "operation": {
+    "id": "e106xxxxc438",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "requestMetadata": {
+      "callerIp": "1.0.0.12",
+      "callerSuppliedUserAgent": "GoogleCloudConsole"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.apps.v1.deployments.create",
+    "authorizationInfo": [
+      {
+        "resource": "apps/v1/namespaces/default/deployments/nginx-2",
+        "permission": "io.k8s.apps.v1.deployments.create",
+        "granted": true
+      }
+    ],
+    "resourceName": "apps/v1/namespaces/default/deployments/nginx-2",
+    "request": {
+      "status": {},
+      "kind": "Deployment",
+      "metadata": {
+        "namespace": "default",
+        "name": "nginx-1",
+        "labels": {
+          "app": "nginx-1"
+        },
+        "creationTimestamp": ""
+      },
+      "@type": "apps.k8s.io/v1.Deployment",
+      "apiVersion": "apps/v1",
+      "spec": {
+        "replicas": 3.0,
+        "selector": {
+          "matchLabels": {
+            "app": "nginx-2"
+          }
+        },
+        "strategy": {
+          "type": "RollingUpdate",
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "nginx-2"
+            },
+            "creationTimestamp": ""
+          },
+          "spec": {
+            "containers": [
+              {
+                "terminationMessagePolicy": "File",
+                "terminationMessagePath": "/dev/termination-log",
+                "image": "nginx:latest",
+                "resources": {},
+                "imagePullPolicy": "Always",
+                "name": "nginx-1"
+              }
+            ],
+            "securityContext": {},
+            "schedulerName": "default-scheduler",
+            "terminationGracePeriodSeconds": 30.0,
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always"
+          }
+        },
+        "revisionHistoryLimit": 10.0,
+        "progressDeadlineSeconds": 600.0
+      }
+    },
+    "response": {
+      "status": {},
+      "kind": "Deployment",
+      "metadata": {
+        "uid": "045dxxxx432c",
+        "labels": {
+          "app": "nginx-2"
+        },
+        "generation": 1.0,
+        "namespace": "default",
+        "managedFields": [
+          {
+            "manager": "GoogleCloudConsole",
+            "time": "2023-04-24T08:57:06Z",
+            "operation": "Update",
+            "apiVersion": "apps/v1",
+            "fieldsType": "FieldsV1"
+          }
+        ],
+        "creationTimestamp": "2023-04-24T08:57:06Z",
+        "resourceVersion": "38336",
+        "name": "nginx-2"
+      },
+      "@type": "apps.k8s.io/v1.Deployment",
+      "apiVersion": "apps/v1",
+      "spec": {
+        "replicas": 3.0,
+        "selector": {
+          "matchLabels": {
+            "app": "nginx-2"
+          }
+        },
+        "strategy": {
+          "type": "RollingUpdate",
+          "rollingUpdate": {
+            "maxSurge": "25%",
+            "maxUnavailable": "25%"
+          }
+        },
+        "template": {
+          "metadata": {
+            "labels": {
+              "app": "nginx-2"
+            },
+            "creationTimestamp": ""
+          },
+          "spec": {
+            "containers": [
+              {
+                "terminationMessagePolicy": "File",
+                "terminationMessagePath": "/dev/termination-log",
+                "image": "nginx:latest",
+                "resources": {},
+                "imagePullPolicy": "Always",
+                "name": "nginx-2"
+              }
+            ],
+            "securityContext": {},
+            "schedulerName": "default-scheduler",
+            "terminationGracePeriodSeconds": 30.0,
+            "dnsPolicy": "ClusterFirst",
+            "restartPolicy": "Always"
+          }
+        },
+        "revisionHistoryLimit": 10.0,
+        "progressDeadlineSeconds": 600.0
+      }
+    }
+  }},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "authorization.k8s.io/decision": "allow",
+    "authorization.k8s.io/reason": "access granted by IAM permissions."
+  },
+  "insertId": "f693xxxx86f1",
+  "timestamp": "2023-04-24T08:50:00.267141Z",
+  "operation": {
+    "id": "f693xxxx86f1",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "requestMetadata": {
+      "callerIp": "1.0.0.15",
+      "callerSuppliedUserAgent": "GoogleCloudConsole"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.apps.v1.deployments.delete",
+    "authorizationInfo": [
+      {
+        "resource": "apps/v1/namespaces/default/deployments/nginx-1",
+        "permission": "io.k8s.apps.v1.deployments.delete",
+        "granted": true
+      }
+    ],
+    "resourceName": "apps/v1/namespaces/default/deployments/nginx-1",
+    "request": {
+      "propagationPolicy": "Background",
+      "kind": "DeleteOptions",
+      "@type": "meta.k8s.io/__internal.DeleteOptions",
+      "apiVersion": "meta.k8s.io/__internal"
+    },
+    "response": {
+      "status": "Success",
+      "kind": "Status",
+      "details": {
+        "group": "apps",
+        "uid": "2ceaxxxxxcee9",
+        "kind": "deployments",
+        "name": "nginx-1"
+      },
+      "@type": "core.k8s.io/v1.Status",
+      "apiVersion": "v1",
+      "metadata": {}
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-1",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "authorization.k8s.io/decision": "allow"
+  },
+  "insertId": "ec39xxxx875d",
+  "timestamp": "2023-04-24T09:05:44.441933Z",
+  "operation": {
+    "id": "ec39xxxx875d",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "system:servicecontroller"
+    },
+    "requestMetadata": {
+      "callerIp": "1.2.0.3",
+      "callerSuppliedUserAgent": "kube-controller-manager/v1.25.7 (linux/amd64) kubernetes/0a719a4/system:servicecontroller"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.core.v1.nodes.delete",
+    "authorizationInfo": [
+      {
+        "resource": "core/v1/nodes/gke-cluster-1-xxxx-zwct",
+        "permission": "io.k8s.core.v1.nodes.delete",
+        "granted": true
+      }
+    ],
+    "resourceName": "core/v1/nodes/gke-cluster-1-xxxx-zwct",
+    "request": {
+      "kind": "DeleteOptions",
+      "@type": "meta.k8s.io/__internal.DeleteOptions",
+      "apiVersion": "meta.k8s.io/__internal"
+    },
+    "response": {
+      "status": "Success",
+      "kind": "Status",
+      "details": {
+        "uid": "c98exxxx1ab4",
+        "kind": "nodes",
+        "name": "gke-cluster-1-xxxx-zwct"
+      },
+      "@type": "core.k8s.io/v1.Status",
+      "apiVersion": "v1",
+      "metadata": {}
+    }
+  }
+},
+  {
+  "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+  "resource": {
+    "type": "k8s_cluster",
+    "labels": {
+      "cluster_name": "cluster-2",
+      "location": "us-central1-c",
+      "project_id": "dummyproj"
+    }
+  },
+  "labels": {
+    "authorization.k8s.io/decision": "allow"
+  },
+  "insertId": "ec39xxxx3875d",
+  "timestamp": "2023-04-24T09:05:44.441933Z",
+  "operation": {
+    "id": "ec39xxxx875d",
+    "producer": "k8s.io",
+    "first": true,
+    "last": true
+  },
+  "protoPayload": {
+    "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+    "status": {},
+    "authenticationInfo": {
+      "principalEmail": "system:servicecontroller"
+    },
+    "requestMetadata": {
+      "callerIp": "1.2.0.2",
+      "callerSuppliedUserAgent": "kube-controller-manager/v1.25.7 (linux/amd64) kubernetes/0a719a4/system:serviceacontroller"
+    },
+    "serviceName": "k8s.io",
+    "methodName": "io.k8s.core.v1.nodes.create",
+    "authorizationInfo": [
+      {
+        "resource": "core/v1/nodes/gke-cluster-2-xxxx-zwct",
+        "permission": "io.k8s.core.v1.nodes.delete",
+        "granted": true
+      }
+    ],
+    "resourceName": "core/v1/nodes/gke-cluster-2-xxxx-zwct",
+    "request": {
+      "kind": "DeleteOptions",
+      "@type": "meta.k8s.io/__internal.DeleteOptions",
+      "apiVersion": "meta.k8s.io/__internal"
+    },
+    "response": {
+      "status": "Success",
+      "kind": "Status",
+      "details": {
+        "uid": "c98exxxx1ab4",
+        "kind": "nodes",
+        "name": "gke-cluster-2-xxxx-zwct"
+      },
+      "@type": "core.k8s.io/v1.Status",
+      "apiVersion": "v1",
+      "metadata": {}
+    }
+  }
+}
+]
