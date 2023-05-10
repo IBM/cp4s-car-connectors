@@ -34,7 +34,7 @@ required arguments in command line:
 ```
 positional arguments:
 -client_email               :Client email address required for data source authentication
--certificate                :Private key required for data source authentication
+-private_key                :Private key required for data source authentication
 -url                        :CAR DB url
 -api_key                    :api_key
 -password                   :password
@@ -85,10 +85,10 @@ II.	Setting PYTHONPATH permanently.
 1. goto the connector folder ` <cp4s-car-connectors/connectors/gcp>`
 
 2. To run the initial import which is the full dump of the data source assets, run this command:
-   ` python app.py -client_email <GCP Client email> -certificate <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
+   ` python app.py -client_email <GCP Client email> -private_key <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
 
 3. To run the incremental update, create a cronjob that runs, the command to run is:
-   ` python app.py -client_email <GCP Client email> -certificate <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
+   ` python app.py -client_email <GCP Client email> -private_key <'Private key'>  -car-service-url <"BASE_URL"> -car-service-key <"api_key"> -car-service-password <"password"> -source "<GCP>"`
 
 V. INITIAL IMPORT
 -----------------------------------------------------------------

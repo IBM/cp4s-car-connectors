@@ -3,15 +3,15 @@
         "type": {
             "type": "connectorType",
             "displayName": "Google Cloud Platform"
-        },
-        "selfSignedCert": {
-			"type": "password"
-		}
+        }
     },
     "configuration": {
         "auth": {
             "type": "fields",
             "client_email": {
+                "type": "text"
+            },
+            "private_key": {
                 "type": "password"
             }
         }

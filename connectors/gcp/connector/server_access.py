@@ -26,7 +26,7 @@ class AssetServer:
         with open('connector/gcp_config.json', 'rb') as json_data:
             self.config = json.load(json_data)
         self.auth = {'client_email': context().args.CONFIGURATION_AUTH_CLIENT_EMAIL,
-                     'private_key': context().args.CONNECTION_SELFSIGNEDCERT.replace('\\n', '\n'),
+                     'private_key': context().args.CONFIGURATION_AUTH_PRIVATE_KEY.replace('\\n', '\n'),
                      'token_uri': self.config['endpoint']['token_uri']}
         self.account_credits = ''
         self.asset_vul = {}

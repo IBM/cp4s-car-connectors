@@ -511,6 +511,7 @@ class IncrementalImport(BaseIncrementalImport):
         for deleted_instance in sql_details['deleted_instances']:
             # if instance is deleted, associated user and database nodes will be deleted
             instance_id = 'cloudsql.googleapis.com/' + deleted_instance
+            self.deleted_vertices['asset'].add(instance_id)
             database_ids = self.get_active_car_node_fields('asset_database', 'asset_id',
                                                            source + '/' + instance_id, ['database_id'])
             user_ids = self.get_active_car_node_fields('asset_account', 'asset_id',

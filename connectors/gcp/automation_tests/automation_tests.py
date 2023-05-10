@@ -17,7 +17,7 @@ class Arguments:
 
     host = ""
     CONFIGURATION_AUTH_CLIENT_EMAIL = "test@gmail.com"
-    CONNECTION_SELFSIGNEDCERT = "hjhdskjfhlahlfoiewhfo"
+    CONFIGURATION_AUTH_PRIVATE_KEY = "hjhdskjfhlahlfoiewhfo"
     source = "GCP"
     car_service_apikey_url = args['car_service_apikey_url']
     api_key = args['api_key']

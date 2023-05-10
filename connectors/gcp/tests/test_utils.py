@@ -12,7 +12,7 @@ class Arguments:
 
     host = "test.com"
     CONFIGURATION_AUTH_CLIENT_EMAIL = "test@gmail.com"
-    CONNECTION_SELFSIGNEDCERT = "hjhdskjfhlahlfoiewhfo"
+    CONFIGURATION_AUTH_PRIVATE_KEY = "hjhdskjfhlahlfoiewhfo"
     source = "GCP"
     car_service_apikey_url = "https://dummyapp.demo.isc.ibm"
     api_key = "abcdef"

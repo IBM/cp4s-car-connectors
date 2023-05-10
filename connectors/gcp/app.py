@@ -20,8 +20,8 @@ class App(BaseApp):
         self.parser.add_argument('-client_email', dest='CONFIGURATION_AUTH_CLIENT_EMAIL',
                                  default=os.getenv('CONFIGURATION_AUTH_CLIENT_EMAIL', None),
                                  type=str, required=False, help='GCP service account mail address')
-        self.parser.add_argument('-certificate', dest='CONNECTION_SELFSIGNEDCERT',
-                                 default=os.getenv('CONNECTION_SELFSIGNEDCERT', None),
+        self.parser.add_argument('-private_key', dest='CONFIGURATION_AUTH_PRIVATE_KEY',
+                                 default=os.getenv('CONFIGURATION_AUTH_PRIVATE_KEY', None),
                                  type=str, required=False, help='GCP service account private key')
 
     def setup(self):
