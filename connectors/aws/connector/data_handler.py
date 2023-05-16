@@ -30,39 +30,6 @@ class DataHandler(BaseDataHandler):
         
         return {'source': self.source, 'report': self.report}
 
-    # # Adds the collection data
-    # def add_collection(self, name, object, key):
-    #     objects = self.collections.get(name)
-    #     if not objects:
-    #         objects = []; self.collections[name] = objects
-        
-    #     keys = self.collection_keys.get(name)
-    #     if not keys:
-    #         keys = []; self.collection_keys[name] = keys
-        
-    #     if not object[key] in self.collection_keys[name]:
-    #         objects.append(object)
-    #         self.collection_keys[name].append(object[key])
-
-    # # Adds the edge between two vertices
-    # def add_edge(self, name, object):
-    #     objects = self.edges.get(name)
-    #     if not objects:
-    #         objects = []; self.edges[name] = objects
-
-    #     keys = self.collection_keys.get(name)
-    #     if not keys:
-    #         keys = []; self.edge_keys[name] = keys
-        
-    #     key = '#'.join(str(x) for x in object.values())
-    #     if not key in self.edge_keys[name]:
-    #         object['report'] = self.report['_key']
-    #         object['source'] = context().args.source
-    #         object['active'] = True
-    #         object['timestamp'] = self.report['timestamp']
-    #         objects.append(object)
-    #         self.edge_keys[name].append(key)
-
     def handle_asset(self, obj):
         asset = dict()
         if deep_get(obj, ['ResourceId']):
