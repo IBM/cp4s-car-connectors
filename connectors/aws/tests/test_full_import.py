@@ -11,13 +11,15 @@ class TestAwsFullImportFunctions(unittest.TestCase):
     @patch('connector.server_access.AssetServer.get_image_name')
     @patch('connector.server_access.AssetServer.list_applications')
     @patch('connector.server_access.AssetServer.list_applications_env')
-    def test_create_asset(self, mock_env_details, mock_app_details, mock_image_details, mock_get_instances):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_asset(self, schema, mock_env_details, mock_app_details, mock_image_details, mock_get_instances):
         """Unit test for create asset"""
         result_list = list()
         test_log_data = JsonResponse(200, 'Instance_details.json').json()
         mock_env_details.return_value = JsonResponse(200, 'environment_log.json').json()
         mock_image_details.return_value = "TestImage"
         mock_get_instances.return_value = JsonResponse(200, 'get_instance.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         context_patch()
 
         result_list.extend(test_log_data['Reservations'])
@@ -61,10 +63,12 @@ class TestAwsFullImportFunctions(unittest.TestCase):
 
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.security_alerts')
-    def test_create_vulnerability(self, mock_alerts_response, mock_get_instances):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_vulnerability(self, schema, mock_alerts_response, mock_get_instances):
         """Unit test for create vulnerability"""
         mock_alerts_response.return_value = JsonResponse(200, 'alerts_log.json').json()['Findings']
         mock_get_instances.return_value = JsonResponse(200, 'get_instance.json').json()
+        schema.return_value = JsonResponse(200, 'schema.json').json()
 
         context_patch()
 
@@ -88,9 +92,11 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         assert validations is True
 
     @patch('connector.server_access.AssetServer.list_applications')
-    def test_create_application(self, mock_list_applications):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_application(self, schema, mock_list_applications):
         """Unit test for create application."""
         mock_list_applications.return_value = JsonResponse(200, 'application_log.json').json()['Applications']
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         
         context_patch()
         
@@ -114,7 +120,8 @@ class TestAwsFullImportFunctions(unittest.TestCase):
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.get_db_instances')
     @patch('connector.server_access.AssetServer.event_logs')
-    def test_create_database(self, mock_cloudtrail_events, mock_db_data, search_data, attribute_search):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_database(self, schema, mock_cloudtrail_events, mock_db_data, search_data, attribute_search):
         """Unit test case for create RDS database"""
         mock_cloudtrail_events.return_value = JsonResponse(200, 'db_cloutrail_events.json').json()
         for item in mock_cloudtrail_events.return_value:
@@ -122,6 +129,7 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         mock_db_data.return_value = JsonResponse(200, 'db_list_log.json').json()
         search_data.return_value = JsonResponse(200, 'db_search.json').json()
         attribute_search.return_value = [{'external_id': ['AWS-TEST:db-GQNFWUQIV7BLAFOMGEDTPTN67M'], 'source':['AWS-TEST']}]
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         context_patch()
         
         collection_create, _ = context().data_collector.create_database(incremental=False)
@@ -168,7 +176,8 @@ class TestAwsFullImportFunctions(unittest.TestCase):
     @patch('connector.server_access.AssetServer.list_running_containers')
     @patch('connector.server_access.AssetServer.get_instances')
     @patch('connector.server_access.AssetServer.container_ec2_instance')
-    def test_create_container(self, mock_container_instances, mock_get_instances, mock_container_details):
+    @patch('car_framework.car_service.CarService.get_import_schema')
+    def test_create_container(self, schema, mock_container_instances, mock_get_instances, mock_container_details):
         """Unit test cases for create container"""
         container_details = JsonResponse(200, 'container.json').json()['tasks']
         container_instances = JsonResponse(200, 'describe_container_instances.json').json()
@@ -176,6 +185,7 @@ class TestAwsFullImportFunctions(unittest.TestCase):
         mock_container_instances.return_value = container_instances
         mock_get_instances.return_value = get_instances
         mock_container_details.return_value = container_details
+        schema.return_value = JsonResponse(200, 'schema.json').json()
         context_patch()
 
         response = context().data_collector.create_container(incremental=False)
