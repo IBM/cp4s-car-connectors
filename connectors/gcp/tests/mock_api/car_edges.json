@@ -1,0 +1,43 @@
+{
+  "asset_hostname": {
+    "asset_hostname": [
+      {
+        "asset_id": "gcp_17mar23-2/compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000002",
+        "hostname_id": "gcp_17mar23-2/instance-1",
+        "source": "gcp_17mar23-2"
+      }
+    ]
+  },
+  "asset_ipaddress": {
+    "asset_ipaddress": [
+      {
+        "asset_id": "gcp_17mar23-2/compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000002",
+        "ipaddress_id": "gcp_17mar23-2/0/1.0.0.4",
+        "source": "gcp_17mar23-2"
+      },
+      {
+        "asset_id": "gcp_17mar23-2/compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/6000000000000000002",
+        "ipaddress_id": "gcp_17mar23-2/0/35.193.241.101",
+        "source": "gcp_17mar23-2"
+      }
+    ]
+  },
+  "asset_application": {
+    "asset_application": [
+      {
+        "asset_id": "gcp_17mar23-2/compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/5000000000000007",
+        "application_id": "gcp_17mar23-2/kmod:x86_64:28-1",
+        "source": "gcp_17mar23-2"
+      }
+    ]
+  },
+  "asset_vulnerability": {
+    "asset_vulnerability": [
+      {
+        "asset_id": "gcp_17mar23-2/compute.googleapis.com/projects/dummyproj/zones/us-central1-a/instances/524719898601584241",
+        "vulnerability_id": "gcp_17mar23-2/CVE-2023-0054",
+        "source": "gcp_17mar23-2"
+      }
+    ]
+  }
+}

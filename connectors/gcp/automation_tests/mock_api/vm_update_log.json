@@ -1,0 +1,218 @@
+[
+  {
+    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "project",
+        "instance_id": "6000000000000000001",
+        "zone": "us-central1-a"
+      }
+    },
+    "insertId": "-v2o9efe4l4tu",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-17T13:48:12.984332Z",
+    "operation": {
+      "id": "operation-1679060892944-5f718d4148710-004e762d-8318066b",
+      "producer": "compute.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "1.0.0.6",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2023-03-17T13:48:13.335502Z",
+          "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "v1.compute.instances.stop",
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.stop",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/project/zones/us-central1-a/instances/instance-1",
+            "type": "compute.instances"
+          }
+        }
+      ],
+      "resourceName": "projects/project/zones/us-central1-a/instances/instance-1",
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.stop"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/instances/instance-1",
+        "id": "1321763269215113586",
+        "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/operations/1321763269215113586",
+        "user": "user1@gcp.com",
+        "status": "RUNNING",
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/operations/operation-1679060892944-5f718d4148710-004e762d-8318066b",
+        "name": "operation-1679060892944-5f718d4148710-004e762d-8318066b",
+        "operationType": "stop",
+        "progress": "0",
+        "zone": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a",
+        "startTime": "2023-03-17T06:48:13.301-07:00",
+        "insertTime": "2023-03-17T06:48:13.287-07:00",
+        "@type": "type.googleapis.com/operation",
+        "targetId": "6000000000000000001"
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1-a"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "zone": "us-central1-a",
+        "instance_id": "6000000000000000001",
+        "project_id": "project"
+      }
+    },
+    "insertId": "-o4i6hzdoskc",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-17T13:48:58.349104Z",
+    "operation": {
+      "id": "operation-1679060892944-5f718d4148710-004e762d-8318066b",
+      "producer": "compute.googleapis.com",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "1.0.0.6",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "v1.compute.instances.stop",
+      "resourceName": "projects/project/zones/us-central1-a/instances/instance-1",
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.stop"
+      }
+    }
+  },
+  {
+    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "zone": "us-central1-a",
+        "instance_id": "6000000000000000001",
+        "project_id": "project"
+      }
+    },
+    "insertId": "46b7pze1un5q",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-19T17:09:06.745588Z",
+    "operation": {
+      "id": "operation-1679245746720-5f743de394dcd-3cbb743d-bf3b7887",
+      "producer": "compute.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "10.0.0.1",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2023-03-19T17:09:07.252842Z",
+          "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "v1.compute.instances.start",
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.start",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/project/zones/us-central1-a/instances/instance-1",
+            "type": "compute.instances"
+          }
+        }
+      ],
+      "resourceName": "projects/project/zones/us-central1-a/instances/instance-1",
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.start"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/instances/instance-1",
+        "id": "7693075119408349020",
+        "selfLinkWithId": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/operations/7693075119408349020",
+        "user": "user1@gcp.com",
+        "status": "RUNNING",
+        "selfLink": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a/operations/operation-1679245746720-5f743de394dcd-3cbb743d-bf3b7887",
+        "name": "operation-1679245746720-5f743de394dcd-3cbb743d-bf3b7887",
+        "operationType": "start",
+        "progress": "0",
+        "zone": "https://www.googleapis.com/compute/v1/projects/project/zones/us-central1-a",
+        "startTime": "2023-03-19T10:09:07.216-07:00",
+        "insertTime": "2023-03-19T10:09:07.201-07:00",
+        "@type": "type.googleapis.com/operation",
+        "targetId": "6000000000000000001"
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1-a"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "project",
+        "instance_id": "6000000000000000001",
+        "zone": "us-central1-a"
+      }
+    },
+    "insertId": "-z8197hd6dv6",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-19T17:09:14.596305Z",
+    "operation": {
+      "id": "operation-1679245746720-5f743de394dcd-3cbb743d-bf3b7887",
+      "producer": "compute.googleapis.com",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "10.0.0.1",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "v1.compute.instances.start",
+      "resourceName": "projects/project/zones/us-central1-a/instances/instance-1",
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.start"
+      }
+    }
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "name": "//container.googleapis.com/projects/dummyproj/zones/us-central1-c/clusters/cluster-1/k8s/namespaces/default/apps/deployments/nginx-1",
+    "assetType": "apps.k8s.io/Deployment",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json",
+      "discoveryName": "io.k8s.api.apps.v1.Deployment",
+      "parent": "//container.googleapis.com/projects/dummyproj/zones/us-central1-c/clusters/cluster-1/k8s/namespaces/default",
+      "data": {
+        "status": {
+          "updatedReplicas": 3.0,
+          "unavailableReplicas": 0.0,
+          "conditions": [
+            {
+              "type": "Available",
+              "status": "True",
+              "message": "Deployment has minimum availability.",
+              "lastUpdateTime": "2023-04-24T07:48:57Z",
+              "reason": "MinimumReplicasAvailable",
+              "lastTransitionTime": "2023-04-24T07:48:57Z"
+            }
+          ],
+          "observedGeneration": 1.0,
+          "replicas": 3.0,
+          "readyReplicas": 3.0,
+          "availableReplicas": 3.0
+        },
+        "metadata": {
+          "uid": "2ceafbf4-xxxx-cfd2142ecee9",
+          "clusterName": "",
+          "generateName": "",
+          "labels": {
+            "app": "nginx-1"
+          },
+          "namespace": "default",
+          "generation": 1.0,
+          "managedFields": [
+            {
+              "apiVersion": "apps/v1",
+              "fieldsV1": {
+                "Raw": "eyJmOmxxxkU2Vjb25kcyI6e319fX19"
+              },
+              "time": "2023-04-24T07:48:43Z",
+              "manager": "GoogleCloudConsole",
+              "operation": "Update",
+              "fieldsType": "FieldsV1",
+              "subresource": ""
+            },
+            {
+              "subresource": "status",
+              "fieldsV1": {
+                "Raw": "eyJmOm1ldGxxsaWNhcyI6e319fQ=="
+              },
+              "time": "2023-04-24T07:48:57Z",
+              "manager": "kube-controller-manager",
+              "operation": "Update",
+              "fieldsType": "FieldsV1",
+              "apiVersion": "apps/v1"
+            }
+          ],
+          "annotations": {
+            "deployment.kubernetes.io/revision": "1"
+          },
+          "creationTimestamp": "2023-04-24T07:48:43Z",
+          "resourceVersion": "2173",
+          "selfLink": "",
+          "name": "nginx-1"
+        },
+        "spec": {
+          "strategy": {
+            "type": "RollingUpdate",
+            "rollingUpdate": {
+              "maxSurge": "25%",
+              "maxUnavailable": "25%"
+            }
+          },
+          "template": {
+            "metadata": {
+              "uid": "",
+              "clusterName": "",
+              "generateName": "",
+              "labels": {
+                "app": "nginx-1"
+              },
+              "generation": 0.0,
+              "namespace": "",
+              "creationTimestamp": "",
+              "resourceVersion": "",
+              "selfLink": "",
+              "name": ""
+            },
+            "spec": {
+              "securityContext": {},
+              "schedulerName": "default-scheduler",
+              "priorityClassName": "",
+              "nodeName": "",
+              "dnsPolicy": "ClusterFirst",
+              "serviceAccount": "",
+              "containers": [
+                {
+                  "terminationMessagePath": "/dev/termination-log",
+                  "image": "nginx:latest",
+                  "workingDir": "",
+                  "imagePullPolicy": "Always",
+                  "stdin": false,
+                  "terminationMessagePolicy": "File",
+                  "resources": {},
+                  "stdinOnce": false,
+                  "tty": false,
+                  "name": "nginx-1"
+                }
+              ],
+              "serviceAccountName": "",
+              "hostIPC": false,
+              "hostname": "",
+              "hostNetwork": false,
+              "hostPID": false,
+              "terminationGracePeriodSeconds": 30.0,
+              "restartPolicy": "Always",
+              "subdomain": ""
+            }
+          },
+          "progressDeadlineSeconds": 600.0,
+          "replicas": 3.0,
+          "selector": {
+            "matchLabels": {
+              "app": "nginx-1"
+            }
+          },
+          "minReadySeconds": 0.0,
+          "revisionHistoryLimit": 10.0,
+          "paused": false
+        }
+      },
+      "location": "us-central1-c",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-04-24T07:48:57.984264Z",
+    "orgPolicy": []
+  }
+]

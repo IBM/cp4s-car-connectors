@@ -1,0 +1,96 @@
+[
+  {
+    "name": "//cloudsql.googleapis.com/projects/dummyproj/instances/testinstance",
+    "assetType": "sqladmin.googleapis.com/Instance",
+    "resource": {
+      "version": "v1beta4",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/sqladmin/v1beta4/rest",
+      "discoveryName": "DatabaseInstance",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/951111111111",
+      "data": {
+        "secondaryGceZone": "us-central1-b",
+        "kind": "sql#instance",
+        "serviceAccountEmailAddress": "p951111111111-m9tyew@gcp.com",
+        "instanceType": "CLOUD_SQL_INSTANCE",
+        "serverCaCert": {
+          "expirationTime": "2033-04-02T12:52:05.718Z",
+          "certSerialNumber": "0",
+          "kind": "sql#sslCert",
+          "sha1Fingerprint": "7529xxxxe73c",
+          "commonName": "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=5bc4xxxxad91",
+          "instance": "testinstance",
+          "createTime": "2023-04-05T12:51:05.718Z"
+        },
+        "backendType": "SECOND_GEN",
+        "region": "us-central1",
+        "settings": {
+          "backupConfiguration": {
+            "binaryLogEnabled": true,
+            "kind": "sql#backupConfiguration",
+            "transactionLogRetentionDays": 7.0,
+            "backupRetentionSettings": {
+              "retentionUnit": "COUNT",
+              "retainedBackups": 7.0
+            },
+            "enabled": true,
+            "startTime": "00:00",
+            "location": "us"
+          },
+          "kind": "sql#settings",
+          "pricingPlan": "PER_USE",
+          "dataDiskType": "PD_SSD",
+          "activationPolicy": "ALWAYS",
+          "dataDiskSizeGb": "20",
+          "ipConfiguration": {
+            "ipv4Enabled": true
+          },
+          "tier": "db-custom-2-3840",
+          "availabilityType": "REGIONAL",
+          "deletionProtectionEnabled": true,
+          "storageAutoResizeLimit": "0",
+          "maintenanceWindow": {
+            "updateTrack": "stable",
+            "kind": "sql#maintenanceWindow",
+            "day": 0.0,
+            "hour": 0.0
+          },
+          "connectorEnforcement": "NOT_REQUIRED",
+          "storageAutoResize": true,
+          "locationPreference": {
+            "kind": "sql#locationPreference",
+            "zone": "us-central1-f"
+          },
+          "settingsVersion": "3",
+          "replicationType": "SYNCHRONOUS"
+        },
+        "databaseVersion": "MYSQL_8_0_26",
+        "failoverReplica": {
+          "available": true
+        },
+        "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/dummyproj/instances/testinstance",
+        "name": "testinstance",
+        "databaseInstalledVersion": "MYSQL_8_0_26",
+        "connectionName": "dummyproj:us-central1:testinstance",
+        "ipAddresses": [
+          {
+            "ipAddress": "1.1.1.34",
+            "type": "PRIMARY"
+          }
+        ],
+        "createTime": "2023-04-05T12:49:49.172Z",
+        "state": "RUNNABLE",
+        "maintenanceVersion": "MYSQL_8_0_26.R20230314.03_02",
+        "gceZone": "us-central1-f",
+        "project": "dummyproj"
+      },
+      "location": "us-central1",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-04-05T12:55:17.170795Z",
+    "orgPolicy": []
+  }
+]

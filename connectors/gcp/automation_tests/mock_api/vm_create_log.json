@@ -1,0 +1,210 @@
+[
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "zone": "us-central1-a",
+        "instance_id": "6000000000000000002",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "3m6bewe18am2",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-19T17:08:45.193327Z",
+    "operation": {
+      "id": "operation-1679245725136-5f743dceff700-453aeb8f-479b4937",
+      "producer": "compute.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "10.0.0.1",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)",
+        "requestAttributes": {
+          "time": "2023-03-19T17:08:46.098596Z",
+          "reason": "8uSywAYQGg5Db2xpc2V1bSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "beta.compute.instances.insert",
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.create",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
+            "type": "compute.instances"
+          }
+        },
+        {
+          "permission": "compute.disks.create",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/dummyproj/zones/us-central1-a/disks/instance-2",
+            "type": "compute.disks"
+          }
+        },
+        {
+          "permission": "compute.subnetworks.use",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/dummyproj/regions/us-central1/subnetworks/default",
+            "type": "compute.subnetworks"
+          }
+        },
+        {
+          "permission": "compute.subnetworks.useExternalIp",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/dummyproj/regions/us-central1/subnetworks/default",
+            "type": "compute.subnetworks"
+          }
+        },
+        {
+          "permission": "compute.instances.setServiceAccount",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "compute",
+            "name": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
+            "type": "compute.instances"
+          }
+        }
+      ],
+      "resourceName": "projects/dummyproj/zones/us-central1-a/instances/instance-2",
+      "request": {
+        "description": "",
+        "confidentialInstanceConfig": {
+          "enableConfidentialCompute": false
+        },
+        "serviceAccounts": [
+          {
+            "scopes": [
+              "https://www.googleapis.com/auth/devstorage.read_only",
+              "https://www.googleapis.com/auth/logging.write",
+              "https://www.googleapis.com/auth/monitoring.write",
+              "https://www.googleapis.com/auth/servicecontrol",
+              "https://www.googleapis.com/auth/service.management.readonly",
+              "https://www.googleapis.com/auth/trace.append"
+            ],
+            "email": "951111111111-compute@developer.gserviceaccount.com"
+          }
+        ],
+        "shieldedInstanceConfig": {
+          "enableSecureBoot": false,
+          "enableIntegrityMonitoring": true,
+          "enableVtpm": true
+        },
+        "disks": [
+          {
+            "initializeParams": {
+              "diskType": "projects/dummyproj/zones/us-central1-a/diskTypes/pd-balanced",
+              "sourceImage": "projects/debian-cloud/global/images/debian-11-bullseye-v20230306",
+              "diskSizeGb": "10"
+            },
+            "type": "PERSISTENT",
+            "mode": "READ_WRITE",
+            "boot": true,
+            "deviceName": "instance-2",
+            "autoDelete": true
+          }
+        ],
+        "scheduling": {
+          "automaticRestart": true,
+          "onHostMaintenance": "MIGRATE",
+          "provisioningModel": "STANDARD"
+        },
+        "deletionProtection": false,
+        "name": "instance-2",
+        "networkInterfaces": [
+          {
+            "accessConfigs": [
+              {
+                "networkTier": "PREMIUM",
+                "name": "External NAT"
+              }
+            ],
+            "stackType": "IPV4_ONLY",
+            "subnetwork": "projects/dummyproj/regions/us-central1/subnetworks/default"
+          }
+        ],
+        "reservationAffinity": {
+          "consumeReservationType": "ANY_ALLOCATION"
+        },
+        "machineType": "projects/dummyproj/zones/us-central1-a/machineTypes/e2-micro",
+        "displayDevice": {
+          "enableDisplay": false
+        },
+        "canIpForward": false,
+        "keyRevocationActionType": "NONE_ON_KEY_REVOCATION",
+        "@type": "type.googleapis.com/compute.instances.insert"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/compute/beta/projects/project/zones/us-central1-a/instances/instance-2",
+        "id": "5557159321575030642",
+        "selfLinkWithId": "https://www.googleapis.com/compute/beta/projects/project/zones/us-central1-a/operations/5557159321575030642",
+        "user": "user1@gcp.com",
+        "status": "RUNNING",
+        "selfLink": "https://www.googleapis.com/compute/beta/projects/project/zones/us-central1-a/operations/operation-1679245725136-5f743dceff700-453aeb8f-479b4937",
+        "operationType": "insert",
+        "name": "operation-1679245725136-5f743dceff700-453aeb8f-479b4937",
+        "progress": "0",
+        "insertTime": "2023-03-19T10:08:46.013-07:00",
+        "startTime": "2023-03-19T10:08:46.013-07:00",
+        "zone": "https://www.googleapis.com/compute/beta/projects/project/zones/us-central1-a",
+        "@type": "type.googleapis.com/operation",
+        "targetId": "6000000000000000002"
+      },
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1-a"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/project/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "project",
+        "instance_id": "6000000000000000002",
+        "zone": "us-central1-a"
+      }
+    },
+    "insertId": "-wqdj67d7eau",
+    "severity": "NOTICE",
+    "timestamp": "2023-03-19T17:08:51.460209Z",
+    "operation": {
+      "id": "operation-1679245725136-5f743dceff700-453aeb8f-479b4937",
+      "producer": "compute.googleapis.com",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "10.0.0.1",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36,gzip(gfe),gzip(gfe)"
+      },
+      "serviceName": "compute.googleapis.com",
+      "methodName": "beta.compute.instances.insert",
+      "resourceName": "projects/project/zones/us-central1-a/instances/instance-2",
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.insert"
+      }
+    }
+  }
+]
