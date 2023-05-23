@@ -1,0 +1,40 @@
+[
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "zone": "",
+        "module_id": "",
+        "version_id": "",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "atll48cl60",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:24:38.616233Z",
+    "operation": {
+      "id": "3eadb49e-e7e6-469a-b29d-5f11cbe67f60",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Applications.UpdateApplication",
+      "resourceName": "apps/dummyapp",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  }
+]

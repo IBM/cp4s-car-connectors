@@ -1,0 +1,38 @@
+[
+  {
+    "name": "//appengine.googleapis.com/apps/dummyapp",
+    "assetType": "appengine.googleapis.com/Application",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+      "discoveryName": "Application",
+      "parent": "//cloudresourcemanager.googleapis.com/projects/951111111111",
+      "data": {
+        "serviceAccount": "dummyapp@appspot.gserviceaccount.com",
+        "defaultHostname": "dummyapp.uc.r.appspot.com",
+        "authDomain": "gmail.com",
+        "defaultCookieExpiration": "604800s",
+        "id": "dummyapp",
+        "defaultBucket": "dummyapp.dummyappspot.com",
+        "databaseType": "CLOUD_DATASTORE_COMPATIBILITY",
+        "featureSettings": {
+          "useContainerOptimizedOs": true,
+          "splitHealthChecks": true
+        },
+        "codeBucket": "staging.dummyapp.appspot.com",
+        "gcrDomain": "us.gcr.io",
+        "servingStatus": "USER_DISABLED",
+        "locationId": "us-central",
+        "name": "apps/dummyapp"
+      },
+      "location": "us-central",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-03-31T14:55:00.551160Z",
+    "orgPolicy": []
+  }
+]

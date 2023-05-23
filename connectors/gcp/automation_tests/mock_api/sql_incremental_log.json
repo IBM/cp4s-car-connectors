@@ -1,0 +1,491 @@
+[
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:testdb",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "nbfuxxxlpy3",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-21T12:51:01.134955Z",
+    "operation": {
+      "id": "716cxxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.1.1.1",
+        "requestAttributes": {
+          "time": "2023-04-21T12:51:01.302649Z",
+          "reason": "8uSywAYxxxxSBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.instances.update",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/testdb",
+          "permission": "cloudsql.instances.update",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "sqladmin.googleapis.com",
+            "name": "projects/dummyproj/instances/testdb",
+            "type": "sqladmin.googleapis.com/Instance"
+          }
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/testdb",
+      "request": {
+        "instance": "testdb",
+        "body": {
+          "settings": {
+            "tier": "db-g1-small",
+            "backupConfiguration": {
+              "startTime": "21:00",
+              "enabled": true,
+              "backupRetentionSettings": {
+                "retainedBackups": 7.0
+              },
+              "transactionLogRetentionDays": 7.0,
+              "location": "us",
+              "pointInTimeRecoveryEnabled": true
+            },
+            "availabilityType": "ZONAL",
+            "dataDiskType": "PD_SSD",
+            "deletionProtectionEnabled": true,
+            "maintenanceWindow": {
+              "updateTrack": "stable"
+            },
+            "insightsConfig": {},
+            "storageAutoResize": true,
+            "dataDiskSizeGb": "10",
+            "locationPreference": {
+              "zone": "us-central1-b"
+            },
+            "ipConfiguration": {
+              "enablePrivatePathForGoogleCloudServices": false,
+              "ipv4Enabled": true
+            }
+          }
+        },
+        "project": "dummyproj",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlInstancesPatchRequest"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/instances/testdb",
+        "name": "716cxxxx0032",
+        "operationType": "UPDATE",
+        "kind": "sql#operation",
+        "user": "user1@gcp.com",
+        "insertTime": "2023-04-21T12:51:01.252Z",
+        "targetProject": "dummyproj",
+        "status": "PENDING",
+        "instanceUid": "1-b20a8fc5xxxx9563639f",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.Operation",
+        "selfLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/operations/716cxxxx0032",
+        "targetId": "testdb"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:testdb",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "dbxa8oeebv2d",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-21T14:14:32.458755Z",
+    "operation": {
+      "id": "5696xxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.1.1.1",
+        "requestAttributes": {
+          "time": "2023-04-21T14:14:32.550560Z",
+          "reason": "8uSywxxxxG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.instances.delete",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/testdb",
+          "permission": "cloudsql.instances.delete",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "sqladmin.googleapis.com",
+            "name": "projects/dummyproj/instances/testdb",
+            "type": "sqladmin.googleapis.com/Instance"
+          }
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/testdb",
+      "request": {
+        "instance": "testdb",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlInstancesDeleteRequest",
+        "project": "dummyproj"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/instances/testdb",
+        "name": "5696xxxx0032",
+        "operationType": "DELETE",
+        "kind": "sql#operation",
+        "user": "user1@gcp.com",
+        "insertTime": "2023-04-21T14:14:32.504Z",
+        "targetProject": "dummyproj",
+        "status": "PENDING",
+        "instanceUid": "1-b20a8xxxx63639f",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.Operation",
+        "selfLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/operations/5696xxxx0032",
+        "targetId": "testdb"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:testinstance",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "yeoxxxxtu",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-24T07:19:17.461936Z",
+    "operation": {
+      "id": "24e4xxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.0.0.1",
+        "requestAttributes": {
+          "time": "2023-04-24T07:19:18.888336Z",
+          "reason": "8uSyxxxxG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.instances.create",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj",
+          "permission": "cloudsql.instances.create",
+          "granted": true,
+          "resourceAttributes": {
+            "service": "sqladmin.googleapis.com",
+            "name": "projects/dummyproj/instances/testinstance",
+            "type": "sqladmin.googleapis.com/Instance"
+          }
+        }
+      ],
+      "resourceName": "projects/dummyproj",
+      "request": {
+        "requestId": "88acxxxx18f2",
+        "body": {
+          "instanceType": "CLOUD_SQL_INSTANCE",
+          "databaseVersion": "POSTGRES_14",
+          "region": "us-central1",
+          "settings": {
+            "tier": "db-g1-small",
+            "backupConfiguration": {
+              "startTime": "15:00",
+              "enabled": true,
+              "backupRetentionSettings": {
+                "retainedBackups": 7.0
+              },
+              "transactionLogRetentionDays": 7.0,
+              "location": "us",
+              "pointInTimeRecoveryEnabled": true
+            },
+            "availabilityType": "ZONAL",
+            "dataDiskType": "PD_SSD",
+            "activationPolicy": "ALWAYS",
+            "maintenanceWindow": {
+              "updateTrack": "stable"
+            },
+            "insightsConfig": {},
+            "storageAutoResize": true,
+            "dataDiskSizeGb": "20",
+            "deletionProtectionEnabled": false,
+            "locationPreference": {},
+            "ipConfiguration": {
+              "ipv4Enabled": true
+            }
+          },
+          "backendType": "SECOND_GEN",
+          "instanceUid": "1-30xxx02cf92ec1e",
+          "project": "dummyproj",
+          "name": "testinstance"
+        },
+        "project": "dummyproj",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlInstancesInsertRequest"
+      },
+      "response": {
+        "targetLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/instances/testinstance",
+        "name": "24e4xxxx0032",
+        "operationType": "CREATE",
+        "kind": "sql#operation",
+        "user": "user1@gcp.com",
+        "insertTime": "2023-04-24T07:19:18.839Z",
+        "targetProject": "dummyproj",
+        "status": "PENDING",
+        "instanceUid": "1-30eexxxxec1e",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.Operation",
+        "selfLink": "https://www.googleapis.com/sql/v1beta4/projects/dummyproj/operations/24e4xxxx0032",
+        "targetId": "testinstance"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:testinstance",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "-2hxxyyv",
+    "severity": "INFO",
+    "timestamp": "2023-04-24T10:44:15.989367Z",
+    "operation": {
+      "id": "898fxxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.0.0.1",
+        "requestAttributes": {
+          "time": "2023-04-24T10:44:16.298687Z",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.users.create",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/testinstance",
+          "permission": "cloudsql.users.create",
+          "granted": true,
+          "resourceAttributes": {}
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/testinstance",
+      "request": {
+        "instance": "testinstance",
+        "body": {
+          "instance": "testinstance",
+          "project": "dummyproj",
+          "name": "testdb"
+        },
+        "project": "dummyproj",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlUsersInsertRequest"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:database2",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "gxrxxz",
+    "severity": "INFO",
+    "timestamp": "2023-04-25T05:28:36.723648Z",
+    "operation": {
+      "id": "cd8exxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "54.221.69.129",
+        "requestAttributes": {
+          "time": "2023-04-25T05:28:36.962765Z",
+          "reason": "8uSyxxxxBGbG93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.databases.create",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/database2",
+          "permission": "cloudsql.databases.create",
+          "granted": true,
+          "resourceAttributes": {}
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/database2",
+      "request": {
+        "instance": "database2",
+        "body": {
+          "instance": "database2",
+          "project": "dummyproj",
+          "charset": "utf8",
+          "name": "test-db2"
+        },
+        "project": "dummyproj",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlDatabasesInsertRequest"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:test-db1",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "-hqoxxxtf",
+    "severity": "INFO",
+    "timestamp": "2023-04-27T07:06:27.791164Z",
+    "operation": {
+      "id": "0d31xxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@hcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.0.0.4",
+        "requestAttributes": {
+          "time": "2023-04-27T07:06:28.050233Z",
+          "reason": "8uSxxxx93cw",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.databases.delete",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/test-db1/databases/test-db1",
+          "permission": "cloudsql.databases.delete",
+          "granted": true,
+          "resourceAttributes": {}
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/test-db1/databases/test-db1",
+      "request": {
+        "instance": "test-db1",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlDatabasesDeleteRequest",
+        "project": "dummyproj",
+        "database": "test-db1"
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Fdata_access",
+    "resource": {
+      "type": "cloudsql_database",
+      "labels": {
+        "region": "us-central1",
+        "database_id": "dummyproj:test-db1",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "-x0kn0we7fwa4",
+    "severity": "INFO",
+    "timestamp": "2023-04-27T08:03:34.792332Z",
+    "operation": {
+      "id": "8583xxxx0032",
+      "producer": "cloudsql.googleapis.com",
+      "first": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "status": {},
+      "authenticationInfo": {
+        "principalEmail": "user1@hcp.com"
+      },
+      "requestMetadata": {
+        "callerIp": "3.0.0.4",
+        "requestAttributes": {
+          "time": "2023-04-27T08:03:35.122674Z",
+          "auth": {}
+        },
+        "destinationAttributes": {}
+      },
+      "serviceName": "cloudsql.googleapis.com",
+      "methodName": "cloudsql.users.delete",
+      "authorizationInfo": [
+        {
+          "resource": "projects/dummyproj/instances/test-db1/users/testuser",
+          "permission": "cloudsql.users.delete",
+          "granted": true,
+          "resourceAttributes": {}
+        }
+      ],
+      "resourceName": "projects/dummyproj/instances/test-db1/users/testuser",
+      "request": {
+        "instance": "test-db1",
+        "@type": "type.googleapis.com/google.cloud.sql.v1beta4.SqlUsersDeleteRequest",
+        "project": "dummyproj",
+        "name": "testuser"
+      }
+    }
+  }
+]

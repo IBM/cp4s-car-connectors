@@ -69,6 +69,9 @@
 					"Primary": "True",
 					"PrivateDnsName": "ip-172-31-9-24.ec2.internal",
 					"PrivateIpAddress": "172.31.9.24"
+				}, {
+					"Primary": "False",
+					"PrivateIpAddress": "111.111.111.111"
 				}],
 				"SourceDestCheck": "True",
 				"Status": "in-use",

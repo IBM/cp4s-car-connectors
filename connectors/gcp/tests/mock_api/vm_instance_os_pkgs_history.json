@@ -1,0 +1,67 @@
+[
+  {
+    "name": "//compute.googleapis.com/projects/project/zones/us-central1-a/instances/instance-2",
+    "assetType": "compute.googleapis.com/Instance",
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-03-19T17:12:48.958064Z",
+    "osInventory": {
+      "osInfo": {
+        "longName": "Debian GNU/Linux 11 (bullseye)",
+        "shortName": "debian",
+        "version": "11",
+        "architecture": "x86_64",
+        "kernelVersion": "#1 SMP Debian 5.10.162-1 (2023-01-21)",
+        "kernelRelease": "5.10.0-21-cloud-amd64",
+        "osconfigAgentVersion": "20221214.00-g1",
+        "hostname": "instance-2"
+      },
+      "items": {
+        "installedPackage-coreutils:x86_64:8.32-4+b1": {
+          "id": "installedPackage-coreutils:x86_64:8.32-4+b1",
+          "originType": 1,
+          "type": 1,
+          "installedPackage": {
+            "aptPackage": {
+              "architecture": "x86_64",
+              "version": "8.32-4+b1",
+              "packageName": "coreutils"
+            }
+          },
+          "createTime": "2023-03-19T17:12:48.957448Z"
+        },
+        "installedPackage-libhavege2:x86_64:1.9.14-1": {
+          "id": "installedPackage-libhavege2:x86_64:1.9.14-1",
+          "originType": 1,
+          "type": 1,
+          "installedPackage": {
+            "aptPackage": {
+              "architecture": "x86_64",
+              "version": "1.9.14-1",
+              "packageName": "libhavege2"
+            }
+          },
+          "createTime": "2023-03-19T17:12:48.957581Z"
+        },
+        "installedPackage-apt:x86_64:2.2.4": {
+          "id": "installedPackage-apt:x86_64:2.2.4",
+          "originType": 1,
+          "type": 1,
+          "installedPackage": {
+            "aptPackage": {
+              "architecture": "x86_64",
+              "version": "2.2.4",
+              "packageName": "apt"
+            }
+          },
+          "createTime": "2023-03-19T17:12:48.957434Z"
+        }
+      },
+      "name": "projects/951111111111/locations/us-central1-a/instances/6000000000000000002/inventory",
+      "updateTime": "2023-03-19T17:12:48.988386Z"
+    },
+    "orgPolicy": []
+  }
+]

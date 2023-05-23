@@ -1,0 +1,73 @@
+{
+  "source": "GCP",
+  "endpoint": {
+    "token_uri": "https://oauth2.googleapis.com/token"
+  },
+  "asset_type": {
+    "vm_instance": "compute.googleapis.com/Instance",
+    "vm_os_pkgs": "compute.googleapis.com/Instance",
+    "os_pkg_vuln": "osconfig.googleapis.com/VulnerabilityReport",
+    "web_app": "appengine.googleapis.com/Application",
+    "web_app_service": "appengine.googleapis.com/Service",
+    "web_app_service_version": "appengine.googleapis.com/Version",
+    "cluster": "container.googleapis.com/Cluster",
+    "cluster_node": "k8s.io/Node",
+    "pod": "k8s.io/Pod",
+    "deployment": "apps.k8s.io/Deployment",
+    "sql_instance": "sqladmin.googleapis.com/Instance"
+  },
+  "asset_name_prefix": {
+    "vm_instance": "//compute.googleapis.com/",
+    "os_pkg_vuln": "//osconfig.googleapis.com/",
+    "web_app": "//appengine.googleapis.com/",
+    "cluster": "//container.googleapis.com/",
+    "sql_instance": "//sqladmin.googleapis.com/"
+  },
+  "log_filter": {
+    "create": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName=~(\"compute.instances.insert|bulkInsert\")",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.CreateApplication\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.CreateVersion\" AND operation.last=\"true\"",
+      "cluster": "resource.type=\"gke_cluster\" AND protoPayload.methodName:\"ClusterManager.CreateCluster\"",
+      "cluster_node": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.core.v1.nodes.create\"",
+      "pod": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.core.v1.pods.create\"",
+      "deployment": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.apps.v1.deployments.create\"",
+      "sql_instance": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlInstancesInsertRequest\"",
+      "sql_database": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlDatabasesInsertRequest\"",
+      "sql_user": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlUsersInsertRequest\""
+    },
+    "update": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName=~\"compute.instances.(stop|start|update|setName)\"",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.UpdateApplication\" AND operation.last=\"true\"",
+      "web_app_service": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Services.UpdateService\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.UpdateVersion\" AND operation.last=\"true\"",
+      "sql_instance": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlInstancesPatchRequest\""
+    },
+    "delete": {
+      "vm_instance": "resource.type=\"gce_instance\" AND protoPayload.methodName:\"compute.instances.delete\"",
+      "sql_instance": "resource.type=\"cloudsql_database\" AND protoPayload.methodName:\"cloudsql.instances.delete\"",
+      "web_app": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Applications.DeleteApplication\" AND operation.last=\"true\"",
+      "web_app_service": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Services.DeleteService\" AND operation.last=\"true\"",
+      "web_app_service_version": "resource.type=\"gae_app\" AND protoPayload.methodName:\"Versions.DeleteVersion\"",
+      "cluster": "resource.type=\"gke_cluster\" AND protoPayload.methodName:\"ClusterManager.DeleteCluster\"",
+      "cluster_node": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.core.v1.nodes.delete\"",
+      "pod": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.core.v1.pods.delete\"",
+      "deployment": "resource.type=\"k8s_cluster\" AND protoPayload.methodName:\"io.k8s.apps.v1.deployments.delete\"",
+      "sql_instance": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlInstancesDeleteRequest\"",
+      "sql_database": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlDatabasesDeleteRequest\"",
+      "sql_user": "resource.type=\"cloudsql_database\" AND protoPayload.request.@type:\"SqlUsersDeleteRequest\""
+    },
+    "gke_workload_vuln": "resource.type=\"k8s_cluster\" AND jsonPayload.@type=\"type.googleapis.com/cloud.kubernetes.security.containersecurity_logging.Finding\" AND jsonPayload.state=\"ACTIVE\""
+  },
+  "scc_vulnerability": {
+    "vm_instance": "resource.type=\"google.compute.Instance\"",
+    "web_app": "resource.type=\"google.appengine.Application\"",
+    "web_app_service":  "resource.type=\"google.appengine.Service\"",
+    "web_app_service_version": "resource.type=\"google.appengine.Version\"",
+    "vuln_url": "source_properties.reproductionUrl: \"-dot-\"",
+    "cluster": "resource.type=\"google.container.Cluster\"",
+    "cluster_node": "resource.type=\"google.container.Node\"",
+    "pod": "resource.type=\"google.container.Pod\"",
+    "sql_instance": "resource.type=\"google.cloud.sql.Instance\""
+  }
+}

@@ -1,6 +1,8 @@
 import datetime, re
 from car_framework.context import context
+from car_framework.data_handler import BaseDataHandler
 from connector.data_collector import deep_get
+import dateutil.parser as dparser
 
 
 EBS_ENV_ID_TAG = 'elasticbeanstalk:environment-id'
@@ -12,17 +14,13 @@ def get_report_time():
     milliseconds = delta.total_seconds() * 1000
     return milliseconds
 
-class DataHandler(object):
+class DataHandler(BaseDataHandler):
 
     source = None
     report = None
 
     def __init__(self):
-        self.collections = {}
-        self.collection_keys = {}
-        self.edges = {}
-        self.edge_keys = {}
-        self.timestamp = get_report_time()
+        super().__init__()
 
     def create_source_report_object(self):
         if not (self.source and self.report):
@@ -31,39 +29,6 @@ class DataHandler(object):
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'AWS cloud datasource', 'description': 'AWS cloud datasource'}
         
         return {'source': self.source, 'report': self.report}
-
-    # Adds the collection data
-    def add_collection(self, name, object, key):
-        objects = self.collections.get(name)
-        if not objects:
-            objects = []; self.collections[name] = objects
-        
-        keys = self.collection_keys.get(name)
-        if not keys:
-            keys = []; self.collection_keys[name] = keys
-        
-        if not object[key] in self.collection_keys[name]:
-            objects.append(object)
-            self.collection_keys[name].append(object[key])
-
-    # Adds the edge between two vertices
-    def add_edge(self, name, object):
-        objects = self.edges.get(name)
-        if not objects:
-            objects = []; self.edges[name] = objects
-
-        keys = self.collection_keys.get(name)
-        if not keys:
-            keys = []; self.edge_keys[name] = keys
-        
-        key = '#'.join(str(x) for x in object.values())
-        if not key in self.edge_keys[name]:
-            object['report'] = self.report['_key']
-            object['source'] = context().args.source
-            object['active'] = True
-            object['timestamp'] = self.report['timestamp']
-            objects.append(object)
-            self.edge_keys[name].append(key)
 
     def handle_asset(self, obj):
         asset = dict()
@@ -147,8 +112,10 @@ class DataHandler(object):
         vulnerability['external_id'] = obj['Id']
         vulnerability['name'] = obj['Title']
         vulnerability['description'] = obj['Description']
-        vulnerability['disclosed_on'] = obj.get('FirstObservedAt')
-        vulnerability['published_on'] = obj['CreatedAt']
+        if obj.get('FirstObservedAt'):
+            vulnerability['disclosed_on'] = dparser.parse(obj.get('FirstObservedAt')).timestamp()
+        if obj['CreatedAt']:
+            vulnerability['published_on'] = dparser.parse(obj['CreatedAt']).timestamp()
         vulnerability['base_score'] = round(int(deep_get(obj, ['Severity', 'Normalized'])) / 10)
         self.add_collection('vulnerability', vulnerability, 'external_id')
 

@@ -1,0 +1,27 @@
+{
+  "kind": "sql#usersList",
+  "items": [
+    {
+      "kind": "sql#user",
+      "etag": "99b9xxxxf4dc",
+      "name": "root",
+      "host": "%",
+      "instance": "testinstance",
+      "project": "dummyproj",
+      "passwordPolicy": {
+        "status": {}
+      }
+    },
+    {
+      "kind": "sql#user",
+      "etag": "5b74xxxx57c4",
+      "name": "test_user",
+      "host": "%",
+      "instance": "testinstance",
+      "project": "dummyproj",
+      "passwordPolicy": {
+        "status": {}
+      }
+    }
+  ]
+}
