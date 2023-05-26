@@ -1,0 +1,35 @@
+{
+  "kind": "sql#databasesList",
+  "items": [
+    {
+      "kind": "sql#database",
+      "charset": "utf8",
+      "collation": "utf8_general_ci",
+      "etag": "f9dd185bcf86c92a966c97966b50b3d0e569f628971cb869adddbeed7965db40",
+      "name": "mysql",
+      "instance": "ibm-test",
+      "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/cp4sdev/instances/ibm-test/databases/mysql",
+      "project": "cp4sdev"
+    },
+    {
+      "kind": "sql#database",
+      "charset": "utf8",
+      "collation": "utf8_general_ci",
+      "etag": "a315aa8cf2de17d326cca5f42d01d0cf11a762595d19d12b73e93e34ab1aae55",
+      "name": "information_schema",
+      "instance": "ibm-test",
+      "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/cp4sdev/instances/ibm-test/databases/information_schema",
+      "project": "cp4sdev"
+    },
+    {
+      "kind": "sql#database",
+      "charset": "utf8",
+      "collation": "utf8_general_ci",
+      "etag": "a8efxxxx0a5e",
+      "name": "test_db",
+      "instance": "testinstance",
+      "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/dummyproj/instances/testinstance/databases/test_db",
+      "project": "dummyproj"
+    }
+  ]
+}

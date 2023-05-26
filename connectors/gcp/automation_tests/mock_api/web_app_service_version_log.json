@@ -1,0 +1,305 @@
+[
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "zone": "",
+        "module_id": "service1",
+        "version_id": "20230401t152526",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "jfh750c44g",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:26:22.796426Z",
+    "operation": {
+      "id": "a08d50d4-4525-45b5-ab94-51661e9f2032",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Versions.CreateVersion",
+      "resourceName": "apps/dummyapp/services/service1/versions/20230401t152526",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service1",
+        "version_id": "",
+        "zone": ""
+      }
+    },
+    "insertId": "-d1eid1c76i",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:26:29.818118Z",
+    "operation": {
+      "id": "2fab79a4-95ba-44c3-bdb9-41ecc0db3894",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Services.UpdateService",
+      "resourceName": "apps/dummyapp/services/service1",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service1",
+        "version_id": "20230401t152657",
+        "zone": ""
+      }
+    },
+    "insertId": "-9f6axyc7w5",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:28:14.044474Z",
+    "operation": {
+      "id": "2e662f95-38f1-4544-895a-e397e1ae2424",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Versions.CreateVersion",
+      "resourceName": "apps/dummyapp/services/service1/versions/20230401t152657",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "zone": "",
+        "module_id": "service1",
+        "version_id": "",
+        "project_id": "dummyproj"
+      }
+    },
+    "insertId": "2s8l5ucmpq",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:28:26.082490Z",
+    "operation": {
+      "id": "85764d5d-71c9-42f7-b2b6-887be8ea307d",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Services.UpdateService",
+      "resourceName": "apps/dummyapp/services/service1",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service2",
+        "version_id": "20230401t152848",
+        "zone": ""
+      }
+    },
+    "insertId": "9zx5b2c4ga",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:29:44.283308Z",
+    "operation": {
+      "id": "3a970b37-01a5-4cc7-a4c2-ca1fff9c21c9",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Versions.CreateVersion",
+      "resourceName": "apps/dummyapp/services/service2/versions/20230401t152848",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service2",
+        "version_id": "",
+        "zone": ""
+      }
+    },
+    "insertId": "-oyie5acqao",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:29:52.278841Z",
+    "operation": {
+      "id": "d29ccfb8-4e6c-44b9-8598-ee97c4719310",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Services.UpdateService",
+      "resourceName": "apps/dummyapp/services/service2",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service2",
+        "version_id": "20230401t152848",
+        "zone": ""
+      }
+    },
+    "insertId": "f9g9p6cofc",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:31:24.579272Z",
+    "operation": {
+      "id": "e4a1440e-3d0e-4eea-8ccb-d67080326d5c",
+      "producer": "appengine.googleapis.com/admin"
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Versions.DeleteVersion",
+      "resourceName": "apps/dummyproj/services/service2/versions/20230401t152848",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  },
+  {
+    "logName": "projects/dummyproj/logs/cloudaudit.googleapis.com%2Factivity",
+    "resource": {
+      "type": "gae_app",
+      "labels": {
+        "project_id": "dummyproj",
+        "module_id": "service2",
+        "version_id": "",
+        "zone": ""
+      }
+    },
+    "insertId": "2s8l5ucmqg",
+    "severity": "NOTICE",
+    "timestamp": "2023-04-01T15:31:25.500501Z",
+    "operation": {
+      "id": "e4a1440e-3d0e-4eea-8ccb-d67080326d5c",
+      "producer": "appengine.googleapis.com/admin",
+      "last": true
+    },
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "user1@gcp.com"
+      },
+      "requestMetadata": {
+        "requestAttributes": {},
+        "destinationAttributes": {}
+      },
+      "serviceName": "appengine.googleapis.com",
+      "methodName": "google.appengine.v1.Services.DeleteService",
+      "resourceName": "apps/dummyapp/services/service2",
+      "resourceLocation": {
+        "currentLocations": [
+          "us-central1"
+        ]
+      }
+    }
+  }
+]
