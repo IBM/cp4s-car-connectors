@@ -1,6 +1,8 @@
 from car_framework.inc_import import BaseIncrementalImport
 from car_framework.context import context
-from connector.data_handler import DataHandler, endpoint_mapping
+from connector.data_handler import DataHandler, endpoint_mapping, epoch_to_datetime_conv
+
+from string import Template
 
 class IncrementalImport(BaseIncrementalImport):
     def __init__(self):
@@ -39,33 +41,75 @@ class IncrementalImport(BaseIncrementalImport):
         Process the api response and creates initial import collections
         """
         context().logger.debug('Incremental Import collection started')
-        pass
 
-        # last_run = epoch_to_datetime_conv(self.last_model_state_id).isoformat()
-        #
-        # query = {
-        #     'condition': "AND",
-        #     'rules': [
-        #                 {
-        #                     'field': "table.target_last_seen",
-        #                     'operator': "greater_or_equal",
-        #                     'value': last_run
-        #                     # pull in Randori information when last_seen > the last_run
-        #                 }
-        #     ]
-        # }
-        # # We need the query to be a string in order to base64 encode it easily
-        # query = json.dumps(query)
-        #
-        # # Randori expects the 'q' query to be base64 encoded in string format
-        # query = b64encode(query.encode()).decode()
-        #
-        # # this need to be implemeted as we build data handler
-        # allDetectionsForTarget = context().asset_server.get_detections_for_target(offset=1, limit=100, sort=["last_seen"], q=query, reversed_nulls=True)
-        #
-        # for detection in allDetectionsForTarget.data:
-        #     for node in endpoint_mapping["get_detections_for_target"]:
-        #         getattr(self.data_handler, 'handle_' + node.lower())(detection)
+        last_run = epoch_to_datetime_conv(self.last_model_state_id)
+        last_run_iso = last_run.strftime('%Y-%m-%dT%H:%M:%SZ') 
+
+        query = Template("""
+            query {
+                endpoints(
+                    filter: {any: true, filters: [{path: "ipAddresses", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "domainName", op: UPDATED_AFTER, value: "${last_run_iso}"}, 
+                    {path: "macAddresses", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "services.name", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "installedApplications", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "primaryUser.name", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "risk", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "deployedSoftwarePackages", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "discover.openPorts", op: UPDATED_AFTER, value: "${last_run_iso}"},
+                    {path: "os.name", op: UPDATED_AFTER, value: "${last_run_iso}"}]}
+                ){
+                    edges {
+                        node {
+                          id,
+                          name,
+                          manufacturer,
+                          eidFirstSeen,
+                          eidLastSeen,
+                          services {
+                            name,
+                            displayName,
+                            status
+                          },
+                          installedApplications {
+                            name,
+                            version
+                          },
+                          deployedSoftwarePackages {
+                            id,
+                            vendor,
+                            version
+                          },
+                          ipAddress,
+                          ipAddresses,
+                          domainName,
+                          macAddresses,
+                          primaryUser{
+                            name,
+                            email,
+                            department
+                          },
+                          os {
+                            name
+                          },
+                          discover {
+                            openPorts
+                          },
+                          risk {
+                            totalScore
+                          }
+                      }
+                    }
+                }
+            }
+        """).substitute(locals())
+
+        tanium_endpoints_response = context().asset_server.query_tanium_endpoints(query)
+
+        for edge in tanium_endpoints_response['data']['endpoints']['edges']:
+            tanium_node = edge['node']
+            for endpoint in endpoint_mapping["tanium_endpoints"]:
+                getattr(self.data_handler, 'handle_' + endpoint.lower())(tanium_node)
 
     def delete_vertices(self):
         pass

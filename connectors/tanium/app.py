@@ -18,11 +18,11 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Parameters need to connect data source
-        self.parser.add_argument('-host', dest='host', default=os.getenv('CONNECTION_HOST', None),
+        self.parser.add_argument('-host', dest='CONNECTION_HOST', default=os.getenv('CONNECTION_HOST', None),
                                  type=str, required=False, help='The url of the tanium data source')
-        self.parser.add_argument('-port', dest='port', default=os.getenv('CONNECTION_PORT', 8443),
+        self.parser.add_argument('-port', dest='CONNECTION_PORT', default=os.getenv('CONNECTION_PORT', 8443),
                                  type=str, required=False, help='The url of the tanium data source')
-        self.parser.add_argument('-access_token', dest='access_token', default=os.getenv('CONFIGURATION_AUTH_TOKEN', None),
+        self.parser.add_argument('-access_token', dest='CONFIGURATION_AUTH_TOKEN', default=os.getenv('CONFIGURATION_AUTH_TOKEN', None),
                                  type=str, required=False, help='Access token of the tanium data source')
 
     def setup(self):

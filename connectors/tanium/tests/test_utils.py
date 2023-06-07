@@ -8,23 +8,22 @@ from connector import full_import, server_access, inc_import
 
 class Arguments:
     """Test args for Unit test case"""
-    server = " https://app.randori.io"
-    access_token = "whatever"
-    host = "demo.tanium.io"
-    port = "8443"
-    source = "tanium"
-    car_service_apikey_url = "https://app.demo.isc.ibm"
-    api_key = "abcdef"
-    api_password = ""
-    car_service_token_url = None
-    api_token = None
+    CONFIGURATION_AUTH_TOKEN = "whatever"
+    CONNECTION_HOST = "demo.tanium.io"
+    CONNECTION_PORT = "8443"
+    CONNECTION_NAME = "tanium"
+    CAR_SERVICE_URL = "https://app.demo.isc.ibm"
+    CAR_SERVICE_KEY = "abcdef"
+    CAR_SERVICE_PASSWORD = ""
+    CAR_SERVICE_URL_FOR_AUTHTOKEN = None
+    CAR_SERVICE_AUTHTOKEN = None
     store_true = False
     export_data_dir = "tests/tmp/car_temp_export_data"
     keep_export_data_dir = "store_true"
     export_data_page_size = 2000
     description = "description"
     debug = None
-    connector_name = "tanium"
+    CONNECTOR_NAME = "tanium"
     version = '1.0'
 
 
@@ -40,6 +39,32 @@ class TaniumMockResponse:
     def json(self):
         return self.text
 
+
+class JsonResponse:
+    """
+     Summary conversion of json data to dictionary.
+          """
+    def __init__(self, response_code, filename):
+        self.status_code = response_code
+        self.filename = filename
+
+    # def status_code(self):
+    #     return self.status_code
+
+    def json(self):
+        cur_path = os.path.dirname(__file__)
+        abs_file_path = os.path.join(cur_path, "mock_api", self.filename)
+        json_file = open(abs_file_path)
+        json_str = json_file.read()
+        json_data = json.loads(json_str)
+        return json_data
+
+    def text(self):
+        cur_path = os.path.dirname(__file__)
+        abs_file_path = os.path.join(cur_path, "mock_api", self.filename)
+        json_file = open(abs_file_path)
+        json_str = json_file.read()
+        return json_str
 
 @patch('car_framework.car_service.CarService.import_data_from_file')
 @patch('car_framework.car_service.CarService.check_import_status')

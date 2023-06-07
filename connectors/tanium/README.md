@@ -1,33 +1,10 @@
-# Reference implementation of a CAR connector
+## Tanium pre-req
 
-## Server
+Modules: Intereac, Asset, Deploy, Discover and Benchmark
+Packages: Client Management, Core ADQuery Content, and API Gateway
 
-The server part is a Python Django application which implements a simple Asset model.
-
-Server setup:
-
-```
-cd server
-pip3 install -r requirements.txt
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3 manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin')"
-python3 manage.py populate
-```
-
-
-Running the server:
-
-```
-python3 manage.py runserver
-```
-
-Use server UI to modify the model (create/delete/modify Asset model items): http://localhost:8000/admin/
-Login credentials are admin/admin
-
-Generate a model of a pre-defined size: http://localhost:8000/admin/assets/assetmodelsize/1/change/
-Set the "size" to some number and click "Save" button.
-
+API token: https://docs.tanium.com/platform_user/platform_user/console_api_tokens.html?Highlight=api+token&cloud=false
+GraphQL qurery: https://developer.tanium.com/site/global/apis/graphql/spectaql/index.gsp#definition-Endpoint
 
 ## Connector
 

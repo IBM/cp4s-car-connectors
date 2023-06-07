@@ -33,8 +33,10 @@ class TestAssetServer(unittest.TestCase):
         mock_hostnames_res = TaniumMockResponse(200, mock_api_return_value)
         mock_query_tanium_endpoints.return_value = mock_hostnames_res
 
-        actual_response = context().asset_server.query_tanium_endpoints()
+        query = "something"
+
+        actual_response = context().asset_server.query_tanium_endpoints(query)
         assert actual_response is not None
         assert actual_response['data']['endpoints']['edges'] is not None
-        assert actual_response['data']['endpoints']['edges'][0]['node']['ipAddress'] == '172.31.76.205'
+        assert actual_response['data']['endpoints']['edges'][0]['node']['ipAddress'] == '172.31.17.188'
 
