@@ -1,0 +1,34 @@
+[
+  {
+    "name": "//appengine.googleapis.com/apps/dummyapp/services/app1/versions/2022v1",
+    "assetType": "appengine.googleapis.com/Version",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://www.googleapis.com/discovery/v1/apis/appengine/v1/rest",
+      "discoveryName": "Version",
+      "parent": "//appengine.googleapis.com/apps/dummyapp/services/app1",
+      "data": {
+        "threadsafe": true,
+        "deployment": {},
+        "versionUrl": "https://2022v1-dot-app1-dot-app.appspot.com",
+        "id": "2022v1",
+        "runtimeChannel": "default",
+        "network": {},
+        "instanceClass": "F1",
+        "runtime": "python39",
+        "env": "standard",
+        "servingStatus": "SERVING",
+        "createTime": "2022-08-04T10:52:56Z",
+        "name": "apps/dummyapp/services/app1/versions/2022v1"
+      },
+      "resourceUrl": "",
+      "location": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-03-30T11:42:52.442Z",
+    "orgPolicy": []
+  }
+]

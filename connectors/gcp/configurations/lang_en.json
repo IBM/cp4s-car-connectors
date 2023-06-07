@@ -1,0 +1,14 @@
+{
+    "configuration": {
+        "auth": {
+            "client_email": {
+                "label": "Client email address",
+                "description": "Client email address required for data source authentication"
+            },
+            "private_key": {
+                "label": "Private Key (Required)",
+                "description": "Private Key is a mandatory authentication parameter to communicate with the GCP datasource."
+            }
+        }
+    }
+}

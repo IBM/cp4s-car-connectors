@@ -1,0 +1,240 @@
+[
+  {
+    "name": "//container.googleapis.com/projects/dummyproj/zones/us-central1-c/clusters/cluster-1/k8s/namespaces/default/pods/nginx-1-5fcdb595fb-8d59r",
+    "assetType": "k8s.io/Pod",
+    "resource": {
+      "version": "v1",
+      "discoveryDocumentUri": "https://raw.githubusercontent.com/kubernetes/kubernetes/master/api/openapi-spec/swagger.json",
+      "discoveryName": "io.k8s.api.core.v1.Pod",
+      "parent": "//container.googleapis.com/projects/dummyproj/zones/us-central1-c/clusters/cluster-1/k8s/namespaces/default",
+      "data": {
+        "status": {
+          "message": "",
+          "conditions": [
+            {
+              "lastProbeTime": "",
+              "type": "Initialized",
+              "status": "true",
+              "message": "",
+              "lastTransitionTime": "2023-04-24T07:48:43Z",
+              "reason": ""
+            },
+            {
+              "lastProbeTime": "",
+              "type": "Ready",
+              "status": "true",
+              "message": "",
+              "lastTransitionTime": "2023-04-24T07:48:50Z",
+              "reason": ""
+            },
+            {
+              "lastProbeTime": "",
+              "message": "",
+              "status": "true",
+              "type": "ContainersReady",
+              "lastTransitionTime": "2023-04-24T07:48:50Z",
+              "reason": ""
+            },
+            {
+              "lastProbeTime": "",
+              "type": "PodScheduled",
+              "status": "true",
+              "message": "",
+              "lastTransitionTime": "2023-04-24T07:48:43Z",
+              "reason": ""
+            }
+          ],
+          "reason": "",
+          "podIP": "8.4.1.6",
+          "podIPs": [
+            {
+              "ip": "8.4.1.6"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "started": true,
+              "lastState": {},
+              "image": "docker.io/library/nginx:latest",
+              "imageID": "docker.io/library/nginx@sha256:63b44e8ddb83d5dd8020327c1f40436e37a6fffd3ef2498a6204df23be6e7e94",
+              "containerID": "containerd://7ac592b2e8fd3f9928ff4cecd478ee22e257d9909e97a4c9a91c9c50e4a4771e",
+              "restartCount": 0.0,
+              "ready": true,
+              "state": {
+                "running": {
+                  "startedAt": "2023-04-24T07:48:49Z"
+                }
+              },
+              "name": "nginx-1"
+            }
+          ],
+          "hostIP": "10.0.0.22",
+          "startTime": "2023-04-24T07:48:43Z",
+          "phase": "Running",
+          "qosClass": "BestEffort",
+          "nominatedNodeName": ""
+        },
+        "metadata": {
+          "uid": "4b262d15-xxxx-59fc1d13029b",
+          "ownerReferences": [
+            {
+              "controller": true,
+              "uid": "e4406be2-xxxx-475afd5e17fa",
+              "blockOwnerDeletion": true,
+              "kind": "ReplicaSet",
+              "apiVersion": "apps/v1",
+              "name": "nginx-1-5fcdb595fb"
+            }
+          ],
+          "clusterName": "",
+          "generateName": "nginx-1-5fcdb595fb-",
+          "labels": {
+            "app": "nginx-1",
+            "pod-template-hash": "5fcdb595fb"
+          },
+          "namespace": "default",
+          "generation": 0.0,
+          "managedFields": [
+            {
+              "fieldsType": "FieldsV1",
+              "fieldsV1": {
+                "Raw": "eyJmOm1ldGFkYXRhIjp7ImY6Z2VuZXJhdGVOYW1lIjp7fSwiZjpsYWJlbHMiOnsiLiI6e30sImY6YXBwIjp7fSwiZjpwb2QtdGVtcGxhdGUtaGFzaCI6e319LCJmOm93bmVyUmVmZXJlbmNlcyI6eyIuIjp7fSwiazp7XCJ1aWRcIjpcImU0NDA2YmUyLTE0YjMtNDg3Yi1iMWJmLTQ3NWFmZDVlMTdmYVwifSI6e319fSwiZjpzcGVjIjp7ImY6Y29udGFpbmVycyI6eyJrOntcIm5hbWVcIjpcIm5naW54LTFcIn0iOnsiLiI6e30sImY6aW1hZ2UiOnt9LCJmOmltYWdlUHVsbFBvbGljeSI6e30sImY6bmFtZSI6e30sImY6cmVzb3VyY2VzIjp7fSwiZjp0ZXJtaW5hdGlvbk1lc3NhZ2VQYXRoIjp7fSwiZjp0ZXJtaW5hdGlvbk1lc3NhZ2VQb2xpY3kiOnt9fX0sImY6ZG5zUG9saWN5Ijp7fSwiZjplbmFibGVTZXJ2aWNlTGlua3MiOnt9LCJmOnJlc3RhcnRQb2xpY3kiOnt9LCJmOnNjaGVkdWxlck5hbWUiOnt9LCJmOnNlY3VyaXR5Q29udGV4dCI6e30sImY6dGVybWluYXRpb25HcmFjZVBlcmlvZFNlY29uZHMiOnt9fX0="
+              },
+              "time": "2023-04-24T07:48:43Z",
+              "manager": "kube-controller-manager",
+              "operation": "Update",
+              "subresource": "",
+              "apiVersion": "v1"
+            },
+            {
+              "fieldsType": "FieldsV1",
+              "fieldsV1": {
+                "Raw": "eyJmOnN0YXR1cyI6eyJmOmNvbmRpdGlvbnMiOnsiazp7XCJ0eXBlXCI6XCJDb250YWluZXJzUmVhZHlcIn0iOnsiLiI6e30sImY6bGFzdFByb2JlVGltZSI6e30sImY6bGFzdFRyYW5zaXRpb25UaW1lIjp7fSwiZjpzdGF0dXMiOnt9LCJmOnR5cGUiOnt9fSwiazp7XCJ0eXBlXCI6XCJJbml0aWFsaXplZFwifSI6eyIuIjp7fSwiZjpsYXN0UHJvYmVUaW1lIjp7fSwiZjpsYXN0VHJhbnNpdGlvblRpbWUiOnt9LCJmOnN0YXR1cyI6e30sImY6dHlwZSI6e319LCJrOntcInR5cGVcIjpcIlJlYWR5XCJ9Ijp7Ii4iOnt9LCJmOmxhc3RQcm9iZVRpbWUiOnt9LCJmOmxhc3RUcmFuc2l0aW9uVGltZSI6e30sImY6c3RhdHVzIjp7fSwiZjp0eXBlIjp7fX19LCJmOmNvbnRhaW5lclN0YXR1c2VzIjp7fSwiZjpob3N0SVAiOnt9LCJmOnBoYXNlIjp7fSwiZjpwb2RJUCI6e30sImY6cG9kSVBzIjp7Ii4iOnt9LCJrOntcImlwXCI6XCIxMC40LjEuNlwifSI6eyIuIjp7fSwiZjppcCI6e319fSwiZjpzdGFydFRpbWUiOnt9fX0="
+              },
+              "time": "2023-04-24T07:48:50Z",
+              "manager": "kubelet",
+              "operation": "Update",
+              "apiVersion": "v1",
+              "subresource": "status"
+            }
+          ],
+          "creationTimestamp": "2023-04-24T07:48:43Z",
+          "resourceVersion": "2071",
+          "selfLink": "",
+          "name": "nginx-1-5fcdb595fb-8d59r"
+        },
+        "spec": {
+          "priority": 0.0,
+          "securityContext": {},
+          "schedulerName": "default-scheduler",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "restartPolicy": "Always",
+          "tolerations": [
+            {
+              "key": "node.kubernetes.io/not-ready",
+              "value": "",
+              "operator": "Exists",
+              "effect": "NoExecute",
+              "tolerationSeconds": 300.0
+            },
+            {
+              "value": "",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300.0,
+              "effect": "NoExecute"
+            }
+          ],
+          "priorityClassName": "",
+          "enableServiceLinks": true,
+          "nodeName": "gke-cluster-1-xxxx-vv3z",
+          "dnsPolicy": "ClusterFirst",
+          "serviceAccount": "default",
+          "containers": [
+            {
+              "volumeMounts": [
+                {
+                  "subPath": "",
+                  "readOnly": true,
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "subPathExpr": "",
+                  "name": "kube-api-access-9ssfm"
+                }
+              ],
+              "terminationMessagePath": "/dev/termination-log",
+              "image": "nginx:latest",
+              "workingDir": "",
+              "imagePullPolicy": "Always",
+              "stdin": false,
+              "terminationMessagePolicy": "File",
+              "resources": {},
+              "stdinOnce": false,
+              "tty": false,
+              "name": "nginx-1"
+            }
+          ],
+          "serviceAccountName": "default",
+          "hostIPC": false,
+          "hostname": "",
+          "hostPID": false,
+          "hostNetwork": false,
+          "terminationGracePeriodSeconds": 30.0,
+          "volumes": [
+            {
+              "volumeSource": {
+                "projected": {
+                  "sources": [
+                    {
+                      "serviceAccountToken": {
+                        "audience": "",
+                        "path": "token",
+                        "expirationSeconds": 3607.0
+                      }
+                    },
+                    {
+                      "configMap": {
+                        "localObjectReference": {
+                          "name": "kube-root-ca.crt"
+                        },
+                        "items": [
+                          {
+                            "key": "ca.crt",
+                            "path": "ca.crt"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "downwardAPI": {
+                        "items": [
+                          {
+                            "fieldRef": {
+                              "fieldPath": "metadata.namespace",
+                              "apiVersion": "v1"
+                            },
+                            "path": "namespace"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "defaultMode": 420.0
+                }
+              },
+              "name": "kube-api-access-9ssfm"
+            }
+          ],
+          "subdomain": ""
+        }
+      },
+      "location": "us-central1-c",
+      "resourceUrl": ""
+    },
+    "ancestors": [
+      "projects/951111111111",
+      "organizations/401111111111"
+    ],
+    "updateTime": "2023-04-24T07:48:50.88701Z",
+    "orgPolicy": []
+  }
+]

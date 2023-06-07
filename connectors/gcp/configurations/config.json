@@ -1,0 +1,19 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Google Cloud Platform"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "client_email": {
+                "type": "text"
+            },
+            "private_key": {
+                "type": "password"
+            }
+        }
+    }
+}

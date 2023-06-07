@@ -298,15 +298,15 @@ class AssetServer(RestApiClient):
         :param: client_id,resource, client_secret and redirect_url
         :return: bearerToken
         """
-        url = self.LOGIN_URL % context().args.tenantID
+        url = self.LOGIN_URL % context().args.CONFIGURATION_AUTH_TENANT
 
         try:
             authContext = adal.AuthenticationContext(
-                url, validate_authority=context().args.tenantID != 'ADFS', )
+                url, validate_authority=context().args.CONFIGURATION_AUTH_TENANT != 'ADFS', )
             token = authContext.acquire_token_with_client_credentials(
                 self.BASE_URL,
-                context().args.clientID,
-                context().args.clientSecret)
+                context().args.CONFIGURATION_AUTH_CLIENTID,
+                context().args.CONFIGURATION_AUTH_CLIENTSECRET)
             self.access_token = token['accessToken']
             return self.access_token
 
