@@ -21,7 +21,54 @@ class FullImport(BaseFullImport):
          Process the api response and creates initial import collections
          """
         context().logger.debug('Import collection started')
-        tanium_endpoints_response = context().asset_server.query_tanium_endpoints()
+        query = """
+            query {
+                endpoints{
+                    edges {
+                        node {
+                          id,
+                          name,
+                          manufacturer,
+                          eidFirstSeen,
+                          eidLastSeen,
+                          services {
+                            name,
+                            displayName,
+                            status
+                          },
+                          installedApplications {
+                            name,
+                            version
+                          },
+                          deployedSoftwarePackages {
+                            id,
+                            vendor,
+                            version
+                          },
+                          ipAddress,
+                          ipAddresses,
+                          domainName,
+                          macAddresses,
+                          primaryUser{
+                            name,
+                            email,
+                            department
+                          },
+                          os {
+                            name
+                          },
+                        discover {
+                          openPorts
+                        }
+                        risk {
+                          totalScore
+                        }
+                      }
+                    }
+                }
+            }
+        """
+        tanium_endpoints_response = context().asset_server.query_tanium_endpoints(query)
 
         for edge in tanium_endpoints_response['data']['endpoints']['edges']:
             tanium_node = edge['node']

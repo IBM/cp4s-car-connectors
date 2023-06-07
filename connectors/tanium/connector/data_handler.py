@@ -2,6 +2,8 @@ import datetime, re
 from car_framework.context import context
 from car_framework.data_handler import BaseDataHandler
 
+import dateutil.parser as dparser
+
 # maps asset-server endpoints to CAR service endpoints
 endpoint_mapping = \
     {'tanium_endpoints': [
@@ -35,6 +37,15 @@ def get_report_time():
     milliseconds = delta.total_seconds() * 1000
     return milliseconds
 
+def epoch_to_datetime_conv(epoch_time):
+    """
+    Convert epoch time to date format time
+    :param epoch_time: time in epoch
+    :return: date(iso format)
+    """
+    epoch_time = float(epoch_time) / 1000.0
+    date_time = datetime.datetime.fromtimestamp(epoch_time).replace(microsecond=0)
+    return date_time
 
 class DataHandler(BaseDataHandler):
     xrefproperties = []
@@ -45,7 +56,7 @@ class DataHandler(BaseDataHandler):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.source, 'description': 'Tanium server'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.CONNECTION_NAME, 'description': 'Tanium server'}
             self.report = {'_key': str(self.timestamp), 'timestamp': self.timestamp, 'type': 'Tanium server',
                            'description': 'Tanium server'}
 
@@ -64,10 +75,11 @@ class DataHandler(BaseDataHandler):
         res['external_id'] = obj['id']
         res['name'] = "%s, %s" % (obj['manufacturer'], obj['name'])
         if obj['eidFirstSeen']:
-            res['first_seen'] = obj['eidFirstSeen']
+            res['first_seen'] = dparser.parse(obj['eidFirstSeen']).timestamp()
         if obj['eidLastSeen']:
-            res['last_seen'] = obj['eidLastSeen']
-        res['risk'] = obj['risk']['totalScore'] / 100
+            res['last_seen'] = dparser.parse(obj['eidLastSeen']).timestamp() 
+        if obj['risk'] and obj['risk']['totalScore']:
+            res['risk'] = obj['risk']['totalScore'] / 100
         self.add_collection('asset', res, 'external_id')
 
     # Create ipaddress Object as per CAR data model from data source

@@ -12,10 +12,10 @@ class AssetServer(BaseAssetServer):
     def __init__(self):
         # Api authentication to call data-source  API
 
-        self.server = "https://" + context().args.host + ":" + str(context().args.port)
+        self.server = "https://" + context().args.CONNECTION_HOST + ":" + str(context().args.CONNECTION_PORT)
         self.graphql_endpoint = self.server + "/plugin/products/gateway/graphql"
         self.headers = {
-            "session": context().args.access_token,
+            "session": context().args.CONFIGURATION_AUTH_TOKEN,
             "Content-Type": "application/json"
         }
         self.session = requests.session()
@@ -42,7 +42,7 @@ class AssetServer(BaseAssetServer):
             code = 1
         return code
 
-    def query_tanium_endpoints(self, variables=None):
+    def query_tanium_endpoints(self, query, variables=None):
         """
         Execute endpoints query
         parameters:
@@ -52,53 +52,6 @@ class AssetServer(BaseAssetServer):
         """
         if variables is None:
             variables = {}
-        query = """
-            query {
-                endpoints{
-                    edges {
-                        node {
-                          id,
-                          name,
-                          manufacturer,
-                          eidFirstSeen,
-                          eidLastSeen,
-                          services {
-                            name,
-                            displayName,
-                            status
-                          },
-                          installedApplications {
-                            name,
-                            version
-                          },
-                          deployedSoftwarePackages {
-                            id,
-                            vendor,
-                            version
-                          },
-                          ipAddress,
-                          ipAddresses,
-                          domainName,
-                          macAddresses,
-                          primaryUser{
-                            name,
-                            email,
-                            department
-                          },
-                          os {
-                            name
-                          },
-                        discover {
-                          openPorts
-                        }
-                        risk {
-                          totalScore
-                        }
-                      }
-                    }
-                }
-            }
-        """
         try:
             api_response = self.execute_query(query, variables)
             # api_response_status_code = json.loads(api_response.status_code)
