@@ -15,7 +15,7 @@ class DataHandler(BaseDataHandler):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.tenantID, 'description': 'Microsoft Defender for Endpoint imports', 'product_link' : 'https://securitycenter.windows.com/'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.CONFIGURATION_AUTH_TENANT, 'description': 'Microsoft Defender for Endpoint imports', 'product_link' : 'https://securitycenter.windows.com/'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'Microsoft Defender for Endpoint', 'description': 'Microsoft Defender for Endpoint imports'}
 
         return {'source': self.source, 'report': self.report}
