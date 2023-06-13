@@ -1,0 +1,2497 @@
+{
+  "data": {
+    "endpoints": {
+      "edges": [
+        {
+          "node": {
+            "id": "2",
+            "name": "ip-172-31-17-188.ec2.internal",
+            "manufacturer": "TSE-Error: Unknown - dmidecode unavailable",
+            "eidFirstSeen": "2023-05-31T16:29:17Z",
+            "eidLastSeen": "2023-06-06T17:13:17Z",
+            "services": [
+              {
+                "name": "acpid.service",
+                "displayName": "ACPI Event Daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "amazon-ssm-agent.service",
+                "displayName": "amazon-ssm-agent",
+                "status": "RUNNING"
+              },
+              {
+                "name": "atd.service",
+                "displayName": "Deferred execution scheduler",
+                "status": "RUNNING"
+              },
+              {
+                "name": "auditd.service",
+                "displayName": "Security Auditing Service",
+                "status": "RUNNING"
+              },
+              {
+                "name": "auth-rpcgss-module.service",
+                "displayName": "Kernel Module supporting RPCSEC_GSS",
+                "status": "STOPPED"
+              },
+              {
+                "name": "chrony-config.service",
+                "displayName": "Configures optimal endpoints for the chrony NTP client in AWS",
+                "status": "STOPPED"
+              },
+              {
+                "name": "chronyd.service",
+                "displayName": "NTP client/server",
+                "status": "RUNNING"
+              },
+              {
+                "name": "cloud-config.service",
+                "displayName": "Apply the settings specified in cloud-config",
+                "status": "STOPPED"
+              },
+              {
+                "name": "cloud-final.service",
+                "displayName": "Execute cloud user/final scripts",
+                "status": "STOPPED"
+              },
+              {
+                "name": "cloud-init-local.service",
+                "displayName": "Initial cloud-init job (pre-networking)",
+                "status": "STOPPED"
+              },
+              {
+                "name": "cloud-init.service",
+                "displayName": "Initial cloud-init job (metadata service crawler)",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dbus-broker.service",
+                "displayName": "D-Bus System Message Bus",
+                "status": "RUNNING"
+              },
+              {
+                "name": "display-manager.service",
+                "displayName": "display-manager.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-cmdline.service",
+                "displayName": "dracut cmdline hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-initqueue.service",
+                "displayName": "dracut initqueue hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-mount.service",
+                "displayName": "dracut mount hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-pre-mount.service",
+                "displayName": "dracut pre-mount hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-pre-pivot.service",
+                "displayName": "dracut pre-pivot and cleanup hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-pre-trigger.service",
+                "displayName": "dracut pre-trigger hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-pre-udev.service",
+                "displayName": "dracut pre-udev hook",
+                "status": "STOPPED"
+              },
+              {
+                "name": "dracut-shutdown.service",
+                "displayName": "Restore /run/initramfs on shutdown",
+                "status": "STOPPED"
+              },
+              {
+                "name": "emergency.service",
+                "displayName": "Emergency Shell",
+                "status": "STOPPED"
+              },
+              {
+                "name": "fstrim.service",
+                "displayName": "Discard unused blocks on filesystems from /etc/fstab",
+                "status": "STOPPED"
+              },
+              {
+                "name": "getty@tty1.service",
+                "displayName": "Getty on tty1",
+                "status": "RUNNING"
+              },
+              {
+                "name": "gssproxy.service",
+                "displayName": "GSSAPI Proxy Daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "hibinit-agent.service",
+                "displayName": "Initial hibernation setup job",
+                "status": "STOPPED"
+              },
+              {
+                "name": "hv_kvp_daemon.service",
+                "displayName": "hv_kvp_daemon.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "import-state.service",
+                "displayName": "Import network configuration from initramfs",
+                "status": "STOPPED"
+              },
+              {
+                "name": "initrd-cleanup.service",
+                "displayName": "Cleaning Up and Shutting Down Daemons",
+                "status": "STOPPED"
+              },
+              {
+                "name": "initrd-parse-etc.service",
+                "displayName": "Mountpoints Configured in the Real Root",
+                "status": "STOPPED"
+              },
+              {
+                "name": "initrd-switch-root.service",
+                "displayName": "Switch Root",
+                "status": "STOPPED"
+              },
+              {
+                "name": "initrd-udevadm-cleanup-db.service",
+                "displayName": "Cleanup udev Database",
+                "status": "STOPPED"
+              },
+              {
+                "name": "irqbalance.service",
+                "displayName": "irqbalance daemon",
+                "status": "STOPPED"
+              },
+              {
+                "name": "kmod-static-nodes.service",
+                "displayName": "Create List of Static Device Nodes",
+                "status": "STOPPED"
+              },
+              {
+                "name": "ldconfig.service",
+                "displayName": "Rebuild Dynamic Linker Cache",
+                "status": "STOPPED"
+              },
+              {
+                "name": "libstoragemgmt.service",
+                "displayName": "libstoragemgmt plug-in server daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "logrotate.service",
+                "displayName": "Rotate log files",
+                "status": "STOPPED"
+              },
+              {
+                "name": "modprobe@configfs.service",
+                "displayName": "Load Kernel Module configfs",
+                "status": "STOPPED"
+              },
+              {
+                "name": "modprobe@drm.service",
+                "displayName": "Load Kernel Module drm",
+                "status": "STOPPED"
+              },
+              {
+                "name": "modprobe@efi_pstore.service",
+                "displayName": "Load Kernel Module efi_pstore",
+                "status": "STOPPED"
+              },
+              {
+                "name": "modprobe@fuse.service",
+                "displayName": "Load Kernel Module fuse",
+                "status": "STOPPED"
+              },
+              {
+                "name": "NetworkManager.service",
+                "displayName": "NetworkManager.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-blkmap.service",
+                "displayName": "pNFS block layout mapping daemon",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-convert.service",
+                "displayName": "Preprocess NFS configuration convertion",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-idmapd.service",
+                "displayName": "NFSv4 ID-name mapping service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-mountd.service",
+                "displayName": "NFS Mount Daemon",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-server.service",
+                "displayName": "NFS server and services",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfs-utils.service",
+                "displayName": "NFS server and client services",
+                "status": "STOPPED"
+              },
+              {
+                "name": "nfsdcld.service",
+                "displayName": "NFSv4 Client Tracking Daemon",
+                "status": "STOPPED"
+              },
+              {
+                "name": "ntpd.service",
+                "displayName": "ntpd.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "ntpdate.service",
+                "displayName": "ntpdate.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "plymouth-quit-wait.service",
+                "displayName": "plymouth-quit-wait.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "plymouth-start.service",
+                "displayName": "plymouth-start.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "policy-routes@enX0.service",
+                "displayName": "Set up policy routes for enX0",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rc-local.service",
+                "displayName": "/etc/rc.d/rc.local Compatibility",
+                "status": "STOPPED"
+              },
+              {
+                "name": "refresh-policy-routes@enX0.service",
+                "displayName": "Refresh policy routes for enX0",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rescue.service",
+                "displayName": "Rescue Shell",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rngd.service",
+                "displayName": "Hardware RNG Entropy Gatherer Daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "rpc-gssd.service",
+                "displayName": "RPC security service for NFS client and server",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rpc-statd-notify.service",
+                "displayName": "Notify NFS peers of a restart",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rpc-statd.service",
+                "displayName": "NFS status monitor for NFSv2/3 locking.",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rpc-svcgssd.service",
+                "displayName": "rpc-svcgssd.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rpcbind.service",
+                "displayName": "RPC Bind",
+                "status": "STOPPED"
+              },
+              {
+                "name": "rpmdb-rebuild.service",
+                "displayName": "RPM database rebuild",
+                "status": "STOPPED"
+              },
+              {
+                "name": "selinux-autorelabel-mark.service",
+                "displayName": "Mark the need to relabel after reboot",
+                "status": "STOPPED"
+              },
+              {
+                "name": "serial-getty@ttyS0.service",
+                "displayName": "Serial Getty on ttyS0",
+                "status": "RUNNING"
+              },
+              {
+                "name": "snapd.seeded.service",
+                "displayName": "snapd.seeded.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sntp.service",
+                "displayName": "sntp.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sshd-keygen.service",
+                "displayName": "sshd-keygen.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sshd-keygen@ecdsa.service",
+                "displayName": "OpenSSH ecdsa Server Key Generation",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sshd-keygen@ed25519.service",
+                "displayName": "OpenSSH ed25519 Server Key Generation",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sshd-keygen@rsa.service",
+                "displayName": "OpenSSH rsa Server Key Generation",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sshd.service",
+                "displayName": "OpenSSH server daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "sssd-kcm.service",
+                "displayName": "SSSD Kerberos Cache Manager",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sssd.service",
+                "displayName": "System Security Services Daemon",
+                "status": "RUNNING"
+              },
+              {
+                "name": "syslog.service",
+                "displayName": "syslog.service",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sysstat-collect.service",
+                "displayName": "system activity accounting tool",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sysstat-summary.service",
+                "displayName": "Generate a daily summary of process accounting",
+                "status": "STOPPED"
+              },
+              {
+                "name": "sysstat.service",
+                "displayName": "Resets System Activity Logs",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-ask-password-console.service",
+                "displayName": "Dispatch Password Requests to Console",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-ask-password-wall.service",
+                "displayName": "Forward Password Requests to Wall",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-binfmt.service",
+                "displayName": "Set Up Additional Binary Formats",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-firstboot.service",
+                "displayName": "First Boot Wizard",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-fsck-root.service",
+                "displayName": "File System Check on Root Device",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-fsck@dev-disk-by\\x2duuid-0383\\x2d1543.service",
+                "displayName": "File System Check on /dev/disk/by-uuid/0383-1543",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-homed-activate.service",
+                "displayName": "Home Area Activation",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-homed.service",
+                "displayName": "Home Area Manager",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-hwdb-update.service",
+                "displayName": "Rebuild Hardware Database",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-initctl.service",
+                "displayName": "initctl Compatibility Daemon",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-journal-catalog-update.service",
+                "displayName": "Rebuild Journal Catalog",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-journal-flush.service",
+                "displayName": "Flush Journal to Persistent Storage",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-journald.service",
+                "displayName": "Journal Service",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-logind.service",
+                "displayName": "User Login Management",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-machine-id-commit.service",
+                "displayName": "Commit a transient machine-id on disk",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-modules-load.service",
+                "displayName": "Load Kernel Modules",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-network-generator.service",
+                "displayName": "Generate network units from Kernel command line",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-networkd-wait-online.service",
+                "displayName": "Wait for Network to be Configured",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-networkd.service",
+                "displayName": "Network Configuration",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-pstore.service",
+                "displayName": "Platform Persistent Storage Archival",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-quotacheck.service",
+                "displayName": "File System Quota Check",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-random-seed.service",
+                "displayName": "Load/Save Random Seed",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-remount-fs.service",
+                "displayName": "Remount Root and Kernel File Systems",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-repart.service",
+                "displayName": "Repartition Root Disk",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-resolved.service",
+                "displayName": "Network Name Resolution",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-sysctl.service",
+                "displayName": "Apply Kernel Variables",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-sysusers.service",
+                "displayName": "Create System Users",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-timesyncd.service",
+                "displayName": "Network Time Synchronization",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-tmpfiles-clean.service",
+                "displayName": "Cleanup of Temporary Directories",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-tmpfiles-setup-dev.service",
+                "displayName": "Create Static Device Nodes in /dev",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-tmpfiles-setup.service",
+                "displayName": "Create Volatile Files and Directories",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-udev-settle.service",
+                "displayName": "Wait for udev To Complete Device Initialization",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-udev-trigger.service",
+                "displayName": "Coldplug All udev Devices",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-udevd.service",
+                "displayName": "Rule-based Manager for Device Events and Files",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-update-done.service",
+                "displayName": "Update is Completed",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-update-utmp-runlevel.service",
+                "displayName": "Record Runlevel Change in UTMP",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-update-utmp.service",
+                "displayName": "Record System Boot/Shutdown in UTMP",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-user-sessions.service",
+                "displayName": "Permit User Sessions",
+                "status": "STOPPED"
+              },
+              {
+                "name": "systemd-userdbd.service",
+                "displayName": "User Database Manager",
+                "status": "RUNNING"
+              },
+              {
+                "name": "systemd-vconsole-setup.service",
+                "displayName": "Setup Virtual Console",
+                "status": "STOPPED"
+              },
+              {
+                "name": "taniumclient.service",
+                "displayName": "Tanium Client",
+                "status": "RUNNING"
+              },
+              {
+                "name": "update-motd.service",
+                "displayName": "Dynamically Generate Message Of The Day",
+                "status": "STOPPED"
+              }
+            ],
+            "installedApplications": [
+              {
+                "name": "rpm-libs",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "hwdata",
+                "version": "0.353"
+              },
+              {
+                "name": "systemd-networkd",
+                "version": "252.4"
+              },
+              {
+                "name": "amazon-linux-repo-s3",
+                "version": "2023.0.20230517"
+              },
+              {
+                "name": "libfido2",
+                "version": "1.10.0"
+              },
+              {
+                "name": "basesystem",
+                "version": "11"
+              },
+              {
+                "name": "grub2-tools",
+                "version": "2.06"
+              },
+              {
+                "name": "glibc-gconv-extra",
+                "version": "2.34"
+              },
+              {
+                "name": "libtirpc",
+                "version": "1.3.3"
+              },
+              {
+                "name": "xz-libs",
+                "version": "5.2.5"
+              },
+              {
+                "name": "rpm-plugin-selinux",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "systemd-libs",
+                "version": "252.4"
+              },
+              {
+                "name": "python3-dbus",
+                "version": "1.2.18"
+              },
+              {
+                "name": "sqlite-libs",
+                "version": "3.40.0"
+              },
+              {
+                "name": "xfsprogs",
+                "version": "5.18.0"
+              },
+              {
+                "name": "lua-libs",
+                "version": "5.4.4"
+              },
+              {
+                "name": "libldb",
+                "version": "2.6.1"
+              },
+              {
+                "name": "libsepol",
+                "version": "3.4"
+              },
+              {
+                "name": "python3-docutils",
+                "version": "0.16"
+              },
+              {
+                "name": "libunistring",
+                "version": "0.9.10"
+              },
+              {
+                "name": "openssh-server",
+                "version": "8.7p1"
+              },
+              {
+                "name": "libcap-ng",
+                "version": "0.8.2"
+              },
+              {
+                "name": "python3-libstoragemgmt",
+                "version": "1.9.4"
+              },
+              {
+                "name": "dbus-libs",
+                "version": "1.12.24"
+              },
+              {
+                "name": "python3-libdnf",
+                "version": "0.67.0"
+              },
+              {
+                "name": "p11-kit",
+                "version": "0.24.1"
+              },
+              {
+                "name": "acpid",
+                "version": "2.0.32"
+              },
+              {
+                "name": "grub2-common",
+                "version": "2.06"
+              },
+              {
+                "name": "rpm-plugin-systemd-inhibit",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "libtdb",
+                "version": "1.4.7"
+              },
+              {
+                "name": "libsss_certmap",
+                "version": "2.5.0"
+              },
+              {
+                "name": "libedit",
+                "version": "3.1"
+              },
+              {
+                "name": "nss",
+                "version": "3.88.1"
+              },
+              {
+                "name": "libverto",
+                "version": "0.3.2"
+              },
+              {
+                "name": "efi-srpm-macros",
+                "version": "5"
+              },
+              {
+                "name": "file",
+                "version": "5.39"
+              },
+              {
+                "name": "chrony",
+                "version": "4.3"
+              },
+              {
+                "name": "gdisk",
+                "version": "1.0.8"
+              },
+              {
+                "name": "python3-markupsafe",
+                "version": "1.1.1"
+              },
+              {
+                "name": "libsss_idmap",
+                "version": "2.5.0"
+              },
+              {
+                "name": "python3-netifaces",
+                "version": "0.10.6"
+              },
+              {
+                "name": "libtasn1",
+                "version": "4.19.0"
+              },
+              {
+                "name": "python3-dnf-plugins-core",
+                "version": "4.1.0"
+              },
+              {
+                "name": "libnl3",
+                "version": "3.5.0"
+              },
+              {
+                "name": "ec2-instance-connect-selinux",
+                "version": "1.1"
+              },
+              {
+                "name": "libpcap",
+                "version": "1.10.1"
+              },
+              {
+                "name": "python3-prompt-toolkit",
+                "version": "3.0.24"
+              },
+              {
+                "name": "perl-Pod-Escapes",
+                "version": "1.07"
+              },
+              {
+                "name": "python3-colorama",
+                "version": "0.4.4"
+              },
+              {
+                "name": "perl-Term-Cap",
+                "version": "1.17"
+              },
+              {
+                "name": "python3-pyserial",
+                "version": "3.4"
+              },
+              {
+                "name": "perl-File-Temp",
+                "version": "0.231.100"
+              },
+              {
+                "name": "python3-pycparser",
+                "version": "2.20"
+              },
+              {
+                "name": "perl-Socket",
+                "version": "2.032"
+              },
+              {
+                "name": "python3-chardet",
+                "version": "4.0.0"
+              },
+              {
+                "name": "perl-Pod-Perldoc",
+                "version": "3.28.01"
+              },
+              {
+                "name": "python3-urllib3",
+                "version": "1.25.10"
+              },
+              {
+                "name": "perl-overloading",
+                "version": "0.02"
+              },
+              {
+                "name": "fonts-srpm-macros",
+                "version": "2.0.5"
+              },
+              {
+                "name": "perl-MIME-Base64",
+                "version": "3.16"
+              },
+              {
+                "name": "pkgconf",
+                "version": "1.8.0"
+              },
+              {
+                "name": "perl-vars",
+                "version": "1.05"
+              },
+              {
+                "name": "publicsuffix-list-dafsa",
+                "version": "20221208"
+              },
+              {
+                "name": "perl-constant",
+                "version": "1.33"
+              },
+              {
+                "name": "hunspell-en-GB",
+                "version": "0.20140811.1"
+              },
+              {
+                "name": "perl-Carp",
+                "version": "1.50"
+              },
+              {
+                "name": "kernel",
+                "version": "6.1.27"
+              },
+              {
+                "name": "perl-libs",
+                "version": "5.32.1"
+              },
+              {
+                "name": "cloud-init",
+                "version": "22.2.2"
+              },
+              {
+                "name": "boost-thread",
+                "version": "1.75.0"
+              },
+              {
+                "name": "dnf-plugins-core",
+                "version": "4.1.0"
+              },
+              {
+                "name": "libcomps",
+                "version": "0.1.18"
+              },
+              {
+                "name": "systemtap-runtime",
+                "version": "4.8"
+              },
+              {
+                "name": "keyutils",
+                "version": "1.6.3"
+              },
+              {
+                "name": "nfs-utils",
+                "version": "2.5.4"
+              },
+              {
+                "name": "libss",
+                "version": "1.46.5"
+              },
+              {
+                "name": "sudo",
+                "version": "1.9.13"
+              },
+              {
+                "name": "libconfig",
+                "version": "1.7.2"
+              },
+              {
+                "name": "lsof",
+                "version": "4.94.0"
+              },
+              {
+                "name": "userspace-rcu",
+                "version": "0.12.1"
+              },
+              {
+                "name": "dracut-config-ec2",
+                "version": "3.0"
+              },
+              {
+                "name": "libcbor",
+                "version": "0.7.0"
+              },
+              {
+                "name": "amazon-ssm-agent",
+                "version": "3.1.1927.0"
+              },
+              {
+                "name": "numactl-libs",
+                "version": "2.0.14"
+              },
+              {
+                "name": "pciutils",
+                "version": "3.7.0"
+              },
+              {
+                "name": "gpm-libs",
+                "version": "1.20.7"
+              },
+              {
+                "name": "parted",
+                "version": "3.4"
+              },
+              {
+                "name": "libsss_nss_idmap",
+                "version": "2.5.0"
+              },
+              {
+                "name": "screen",
+                "version": "4.8.0"
+              },
+              {
+                "name": "c-ares",
+                "version": "1.17.2"
+              },
+              {
+                "name": "crontabs",
+                "version": "1.11"
+              },
+              {
+                "name": "inih",
+                "version": "49"
+              },
+              {
+                "name": "ethtool",
+                "version": "5.15"
+              },
+              {
+                "name": "hostname",
+                "version": "3.23"
+              },
+              {
+                "name": "man-pages",
+                "version": "5.10"
+              },
+              {
+                "name": "gnupg2-minimal",
+                "version": "2.3.7"
+              },
+              {
+                "name": "traceroute",
+                "version": "2.1.0"
+              },
+              {
+                "name": "efi-filesystem",
+                "version": "5"
+              },
+              {
+                "name": "time",
+                "version": "1.9"
+              },
+              {
+                "name": "ghc-srpm-macros",
+                "version": "1.5.0"
+              },
+              {
+                "name": "pcre2-syntax",
+                "version": "10.40"
+              },
+              {
+                "name": "sed",
+                "version": "4.8"
+              },
+              {
+                "name": "iproute",
+                "version": "5.10.0"
+              },
+              {
+                "name": "dbus-broker",
+                "version": "32"
+              },
+              {
+                "name": "pkgconf-m4",
+                "version": "1.8.0"
+              },
+              {
+                "name": "python3-pip-wheel",
+                "version": "21.3.1"
+              },
+              {
+                "name": "grubby",
+                "version": "8.40"
+              },
+              {
+                "name": "libkcapi-hmaccalc",
+                "version": "1.4.0"
+              },
+              {
+                "name": "libcurl-minimal",
+                "version": "7.88.1"
+              },
+              {
+                "name": "grub2-tools-minimal",
+                "version": "2.06"
+              },
+              {
+                "name": "elfutils-default-yama-scope",
+                "version": "0.188"
+              },
+              {
+                "name": "libmount",
+                "version": "2.37.4"
+              },
+              {
+                "name": "libpwquality",
+                "version": "1.4.4"
+              },
+              {
+                "name": "util-linux",
+                "version": "2.37.4"
+              },
+              {
+                "name": "libgcc",
+                "version": "11.3.1"
+              },
+              {
+                "name": "openssl-libs",
+                "version": "3.0.8"
+              },
+              {
+                "name": "vim-data",
+                "version": "9.0.1403"
+              },
+              {
+                "name": "kmod",
+                "version": "29"
+              },
+              {
+                "name": "ncurses-base",
+                "version": "6.2"
+              },
+              {
+                "name": "cryptsetup-libs",
+                "version": "2.6.1"
+              },
+              {
+                "name": "kernel-livepatch-repo-s3",
+                "version": "2023.0.20230517"
+              },
+              {
+                "name": "systemd-resolved",
+                "version": "252.4"
+              },
+              {
+                "name": "system-release",
+                "version": "2023.0.20230517"
+              },
+              {
+                "name": "systemd",
+                "version": "252.4"
+              },
+              {
+                "name": "filesystem",
+                "version": "3.14"
+              },
+              {
+                "name": "systemd-udev",
+                "version": "252.4"
+              },
+              {
+                "name": "bash",
+                "version": "5.2.15"
+              },
+              {
+                "name": "os-prober",
+                "version": "1.77"
+              },
+              {
+                "name": "glibc-common",
+                "version": "2.34"
+              },
+              {
+                "name": "glib2",
+                "version": "2.73.2"
+              },
+              {
+                "name": "glibc",
+                "version": "2.34"
+              },
+              {
+                "name": "policycoreutils",
+                "version": "3.4"
+              },
+              {
+                "name": "popt",
+                "version": "1.18"
+              },
+              {
+                "name": "openssh",
+                "version": "8.7p1"
+              },
+              {
+                "name": "libuuid",
+                "version": "2.37.4"
+              },
+              {
+                "name": "python3-distro",
+                "version": "1.5.0"
+              },
+              {
+                "name": "libcap",
+                "version": "2.48"
+              },
+              {
+                "name": "selinux-policy",
+                "version": "36.16"
+              },
+              {
+                "name": "bzip2-libs",
+                "version": "1.0.8"
+              },
+              {
+                "name": "python3-dateutil",
+                "version": "2.8.1"
+              },
+              {
+                "name": "libcom_err",
+                "version": "1.46.5"
+              },
+              {
+                "name": "libmodulemd",
+                "version": "2.13.0"
+              },
+              {
+                "name": "elfutils-libelf",
+                "version": "0.188"
+              },
+              {
+                "name": "openssl",
+                "version": "3.0.8"
+              },
+              {
+                "name": "libxml2",
+                "version": "2.10.4"
+              },
+              {
+                "name": "gnutls",
+                "version": "3.7.8"
+              },
+              {
+                "name": "nspr",
+                "version": "4.35.0"
+              },
+              {
+                "name": "openldap",
+                "version": "2.4.57"
+              },
+              {
+                "name": "file-libs",
+                "version": "5.39"
+              },
+              {
+                "name": "python3-ruamel-yaml",
+                "version": "0.16.6"
+              },
+              {
+                "name": "libtalloc",
+                "version": "2.3.4"
+              },
+              {
+                "name": "python3-idna",
+                "version": "2.10"
+              },
+              {
+                "name": "alternatives",
+                "version": "1.15"
+              },
+              {
+                "name": "libuser",
+                "version": "0.63"
+              },
+              {
+                "name": "libidn2",
+                "version": "2.3.2"
+              },
+              {
+                "name": "python3-libsemanage",
+                "version": "3.4"
+              },
+              {
+                "name": "libacl",
+                "version": "2.3.1"
+              },
+              {
+                "name": "rpcbind",
+                "version": "1.2.6"
+              },
+              {
+                "name": "audit-libs",
+                "version": "3.0.6"
+              },
+              {
+                "name": "libstoragemgmt",
+                "version": "1.9.4"
+              },
+              {
+                "name": "nss-util",
+                "version": "3.88.1"
+              },
+              {
+                "name": "python3-configobj",
+                "version": "5.0.6"
+              },
+              {
+                "name": "libref_array",
+                "version": "0.1.5"
+              },
+              {
+                "name": "libdnf",
+                "version": "0.67.0"
+              },
+              {
+                "name": "libffi",
+                "version": "3.1"
+              },
+              {
+                "name": "python3-hawkey",
+                "version": "0.67.0"
+              },
+              {
+                "name": "expat",
+                "version": "2.5.0"
+              },
+              {
+                "name": "gssproxy",
+                "version": "0.8.4"
+              },
+              {
+                "name": "json-c",
+                "version": "0.14"
+              },
+              {
+                "name": "net-tools",
+                "version": "2.0"
+              },
+              {
+                "name": "nettle",
+                "version": "3.8"
+              },
+              {
+                "name": "rpm-sign-libs",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "procps-ng",
+                "version": "3.3.17"
+              },
+              {
+                "name": "rpm-build-libs",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "lz4-libs",
+                "version": "1.9.4"
+              },
+              {
+                "name": "libevent",
+                "version": "2.1.12"
+              },
+              {
+                "name": "libbasicobjects",
+                "version": "0.1.1"
+              },
+              {
+                "name": "openssl-pkcs11",
+                "version": "0.4.12"
+              },
+              {
+                "name": "libcollection",
+                "version": "0.7.0"
+              },
+              {
+                "name": "nss-sysinit",
+                "version": "3.88.1"
+              },
+              {
+                "name": "lmdb-libs",
+                "version": "0.9.29"
+              },
+              {
+                "name": "binutils",
+                "version": "2.39"
+              },
+              {
+                "name": "jansson",
+                "version": "2.14"
+              },
+              {
+                "name": "sssd-common",
+                "version": "2.5.0"
+              },
+              {
+                "name": "libassuan",
+                "version": "2.5.5"
+              },
+              {
+                "name": "lua-srpm-macros",
+                "version": "1"
+              },
+              {
+                "name": "libtextstyle",
+                "version": "0.21"
+              },
+              {
+                "name": "ec2-utils",
+                "version": "2.1.0"
+              },
+              {
+                "name": "groff-base",
+                "version": "1.22.4"
+              },
+              {
+                "name": "amazon-chrony-config",
+                "version": "4.3"
+              },
+              {
+                "name": "protobuf-c",
+                "version": "1.4.1"
+              },
+              {
+                "name": "python3-gpg",
+                "version": "1.15.1"
+              },
+              {
+                "name": "libyaml",
+                "version": "0.2.5"
+              },
+              {
+                "name": "python3-pyrsistent",
+                "version": "0.17.3"
+              },
+              {
+                "name": "diffutils",
+                "version": "3.8"
+              },
+              {
+                "name": "python3-pyyaml",
+                "version": "5.4.1"
+              },
+              {
+                "name": "ncurses",
+                "version": "6.2"
+              },
+              {
+                "name": "python3-libcomps",
+                "version": "0.1.18"
+              },
+              {
+                "name": "p11-kit-trust",
+                "version": "0.24.1"
+              },
+              {
+                "name": "dnf",
+                "version": "4.12.0"
+              },
+              {
+                "name": "libdb",
+                "version": "5.3.28"
+              },
+              {
+                "name": "python3-setools",
+                "version": "4.4.1"
+              },
+              {
+                "name": "fuse-libs",
+                "version": "2.9.9"
+              },
+              {
+                "name": "policycoreutils-python-utils",
+                "version": "3.4"
+              },
+              {
+                "name": "libibverbs",
+                "version": "37.0"
+              },
+              {
+                "name": "python3-awscrt",
+                "version": "0.16.7"
+              },
+              {
+                "name": "coreutils-common",
+                "version": "8.32"
+              },
+              {
+                "name": "python3-wcwidth",
+                "version": "0.2.5"
+              },
+              {
+                "name": "perl-if",
+                "version": "0.60.800"
+              },
+              {
+                "name": "python3-pytz",
+                "version": "2022.7.1"
+              },
+              {
+                "name": "perl-File-Path",
+                "version": "2.18"
+              },
+              {
+                "name": "python3-jinja2",
+                "version": "2.11.3"
+              },
+              {
+                "name": "perl-subs",
+                "version": "1.03"
+              },
+              {
+                "name": "python3-prettytable",
+                "version": "0.7.2"
+              },
+              {
+                "name": "perl-Term-ANSIColor",
+                "version": "5.01"
+              },
+              {
+                "name": "python3-jsonpatch",
+                "version": "1.21"
+              },
+              {
+                "name": "perl-IPC-Open3",
+                "version": "1.21"
+              },
+              {
+                "name": "python3-attrs",
+                "version": "20.3.0"
+              },
+              {
+                "name": "perl-HTTP-Tiny",
+                "version": "0.078"
+              },
+              {
+                "name": "python3-ply",
+                "version": "3.11"
+              },
+              {
+                "name": "perl-POSIX",
+                "version": "1.94"
+              },
+              {
+                "name": "python3-cffi",
+                "version": "1.14.5"
+              },
+              {
+                "name": "perl-Symbol",
+                "version": "1.08"
+              },
+              {
+                "name": "python3-oauthlib",
+                "version": "3.0.2"
+              },
+              {
+                "name": "perl-File-stat",
+                "version": "1.09"
+              },
+              {
+                "name": "python3-lockfile",
+                "version": "0.12.2"
+              },
+              {
+                "name": "perl-podlators",
+                "version": "4.14"
+              },
+              {
+                "name": "python3-pysocks",
+                "version": "1.7.1"
+              },
+              {
+                "name": "perl-Fcntl",
+                "version": "1.13"
+              },
+              {
+                "name": "python3-requests",
+                "version": "2.25.1"
+              },
+              {
+                "name": "perl-IO",
+                "version": "1.43"
+              },
+              {
+                "name": "openblas-srpm-macros",
+                "version": "2"
+              },
+              {
+                "name": "perl-Pod-Usage",
+                "version": "2.01"
+              },
+              {
+                "name": "python-srpm-macros",
+                "version": "3.9"
+              },
+              {
+                "name": "perl-Getopt-Std",
+                "version": "1.12"
+              },
+              {
+                "name": "amazon-rpm-config",
+                "version": "228"
+              },
+              {
+                "name": "perl-Scalar-List-Utils",
+                "version": "1.56"
+              },
+              {
+                "name": "pkgconf-pkg-config",
+                "version": "1.8.0"
+              },
+              {
+                "name": "perl-File-Basename",
+                "version": "2.85"
+              },
+              {
+                "name": "bind-libs",
+                "version": "9.16.38"
+              },
+              {
+                "name": "perl-Storable",
+                "version": "3.21"
+              },
+              {
+                "name": "libpsl",
+                "version": "0.21.1"
+              },
+              {
+                "name": "perl-parent",
+                "version": "0.238"
+              },
+              {
+                "name": "perl-DynaLoader",
+                "version": "1.47"
+              },
+              {
+                "name": "perl-Exporter",
+                "version": "5.74"
+              },
+              {
+                "name": "perl-Encode",
+                "version": "3.15"
+              },
+              {
+                "name": "perl-interpreter",
+                "version": "5.32.1"
+              },
+              {
+                "name": "gettext",
+                "version": "0.21"
+              },
+              {
+                "name": "boost-filesystem",
+                "version": "1.75.0"
+              },
+              {
+                "name": "libgcrypt",
+                "version": "1.10.1"
+              },
+              {
+                "name": "libmetalink",
+                "version": "0.1.3"
+              },
+              {
+                "name": "nss-softokn",
+                "version": "3.88.1"
+              },
+              {
+                "name": "attr",
+                "version": "2.5.1"
+              },
+              {
+                "name": "dwz",
+                "version": "0.14"
+              },
+              {
+                "name": "unzip",
+                "version": "6.0"
+              },
+              {
+                "name": "tbb",
+                "version": "2020.3"
+              },
+              {
+                "name": "info",
+                "version": "6.7"
+              },
+              {
+                "name": "libini_config",
+                "version": "1.3.1"
+              },
+              {
+                "name": "libpipeline",
+                "version": "1.5.3"
+              },
+              {
+                "name": "libverto-libev",
+                "version": "0.3.2"
+              },
+              {
+                "name": "libmaxminddb",
+                "version": "1.5.2"
+              },
+              {
+                "name": "libuv",
+                "version": "1.44.1"
+              },
+              {
+                "name": "libsigsegv",
+                "version": "2.13"
+              },
+              {
+                "name": "libnghttp2",
+                "version": "1.51.0"
+              },
+              {
+                "name": "psmisc",
+                "version": "23.4"
+              },
+              {
+                "name": "jq",
+                "version": "1.6"
+              },
+              {
+                "name": "checkpolicy",
+                "version": "3.4"
+              },
+              {
+                "name": "lm_sensors-libs",
+                "version": "3.6.0"
+              },
+              {
+                "name": "cpio",
+                "version": "2.13"
+              },
+              {
+                "name": "newt",
+                "version": "0.52.21"
+              },
+              {
+                "name": "libeconf",
+                "version": "0.4.0"
+              },
+              {
+                "name": "libargon2",
+                "version": "20171227"
+              },
+              {
+                "name": "libpkgconf",
+                "version": "1.8.0"
+              },
+              {
+                "name": "npth",
+                "version": "1.6"
+              },
+              {
+                "name": "gpgme",
+                "version": "1.15.1"
+              },
+              {
+                "name": "dbus-common",
+                "version": "1.12.24"
+              },
+              {
+                "name": "libreport-filesystem",
+                "version": "2.15.2"
+              },
+              {
+                "name": "ocaml-srpm-macros",
+                "version": "6"
+              },
+              {
+                "name": "rust-srpm-macros",
+                "version": "21"
+              },
+              {
+                "name": "vim-common",
+                "version": "9.0.1403"
+              },
+              {
+                "name": "pcre2",
+                "version": "10.40"
+              },
+              {
+                "name": "grep",
+                "version": "3.8"
+              },
+              {
+                "name": "findutils",
+                "version": "4.8.0"
+              },
+              {
+                "name": "shadow-utils",
+                "version": "4.9"
+              },
+              {
+                "name": "libutempter",
+                "version": "1.2.1"
+              },
+              {
+                "name": "libselinux-utils",
+                "version": "3.4"
+              },
+              {
+                "name": "dbus",
+                "version": "1.12.24"
+              },
+              {
+                "name": "kbd-misc",
+                "version": "2.4.0"
+              },
+              {
+                "name": "perl-srpm-macros",
+                "version": "1"
+              },
+              {
+                "name": "python3-setuptools-wheel",
+                "version": "59.6.0"
+              },
+              {
+                "name": "python3-setuptools",
+                "version": "59.6.0"
+              },
+              {
+                "name": "python3",
+                "version": "3.9.16"
+              },
+              {
+                "name": "krb5-libs",
+                "version": "1.20.1"
+              },
+              {
+                "name": "libkcapi",
+                "version": "1.4.0"
+              },
+              {
+                "name": "crypto-policies-scripts",
+                "version": "20220428"
+              },
+              {
+                "name": "curl-minimal",
+                "version": "7.88.1"
+              },
+              {
+                "name": "cracklib-dicts",
+                "version": "2.9.6"
+              },
+              {
+                "name": "gzip",
+                "version": "1.12"
+              },
+              {
+                "name": "device-mapper",
+                "version": "1.02.185"
+              },
+              {
+                "name": "elfutils-debuginfod-client",
+                "version": "0.188"
+              },
+              {
+                "name": "elfutils-libs",
+                "version": "0.188"
+              },
+              {
+                "name": "util-linux-core",
+                "version": "2.37.4"
+              },
+              {
+                "name": "libfdisk",
+                "version": "2.37.4"
+              },
+              {
+                "name": "pam",
+                "version": "1.5.1"
+              },
+              {
+                "name": "which",
+                "version": "2.21"
+              },
+              {
+                "name": "libblkid",
+                "version": "2.37.4"
+              },
+              {
+                "name": "hunspell-en-US",
+                "version": "0.20140811.1"
+              },
+              {
+                "name": "hunspell-en",
+                "version": "0.20140811.1"
+              },
+              {
+                "name": "microcode_ctl",
+                "version": "2.1"
+              },
+              {
+                "name": "wget",
+                "version": "1.21.3"
+              },
+              {
+                "name": "bash-completion",
+                "version": "2.11"
+              },
+              {
+                "name": "awscli-2",
+                "version": "2.9.19"
+              },
+              {
+                "name": "ec2-instance-connect",
+                "version": "1.1"
+              },
+              {
+                "name": "yum",
+                "version": "4.12.0"
+              },
+              {
+                "name": "dnf-plugin-release-notification",
+                "version": "1.2"
+              },
+              {
+                "name": "sssd-kcm",
+                "version": "2.5.0"
+              },
+              {
+                "name": "rng-tools",
+                "version": "6.14"
+              },
+              {
+                "name": "ec2-hibinit-agent",
+                "version": "1.0.4"
+              },
+              {
+                "name": "passwd",
+                "version": "0.80"
+              },
+              {
+                "name": "cyrus-sasl-plain",
+                "version": "2.1.27"
+              },
+              {
+                "name": "openssh-clients",
+                "version": "8.7p1"
+              },
+              {
+                "name": "irqbalance",
+                "version": "1.9.0"
+              },
+              {
+                "name": "dracut-config-generic",
+                "version": "055"
+              },
+              {
+                "name": "amazon-ec2-net-utils",
+                "version": "2.3.0"
+              },
+              {
+                "name": "psacct",
+                "version": "6.6.4"
+              },
+              {
+                "name": "iputils",
+                "version": "20210202"
+              },
+              {
+                "name": "cryptsetup",
+                "version": "2.6.1"
+              },
+              {
+                "name": "tcpdump",
+                "version": "4.99.1"
+              },
+              {
+                "name": "cloud-utils-growpart",
+                "version": "0.31"
+              },
+              {
+                "name": "tcsh",
+                "version": "6.24.07"
+              },
+              {
+                "name": "vim-enhanced",
+                "version": "9.0.1403"
+              },
+              {
+                "name": "strace",
+                "version": "5.16"
+              },
+              {
+                "name": "sysstat",
+                "version": "12.5.6"
+              },
+              {
+                "name": "vim-minimal",
+                "version": "9.0.1403"
+              },
+              {
+                "name": "ed",
+                "version": "1.14.2"
+              },
+              {
+                "name": "kernel-tools",
+                "version": "6.1.27"
+              },
+              {
+                "name": "acl",
+                "version": "2.3.1"
+              },
+              {
+                "name": "nano",
+                "version": "5.8"
+              },
+              {
+                "name": "bzip2",
+                "version": "1.0.8"
+              },
+              {
+                "name": "libaio",
+                "version": "0.3.111"
+              },
+              {
+                "name": "dosfstools",
+                "version": "4.2"
+              },
+              {
+                "name": "words",
+                "version": "3.0"
+              },
+              {
+                "name": "rootfiles",
+                "version": "8.1"
+              },
+              {
+                "name": "ca-certificates",
+                "version": "2023.2.60"
+              },
+              {
+                "name": "tzdata",
+                "version": "2023c"
+              },
+              {
+                "name": "kmod-libs",
+                "version": "29"
+              },
+              {
+                "name": "ncurses-libs",
+                "version": "6.2"
+              },
+              {
+                "name": "systemd-pam",
+                "version": "252.4"
+              },
+              {
+                "name": "setup",
+                "version": "2.13.7"
+              },
+              {
+                "name": "dracut",
+                "version": "055"
+              },
+              {
+                "name": "glibc-all-langpacks",
+                "version": "2.34"
+              },
+              {
+                "name": "python3-six",
+                "version": "1.15.0"
+              },
+              {
+                "name": "zlib",
+                "version": "1.2.11"
+              },
+              {
+                "name": "python3-libselinux",
+                "version": "3.4"
+              },
+              {
+                "name": "libstdc++",
+                "version": "11.3.1"
+              },
+              {
+                "name": "selinux-policy-targeted",
+                "version": "36.16"
+              },
+              {
+                "name": "libxcrypt",
+                "version": "4.4.33"
+              },
+              {
+                "name": "libsolv",
+                "version": "0.7.22"
+              },
+              {
+                "name": "libzstd",
+                "version": "1.5.2"
+              },
+              {
+                "name": "cyrus-sasl-lib",
+                "version": "2.1.27"
+              },
+              {
+                "name": "readline",
+                "version": "8.1"
+              },
+              {
+                "name": "python3-ruamel-yaml-clib",
+                "version": "0.1.2"
+              },
+              {
+                "name": "gmp",
+                "version": "6.2.1"
+              },
+              {
+                "name": "libnfsidmap",
+                "version": "2.5.4"
+              },
+              {
+                "name": "libattr",
+                "version": "2.5.1"
+              },
+              {
+                "name": "quota",
+                "version": "4.06"
+              },
+              {
+                "name": "keyutils-libs",
+                "version": "1.6.3"
+              },
+              {
+                "name": "librepo",
+                "version": "1.14.2"
+              },
+              {
+                "name": "libsmartcols",
+                "version": "2.37.4"
+              },
+              {
+                "name": "initscripts",
+                "version": "10.09"
+              },
+              {
+                "name": "libgpg-error",
+                "version": "1.42"
+              },
+              {
+                "name": "logrotate",
+                "version": "3.20.1"
+              },
+              {
+                "name": "libtevent",
+                "version": "0.13.0"
+              },
+              {
+                "name": "python3-rpm",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "boost-system",
+                "version": "1.75.0"
+              },
+              {
+                "name": "e2fsprogs",
+                "version": "1.46.5"
+              },
+              {
+                "name": "gdbm-libs",
+                "version": "1.19"
+              },
+              {
+                "name": "sssd-client",
+                "version": "2.5.0"
+              },
+              {
+                "name": "libgomp",
+                "version": "11.3.1"
+              },
+              {
+                "name": "dyninst",
+                "version": "10.2.1"
+              },
+              {
+                "name": "e2fsprogs-libs",
+                "version": "1.46.5"
+              },
+              {
+                "name": "python-chevron",
+                "version": "0.13.1"
+              },
+              {
+                "name": "libdhash",
+                "version": "0.5.0"
+              },
+              {
+                "name": "python3-audit",
+                "version": "3.0.6"
+              },
+              {
+                "name": "pciutils-libs",
+                "version": "3.7.0"
+              },
+              {
+                "name": "python3-dnf",
+                "version": "4.12.0"
+              },
+              {
+                "name": "libmnl",
+                "version": "1.0.4"
+              },
+              {
+                "name": "python3-policycoreutils",
+                "version": "3.4"
+              },
+              {
+                "name": "libseccomp",
+                "version": "2.5.3"
+              },
+              {
+                "name": "python3-jmespath",
+                "version": "0.10.0"
+              },
+              {
+                "name": "perl-Text-Tabs+Wrap",
+                "version": "2021.0726"
+              },
+              {
+                "name": "python3-babel",
+                "version": "2.9.1"
+              },
+              {
+                "name": "perl-Time-Local",
+                "version": "1.300"
+              },
+              {
+                "name": "python3-jsonpointer",
+                "version": "2.0"
+              },
+              {
+                "name": "perl-Class-Struct",
+                "version": "0.66"
+              },
+              {
+                "name": "python3-jsonschema",
+                "version": "3.2.0"
+              },
+              {
+                "name": "perl-Pod-Simple",
+                "version": "3.42"
+              },
+              {
+                "name": "python3-cryptography",
+                "version": "36.0.1"
+              },
+              {
+                "name": "perl-SelectSaver",
+                "version": "1.02"
+              },
+              {
+                "name": "python3-daemon",
+                "version": "2.3.0"
+              },
+              {
+                "name": "perl-mro",
+                "version": "1.23"
+              },
+              {
+                "name": "kernel-srpm-macros",
+                "version": "1.0"
+              },
+              {
+                "name": "perl-Text-ParseWords",
+                "version": "3.30"
+              },
+              {
+                "name": "go-srpm-macros",
+                "version": "3.1.0"
+              },
+              {
+                "name": "perl-Errno",
+                "version": "1.30"
+              },
+              {
+                "name": "bind-license",
+                "version": "9.16.38"
+              },
+              {
+                "name": "perl-overload",
+                "version": "1.31"
+              },
+              {
+                "name": "hunspell-filesystem",
+                "version": "1.7.0"
+              },
+              {
+                "name": "perl-Getopt-Long",
+                "version": "2.52"
+              },
+              {
+                "name": "hunspell",
+                "version": "1.7.0"
+              },
+              {
+                "name": "perl-PathTools",
+                "version": "3.78"
+              },
+              {
+                "name": "bind-utils",
+                "version": "9.16.38"
+              },
+              {
+                "name": "gettext-libs",
+                "version": "0.21"
+              },
+              {
+                "name": "aws-cfn-bootstrap",
+                "version": "2.0"
+              },
+              {
+                "name": "zstd",
+                "version": "1.5.2"
+              },
+              {
+                "name": "dnf-plugin-support-info",
+                "version": "1.1"
+              },
+              {
+                "name": "nss-softokn-freebl",
+                "version": "3.88.1"
+              },
+              {
+                "name": "kpatch-runtime",
+                "version": "0.9.7"
+              },
+              {
+                "name": "mpfr",
+                "version": "4.1.0"
+              },
+              {
+                "name": "audit",
+                "version": "3.0.6"
+              },
+              {
+                "name": "zip",
+                "version": "3.0"
+              },
+              {
+                "name": "xfsdump",
+                "version": "3.1.11"
+              },
+              {
+                "name": "libpath_utils",
+                "version": "0.2.1"
+              },
+              {
+                "name": "grub2-efi-x64-ec2",
+                "version": "2.06"
+              },
+              {
+                "name": "libev",
+                "version": "4.33"
+              },
+              {
+                "name": "at",
+                "version": "3.1.23"
+              },
+              {
+                "name": "less",
+                "version": "608"
+              },
+              {
+                "name": "update-motd",
+                "version": "2.1"
+              },
+              {
+                "name": "gawk",
+                "version": "5.1.0"
+              },
+              {
+                "name": "rsync",
+                "version": "3.2.6"
+              },
+              {
+                "name": "oniguruma",
+                "version": "6.9.7.1"
+              },
+              {
+                "name": "man-db",
+                "version": "2.9.3"
+              },
+              {
+                "name": "jitterentropy",
+                "version": "3.4.1"
+              },
+              {
+                "name": "ntsysv",
+                "version": "1.15"
+              },
+              {
+                "name": "slang",
+                "version": "2.3.2"
+              },
+              {
+                "name": "tar",
+                "version": "1.34"
+              },
+              {
+                "name": "fstrm",
+                "version": "0.6.1"
+              },
+              {
+                "name": "grub2-pc-modules",
+                "version": "2.06"
+              },
+              {
+                "name": "xxhash-libs",
+                "version": "0.8.0"
+              },
+              {
+                "name": "bc",
+                "version": "1.07.1"
+              },
+              {
+                "name": "package-notes-srpm-macros",
+                "version": "0.4"
+              },
+              {
+                "name": "glibc-locale-source",
+                "version": "2.34"
+              },
+              {
+                "name": "dnf-data",
+                "version": "4.12.0"
+              },
+              {
+                "name": "sysctl-defaults",
+                "version": "1.0"
+              },
+              {
+                "name": "vim-filesystem",
+                "version": "9.0.1403"
+              },
+              {
+                "name": "libselinux",
+                "version": "3.4"
+              },
+              {
+                "name": "libsemanage",
+                "version": "3.4"
+              },
+              {
+                "name": "xz",
+                "version": "5.2.5"
+              },
+              {
+                "name": "chkconfig",
+                "version": "1.15"
+              },
+              {
+                "name": "quota-nls",
+                "version": "4.06"
+              },
+              {
+                "name": "python3-libs",
+                "version": "3.9.16"
+              },
+              {
+                "name": "libarchive",
+                "version": "3.5.3"
+              },
+              {
+                "name": "crypto-policies",
+                "version": "20220428"
+              },
+              {
+                "name": "cracklib",
+                "version": "2.9.6"
+              },
+              {
+                "name": "device-mapper-libs",
+                "version": "1.02.185"
+              },
+              {
+                "name": "rpm",
+                "version": "4.16.1.3"
+              },
+              {
+                "name": "kbd",
+                "version": "2.4.0"
+              },
+              {
+                "name": "coreutils",
+                "version": "8.32"
+              },
+              {
+                "name": "gpg-pubkey",
+                "version": "d832c631"
+              },
+              {
+                "name": "TaniumClient",
+                "version": "7.4.10.1034"
+              }
+            ],
+            "deployedSoftwarePackages": [
+              {
+                "id": "[no results]",
+                "vendor": "[no results]",
+                "version": "[no results]"
+              }
+            ],
+            "ipAddress": "172.31.17.188",
+            "ipAddresses": [
+              "172.31.19.197",
+              "172.31.17.188",
+              "fe80::822:dbff:febb:819b"
+            ],
+            "domainName": "ec2.internal",
+            "macAddresses": [
+              "0a:22:db:bb:81:9b"
+            ],
+            "primaryUser": {
+              "name": "N/A on Linux",
+              "email": "",
+              "department": ""
+            },
+            "os": {
+              "name": "Amazon Linux release 2023 (Amazon Linux)"
+            },
+            "discover": {
+              "openPorts": [
+                22
+              ]
+            },
+            "risk": null
+          }
+        }
+      ]
+    }
+  }
+}

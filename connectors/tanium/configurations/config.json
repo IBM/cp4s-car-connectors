@@ -1,0 +1,27 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Tanium",
+            "group": "tanium"
+        },
+        "host": {
+            "type": "text",
+            "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
+            "optional": true,
+            "default": ""
+        },
+         "port": {
+            "type": "number",
+            "default": 8443
+         }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "token": {
+                "type": "password"
+            }
+        }
+    }
+}
