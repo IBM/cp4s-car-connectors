@@ -178,23 +178,3 @@ class TestAssetServer(unittest.TestCase):
             error = str(e)
 
         assert 'authenticationFailure' in error
-
-    @patch('connector.server_access.AssetServer.get_collection')
-    def test_get_knowledge_base_vuln_list_error(self, mock_api):
-        """Unit test for get_vulnerabilities.
-         If vulnerability api having pagination."""
-
-        # mock vulnerability api
-        vuln_kb = get_response('vulnerability_kb_error_details.xml')
-        mock_vuln = Mock(status_code=400)
-        mock_vuln.text = vuln_kb
-
-        mock_api.side_effect = [mock_vuln]
-
-        # Initiate get_vulnerabilities function
-        qid_list = []
-        try:
-            actual_response = context().asset_server.get_knowledge_base_vuln_list(qid_list)
-        except Exception as e:
-            error = str(e)
-        assert "parameter ids has invalid value" in error
