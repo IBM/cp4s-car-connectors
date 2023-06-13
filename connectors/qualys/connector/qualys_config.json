@@ -11,6 +11,11 @@
 		"headers": {
 			"Accept": "application/json",
 			"X-Requested-With": "curl"
+		},
+		"pagination": {
+			"enabled": true,
+			"page_size": 1000
 		}
-	}
+	},
+	"qid_size": 100
 }

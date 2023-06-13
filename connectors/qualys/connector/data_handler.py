@@ -198,7 +198,7 @@ class DataHandler(BaseDataHandler):
                 res['name'] = 'Host Instance Vulnerability'
                 res['source'] = context().args.source
                 res['base_score'] = score
-                res['description'] = vuln['RESULTS']
+                res['description'] = vuln.get('RESULTS')
                 # Update node from vulnerability knowledgebase information
                 if deep_get(vuln, [vuln['QID']]):
                     update_vuln_node_with_kb(res, vuln[vuln['QID']])
