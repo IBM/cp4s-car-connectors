@@ -9,7 +9,7 @@ class AssetServer(BaseAssetServer):
 
     def __init__(self):
         # Api authentication  to call data-source  API
-        auth = base64.encodestring(('%s:%s' % (context().args.username, context().args.password)).encode()).decode().strip()
+        auth = base64.encodebytes(('%s:%s' % (context().args.username, context().args.password)).encode('utf8')).decode('utf8').strip()
         self.server_headers = {'Accept' : 'application/json', 'Authorization': 'Basic ' + auth}
         self.cache = {}
 

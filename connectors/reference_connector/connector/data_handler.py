@@ -43,7 +43,7 @@ class DataHandler(BaseDataHandler):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.server, 'description': 'Reference Asset server'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.server, 'description': 'Reference Asset server'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
 
         return {'source': self.source, 'report': self.report}
@@ -80,7 +80,7 @@ class DataHandler(BaseDataHandler):
 
         if (obj.get('site')):
             self.add_edge('site_asset', {'_from_external_id': str(extract_id(obj['site'])), '_to_external_id': res['external_id'],
-                'source': context().args.source})
+                'source': context().args.CONNECTION_NAME})
 
         self.add_collection('asset', res, 'external_id')
 
