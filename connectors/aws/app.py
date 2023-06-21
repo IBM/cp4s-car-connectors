@@ -16,13 +16,13 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Add parameters need to connect data source
-        self.parser.add_argument('-accountId', dest='accountId', default=os.getenv('CONFIGURATION_AUTH_ACCOUNT_ID',None), type=str, required=False,
+        self.parser.add_argument('-accountId', dest='CONFIGURATION_AUTH_ACCOUNT_ID', default=os.getenv('CONFIGURATION_AUTH_ACCOUNT_ID',None), type=str, required=False,
                             help='account ID for the data source account')
-        self.parser.add_argument('-clientID', dest='clientID', default=os.getenv('CONFIGURATION_AUTH_AWS_ACCESS_KEY_ID',None), type=str, required=False,
+        self.parser.add_argument('-clientID', dest='CONFIGURATION_AUTH_AWS_ACCESS_KEY_ID', default=os.getenv('CONFIGURATION_AUTH_AWS_ACCESS_KEY_ID',None), type=str, required=False,
                             help='Client ID for data source account')
-        self.parser.add_argument('-clientSecret', dest='clientSecret', default=os.getenv('CONFIGURATION_AUTH_AWS_SECRET_ACCESS_KEY',None), type=str, required=False,
+        self.parser.add_argument('-clientSecret', dest='CONFIGURATION_AUTH_AWS_SECRET_ACCESS_KEY', default=os.getenv('CONFIGURATION_AUTH_AWS_SECRET_ACCESS_KEY',None), type=str, required=False,
                             help='Client Secret value for data source account')
-        self.parser.add_argument('-region', dest='region', default=os.getenv('CONNECTION_REGION',None), type=str, required=False,
+        self.parser.add_argument('-region', dest='CONNECTION_REGION', default=os.getenv('CONNECTION_REGION',None), type=str, required=False,
                             help='region for data source account')
 
 

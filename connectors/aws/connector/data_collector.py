@@ -55,7 +55,7 @@ class DataCollector(object):
                 for instance in instances['Instances']:
                     if deep_get(instance, ['State', 'Name']) != 'terminated':
                         resource_id = 'arn:aws:ec2:' + instance['Placement']['AvailabilityZone'][:-1] + ':' + \
-                                    context().args.accountId + ':instance/' + instance['InstanceId']
+                                    context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + instance['InstanceId']
                         instance['ResourceId'] = resource_id
                         image_name = context().asset_server.get_image_name(instance['ImageId'])
                         instance['ImageName'] = str(image_name)
@@ -143,8 +143,8 @@ class DataCollector(object):
             data_security_delete = context().asset_server.security_alerts_update('delete', 'AwsEc2Instance')
             for value in data_security_update:
                 temp = dict()
-                temp['from'] = context().args.source + ':' + value['Resources'][0]['Id']
-                temp['to'] = context().args.source + ':' + value['Id']
+                temp['from'] = context().args.CONNECTION_NAME + ':' + value['Resources'][0]['Id']
+                temp['to'] = context().args.CONNECTION_NAME + ':' + value['Id']
                 temp['edge_type'] = 'asset_vulnerability'
                 temp['last_modified'] = context().asset_server.timestamp_to_epoch_conv(value['UpdatedAt'])
                 self.edges_update.append(temp)
@@ -155,7 +155,7 @@ class DataCollector(object):
             for instances in data:
                 for instance in instances['Instances']:
                     resource_id = 'arn:aws:ec2:' + instance['Placement']['AvailabilityZone'][:-1] + ':' + \
-                                context().args.accountId + ':instance/' + instance['InstanceId']
+                                context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + instance['InstanceId']
                     data = context().asset_server.security_alerts(resource_id)
                     vuln_list.extend(data)
                     
@@ -187,7 +187,7 @@ class DataCollector(object):
                                                                                     ['CloudTrailEvent',
                                                                                     'errorCode']) is None:
                     resource_id = 'arn:aws:ec2:' + deep_get(vm_log, ['CloudTrailEvent', 'awsRegion']) + ':' + \
-                                context().args.accountId + ':instance/' + resource_id['ResourceName']
+                                context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + resource_id['ResourceName']
                     self.asset_delete.append(resource_id)
 
         # asset create
@@ -198,7 +198,7 @@ class DataCollector(object):
                 if resource_id['ResourceType'] == 'AWS::EC2::Instance' and deep_get(vm_log, ['CloudTrailEvent',
                                                                                             'errorCode']) is None:
                     arn_id = 'arn:aws:ec2:' + deep_get(vm_log, ['CloudTrailEvent', 'awsRegion']) + ':' + \
-                            context().args.accountId + ':instance/' + resource_id['ResourceName']
+                            context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + resource_id['ResourceName']
                     if arn_id not in self.asset_delete:
                         self.ec2_create.append(resource_id['ResourceName'])
                     elif arn_id in self.asset_delete:
@@ -218,7 +218,7 @@ class DataCollector(object):
                     if resource_id['ResourceType'] == 'AWS::EC2::Instance' and resource_id['ResourceName'] not in \
                             self.ec2_create:
                         arn_id = 'arn:aws:ec2:' + deep_get(event, ['CloudTrailEvent', 'awsRegion']) + ':' + \
-                                context().args.accountId + ':instance/' + resource_id['ResourceName']
+                                context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + resource_id['ResourceName']
                         if arn_id not in self.asset_delete:
                             self.ec2_instances.add(resource_id['ResourceName'])
         self.update_private_ipv4()
@@ -285,19 +285,19 @@ class DataCollector(object):
                 for instance in instances['Instances']:
                     destination_ips, create_ip, create_dns, destination_dns = list(), list(), list(), list()
                     resource_id = 'arn:aws:ec2:' + instance['Placement']['AvailabilityZone'][:-1] + ':' + \
-                                context().args.accountId + ':instance/' + instance['InstanceId']
+                                context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + instance['InstanceId']
                     if resource_id not in self.asset_delete:
                         instance['ResourceId'] = resource_id
                         processed_data = self.network_interface_process(instance)
-                        search_result = context().car_service.graph_search('asset', resource_id, context().args.source)
+                        search_result = context().car_service.graph_search('asset', resource_id, context().args.CONNECTION_NAME)
                         if search_result['result'] and search_result['related']:
                             for car_ip in search_result['related']:
                                 if 'ipaddress/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                        deep_get(car_ip, ["node", "_key"]) and context().args.source in \
+                                        deep_get(car_ip, ["node", "_key"]) and context().args.CONNECTION_NAME in \
                                         deep_get(car_ip, ["link", "source"]):
                                     destination_ips.append(deep_get(car_ip, ["node", "_key"]))
                                 if 'hostname/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                        deep_get(car_ip, ["node", "_key"]) and context().args.source in \
+                                        deep_get(car_ip, ["node", "_key"]) and context().args.CONNECTION_NAME in \
                                         deep_get(car_ip, ["link", "source"]):
                                     destination_dns.append(deep_get(car_ip, ["node", "_key"]))
 
@@ -367,7 +367,7 @@ class DataCollector(object):
                     self.delete_attachment_id.remove(attachment_id)
                 if resource_id['ResourceType'] == 'AWS::EC2::Instance' and resource_id['ResourceName'] not in self.ec2_create:
                     arn_id = 'arn:aws:ec2:' + deep_get(interface, ['CloudTrailEvent', 'awsRegion']) + ':' + \
-                            context().args.accountId + ':instance/' + resource_id['ResourceName']
+                            context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + resource_id['ResourceName']
                     if arn_id not in self.asset_delete:
                         flag = True
             if flag and interface_id:
@@ -379,7 +379,7 @@ class DataCollector(object):
                     if interface_response:
                         for network_data in interface_response['NetworkInterfaces']:
                             resource_id = 'arn:aws:ec2:' + network_data['AvailabilityZone'][:-1] + ':' + \
-                                        context().args.accountId + ':instance/' + deep_get(network_data,
+                                        context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + deep_get(network_data,
                                                                                     ['Attachment', 'InstanceId'])
                             interface_response['ResourceId'] = resource_id
                         interface_data = self.network_interface_process(interface_response)
@@ -407,12 +407,12 @@ class DataCollector(object):
         for attach_id in self.delete_attachment_id:
             search_attach_ip = context().car_service.graph_attribute_search('ipaddress', 'attachment_id', attach_id)
             for attach_ip in search_attach_ip:
-                if deep_get(attach_ip, ["_key"]) and context().args.source in deep_get(attach_ip, ["source"]):
+                if deep_get(attach_ip, ["_key"]) and context().args.CONNECTION_NAME in deep_get(attach_ip, ["source"]):
                     search_result = context().car_service.graph_search('ipaddress', deep_get(attach_ip, ["_key"]))
                     if search_result['result'] and search_result['related']:
                         for car_ip in search_result['related']:
                             if 'asset/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                    deep_get(car_ip, ["node", "external_id"]) and context().args.source in \
+                                    deep_get(car_ip, ["node", "external_id"]) and context().args.CONNECTION_NAME in \
                                     deep_get(car_ip, ["node", "source"]):
                                 extn_id = deep_get(car_ip, ["node", "external_id"])
                                 temp = dict()
@@ -427,7 +427,7 @@ class DataCollector(object):
                     if search_result['result'] and search_result['related']:
                         for car_ip in search_result['related']:
                             if 'asset/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                    deep_get(car_ip, ["node", "external_id"]) and context().args.source in \
+                                    deep_get(car_ip, ["node", "external_id"]) and context().args.CONNECTION_NAME in \
                                     deep_get(car_ip, ["node", "source"]):
                                 extn_id = deep_get(car_ip, ["node", "external_id"])
                                 temp = dict()
@@ -443,7 +443,7 @@ class DataCollector(object):
                     if search_result['result'] and search_result['related']:
                         for car_ip in search_result['related']:
                             if 'asset/' in str(deep_get(car_ip, ["node", "_id"])) and \
-                                    deep_get(car_ip, ["node", "external_id"]) and context().args.source in \
+                                    deep_get(car_ip, ["node", "external_id"]) and context().args.CONNECTION_NAME in \
                                     deep_get(car_ip, ["node", "source"]):
                                 extn_id = deep_get(car_ip, ["node", "external_id"])
                                 temp = dict()
@@ -474,7 +474,7 @@ class DataCollector(object):
                             if deep_get(instance, ['State', 'Name']) != 'terminated':
                                 resource_id = 'arn:aws:ec2:' + \
                                             instance['Placement']['AvailabilityZone'][:-1] + ':' + \
-                                            context().args.accountId + ':instance/' + instance['InstanceId']
+                                            context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + instance['InstanceId']
                                 # instance['ResourceId'] = resource_id
                                 if 'Tags' in instance:
                                     for name in instance['Tags']:
@@ -525,7 +525,7 @@ class DataCollector(object):
         search_data = context().car_service.graph_attribute_search('database', 'pending_update', 'active')
         if search_data:
             for item in search_data:
-                if context().args.source in item['source']:
+                if context().args.CONNECTION_NAME in item['source']:
                     resource_id = item['external_id']
                     update_list.append(resource_id)
 
@@ -543,11 +543,11 @@ class DataCollector(object):
         if delete_db:
             self.database_delete.extend(delete_db)
             for delete_resource in delete_list:
-                resource_details = context().car_service.graph_search('database', delete_resource, context().args.source)
+                resource_details = context().car_service.graph_search('database', delete_resource, context().args.CONNECTION_NAME)
                 if resource_details['result'] and resource_details['related']:
                     for resource_item in resource_details['related']:
                         if 'asset/' in str(deep_get(resource_item, ["node", "_id"])) and \
-                                deep_get(resource_item, ["node", "external_id"]) and context().args.source in \
+                                deep_get(resource_item, ["node", "external_id"]) and context().args.CONNECTION_NAME in \
                                 deep_get(resource_item, ["node", "source"]):
                             delete_id = deep_get(resource_item, ["node", "external_id"])
                             self.asset_delete.append(delete_id)
@@ -565,12 +565,12 @@ class DataCollector(object):
         modify_data = list()
         resource_collection = context().asset_server.get_db_instances(resource_ids=modify_db)
         for resource in resource_collection:
-            resource_details = context().car_service.graph_search('database', resource['DbiResourceId'], context().args.source)
+            resource_details = context().car_service.graph_search('database', resource['DbiResourceId'], context().args.CONNECTION_NAME)
             if resource_details['result'] and resource_details['related']:
                 dest_id = list()
                 for resource_item in resource_details['related']:
                     if 'asset/' in str(deep_get(resource_item, ["node", "_id"])) and \
-                                    deep_get(resource_item, ["node", "external_id"]) and context().args.source in \
+                                    deep_get(resource_item, ["node", "external_id"]) and context().args.CONNECTION_NAME in \
                                     deep_get(resource_item, ["node", "source"]):
                         extn_id = deep_get(resource_item, ["node", "external_id"])
                         dest_id.append(extn_id)
@@ -651,15 +651,15 @@ class DataCollector(object):
                 search_result = context().car_service.graph_attribute_search('asset', 'environment_id', env['EnvironmentId'])
                 if search_result:
                     for car_host in search_result:
-                        if context().args.source in deep_get(car_host, ['source']) and deep_get(car_host, ['external_id']):
+                        if context().args.CONNECTION_NAME in deep_get(car_host, ['source']) and deep_get(car_host, ['external_id']):
                             extn_id = deep_get(car_host, ['external_id'])
-                            search = context().car_service.graph_search('asset', extn_id, context().args.source)
+                            search = context().car_service.graph_search('asset', extn_id, context().args.CONNECTION_NAME)
                             if search['result'] and search['related']:
                                 flag = False
                                 for host in search['related']:
                                     if 'hostname/' in str(deep_get(host, ["node", "_id"])) and \
                                             deep_get(host, ["node", "resource_type"]) == 'elasticbeanstalk' and \
-                                            context().args.source in deep_get(host, ["link", "source"]):
+                                            context().args.CONNECTION_NAME in deep_get(host, ["link", "source"]):
                                         if deep_get(host, ["node", "_key"]) != env['CNAME']:
                                             flag = True
                                             temp, temp_creation = dict(), dict()
@@ -705,12 +705,12 @@ class DataCollector(object):
             if deep_get(cloud_trail_event, ['errorCode']) is None:
                 task_id = deep_get(cloud_trail_event, ['requestParameters', 'instanceId'])
                 task_arn = 'arn:aws:ecs:' + cloud_trail_event['awsRegion'] + ':' + \
-                        context().args.accountId + ':task/' + task_id
+                        context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':task/' + task_id
                 task_list.append(task_arn)
                 # custom attribute search is not working as expected, so the below code is based on assumption
                 container_list = context().car_service.graph_attribute_search('container', 'task_id', task_arn)
                 for container in container_list:
-                    if context().args.source in deep_get(container, ['source']) and deep_get(container, ['external_id']):
+                    if context().args.CONNECTION_NAME in deep_get(container, ['source']) and deep_get(container, ['external_id']):
                         container_arn_list = deep_get(container, ['external_id'])
                         for container_arn in container_arn_list:
                             if container_arn not in self.container_delete:
@@ -727,7 +727,7 @@ class DataCollector(object):
                     # custom attribute search is not working as expected, so the below code is based on assumption
                     container_list = context().car_service.graph_attribute_search('container', 'cluster_id', cluster_arn)
                     for container in container_list:
-                        if context().args.source in deep_get(container, ['source']) and deep_get(container, ['external_id']):
+                        if context().args.CONNECTION_NAME in deep_get(container, ['source']) and deep_get(container, ['external_id']):
                             task_arn = deep_get(container, ['task_id'])
                             task_list.append(task_arn)
                             container_arn_list = deep_get(container, ['external_id'])
@@ -758,7 +758,7 @@ class DataCollector(object):
             if deep_get(cloud_trail_event, ['errorCode']) is None:
                 task_id = deep_get(cloud_trail_event, ['requestParameters', 'instanceId'])
                 task_arn = 'arn:aws:ecs:' + cloud_trail_event['awsRegion'] + ':' + \
-                        context().args.accountId + ':task/' + task_id
+                        context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':task/' + task_id
                 if task_arn not in task_list:
                     cluster_arn = deep_get(cloud_trail_event, ['requestParameters', 'attributes', 'ECS_CLUSTER_NAME'])
                     task_detail = context().asset_server.list_running_containers(cluster_arn, task_arn)
@@ -779,7 +779,7 @@ class DataCollector(object):
         for reservation in describe_ec2_instance:
             for instance_detail in reservation['Instances']:
                 task['ec2InstanceId'] = 'arn:aws:ec2:' + instance_detail['Placement']['AvailabilityZone'][: -1] \
-                                        + ':' + context().args.accountId + ':instance/' + instance_detail['InstanceId']
+                                        + ':' + context().args.CONFIGURATION_AUTH_ACCOUNT_ID + ':instance/' + instance_detail['InstanceId']
         return task
 
 
@@ -794,9 +794,9 @@ class DataCollector(object):
         context().logger.info('Disabling edges')
         for edge in self.edges_update:
             if 'last_modified' in edge:
-                context().car_service.edge_patch(context().args.source, edge, {"last_modified": edge['last_modified']})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"last_modified": edge['last_modified']})
             else:
-                context().car_service.edge_patch(context().args.source, edge, {"active": False})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"active": False})
         context().logger.info('Disabling edges done: %s', len(self.edges_update))
 
 
