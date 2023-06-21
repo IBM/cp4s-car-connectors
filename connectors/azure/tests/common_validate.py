@@ -40,7 +40,7 @@ def context_patch(incremental=True):
         'last_model_state_id': "1568023215000",
         'new_model_state_id':  "1580649321920",
         'CONNECTOR_NAME': "test-connector-name",
-        'version': "0.0.0",
+        'CONNECTOR_VERSION': "0.0.0",
     }
     Context(Struct(context_args))
 

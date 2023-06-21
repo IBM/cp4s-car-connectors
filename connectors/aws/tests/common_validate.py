@@ -36,7 +36,7 @@ def context_patch():
         'last_model_state_id': "1580649320000",
         'new_model_state_id':  "1580649321920",
         'CONNECTOR_NAME': "test-connector-name",
-        'version': "0.0.0",
+        'CONNECTOR_VERSION': "0.0.0",
         'export_data_dir': './cache/tmp',
         'export_data_page_size': 200
     }
