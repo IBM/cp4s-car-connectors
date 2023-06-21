@@ -12,9 +12,9 @@ from car_framework.server_access import BaseAssetServer
 class AssetServer(BaseAssetServer):
     """Client object for Boto3"""
     def __init__(self):
-        self.region_name = context().args.region
-        self.aws_access_key_id = context().args.clientID
-        self.aws_secret_access_key = context().args.clientSecret
+        self.region_name = context().args.CONNECTION_REGION
+        self.aws_access_key_id = context().args.CONFIGURATION_AUTH_AWS_ACCESS_KEY_ID
+        self.aws_secret_access_key = context().args.CONFIGURATION_AUTH_AWS_SECRET_ACCESS_KEY
 
     def test_connection(self):
         try:

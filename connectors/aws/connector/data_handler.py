@@ -25,7 +25,7 @@ class DataHandler(BaseDataHandler):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.accountId, 'description': 'AWS cloud datasource'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.CONFIGURATION_AUTH_ACCOUNT_ID, 'description': 'AWS cloud datasource'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'AWS cloud datasource', 'description': 'AWS cloud datasource'}
         
         return {'source': self.source, 'report': self.report}
