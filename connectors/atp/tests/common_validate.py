@@ -33,6 +33,7 @@ def context_patch(incremental=True):
         'last_model_state_id': "1568023215000",
         'new_model_state_id':  "1580649321920",
         'CONFIGURATION_AUTH_TENANT': 'account-123',
+        'CONFIGURATION_AUTH_SUBSCRIPTION_ID': 'account-123',
         'CONFIGURATION_AUTH_CLIENTID': 'xyz123',
         'CONFIGURATION_AUTH_CLIENTSECRET': 'abcxyz',
         'vuln': None,
@@ -40,7 +41,7 @@ def context_patch(incremental=True):
         'export_data_dir': './cache/tmp',
         'export_data_page_size': 200,
         'CONNECTOR_NAME': "test-connector-name",
-        'version': "0.0.0",
+        'CONNECTOR_VERSION': "0.0.0",
     }
     Context(Struct(context_args))
 
