@@ -19,7 +19,7 @@ class App(BaseApp):
 
     def setup(self):
         super().setup()
-        context().args.tenantID = "1234567"
+        context().args.CONFIGURATION_AUTH_TENANT = "1234567"
         context().args.switch = False
 
         context().asset_server = AssetServer()

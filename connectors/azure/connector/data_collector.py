@@ -83,7 +83,7 @@ class DataCollector(object):
             # incremental import delete case
             if data["vm"]["delete"]:
                 for resource_id in data["vm"]["delete"]:
-                    search_result = context().car_service.graph_search('asset', context().args.source + ':' +
+                    search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' +
                                                                     convert_lower(resource_id))
                     if search_result['result']:
                         deletes.append(convert_lower(resource_id))
@@ -181,7 +181,7 @@ class DataCollector(object):
             # incremental import delete case
             if data["application"]["delete"]:
                 for resource_id in data["application"]["delete"]:
-                    search_result = context().car_service.graph_search('asset', context().args.source + ':' +
+                    search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' +
                                                                     convert_lower(resource_id))
                     if search_result['result']:
                         deletes.append(convert_lower(resource_id))
@@ -219,7 +219,7 @@ class DataCollector(object):
             # incremental import delete case
             if data["database"]["delete"]:
                 for resource_id in data["database"]["delete"]:
-                    search_result = context().car_service.graph_search('database', context().args.source + ':' +
+                    search_result = context().car_service.graph_search('database', context().args.CONNECTION_NAME + ':' +
                                                                     convert_lower(resource_id))
                     if search_result['result']:
                         deletes_db.append(convert_lower(resource_id))
@@ -227,7 +227,7 @@ class DataCollector(object):
                     self.delete_data['database'].append(deletes_db)
             if data["server"]["delete"]:
                 for resource_id in data["server"]["delete"]:
-                    search_result = context().car_service.graph_search('asset', context().args.source + ':' +
+                    search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' +
                                                                     convert_lower(resource_id))
                     if search_result['result']:
                         deletes_server.append(convert_lower(resource_id))
@@ -479,7 +479,7 @@ class DataCollector(object):
                 if search_result['result'] and search_result['related']:
                     for car_ip in search_result['related']:
                         if 'ipaddress/' in str(deep_get(car_ip, ["node", "_id"])) and deep_get(car_ip, ["node", "_key"]) \
-                                and context().args.source in deep_get(car_ip, ["link", "source"]):
+                                and context().args.CONNECTION_NAME in deep_get(car_ip, ["link", "source"]):
                             destination_ip.add(deep_get(car_ip, ["node", "_key"]))
                     if public_ip:
                         # multiple scenarios of IP update in a VM
@@ -518,12 +518,12 @@ class DataCollector(object):
             inbound_ip = deep_get(data, ["application_map", "properties", "inboundIpAddress"])
             if asset_id and inbound_ip:
                 # verification of IP value against existing entries of CAR DB to identify the create/update case in apps
-                search_result = context().car_service.graph_search('asset', context().args.source + ':' + convert_lower(asset_id))
+                search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' + convert_lower(asset_id))
 
                 if search_result['result'] and search_result['related']:
                     for value in search_result['related']:
                         if 'ipaddress/' in str(deep_get(value, ["node", "_id"])) and deep_get(value, ["node", "_key"]) \
-                                and context().args.source in deep_get(value, ["link", "source"]):
+                                and context().args.CONNECTION_NAME in deep_get(value, ["link", "source"]):
                             destination_ip.add(deep_get(value, ["node", "_key"]))
                     if inbound_ip not in destination_ip:
                         update_network.append(data)
@@ -563,12 +563,12 @@ class DataCollector(object):
 
         if asset_id and host:
             # verification of host value against CAR DB existing entries to identify the create/update case
-            search_result = context().car_service.graph_search('asset', context().args.source + ':' + convert_lower(asset_id))
+            search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' + convert_lower(asset_id))
 
             if search_result['result'] and search_result['related']:
                 for value in search_result['related']:
                     if 'hostname/' in str(deep_get(value, ["node", "_id"])) and deep_get(value, ["node", "_key"])\
-                            and context().args.source in deep_get(value, ["link", "source"]):
+                            and context().args.CONNECTION_NAME in deep_get(value, ["link", "source"]):
                         update_host.add(deep_get(value, ["node", "_key"]))
                 for domain in host:
                     if domain not in update_host:
@@ -606,7 +606,7 @@ class DataCollector(object):
 
         if asset_id:
             # verification against CAR DB existing entries to identify the create/update case - sql server
-            search_result = context().car_service.graph_search('asset', context().args.source + ':' + convert_lower(asset_id))
+            search_result = context().car_service.graph_search('asset', context().args.CONNECTION_NAME + ':' + convert_lower(asset_id))
 
             if search_result['result'] is None and search_result['related'] == []:
                 server_list.append(data)
@@ -633,10 +633,10 @@ class DataCollector(object):
                 alert_id = record["resourceId"].split('/')[-1]
                 if alert_id not in alert_list:
                     alert_list.append(alert_id)
-                    search_result = context().car_service.graph_search('vulnerability', context().args.source + ':' + alert_id)
+                    search_result = context().car_service.graph_search('vulnerability', context().args.CONNECTION_NAME + ':' + alert_id)
                     for value in search_result['related']:
                         if 'asset/' in str(deep_get(value, ["node", "_id"])) and deep_get(value, ["node", "external_id"]) \
-                                and context().args.source in deep_get(value, ["node", "source"]):
+                                and context().args.CONNECTION_NAME in deep_get(value, ["node", "source"]):
                             asset_list.append(deep_get(value, ["node", "external_id"]))
                     for asset_id in asset_list:
                         temp = dict()
@@ -650,9 +650,9 @@ class DataCollector(object):
         context().logger.info('Disabling edges')
         for edge in self.update_edge:
             if 'last_modified' in edge:
-                context().car_service.edge_patch(context().args.source, edge, {"last_modified": edge['last_modified']})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"last_modified": edge['last_modified']})
             else:
-                context().car_service.edge_patch(context().args.source, edge, {"active": False})
+                context().car_service.edge_patch(context().args.CONNECTION_NAME, edge, {"active": False})
         context().logger.info('Disabling edges done: %s', len(self.update_edge))
 
 
