@@ -44,12 +44,14 @@ class App(BaseApp):
                         "description": "name",
                         "type": "text",
                         "indexed": true,
-                        "required": true
+                        "required": true,
+                        "default": ""
                         },
                         "address": {
                         "description": "address",
                         "type": "text",
-                        "required": true
+                        "required": true,
+                        "default": ""
                         }
                       }
                     },
