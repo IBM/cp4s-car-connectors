@@ -25,7 +25,7 @@ class DataHandler(object):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.source, 'name': context().args.tenantID, 'description': 'Microsoft Azure imports'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.CONFIGURATION_AUTH_TENANT, 'description': 'Microsoft Azure imports'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'MS Azure', 'description': 'Microsoft Azure imports'}
         
         return {'source': self.source, 'report': self.report}
@@ -57,7 +57,7 @@ class DataHandler(object):
         key = '#'.join(str(x) for x in object.values())
         if not key in self.edge_keys[name]:
             object['report'] = self.report['_key']
-            object['source'] = context().args.source
+            object['source'] = context().args.CONNECTION_NAME
             object['active'] = True
             object['timestamp'] = self.report['timestamp']
             objects.append(object)
