@@ -24,7 +24,7 @@ class Arguments:
     description = "description"
     debug = None
     CONNECTOR_NAME = "tanium"
-    version = '1.0'
+    CONNECTOR_VERSION = '1.0'
 
 
 class TaniumMockResponse:

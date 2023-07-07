@@ -27,6 +27,223 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.6.x (greater than 3.6.x may work, less than probably will not; neither is tested)
 
+The following permissions are required for the AWS Connected Assets and Risk connector.
+
+**Client**
+* ec2
+    * describe_instances
+    * describe_network_interfaces
+
+* securityhub
+    * get_findings
+
+* cloudtrail
+    * lookup_events
+
+* elasticbeanstalk
+    * describe_applications
+    * describe_environments
+
+* rds
+    * describe_db_instances
+
+* elasticbeanstalk
+    * list_clusters
+    * describe_tasks
+    * describe_container_instances
+
+**Resource**
+* ec2
+    * Image
+
+The AWS Connected Assets and Risk connector imports data from the following services.
+
+* CloudTrail
+* Elastic Beanstalk
+* Elastic Compute Cloud (EC2)
+* Elastic Container Service (ECS)
+* Relational Database Service (RDS)
+* Security Hub
+
+AWS users must have the appropriate roles and policies for the services that they want to import data from.
+For more information about AWS services, see AWS documentation.
+
+The following table shows the Connected Assets and Risk connector to Elastic Beanstalk data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Elastic Beanstalk field  |
+|  :------------    |:---------------:| -----:|
+| Application      | _key | App Resource -> ApplicationName |
+|                  | Name | App Resource -> ApplicationName |
+|                  | external ID | App Resource -> ApplicationArn |
+| Asset | Name        |    $EC2 response-> Tags->EnvironmentId - > value |
+|       | environment_ID | EC2 response-> Tags->EnvironmentId - > value |
+|       | external ID        |  EC2 response-> ResourceId |
+| Asset_Application | from_external_id        |   EC2 response-> ResourceId |
+|      | to_external_id | App Resource -> ApplicationArn |
+|                  | active | TRUE|
+|                  | timestamp | report -> timestamp |
+|                  | source        |   source -> _key |
+|       | report | report -> _key |
+|  Asset_hostname   | from_external_id        |  EC2 Resource -> ResourceId  |
+|                   | _to        |   Environment Resource -> CNAME |
+|                   | active        |   TRUE |
+|                   | timestamp        |   report -> timestamp |
+|                   | source        |   source -> _key |
+|                   | report        |   report -> _key |
+
+The following table shows the Connected Assets and Risk connector to EC2 data mapping.
+
+|  CAR vertex/edge  |   CAR field   |   EC2 field  |
+|  :------------    |:---------------:| -----:|
+| Asset      | Name |  EC2 resource -> Tags -> Name -> Value |
+|                  | external ID	 |   arn:aws:ec2: + EC2 resource -> AvailabilityZone + account\_id + InstanceId |
+| Hostname | _key(PrivateDns)	 |    EC2 resource -> NetworkInterfaces -> PrivateDnsName |
+|          | _key(PublicDns)	 |    EC2 resource -> NetworkInterfaces -> PublicDnsName |
+|Asset_Hostname	 | from_external_id |   arn:aws:ec2:+ EC2 resource -> AvailabilityZone + account_id + InstanceId|
+|       |  _to        |   EC2 resource -> NetworkInterfaces -> PrivateDnsName |
+|  | active        |   TRUE |
+|      | timestamp | report -> timestamp |
+|                  | source | source -> _key|
+|                  | report | report -> _key |
+|Geolocation|      external ID	   |EC2 resource -> AvailabilityZone|
+|       | region | EC2 resource -> AvailabilityZone |
+|  Asset_Geolocation   | from_external_id        |   arn:aws:ec2:+ EC2 resource -> AvailabilityZone + account_id + InstanceId  |
+|                   | _to        |   EC2 resource -> AvailabilityZone |
+|                   | active        |   TRUE |
+|                   | timestamp        |   report -> timestamp |
+|                   | source        |   source -> _key |
+|                   | report        |   report -> _key |
+
+The following table shows the Connected Assets and Risk connector to EC2 Network Profile data mapping.
+
+
+| CAR vertex/edge  |   CAR field   |   EC2 Network Profile field  |
+|  :------------    |:---------------:| -----:|
+|IPAddress(Private)	|_key| EC2 Resource -> NetworkInterfaces -> privateIPAddress  |
+|IPAddress(Public)	|_key|  EC2 Resource -> NetworkInterfaces -> PublicIpAddress |
+| MacAddress | _key	 |EC2 Resource-> NetworkInterfaces -> MacAddress|
+|IPAddress_MacAddress|_from|ipaddress/_key(ipaddress node)|
+|	 | _to |macaddress/_key(macaddress node)|
+|       |active|TRUE|
+|  |timestamp|report -> timestamp|
+|      |source| source -> _key |
+|                  |report|report -> _key|
+|                  |  |  |
+| Asset_IPAddress|from_external_id|external_id of the asset (based on resource type)|
+|       | _to |ipaddress/_key(ipaddress node)|
+|     |active|TRUE|
+|                   |timestamp|report -> timestamp|
+|                   | source        |   source -> _key |
+|                   | report        |    report -> _key |
+|Asset_MacAddress| _from_external_id        |   external_id of the asset |
+|                   | _to        |   macaddress/_key(macaddress node) |
+|                   | active        |   TRUE |
+|                   | timestamp        |   report -> timestamp |
+|                   | source        |   source -> _key |
+|                   | report        |   report -> _key |
+
+The following table shows the Connected Assets and Risk connector to ECS data mapping.
+
+| CAR vertex/edge  |   CAR field   |   ECS field  |
+|  :------------    |:---------------:| -----:|
+|Container|external_ID|container response -> task -> containers -> containerArn|
+| |name|container response -> task -> containers -> name|
+|  |image|container response -> task -> containers -> image|
+||task_id|container response -> task -> containers -> taskArn|
+|	 |cluster_id|container response -> task -> containers -> clusterArn|
+|Asset|Name|EC2 response -> tags -> name|
+|  |external ID	|EC2 response -> resourceId|
+|Asset_Container|from_external_id|EC2 response -> resourceId|
+|                  |to_external_id|container response -> task -> containers -> containerArn
+|                  | active |TRUE|
+| |timestamp| report -> timestamp|
+|       | source |source -> _key|
+|     |report|report -> _key|
+|Ipaddress_Container|from|container response -> task -> containers ->networkInterface ->privateIpv4Address|
+|                   | _to_external_id        |   container response -> task -> containers -> containerArn |
+|                   | active        |   TRUE |
+|                   | timestamp        |   report -> timestamp |
+|                   | source        |   source -> _key |
+|                   | report        |   report -> _key |
+
+The following table shows the Connected Assets and Risk connector to RDS data mapping.
+
+| CAR vertex/edge  |   CAR field   |   RDS field  |
+|  :------------    |:---------------:| -----:|
+|Asset|Name|Database Instance -> DBInstanceIdentifier|
+| |external ID	| Database Instance -> DBInstanceArn|
+||engine|Database Instance -> Engine|
+||db_resource_id|Database Instance -> DbiResourceId|
+|Hostname|_key(Address)	|Database Instance -> Endpoint-> Address|
+|Asset_Hostname|from_external_id|Database Instance -> DBInstanceArn|
+||_to_external_id|Database Instance -> Endpoint-> Address|
+||active|TRUE|
+||timestamp|report -> timestamp|
+||source|source -> _key|
+||report|report -> _key|
+|GeoLocation|external ID	|Database Instance -> AvailabilityZone|
+||region|Database Instance -> AvailabilityZone|
+|Asset_GeoLocation|from_external_id|Database Instance -> DBInstanceArn|
+||_to_external_id|Database Instance -> AvailabilityZone|
+||active|TRUE|
+||timestamp|report -> timestamp|
+||source|source -> _key|
+||report|report -> _key|
+|User|_key|Database Instance -> MasterUsername|
+||username|Database Instance -> MasterUsername|
+||role|TECHNICAL OWNER|
+|Asset_user|_from_external_id|Database Instance -> DBInstanceArn|
+||_to|Database Instance -> MasterUsername|
+||report|report -> _key|
+||source|source -> _key|
+||active|TRUE|
+||timestamp|report -> timestamp|
+|Report_User|_from|report -> timestamp|
+||_to|Database Instance -> MasterUsername|
+||report|report -> _key|
+||source|source -> _key|
+||active|TRUE|
+||timestamp|report -> timestamp|
+|User_Database|_from|Database Instance -> MasterUsername|
+||_to_external_id|Database Instance ->DbiResourceId|
+||report|report -> _key|
+||source|source -> _key|
+||active|TRUE|
+||timestamp|report -> timestamp|
+|Database|Name|Database Instance -> DBInstanceIdentifier|
+||_key|Database Instance -> DBInstanceIdentifier|
+||db_instance_id|Database Instance -> DBInstanceArn|
+||scheduled_maintenance|Database Instance -> applyImmediately|
+||external ID	|Database Instance -> DBIResourceId|
+|Asset_Database|from_external_id|Database Instance -> DBInstanceArn|
+||_to_external_id|Database Instance -> DBIResourceId|
+||active|TRUE|
+||timestamp|report -> timestamp|
+||source|source -> _key|
+||report|report -> _key|
+
+The following table shows the Connected Assets and Risk connector to EC2/Security Hub data mapping.
+
+| CAR vertex/edge  |   CAR field   |   EC2/Security Hub Network Profile field  |
+|  :------------    |:---------------:| -----:|
+|Asset|Name|EC2 resource -> Tags -> Name -> Value|
+|                   |external ID	|arn:aws:ec2: + EC2 resource -> AvailabilityZone + account_id + InstanceId|
+|Vulnerability|external_id|Securityhub log -> Id|
+|                   |name|Securityhub log -> Title|
+|                   |Description|Securityhub log -> Description|
+|                   |disclosed_on|Securityhub log -> FirstObservedAt|
+|                   |published_on|Securityhub log -> CreatedAt|
+|                   |base_score|Securityhub log -> Severity -> Normalized|
+|Asset_Vulnerability|from_external_id|external_id of the asset (based on resource type)|
+|                   |to_external_id|Securityhub log -> Id|
+|                   |active|TRUE|
+|                   |timestamp|Securityhub log -> CreatedAt|
+|                   |source|source -> _key|
+|                   |report|report -> _key|
+|                   |last_modified|Securityhub log -> UpdatedAt|
+
+
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 
