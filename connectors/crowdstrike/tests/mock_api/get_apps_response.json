@@ -1,0 +1,62 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 19:29:42 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "c39exxxx59b7",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5999"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.015403672,
+      "powered_by": "discover-api",
+      "trace_id": "c39exxxx59b7"
+    },
+    "resources": [
+      {
+        "id": "ef21xxxx440d_fff0xxxx2200",
+        "cid": "ef21xxxx440d",
+        "name": "lshw",
+        "vendor": "Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+        "version": "02.19.git.2021.06.19.996aaad9c7-2build1",
+        "name_vendor": "lshw-Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>",
+        "name_vendor_version": "lshw-Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>-02.19.git.2021.06.19.996aaad9c7-2build1",
+        "versioning_scheme": "unknown",
+        "architectures": [
+          "amd64"
+        ],
+        "installation_paths": [
+          ""
+        ],
+        "installation_timestamp": "2023-03-25T03:05:16Z",
+        "first_seen_timestamp": "2023-05-09T09:51:10Z",
+        "last_updated_timestamp": "2023-05-09T09:51:10Z",
+        "is_suspicious": false,
+        "is_normalized": false,
+        "host": {
+          "id": "ef21xxxx440d_4101xxxx3193",
+          "aid": "b99axxxx96ca",
+          "country": "United States of America",
+          "platform_name": "Linux",
+          "os_version": "Ubuntu 22.04",
+          "kernel_version": "5.19.0",
+          "product_type_desc": "Workstation",
+          "system_manufacturer": "Xen",
+          "agent_version": "6.53.15003.0",
+          "external_ip": "1.1.1.1",
+          "hostname": "ip-172-0-0-2",
+          "current_mac_address": "0A-AA-AA-AA-AA-AA",
+          "current_network_prefix": "172.0",
+          "internet_exposure": "Unknown"
+        }
+      }
+    ]
+  }
+}

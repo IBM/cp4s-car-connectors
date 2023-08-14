@@ -1,0 +1,20 @@
+{
+  "asset_hostname": {
+    "asset_hostname": [
+      {
+        "asset_id": "cr-29may23-10/ef21xxxx440d_4141xxxx9623",
+        "hostname_id": "cr-29may23-10/CROWDST",
+        "source": "cr-29may23-10"
+      }
+    ]
+  },
+  "asset_ipaddress": {
+    "asset_ipaddress": [
+      {
+        "asset_id": "cr-29may23-10/ef21xxxx440d_4141xxxx9623",
+        "ipaddress_id": "cr-29may23-10/0/1.2.1.1",
+        "source": "cr-29may23-10"
+      }
+    ]
+  }
+}

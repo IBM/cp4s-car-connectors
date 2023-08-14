@@ -1,0 +1,32 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 19:37:57 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "290",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "15c7xxxx2d02",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5983"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.024295415,
+      "pagination": {
+        "offset": 0,
+        "limit": 1,
+        "total": 2
+      },
+      "powered_by": "discover-api",
+      "trace_id": "15c7xxxx2d02"
+    },
+    "resources": [
+      "ef21xxxx440d_4155xxxx5508"
+    ],
+    "errors": []
+  }
+}

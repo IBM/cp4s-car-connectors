@@ -1,0 +1,35 @@
+{
+    "connection": {
+        "schedule": {
+            "default": "0 */1 * * *",
+            "type": "cron",
+            "previous": ["frequency", "time"],
+            "options": ["0 */1 * * *","0 */2 * * *","0 */4 * * *", "0 */6 * * *", "0 */12 * * *", "mm HH * * *"]
+        },
+        "type": {
+            "type": "connectorType",
+            "displayName": "CrowdStrike Falcon"
+        },
+        "host": {
+            "type": "text",
+            "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9_:/\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9_:/\\-]*[A-Za-z0-9])$"
+        },
+        "port": {
+            "type": "number",
+            "default": 443,
+            "min": 1,
+            "max": 65535
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+             "client_id": {
+                "type": "password"
+            },
+            "client_secret": {
+                "type": "password"
+            }
+        }
+    }
+}

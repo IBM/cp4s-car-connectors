@@ -1,0 +1,28 @@
+{
+  "status_code": 401,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 20:51:48 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "231",
+    "Connection": "keep-alive",
+    "X-Content-Type-Options": "nosniff",
+    "X-Cs-Traceid": "fc08xxxx5fde",
+    "X-Ratelimit-Limit": "15",
+    "X-Ratelimit-Remaining": "14",
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+  },
+  "body": {
+    "meta": {
+      "query_time": 1.97e-07,
+      "powered_by": "crowdstrike-api-gateway",
+      "trace_id": "fc08xxxx5fde"
+    },
+    "errors": [
+      {
+        "code": 401,
+        "message": "access denied, invalid bearer token"
+      }
+    ]
+  }
+}

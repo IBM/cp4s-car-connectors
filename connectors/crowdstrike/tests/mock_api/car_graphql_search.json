@@ -1,0 +1,27 @@
+{
+  "asset": {"data": {"asset": []}},
+  "account": {
+    "data": {
+      "account": [
+        {
+          "external_id": "ef21xxxx440d_4258xxxx8041"
+        },
+        {
+          "external_id": "ef21xxxx440d_4101xxxx3919"
+        }
+      ]
+    }
+  },
+  "application": {
+    "data": {
+      "application": [
+        {
+          "external_id": "ef21xxxx440d_fff0xxxx2200"
+        },
+        {
+          "external_id": "ef21xxxx440d_ff62xxxxe0a2"
+        }
+      ]
+    }
+  }
+}

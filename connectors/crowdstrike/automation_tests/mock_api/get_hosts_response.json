@@ -1,0 +1,372 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 19:14:20 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "1571",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "63c4xxxx4bfa",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5999"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.050427609,
+      "powered_by": "discover-api",
+      "trace_id": "63c4xxxx4bfa"
+    },
+    "resources": [
+      {
+        "id": "ef21xxxx440d_4141xxxx9623",
+        "field_metadata": {
+          "agent_version": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "aid": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "available_disk_space": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "available_disk_space_pct": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "average_memory_usage": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "average_memory_usage_pct": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "average_processor_usage": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "bios_manufacturer": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "bios_version": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "cid": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "city": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "country": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "current_local_ip": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "data_providers": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "data_providers_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "encryption_status": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "entity_type": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "external_ip": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "field_metadata": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "first_seen_timestamp": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "hostname": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "id": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "internet_exposure": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "kernel_version": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "last_seen_timestamp": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "local_ip_addresses": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "local_ips_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "logical_core_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "mac_addresses": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "max_memory_usage": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "max_memory_usage_pct": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "max_processor_usage": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "network_interfaces": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "number_of_disk_drives": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "os_is_eol": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "os_security": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "os_version": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "physical_core_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "platform_name": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "processor_package_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "product_type": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "product_type_desc": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "reduced_functionality_mode": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "system_manufacturer": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "system_product_name": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "system_serial_number": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "total_disk_space": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "total_memory": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "unencrypted_drives": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "unencrypted_drives_count": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "used_disk_space": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          },
+          "used_disk_space_pct": {
+            "providers": [
+              "CrowdStrike"
+            ]
+          }
+        },
+        "cid": "ef21xxxx440d",
+        "aid": "7adbxxxx0d49",
+        "entity_type": "managed",
+        "first_seen_timestamp": "2023-05-16T05:10:55Z",
+        "last_seen_timestamp": "2023-03-18T18:00:00Z",
+        "country": "United States of America",
+        "city": "Ashburn",
+        "platform_name": "Windows",
+        "os_version": "Windows Server 2022",
+        "kernel_version": "20348",
+        "product_type": "3",
+        "product_type_desc": "Server",
+        "agent_version": "6.52.16606.0",
+        "system_product_name": "HVM domU",
+        "system_manufacturer": "Xen",
+        "system_serial_number": "ec2exxxx3e14",
+        "bios_manufacturer": "Xen",
+        "bios_version": "4.2.amazon",
+        "external_ip": "1.1.1.1",
+        "hostname": "CROWDST",
+        "local_ips_count": 1,
+        "network_interfaces": [
+          {
+            "local_ip": "172.0.0.1",
+            "mac_address": "12-AA-AA-AA-AA-AA",
+            "interface_alias": "Ethernet 2",
+            "interface_description": "Network Device #0",
+            "network_prefix": "172.0"
+          }
+        ],
+        "os_security": {
+          "secure_boot_requested_status": false,
+          "device_guard_status": false,
+          "system_guard_status": "N/A",
+          "credential_guard_status": false,
+          "iommu_protection_status": "N/A",
+          "secure_boot_enabled_status": false,
+          "uefi_memory_protection_status": "N/A",
+          "virtualization_based_security_status": false,
+          "secure_memory_overwrite_requested_status": "N/A",
+          "kernel_dma_protection_status": false
+        },
+        "current_local_ip": "172.0.0.1",
+        "internet_exposure": "Unknown",
+        "reduced_functionality_mode": "No",
+        "number_of_disk_drives": 1,
+        "cpu_processor_name": "Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz",
+        "processor_package_count": 1,
+        "physical_core_count": 2,
+        "logical_core_count": 2,
+        "total_memory": 4095,
+        "total_disk_space": 30,
+        "os_is_eol": "No",
+        "encryption_status": "encrypted",
+        "unencrypted_drives": [
+          "C:"
+        ],
+        "unencrypted_drives_count": 1,
+        "average_processor_usage": 4,
+        "max_processor_usage": 51,
+        "average_memory_usage": 1457,
+        "average_memory_usage_pct": 35,
+        "max_memory_usage": 1996,
+        "max_memory_usage_pct": 48,
+        "used_disk_space": 16,
+        "used_disk_space_pct": 53,
+        "available_disk_space": 15,
+        "available_disk_space_pct": 50,
+        "form_factor": "Virtual machine",
+        "data_providers": [
+          "CrowdStrike"
+        ],
+        "data_providers_count": 1,
+        "mac_addresses": [
+          "12-AA-AA-AA-AA-AA"
+        ],
+        "local_ip_addresses": [
+          "172.0.0.1"
+        ],
+        "discovering_by": [
+          "Passive"
+        ]
+      }
+    ]
+  }
+}

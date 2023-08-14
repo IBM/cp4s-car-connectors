@@ -1,0 +1,235 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 19:46:48 GMT",
+    "Content-Type": "application/json",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "0668xxxx2d0f",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5976"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.105068732,
+      "pagination": {
+        "limit": 1,
+        "total": 1,
+        "after": ""
+      },
+      "powered_by": "spapi",
+      "trace_id": "0668xxxx2d0f"
+    },
+    "resources": [
+      {
+        "id": "c589xxxx686f_fb9exxxx9a88",
+        "cid": "ef21xxxx440d",
+        "aid": "7adbxxxx0d49",
+        "created_timestamp": "2023-05-15T08:22:16Z",
+        "updated_timestamp": "2024-05-15T08:22:16Z",
+        "status": "closed",
+        "apps": [
+          {
+            "product_name_version": "HTTP Server 2.2",
+            "sub_status": "open",
+            "remediation": {
+              "ids": [
+                "6fb1xxxxa578c"
+              ]
+            },
+            "evaluation_logic": {
+              "id": "9a2cxxxx50f5",
+              "cid": "ef21xxxx440d",
+              "aid": "c589xxxx686f",
+              "created_timestamp": "2023-05-15T08:22:16Z",
+              "updated_timestamp": "2023-05-15T08:22:16Z",
+              "logic": [
+                {
+                  "id": 17500007482,
+                  "title": "Check for the Apache HTTP Server 2.2 32-bit installation.",
+                  "type": "inventory",
+                  "negate": false,
+                  "existence_check": "at_least_one_exists",
+                  "comparison_check": "at least one",
+                  "determined_by_comparison": true,
+                  "comparisons": {
+                    "state_operator": "AND",
+                    "state_comparisons": [
+                      {
+                        "entity_operator": "AND",
+                        "entity_comparisons": [
+                          {
+                            "actual_value_field": "value",
+                            "expected_value": "^.*\\\\Apache2\\.2\\\\$",
+                            "operation": "pattern match",
+                            "value_datatype": "string"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "comparison_result": "true",
+                      "hive": "HKEY_LOCAL_MACHINE",
+                      "item_type": "registry_item",
+                      "key": "SOFTWARE\\Apache Software Foundation\\Apache\\2.2.22",
+                      "name": "ServerRoot",
+                      "type": "reg_sz",
+                      "value": [
+                        "C:\\Program Files (x86)\\Apache Software Foundation\\Apache2.2\\"
+                      ],
+                      "windows_view": "32_bit"
+                    }
+                  ]
+                },
+                {
+                  "id": 983000004583,
+                  "title": "Check if the version of libhttpd.dll is less than or equal to 2.2.26",
+                  "type": "vulnerability",
+                  "negate": false,
+                  "existence_check": "at_least_one_exists",
+                  "comparison_check": "at least one",
+                  "determined_by_comparison": true,
+                  "comparisons": {
+                    "state_operator": "AND",
+                    "state_comparisons": [
+                      {
+                        "entity_operator": "AND",
+                        "entity_comparisons": [
+                          {
+                            "actual_value_field": "product_version",
+                            "expected_value": "2.2.26",
+                            "operation": "less than or equal",
+                            "value_datatype": "version"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "items": [
+                    {
+                      "comparison_result": "true",
+                      "filename": "httpd.exe",
+                      "filepath": "C:\\Program Files (x86)\\Apache Software Foundation\\Apache2.2\\bin\\httpd.exe",
+                      "item_type": "file_item",
+                      "product_name": "Apache HTTP Server",
+                      "product_version": "2.2.22",
+                      "version": "2.2.22",
+                      "windows_view": "64_bit"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "suppression_info": {
+          "is_suppressed": false
+        },
+        "host_info": {
+          "hostname": "xxxx-CROWDST",
+          "local_ip": "172.0.0.1",
+          "machine_domain": "",
+          "os_version": "Windows Server 2022",
+          "ou": "",
+          "site_name": "",
+          "system_manufacturer": "Xen",
+          "tags": [],
+          "platform": "Windows",
+          "instance_id": "xxxxx",
+          "service_provider_account_id": "xxxx",
+          "service_provider": "xxxxx",
+          "os_build": "20348",
+          "product_type_desc": "Server",
+          "host_last_seen_timestamp": "2023-05-16T00:00:00Z"
+        },
+        "remediation": {
+          "entities": [
+            {
+              "id": "6fb1xxxx578c",
+              "reference": "cpe:/a:apache:http_server::::",
+              "title": "Update Apache Http Server",
+              "action": "Update Apache Http Server to the latest available version",
+              "link": "",
+              "vendor_url": ""
+            }
+          ]
+        },
+        "cve": {
+          "id": "CVE-2013-6438",
+          "base_score": 5,
+          "severity": "MEDIUM",
+          "exploit_status": 0,
+          "exprt_rating": "LOW",
+          "remediation_level": "O",
+          "cisa_info": {
+            "is_cisa_kev": false
+          },
+          "spotlight_published_date": "2021-01-11T03:49:00Z",
+          "description": "The dav_xml_get_cdata function in main/util.c in the mod_dav module in the Apache HTTP Server before 2.4.8 does not properly remove whitespace characters from CDATA sections, which allows remote attackers to cause a denial of service (daemon crash) via a crafted DAV WRITE request.\n",
+          "published_date": "2014-03-07T00:00:00Z",
+          "vendor_advisory": [
+            "https://lists.apache.org/thread.html/r9f93cf6dde308d42a9c807784e8102600d0397f5f834890708bf6920@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/re3d27b6250aa8548b8845d314bb8a350b3df326cacbbfdfe4d455234@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/56c2e7cc9deb1c12a843d0dc251ea7fd3e7e80293cde02fcd65286ba@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/f7f95ac1cd9895db2714fa3ebaa0b94d0c6df360f742a40951384a53@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/r9821b0a32a1d0a1b4947abb6f3630053fcbb2ec905d9a32c2bd4d4ee@%3Ccvs.httpd.apache.org%3E",
+            "http://svn.apache.org/repos/asf/httpd/httpd/branches/2.2.x/CHANGES",
+            "https://lists.apache.org/thread.html/r57608dc51b79102f3952ae06f54d5277b649c86d6533dcd6a7d201f7@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/ra7f6aeb28661fbf826969526585f16856abc4615877875f9d3b35ef4@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/rc998b18880df98bafaade071346690c2bc1444adaa1a1ea464b93f0a@%3Ccvs.httpd.apache.org%3E",
+            "http://www.apache.org/dist/httpd/CHANGES_2.4.9",
+            "https://httpd.apache.org/security/vulnerabilities_24.html",
+            "https://lists.apache.org/thread.html/rcc44594d4d6579b90deccd4536b5d31f099ef563df39b094be286b9e@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/r83109088737656fa6307bd99ab40f8ff0269ae58d3f7272d7048494a@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/r9ea3538f229874c80a10af473856a81fbf5f694cd7f471cc679ba70b@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/rfbaf647d52c1cb843e726a0933f156366a806cead84fbd430951591b@%3Ccvs.httpd.apache.org%3E",
+            "http://svn.apache.org/viewvc/httpd/httpd/trunk/modules/dav/main/util.c?r1=1528718&amp;r2=1556428&amp;diff_format=h",
+            "https://lists.apache.org/thread.html/rdca61ae990660bacb682295f2a09d34612b7bb5f457577fe17f4d064@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/r75cbe9ea3e2114e4271bbeca7aff96117b50c1b6eb7c4772b0337c1f@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/8d63cb8e9100f28a99429b4328e4e7cebce861d5772ac9863ba2ae6f@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/rd18c3c43602e66f9cdcf09f1de233804975b9572b0456cc582390b6f@%3Ccvs.httpd.apache.org%3E",
+            "https://lists.apache.org/thread.html/rf6449464fd8b7437704c55f88361b66f12d5b5f90bcce66af4be4ba9@%3Ccvs.httpd.apache.org%3E",
+            "http://svn.apache.org/viewvc/httpd/httpd/trunk/modules/dav/main/util.c",
+            "https://lists.apache.org/thread.html/84a3714f0878781f6ed84473d1a503d2cc382277e100450209231830@%3Ccvs.httpd.apache.org%3E"
+          ],
+          "references": [
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676092",
+            "http://secunia.com/advisories/59345",
+            "https://support.apple.com/kb/HT6535",
+            "http://lists.apple.com/archives/security-announce/2015/Apr/msg00001.html",
+            "http://www.oracle.com/technetwork/topics/security/cpujul2014-1972956.html",
+            "http://kb.juniper.net/InfoCenter/index?page=content&amp;id=JSA10698",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21676091",
+            "http://secunia.com/advisories/59315",
+            "http://www.vmware.com/security/advisories/VMSA-2014-0012.html",
+            "https://support.apple.com/HT204659",
+            "http://advisories.mageia.org/MGASA-2014-0135.html",
+            "http://www-01.ibm.com/support/docview.wss?uid=swg21669554",
+            "http://www.securityfocus.com/archive/1/534161/100/0/threaded",
+            "http://www.oracle.com/technetwork/topics/security/cpujan2015-1972971.html",
+            "http://marc.info/?l=bugtraq&amp;m=141017844705317&amp;w=2",
+            "http://www.ubuntu.com/usn/USN-2152-1",
+            "http://archives.neohapsis.com/archives/bugtraq/2014-10/0101.html",
+            "http://security.gentoo.org/glsa/glsa-201408-12.xml",
+            "http://secunia.com/advisories/58230",
+            "http://secunia.com/advisories/60536",
+            "http://seclists.org/fulldisclosure/2014/Dec/23",
+            "https://puppet.com/security/cve/cve-2013-6438",
+            "http://marc.info/?l=bugtraq&amp;m=141390017113542&amp;w=2",
+            "http://www.securityfocus.com/bid/66303",
+            "https://blogs.oracle.com/sunsecurity/entry/multiple_input_validation_vulnerabilities_in1"
+          ],
+          "exploitability_score": 8.6,
+          "impact_score": 2.9,
+          "vector": "AV:N/AC:M/Au:N/C:N/I:N/A:P"
+        }
+      }
+    ]
+  }
+}
