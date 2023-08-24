@@ -1,0 +1,35 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Tue, 23 May 2023 19:41:00 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "882",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "1848xxxxd5a6",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5999"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.004698578,
+      "powered_by": "discover-api",
+      "trace_id": "1848xxxxd5a6"
+    },
+    "resources": [
+      {
+        "id": "ef21xxxx440d_4155xxxx5508",
+        "cid": "ef21xxxx440d",
+        "user_sid": "S-1-5-21-9490xxxx1002",
+        "login_domain": "xxxx-CROWDST",
+        "account_name": "xxxx-CROWDST\\testuser",
+        "username": "testuser",
+        "first_seen_timestamp": "2023-05-18T18:02:47Z",
+        "password_last_set_timestamp": "2023-05-18T18:00:09Z"
+      }
+    ]
+  }
+}

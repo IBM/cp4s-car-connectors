@@ -1,0 +1,49 @@
+{
+  "status_code": 200,
+  "headers": {
+    "Server": "nginx",
+    "Date": "Thu, 01 Jun 2023 04:18:34 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "1947",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Strict-Transport-Security": "max-age=15724800; includeSubDomains, max-age=31536000; includeSubDomains",
+    "X-Cs-Region": "us-2",
+    "X-Cs-Traceid": "cec3xxxx668b",
+    "X-Ratelimit-Limit": "6000",
+    "X-Ratelimit-Remaining": "5999"
+  },
+  "body": {
+    "meta": {
+      "query_time": 0.020492016,
+      "powered_by": "discover-api",
+      "trace_id": "cec3xxxx668b"
+    },
+    "resources": [
+      {
+        "id": "ef21xxxx440d_4217xxxx5836",
+        "cid": "ef21xxxx440d",
+        "login_status": "Successful",
+        "account_id": "ef21xxxx440d_4120xxxx1400",
+        "host_id": "ef21xxxx440d_4141xxxx9623",
+        "user_sid": "S-1-5-21-9490xxxxx6-500",
+        "aid": "7adbxxxx0d49",
+        "account_name": "CROWDST\\testuser2",
+        "username": "testuser2",
+        "hostname": "CROWDST",
+        "account_type": "Local",
+        "login_type": "Remote interactive",
+        "login_timestamp": "2024-05-29T00:00:00Z",
+        "login_domain": "CROWDST",
+        "admin_privileges": "Yes",
+        "local_admin_privileges": "Yes",
+        "local_ip": "3.1.1.1",
+        "remote_ip": "49.0.0.0",
+        "host_country": "United States of America",
+        "host_city": "Ashburn",
+        "login_event_count": 1,
+        "aggregation_time_interval": "24h"
+      }
+    ]
+  }
+}

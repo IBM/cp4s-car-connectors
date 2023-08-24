@@ -1,0 +1,5 @@
+{   "source": "crowdstrike",
+    "car_service_apikey_url": "https://cp4s.cp4scluster-xxxxxxx0000.jp-tok.containers.appdomain.cloud/api/car/v2",
+    "api_key": "d121xxxxxxxxxb3b7",
+    "api_password": "cffcxxxxxxxxe198"
+}
