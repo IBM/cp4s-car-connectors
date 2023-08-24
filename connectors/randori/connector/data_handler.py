@@ -75,7 +75,9 @@ class DataHandler(BaseDataHandler):
         res['first_seen'] = obj['first_seen'].timestamp()
         res['last_seen'] = obj['last_seen'].timestamp()
 
-        if obj['priority_score'] <= 40:
+        if obj['priority_score'] > 200:
+            res['risk'] = obj['priority_score'] == 10
+        elif obj['priority_score'] <= 40:
             res['risk'] = obj['priority_score']/40 * 7
         else:
             res['risk'] = 7 + ((obj['priority_score']-40)/160 * 3)
