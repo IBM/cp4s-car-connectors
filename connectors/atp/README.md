@@ -22,6 +22,110 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.5.x (greater than 3.5.x may work, less than probably will not; neither is tested)
 
+The following permissions are required for the Microsoft Defender for Endpoint Connected Assets and Risk connector.
+
+**Microsoft Graph**
+* User.Read
+* User.Read.All
+
+**WindowsDefenderATP**
+* AdvancedQuery.Read
+* AdvancedQuery.Read.All
+* Alert.Read.All
+* Alert.ReadWrite.All
+* Machine.Read
+* Machine.Read.All
+* Machine.ReadWrite
+* Machine.ReadWrite.All
+* User. Read.All
+
+The API access requires OAuth2.0 authentication.
+
+Generate an ATP access token by completing the following steps.
+1. Create an Azure Active Directory application.
+2. Get an access token that uses this application. Use the token to access the Microsoft Defender for Endpoint API.
+
+For more information, see [Create an app to access Microsoft Defender for Endpoint without a user](https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/api/exposed-apis-create-app-webapp?view=o365-worldwide).
+
+
+The Microsoft Defender for Endpoint connector is designed to work with the api/advancedqueries/run, api/machines, and api/alerts API endpoints. For more information about these API endpoints, see [Supported Microsoft Defender for Endpoint APIs](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/exposed-apis-list?view=o365-worldwide).
+
+Microsoft Defender for Endpoint is an endpoint security platform to prevent, detect, investigate, and respond to advanced threats. For more information about Microsoft Defender for Endpoint, see [Microsoft Defender for Endpoint](https://www.microsoft.com/en-us/microsoft-365/windows/microsoft-defender-atp).
+
+The Microsoft Defender for Endpoint schema is made up of multiple tables that provide either event information or information about devices and other entities. To effectively build queries that span multiple tables, you must understand the tables and the columns in the schema.
+
+The following table outlines Microsoft Defender for Endpoint schema table names and descriptions.
+
+| Table name  |   Description   |
+| :----------:|:---------------:|
+| [AlertEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-alertevents-table) | Alerts on Microsoft Defender Security Center |
+| [MachineInfo](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-machineinfo-table) | Machine information, including OS information |
+| [MachineNetworkInfo](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-machinenetworkinfo-table) | Network properties of network devices, including adapters, IP addresses, MAC addresses, connected networks, and domains |
+| [ProcessCreationEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-processcreationevents-table) | Process creation and related events |
+| [NetworkCommunicationEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-networkcommunicationevents-table) | Network connection and related events |
+| [FileCreationEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-filecreationevents-table) | File creation, modification, and other file system events |
+| [RegistryEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-registryevents-table) | Creation and modification of registry entries |
+| [LogonEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-logonevents-table) | Sign-ins and other authentication events |
+| [ImageLoadEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-imageloadevents-table) | DLL loading events |
+| [MiscEvents](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-miscevents-table) | Multiple event types, including events that are triggered by security controls such as Windows Defender Antivirus and Exploit Protection |
+
+The following table shows the Connected Assets and Risk connector to Machine Network Profile data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| IPAddress (Private) | _key    | Machine NetworkInfo -> IPAddresses |
+| IPAddress (Public) | _key     | Machine Info -> PublicIP |
+| MacAddress   | _key     | Machine NetworkInfo -> MacAddress |
+| IPAddress_MacAddress  |  _from     | ipaddress/_key(ipaddress node) |
+|                 | _to     | macaddress/_key(macaddress node) |
+|                 | active     | TRUE |
+|                 | timestamp     | report -> timestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+| Asset_IPAddress  |  from_external_id     | external_id of the asset |
+|                 | _to     | ipaddress/_key(ipaddress node) |
+|                 | active     | TRUE |
+|                 | timestamp     | Activity log -> eventTimestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Users data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| User | _key    | User -> accountName |
+| Asset_User  |  from_external_id     | Machine -> id |
+|                 | _to     | 'user/' + user -> accountName |
+|                 | active     | TRUE |
+|                 | timestamp     | Activity log -> eventTimestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+| User_Hostname  |  _from     | 'user/' + user -> accountName |
+|                 | _to     | hostname/' + Machine -> computerDnsName |
+|                 | active     | TRUE |
+|                 | timestamp     | Activity log -> eventTimestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Vulnerabilities data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| Asset | Name        | Machine -> computerDnsName |
+|       | Description | Custom message with: osPlatform |
+|       | external ID | Machine -> id |
+|  Vulnerability | external ID | Alerts -> id |
+|                | name    | Alerts -> title |
+|                | Description    | Alerts -> description |
+|                | disclosed_on    | Alerts -> firstEventTime |
+|                | published_on    | Alerts -> alertCreationTime |
+| Asset_Vulnerability | from_external_id    | external_id of the machine |
+|         | to_external_id    | Alerts -> id |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 `adal`
