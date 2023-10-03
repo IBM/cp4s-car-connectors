@@ -17,6 +17,12 @@ Delete the server folder. This is only used to provide dummy data to demo the co
 
 Update the arguments required to connect to the target data source in the `__init__` method. The example in the reference connector uses `server`, `username` and `password`.
 
+Make sure that env variable and destination variable are same, for e.g.:
+
+```self.parser.add_argument('-subscriptionID', dest='CONFIGURATION_AUTH_SUBSCRIPTION_ID', default=os.getenv('CONFIGURATION_AUTH_SUBSCRIPTION_ID',None), type=str, required=False, help='Subscription ID for the data source account')```
+
+In above case `CONFIGURATION_AUTH_SUBSCRIPTION_ID` is same for `dest` and env variable
+
 `get_schema_extension` method is `app.py` has an example how to extend [core CAR schema](https://github.com/IBM/cp4s-car-schema/blob/master/doc/generated/importSchema_v2.json). If the connector **doesn't need to extend the schema `get_schema_extension` method should be deleted**.
 If connector needs to extend the schema more information can be found in [schema-extension](./schema-extension.md) doc. 
  
