@@ -24,6 +24,88 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.9.7 (greater than 3.9.x may work, less than probably will not; neither is tested)
 
+API Endpoint to list assets:\
+```https://<qualys server>/qps/rest/2.0/search/am/hostassetAPI```
+
+Endpoint to list Applications:\
+```https://<qualys gateway>/rest/2.0/search/am/asset?pageSize=300&softwareType=Application```
+
+Authentication parameters
+| Parameters | Parameter Type | Format |
+| :--------: | :------------: | :----: |
+| Username | required | \<string\> |
+| Password | required | \<string\> |
+
+Notes:
+1. Results can be limited or filtered using various field attributes.
+2. API Rate Limits: 300 API calls/hour
+3. API returns 100 records by default. (maximum 300 records).
+4. Supports pagination
+5. The minimum user role required is 'Manager'
+
+API Endpoint to list vulnerability of assets:\
+```https://<qualys server>/api/2.0/fo/asset/host/vm/detection/?action=list``` – provides more details on vulnerability
+
+Authentication parameters
+| Parameters | Parameter Type | Format |
+| :--------: | :------------: | :----: |
+| Username | required | \<string\> |
+| Password | required | \<string\> |
+
+The following table shows the Connected Assets and Risk connector to Qualys data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Data Source field  |
+| :------------: |:---------------: | :-----: |
+| asset  | name   | Hostasset -> name |
+|        | external_id | Hostasset -> id |
+|        | description | Hostasset -> os + type + name |
+|        | asset_type  | Hostasset -> type |
+|        | source      | source name |
+| vulnerability | external_id | Hostasset -> vmdrVulnList -> QID |
+|           | name | 'Host Instance Vulnerability' |
+|           | description | Hostasset -> vmdrVulnList -> RESULTS |
+|           | base_score  | Hostasset -> vmdrVulnList -> SEVERITY |
+|           | source      | source name |
+| Ipadddress | _key | Hostasset -> network_interface -> address |
+|           | source      | source name |
+| macaddress | _key | Hostasset -> network_interface -> macaddress |
+|           | source      | source name |
+| hostname | external_id | Hostasset -> qwebHostID |
+|          | host_name   | Hostasset -> name |
+|          | _key   | Hostasset -> dnsHostName |
+|          | source   | source name |
+| account | external_id | Hostasset -> HostAssetAccount -> username | 
+|         | name        | Hostasset -> HostAssetAccount -> username | 
+|         | source   | source name |
+| user | external_id | Hostasset -> HostAssetAccount -> username | 
+|      | source   | source name |
+| application | external_id | Hostasset -> applications -> id | 
+|         | name        | Hostasset -> applications -> fullname | 
+|         | source   | source name |
+| gep_location | external_id | Hostasset -> sourceInfo -> list -> asset_location | 
+|         | region        | Hostasset -> sourceInfo -> list -> asset_location | 
+|         | source   | source name |
+| asset_vulverability | _from_external_id| Hostasset -> id | 
+|             | _to_external_id   | Hostasset -> vmdrVulnList -> QID name |
+| asset_ipaddress | _from_external_id| Hostasset -> id | 
+|             | _to   | 'ipaddress/' + Hostasset -> network_interface -> address |
+| asset_macaddress | _from_external_id| Hostasset -> id | 
+|             | _to   | 'macaddress/' + Hostasset -> network_interface -> macaddress |
+| asset_hostname | _from_external_id| Hostasset -> id | 
+|             | _to   | 'hostname/' + Hostasset -> name |
+| asset_application | _from_external_id| Hostasset -> id | 
+|             | _to_external_id   | Hostasset -> applications -> id |
+| asset_account | _from_external_id| Hostasset -> id | 
+|             | _to_external_id   | Hostasset -> HostAssetAccount -> username |
+| asset_geolocation | _from_external_id| Hostasset -> id | 
+|             | _to_external_id   | Hostasset -> sourceInfo -> list -> asset_location |
+| ipaddress_macaddress | _from| 'ipaddress/' + Hostasset -> network_interface -> address | 
+|             | _to   | 'macaddress/' + Hostasset -> network_interface -> macaddress |
+| application_vulnerability | _from_external_id| Hostasset -> application -> id | 
+|             | _to_external_id   | Hostasset -> vmdrVulnList -> QID name |
+| user_account | _from_external_id| Hostasset -> HostAssetAccount -> username | 
+|              | _to_external_id   | Hostasset -> HostAssetAccount -> username |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 - Requirements.txt file attached.
