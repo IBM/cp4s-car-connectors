@@ -22,6 +22,56 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.9.7 (greater than 3.9.x may work, less than probably will not; neither is tested)
 
+
+The following table shows the Connected Assets and Risk connector to TAP data mapping.
+
+| CAR vertex/edge  |   CAR field   |   EC2 Network Profile field  |
+|  :------------: |:---------------:| :-----:|
+| Asset | name | Events -> receipientName |
+|       | external_id | Events -> receipientName |
+|       | description | “Proofpoint User of domain” + Events ->receipientName |
+|       | asset_type | User |
+|       | source | source-> id |
+| Vulnerability | external_id | Events -> threatId |
+|       | name | Events -> classification + ":" + event-> threat |
+|       | description | event -> classification + event ->threatType |
+|       | disclosed_on | event -> messageTime |
+|       | base_score | event->spamScore or event->phishScore or event->impostorScore or event->malwareScore |
+|       | source | source-> id |
+| Asset_Vulnerability | _from_external_id | Events -> receipientName  |
+|       | _to_external_id | Events -> threatId |
+|       | active | TRUE |
+|       | created | report -> _key |
+|       | source | source -> id |
+|       | report | report -> _key |
+|       | risk_score | event->spamScore or event->phishScore or event->impostorScore or event->malwareScore |
+| Account | external_id | identity -> guiid |
+|       | name | Events -> recipientName |
+|       | cumulative_score | identity->attackIndex |
+|       | source | source -> id |
+|       | active | True |
+| User | username | identity->name |
+|      | job_title | identity->title |
+|      | email | identity ->emails |
+|      | user_category | identity ->vip |
+|      | employee_id | identity ->customerUserId |
+|      | department | identity ->department |
+|      | external_id | identity ->customerUserId or identity->emails |
+|      | source | source ->id |
+| asset_account | _from_external_id | Event -> recipient |
+|         | _to_external_id | Identity -> guiid |
+|         | created | report -> _key |
+|         | active | True |
+|         | report | report -> _key |
+|         | source | source -> id |
+| user_account | _from_external_id | Identity -> customerUserId or Identity -> Emails |
+|         | _to_external_id | Identity -> guiid |
+|         | created | report -> _key |
+|         | active | True |
+|         | report | report -> _key |
+|         | source | source -> id |
+
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 - Requirements.txt file attached.
