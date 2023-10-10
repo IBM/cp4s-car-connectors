@@ -1,4 +1,4 @@
-import sys, argparse, traceback
+import sys, argparse, traceback, os
 
 from car_framework.context import context
 from car_framework.app import BaseApp
@@ -16,9 +16,10 @@ class App(BaseApp):
     def __init__(self):
         super().__init__('This script is used for pushing asset data to CP4S CAR ingestion microservice')
         # Add parameters need to connect data source
-        self.parser.add_argument('-server', dest='server', type=str, required=True, help='The url of the Asset data server')
-        self.parser.add_argument('-username', dest='username', type=str, required=True, help='The user name for the Asset data server')
-        self.parser.add_argument('-password', dest='password', type=str, required=True, help='The password for the Asset data server')
+        # Make sure the "dest" variable is same as the env variable. For example below dest='CONFIGURATION_AUTH_URL and os.getenv('CONFIGURATION_AUTH_URL',None); CONFIGURATION_AUTH_URL is same. 
+        self.parser.add_argument('-server', dest='CONFIGURATION_AUTH_URL', default=os.getenv('CONFIGURATION_AUTH_URL',None), type=str, required=False, help='The url of the Asset data server')
+        self.parser.add_argument('-username', dest='CONFIGURATION_AUTH_USERNAME', default=os.getenv('CONFIGURATION_AUTH_USERNAME',None), type=str, required=False, help='The user name for the Asset data server')
+        self.parser.add_argument('-password', dest='CONFIGURATION_AUTH_PASSWORD', default=os.getenv('CONFIGURATION_AUTH_PASSWORD',None), type=str, required=False, help='The password for the Asset data server')
 
     def setup(self):
         super().setup()
