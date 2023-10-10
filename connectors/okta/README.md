@@ -19,6 +19,74 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.9.7 (greater than 3.9.x may work, less than probably will not; neither is tested)
 
+API Authentication: \
+Okta uses valid token in HTTP header for authentication. The token needs to prefix with ‘SSWS’ identifier, whichspecifies the proprietary authentication scheme that Okta uses. \
+Eg: Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
+
+The following table shows the mapping for server application as Asset.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:    |:---------------:| :-----:|
+| Asset      | name | label |
+|            | external ID | id |
+| Application  | name | label |
+|            | external ID | name + '_' + id |
+|            | app_type | signOnMode |
+|            | is_os | False |
+|            | status | status |
+|            | app_link | Applink -> href |
+|            | policies | Policies -> href |
+| Asset_Application  | _from_external_id | asset -> external_id |
+|            | _to_external_id | application->external_id |
+
+The following table shows the mapping for user.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   |:-------------:| :-----:|
+| Account      | name | Profile -> firstName + profile -> lastName |
+|            | external ID | id |
+| User      | username | Profile -> login |
+|            | email | Profile -> email |
+|            | user_category | Credential -> provider -> type |
+|            | family_name | Profile -> lastname |
+|            | given_name | Profile -> firstname |
+|            | external_id | Profile -> email |
+|            | active | status == "ACTIVE" |
+|            | user_status | status |
+|            | last_password_change | passwordChanged |
+|            | last_login | lastLogin |
+| Asset_Account  | _from_external_id | asset -> external_id |
+|            | _to_external_id | id |
+| User_account  | _from_external_id | Profile -> login |
+|            | _to_external_id | id |
+
+The following table shows the mapping for client as Application.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   |:-------------:| :-----:|
+| Asset | name        | Client -> userAgent -> browser + ‘on’ + Client -> userAgent -> os +client -> device + ‘from’ + client -> ipaddress |
+|       | external ID        | app_” + target -> Id ( if target -> type == ‘AppInstance’) +‘ip_’ + Client->ipAddress |
+| Application      | Name | Client -> userAgent -> os |
+|                  | external ID | Client -> userAgent -> os |
+|                  | app_type | os |
+|                  | is_os | True |
+| Application      | Name | Client -> userAgent -> browser |
+|                  | external ID | Client -> userAgent -> rawagent (broser version) |
+|                  | app_type | Browser |
+|                  | is_os | False |
+| IPAddress	| _key | Client->ipaddress  |
+| geolocation	| longitude | geolocation -> lon  |
+|             | latitude | geolocation -> lat  |
+|             | external_id | geolocation -> lat + geolocation -> lon |
+| Asset_Application (os) | from_external_id        |   asset ->external_id |
+|      | to_external_id | Client -> userAgent -> os |
+| Asset_Application (browser) | from_external_id        |  asset ->external_id |
+|      | to_external_id | Client -> userAgent -> rawagent (browser version) |
+| Asset_IPAddress | _from_external_id | asset -> external_id |
+|       | _to | Client -> ipaddress |
+| Asset_geolocation | _from_external_id | asset -> external_id |
+|       | _to_external_id | geolocation -> lat + geolocation -> lon |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 - Requirements.txt file attached.
