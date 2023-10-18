@@ -23,6 +23,127 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.5.x (greater than 3.5.x may work, less than probably will not; neither is tested)
 
+The following permissions are required for the Microsoft Azure Connected Assets and Risk connector.
+
+**Azure Service Management**
+* user_impersonation
+
+**Microsoft Graph**
+* PrivilegedAccess.Read.AzureResources
+* PrivilegedAccess.ReadWrite.AzureResources
+* SecurityActions.Read.All
+* SecurityActions.ReadWrite.All
+* SecurityEvents.Read.All
+* SecurityEvents.ReadWrite.All
+* User.Read
+
+The Microsoft Azure Security Center connector is designed to work with the Virtual Machines, Network Interfaces, Applications, SQL databases, and Vulnerabilities resources.
+
+Microsoft Azure Security Center is an infrastructure security management system that offers threat protection across hybrid cloud environments. For more information, see [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/).
+
+The following table shows the Connected Assets and Risk connector to Virtual Machine data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| Asset | Name        | VM Resource -> Name |
+|       | Description | "VM Image details:" VM Resource -> properties -> storageProfile -> imageReference - > Offer,Sku |
+|       | external ID | VM Resource -> id |
+| Hostname | _key        | Network Resource -> properties -> ipConfigurations -> properties -> fqdn |
+|       | Description | Custom Desc |
+| Asset_Hostname | from_external_id  | Network Resource -> properties -> virtualMachine -> id |
+|       | _to | Network Resource -> properties -> ipConfigurations -> properties -> fqdn |
+|       | active | TRUE |
+|       | timestamp | report -> timestamp |
+|       | source | source -> _key |
+|       | report | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Network Profile data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| IPAddress (Private) | _key    | Network Resource -> properties -> ipConfigurations -> privateIPAddress |
+| IPAddress (Public) | _key     | Network Resource -> properties -> ipConfigurations -> publicIPAddress |
+| MacAddress   | _key     | Network Resource -> properties -> macAddress |
+| IPAddress_MacAddress  |  _from     | ipaddress/_key(ipaddress node) |
+|                 | _to     | macaddress/_key(macaddress node) |
+|                 | active     | TRUE |
+|                 | timestamp     | report -> timestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+| Asset_IPAddress  |  from_external_id     | external_id of the asset (based on resource type) |
+|                 | _to     | ipaddress/_key(ipaddress node) |
+|                 | active     | TRUE |
+|                 | timestamp     | Activity log -> eventTimestamp |
+|                 | source     | source -> _key |
+|                 | report     | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Application data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| Application | _key    | App Resource -> Name |
+|         | Name    | App Resource -> Name |
+|         | Description    | App Resource -> Name, Type, Location |
+|         | external ID    | App Resource -> id |
+| Asset_Application | from_external_id    | Asset(Application) -> id |
+|         | to_external_id    | App Resource -> id |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+| Asset_ipaddress | from_external_id    | Asset(Application) -> id |
+|         | _to    | App Resource -> inboundIpAddress |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+| Asset_hostname | from_external_id    | Asset(Application) -> id |
+|         | _to    | App Resource -> properties -> hostNames |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Database data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| Database | _key    | DB Resource -> name |
+|         | Name    | DB Resource -> name |
+|         | Description    | DB Resource -> name , location |
+|         | external ID    | DB Resource -> id |
+| Asset_Database | from_external_id    | Server Resource -> id |
+|         | to_external_id    | DB Resource -> id |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+| Asset_hostname | from_external_id    | Server Resource -> id |
+|         | _to    | DB Resource -> properties -> fullyQualifiedDomainName |
+|         | active    | TRUE |
+|         | timestamp    | report -> timestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+
+The following table shows the Connected Assets and Risk connector to Vulnerabilities data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Azure field  |
+|  :------------:|:---------------:|:-----:|
+| Asset | Name        | VM Resource -> Name |
+|       | Description | "VM Image details:" VM Resource -> properties -> storageProfile -> imageReference - > Offer,Sku |
+|       | external ID | VM Resource -> id |
+|  Vulnerability | external ID | Security log -> eventDataId |
+|                | name    | Security log -> eventName -> value |
+|                | Description    | Security log -> description |
+|                | disclosed_on    | Security log -> submissionTimestamp |
+|                | published_on    | Security log -> eventTimestamp |
+| Asset_Vulnerability | from_external_id    | external_id of the asset (based on resource type) |
+|         | to_external_id    | Security log -> eventDataId |
+|         | active    | TRUE |
+|         | timestamp    | Security log -> eventTimestamp |
+|         | source    | source -> _key |
+|         | report    | report -> _key |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 `adal`

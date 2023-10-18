@@ -43,7 +43,7 @@ class DataHandler(BaseDataHandler):
     def create_source_report_object(self):
         if not (self.source and self.report):
             # create source and report entry and it is compuslory for each imports API call
-            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.server, 'description': 'Reference Asset server'}
+            self.source = {'_key': context().args.CONNECTION_NAME, 'name': context().args.CONFIGURATION_AUTH_URL, 'description': 'Reference Asset server'}
             self.report = {'_key': str(self.timestamp), 'timestamp' : self.timestamp, 'type': 'Reference Asset server', 'description': 'Reference Asset server'}
 
         return {'source': self.source, 'report': self.report}

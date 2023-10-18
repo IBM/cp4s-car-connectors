@@ -21,6 +21,62 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.9.7 (greater than 3.9.x may work, less than probably will not; neither is tested)
 
+**Cyberreason Endpoints**
+| API | Endpoint | Description |
+| :------------: | :------------:| :----------:|
+| Query Sensors | https://\<your server\>/rest/sensors/query | List all details on sensors.Sensors are installed on endpoints(assets) |
+| Hunts and Investigate API | https://\<your server\>/rest/visualsearch/query/simple | List the machine mac address details |
+| Malops API | https://\<your server\>/rest/detection/inbox | Lists the vulnerability details throughout the environment |
+
+**Authentication Parameters**
+
+| Variable | Type | Description |
+| :------------: | :------------:| :----------:|
+| server | String | The base URL for your server. Enter the URL withoutthe https:// prefix. |
+| username | String | Cybereason user name. |
+| password | String | The password for Cybereason username. |
+| port | Integer | The port used for Cybereason server. |
+
+The following table shows the Connected Assets and Risk connector to Query sensor API data mapping.
+
+| CAR vertex/edge |   CAR field   |  Data source field  |
+| :-------------: | :-----------: | :-----------: |
+| asset | name | machineName |
+|       | external_id | guid |
+|       | asset_type | osType |
+| hostname | host_name | fqdn |
+| ipaddress | name | internalIpAddress/externalIpAddress |
+|       | _key | internalIpAddress |
+| application | name | osVersionType |
+|       | is_os | True |
+| asset_hostname | _from_external_id | guid |
+|          | _to | fqdn |
+| asset_ipaddress | _from_external_id | guid |
+|          | _to | internalIpAddress |
+| asset_application | _from_external_id | guid |
+|          | _to_external_id | sensorId |
+
+The following table shows the Connected Assets and Risk connector to Hunt and Investigate API data mapping.
+
+| CAR vertex/edge |   CAR field   |  Data source field  |
+| :-------------: | :-----------: | :-----------: |
+| macaddress | name | macAddressFormat->values |
+|       | _key | macAddressFormat->values |
+| ipaddress_macaddress | _from | ipaddress->elementvalues->name |
+|          | _to | macAddressFormat->values |
+
+The following table shows the Connected Assets and Risk connector to Malop API data mapping.
+
+| CAR vertex/edge |   CAR field   |  Data source field  |
+| :-------------: | :-----------: | :-----------: |
+| vulnerability | name | Malops->displayName |
+|          | descrption | Malops->malopDetectionType |
+|          | disclosed_on | Malops->creationTime |
+|          | external_id | guid |
+|          | severity | severity |
+| asset_vulnerability | _from_external_id | machine->guid |
+|          | _to_external_id | guid |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 - Requirements.txt file attached.
