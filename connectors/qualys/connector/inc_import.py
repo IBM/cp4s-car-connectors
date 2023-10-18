@@ -120,8 +120,9 @@ class IncrementalImport(BaseIncrementalImport):
             asset_edge_id = context().args.source + '/' + str(asset_id)
             edges = self.query_active_edges(edge_type, asset_edge_id, key)
             to_field = key + "_id"
-            for edge in edges["data"][edge_type]:
-                asset_edges[key].add(edge[to_field].split('/', 1)[1])
+            if "data" in edges:
+                for edge in edges["data"][edge_type]:
+                    asset_edges[key].add(edge[to_field].split('/', 1)[1])
         return asset_edges
 
     def query_active_edges(self, edge_type, asset_id, resource_name):
