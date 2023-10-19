@@ -19,6 +19,103 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.9.7 (greater than 3.9.x may work, less than probably will not; neither is tested)
 
+**CrowdStrike Falcon - Asset & Vulnerability**
+
+| FalconPy module | Method Name | Usage |
+|  :------------:   | :------------:| :----------:|
+| Discover | get_hosts( ) | Get details on Assets |
+|          | get_accounts( ) | Get details on Accounts |
+|          | get_applications( ) | Get details on Applications |
+| Spotlight | get_vulnerabilities( ) | Get details on Vulnerabilities |
+
+**Authentication:**
+
+Users with the Falcon Administrator role can create new API clients from the API Clients and Keys page of the console.
+
+Steps to create an API client:
+1. Create API clients to grant various levels of API access for different purposes.
+2. On the API Clients and Keys page (Support and resources > Resources and tools > API Clients and Keys), click Create API client.
+3. Enter details to define your API client:
+4. Client Name (required)
+5. Description (optional)
+6. API Scopes (required)
+7. Select the Read and/or Write boxes next to a scope to enable access to its endpoints.
+8. At least one scope must be assigned.
+9. Click Create to save the API client and generate the client ID and secret.
+
+**Mappings**
+
+The following table shows the Connected Assets and Risk connector to Falcon  Discover Asset Response data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   | :------------:| :----------:|
+| Asset | name | Host -> hostname |
+|       | external_id | Host -> id |
+|       | asset_type | Host -> form_factor |
+|       | description | Host -> Product_type_desc |
+| hostname | host_name | Host -> hostname |
+|          | _key | Host -> hostname |
+| ipaddress | _key | Host -> external_ip OR Host -> network_interfaces -> local_ip |
+|           | regin_id | Host -> city, country |
+| macaddress | _key | Host -> network_interfaces -> mac_address |
+|            | interface | Host -> network_interfaces -> interface_alias |
+| geolocation | external_id | Host -> city, country |
+|            | region  | Host -> city, country |
+| asset_hostname | _from_external_id | Host -> id |
+|            | _to | Host -> hostname |
+| asset_geolocation | _from_external_id | Host -> id |
+|            | _to_external_id | Host -> city, country |
+| asset_ipaddress | _from_external_id | Host -> id |
+|            | _to | Host -> external_ip OR Host -> local_ip_addresses |
+| asset_macaddress | _from_external_id | Host -> id |
+|            | _to | Host -> network_interfaces -> mac_address |
+| ipaddress_macaddress | _from | Host -> external_ip OR Host -> local_ip_addresses |
+|            | _to | Host -> network_interfaces -> mac_address |
+| ipaddress_geolocation | _from | Host -> external_ip OR Host -> local_ip_addresses |
+|            | _to_external_id | Host -> city, country |
+| ipaddress_hostname | _from | Host -> external_ip OR Host -> local_ip_addresses |
+|            | _to | Host -> hostname |
+
+The following table shows the Connected Assets and Risk connector to Falcon  Discover Application Response data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   | :------------: | :----------:|
+| application | name | App -> name OR App -> host -> os_version |
+|             | external_id | App -> id OR App -> host -> os_version + kernal_version |
+|             | is_os | False OR True |
+|             | owner | App -> vendor |
+|             | last_access_time | App -> last_updated_timestamp |
+| asset_application | _from_external_id | Host -> id |
+|            | _to_external_id | App -> id OR App -> host -> os_version + kernal_version |
+
+The following table shows the Connected Assets and Risk connector to Falcon  Discover Account Response data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   | :------------: | :----------:|
+| user | username | Account -> username |
+|      | external_id | Account -> username |
+| account | name | Account -> account_name |
+|      | external_id | Account -> id |
+| user_account | _from_external_id | Account -> username |
+|            | _to_external_id | Account -> id |
+| asset_account | _from_external_id | Host -> id |
+|            | _to_external_id | Account -> id |
+
+The following table shows the Connected Assets and Risk connector to Spotlight Vulnerability data mapping.
+
+|  CAR vertex/edge  |   CAR field   |  Data source field  |
+|  :------------:   | :------------: | :----------: |
+| vulnerability | name | vulnerability response -> cve -> id |
+|               | external_id | vulnerability response -> id |
+|               | description | vulnerability response -> cve -> description |
+|               | base_score | vulnerability response -> cve -> base_score |
+|               | xfr_wx | vulnerability response -> cve -> exploitability_score |
+|               | published_on | vulnerability response -> cve -> published_date |
+| asset_vulnerability | _from_external_id | Host -> id |
+|            | _to_external_id | vulnerability response -> id |
+| application_vulnerability | _from_external_id | App -> id |
+|            | _to_external_id | vulnerability response -> id |
+
 III. INSTALLATION:
 -----------------------------------------------------------------
 - Requirements.txt file attached.
