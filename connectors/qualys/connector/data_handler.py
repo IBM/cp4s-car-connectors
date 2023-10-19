@@ -291,24 +291,26 @@ class DataHandler(BaseDataHandler):
 
     # Create application Object as per CAR data model from data source
     def handle_application(self, obj):
-        if obj and 'vmdrVulnList' in obj['HostAsset'] and 'applications' in obj['HostAsset']:
+        if obj and 'applications' in obj['HostAsset']:
             for app in obj['HostAsset']['applications']:
-                for vuln in obj['HostAsset']['vmdrVulnList']:
-                    if app['productName'].lower() in vuln['RESULTS'].lower():
-                        res = self.copy_fields(obj, )
-                        res['name'] = app['fullName']
-                        res['external_id'] = str(app['id'])
-                        self.add_collection('application', res, 'external_id')
+                res = self.copy_fields(obj, )
+                res['name'] = app['fullName']
+                res['external_id'] = str(app['id'])
+                self.add_collection('application', res, 'external_id')
 
-                        # asset application edge creation
-                        asset_application = {'_from_external_id': str(obj['HostAsset']['id']),
-                                             '_to_external_id': str(app['id'])}
-                        self.add_edge('asset_application', asset_application)
+                # asset application edge creation
+                asset_application = {'_from_external_id': str(obj['HostAsset']['id']),
+                                        '_to_external_id': str(app['id'])}
+                self.add_edge('asset_application', asset_application)
 
-                        # application vulnerability edge creation
-                        application_vulnerability = {'_from_external_id': str(app['id']),
-                                                     '_to_external_id': str(vuln['QID'])}
-                        self.add_edge('application_vulnerability', application_vulnerability)
+
+                if 'vmdrVulnList' in obj['HostAsset']:
+                    for vuln in obj['HostAsset']['vmdrVulnList']:
+                        if 'RESULTS' in vuln and app['productName'].lower() in vuln['RESULTS'].lower():
+                            # application vulnerability edge creation
+                            application_vulnerability = {'_from_external_id': str(app['id']),
+                                                        '_to_external_id': str(vuln['QID'])}
+                            self.add_edge('application_vulnerability', application_vulnerability)
 
     # Create account object as per CAR data model from data source
     def handle_account(self, obj):
