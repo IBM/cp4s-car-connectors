@@ -23,6 +23,10 @@ class App(BaseApp):
 
     def setup(self):
         super().setup()
+
+        if 'SSWS' not in self.args.auth_token:
+            self.args.auth_token = 'SSWS '+ self.args.auth_token
+
         context().asset_server = AssetServer()
         context().full_importer = FullImport()
         context().inc_importer = IncrementalImport()
