@@ -16,7 +16,7 @@ class AssetServer:
         with open('connector/okta_config.json', 'rb') as json_data:
             self.config = json.load(json_data)
         self.server = "https://" + context().args.host
-        self.headers = {"Authorization": context().args.auth_token}
+        self.headers = { "Authorization" : context().args.auth_token}
 
     def test_connection(self):
         try:
