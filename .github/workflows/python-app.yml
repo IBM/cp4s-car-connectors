@@ -29,6 +29,6 @@ jobs:
         pip install pytest
     - name: Run script
       run: |
-        bash ./travis.sh
+        bash ./unit-test.sh
         echo "End Unit Tests..."
 
