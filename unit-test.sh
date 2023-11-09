@@ -4,7 +4,6 @@ CONNECTORS=(
     atp
     aws
     azure
-    crowdstrike
     cybereason
     gcp
     okta
