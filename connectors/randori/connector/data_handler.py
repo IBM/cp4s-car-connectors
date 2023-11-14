@@ -77,10 +77,10 @@ class DataHandler(BaseDataHandler):
 
         if obj['priority_score'] > 200:
             res['risk'] = obj['priority_score'] == 10
-        elif obj['priority_score'] <= 40:
-            res['risk'] = obj['priority_score']/40 * 7
+        elif obj['priority_score'] <= 29.98:
+            res['risk'] = obj['priority_score']/29.98 * 7
         else:
-            res['risk'] = 7 + ((obj['priority_score']-40)/160 * 3)
+            res['risk'] = 7 + ((obj['priority_score']-29.98)/160 * 3)
 
         if obj['impact_score'] == "Low":
             res['business_value'] = 2
