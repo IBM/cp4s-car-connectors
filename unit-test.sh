@@ -5,11 +5,13 @@ CONNECTORS=(
     aws
     azure
     cybereason
+    gcp
     okta
     proofpoint
     qualys
+    randori
     rhacs
-    # reference_connector
+    tanium
 )
 
 set -e
