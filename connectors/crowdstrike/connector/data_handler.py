@@ -6,15 +6,13 @@ from car_framework.data_handler import BaseDataHandler
 
 def timestamp_conv(time_string):
     """ Convert date time to epoch time format """
-    converted_time = None
-    if time_string:
-        if 'T' in time_string:
-            time_pattern = "%Y-%m-%dT%H:%M:%S"
-        else:
-            time_pattern = "%Y-%m-%d %H:%M:%S"
-        epoch = datetime.datetime(1970, 1, 1)
-        converted_time = int(((datetime.datetime.strptime(str(time_string)[:19],
-                                                        time_pattern) - epoch).total_seconds()) * 1000)
+    if 'T' in time_string:
+        time_pattern = "%Y-%m-%dT%H:%M:%S"
+    else:
+        time_pattern = "%Y-%m-%d %H:%M:%S"
+    epoch = datetime.datetime(1970, 1, 1)
+    converted_time = int(((datetime.datetime.strptime(str(time_string)[:19],
+                                                      time_pattern) - epoch).total_seconds()) * 1000)
     return converted_time
 
 
