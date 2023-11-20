@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 from tests.test_utils import inc_import_initialization, create_vertices_edges, \
     validate_all_handler, get_response
@@ -8,6 +8,8 @@ from tests.test_utils import inc_import_initialization, create_vertices_edges, \
 class TestIncrementalImportFunctions(unittest.TestCase):
     """Unit test for incremental import"""
 
+    @patch('falconpy.discover.Discover.__init__')
+    @patch('falconpy.spotlight_vulnerabilities.SpotlightVulnerabilities.__init__')
     @patch('car_framework.car_service.CarService.search_collection')
     @patch('car_framework.car_service.CarService.get_import_schema')
     @patch('falconpy.discover.Discover.get_hosts')
@@ -21,7 +23,7 @@ class TestIncrementalImportFunctions(unittest.TestCase):
     @patch('falconpy.spotlight_vulnerabilities.SpotlightVulnerabilities.query_vulnerabilities_combined')
     def test_incremental_create_update(self, mock_query_combine_vuln, mock_query_logins, mock_get_logins,
                                        mock_query_accounts, mock_get_accounts, mock_query_apps, mock_get_apps,
-                                       mock_query_hosts, mock_get_hosts, mock_schema, mock_collections):
+                                       mock_query_hosts, mock_get_hosts, mock_schema, mock_collections, mock_Discover, mock_SpotlightVulnerabilities):
         """unit test for incremental create and update"""
         inc_import_obj = inc_import_initialization()
         inc_import_obj.create_source_report_object()
@@ -37,6 +39,8 @@ class TestIncrementalImportFunctions(unittest.TestCase):
         mock_query_logins.return_value = get_response('query_login_response.json', True)
         mock_get_logins.return_value = get_response('get_logins_response.json', True)
         mock_query_combine_vuln.return_value = get_response('query_vuln_combined_response.json', True)
+        mock_Discover.return_value = None
+        mock_SpotlightVulnerabilities.return_value = None
         collections = get_response('car_search_collection.json', True)
         mock_collections.side_effect = [collections['asset_hostname'], collections['asset_ipaddress']]
         actual_response = create_vertices_edges(inc_import_obj)
