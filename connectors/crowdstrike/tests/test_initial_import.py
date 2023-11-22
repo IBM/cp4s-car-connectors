@@ -8,6 +8,8 @@ from tests.test_utils import full_import_initialization, \
 class TestInitialImportFunctions(unittest.TestCase):
     """Unit test for full import"""
 
+    @patch('falconpy.discover.Discover.__init__')
+    @patch('falconpy.spotlight_vulnerabilities.SpotlightVulnerabilities.__init__')
     @patch('car_framework.car_service.CarService.get_import_schema')
     @patch('falconpy.discover.Discover.get_hosts')
     @patch('falconpy.discover.Discover.query_hosts')
@@ -20,7 +22,7 @@ class TestInitialImportFunctions(unittest.TestCase):
     @patch('falconpy.spotlight_vulnerabilities.SpotlightVulnerabilities.query_vulnerabilities_combined')
     def test_import_collection(self, mock_query_combine_vuln, mock_query_logins, mock_get_logins,
                                mock_query_accounts, mock_get_accounts, mock_query_apps, mock_get_apps,
-                               mock_query_hosts, mock_get_hosts, mock_schema):
+                               mock_query_hosts, mock_get_hosts, mock_schema, mock_Discover, mock_SpotlightVulnerabilities):
         """unit test for import collection"""
 
         # Initialization
@@ -38,6 +40,8 @@ class TestInitialImportFunctions(unittest.TestCase):
         mock_query_logins.return_value = get_response('query_login_response.json', True)
         mock_get_logins.return_value = get_response('get_logins_response.json', True)
         mock_query_combine_vuln.return_value = get_response('query_vuln_combined_response.json', True)
+        mock_Discover.return_value = None
+        mock_SpotlightVulnerabilities.return_value = None
 
         actual_response = create_vertices_edges(full_import_obj)
         validations = validate_all_handler(actual_response)
