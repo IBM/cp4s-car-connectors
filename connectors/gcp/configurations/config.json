@@ -2,7 +2,8 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "Google Cloud Platform"
+            "displayName": "Google Cloud Platform",
+            "group": "gcp"
         }
     },
     "configuration": {
