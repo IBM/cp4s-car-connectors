@@ -266,9 +266,9 @@ class AssetServer(RestApiClient):
         :return: bearerToken
         """
         if audit:
-            self.tenantID = '90d07313-1739-4283-8a94-1add93bfd0eb'
-            self.clientID = 'aa1b9156-d509-4304-8ed7-7afb793835af'
-            self.clientSecret = 'ZWH8Q~LNbVncMqVFrCx-wViBXRTqdO8TGeHYlaIK'
+            self.tenantID = ''
+            self.clientID = ''
+            self.clientSecret = ''
         elif self.access_token!='':
             return self.access_token
         try:
