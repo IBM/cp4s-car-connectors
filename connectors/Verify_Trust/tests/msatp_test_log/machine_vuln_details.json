@@ -1,0 +1,100 @@
+{
+	"Stats": {
+		"ExecutionTime": 0.0468831,
+		"resource_usage": {
+			"cache": {
+				"memory": {
+					"hits": 2025,
+					"misses": 0,
+					"total": 2025
+				},
+				"disk": {
+					"hits": 0,
+					"misses": 0,
+					"total": 0
+				}
+			},
+			"cpu": {
+				"user": "00:00:00.0781250",
+				"kernel": "00:00:00",
+				"total cpu": "00:00:00.0781250"
+			},
+			"memory": {
+				"peak_per_node": 83886560
+			}
+		},
+		"dataset_statistics": [{
+			"table_row_count": 0,
+			"table_size": 0
+		}]
+	},
+	"Schema": [{
+		"Name": "MachineId",
+		"Type": "String"
+	}, {
+		"Name": "ComputerName",
+		"Type": "String"
+	}, {
+		"Name": "OSPlatform",
+		"Type": "String"
+	}, {
+		"Name": "OsVersion",
+		"Type": "String"
+	}, {
+		"Name": "OSArchitecture",
+		"Type": "String"
+	}, {
+		"Name": "SoftwareVendor",
+		"Type": "String"
+	}, {
+		"Name": "SoftwareName",
+		"Type": "String"
+	}, {
+		"Name": "SoftwareVersion",
+		"Type": "String"
+	}, {
+		"Name": "CveId",
+		"Type": "String"
+	}, {
+		"Name": "VulnerabilitySeverityLevel",
+		"Type": "String"
+	}, {
+		"Name": "CveId1",
+		"Type": "String"
+	}, {
+		"Name": "CvssScore",
+		"Type": "Double"
+	}, {
+		"Name": "IsExploitAvailable",
+		"Type": "SByte"
+	}, {
+		"Name": "VulnerabilitySeverityLevel1",
+		"Type": "String"
+	}, {
+		"Name": "LastModifiedTime",
+		"Type": "DateTime"
+	}, {
+		"Name": "PublishedDate",
+		"Type": "DateTime"
+	}, {
+		"Name": "VulnerabilityDescription",
+		"Type": "String"
+	}, {
+		"Name": "AffectedSoftware",
+		"Type": "Object"
+	}],
+	"Results": [{"MachineId":"db0519092c1c48ef5dc2f8ef75c09484599e7ed1",
+		         "ComputerName":"lp-5cd84714sc.hclt.corp.hcl.in",
+		        "OSPlatform":"Windows10",
+		        "OsVersion":"10.0.17134.1069.amd64fre.rs4_release.180410-1804",
+		        "OSArchitecture":"x64",
+		       "SoftwareVendor":"oracle",
+		       "SoftwareName":"jre",
+		       "SoftwareVersion":"x1234",
+	           "CveId": "c-id-123",
+		       "VulnerabilityDescription": "sample description",
+		       "PublishedDate": "sample_date",
+		       "CvssScore": 122.34567,
+		       "DeviceId": "7594a7860caaf0bdb5a3b68c341773bf004e3e14"
+	}]
+}
