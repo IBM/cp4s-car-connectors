@@ -8,7 +8,7 @@
         },
         "type": {
             "type": "connectorType",
-            "displayName": "Azure",
+            "displayName": "Microsoft Azure",
             "group": "azure"
         }
     },
