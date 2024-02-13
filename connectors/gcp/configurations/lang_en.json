@@ -7,7 +7,7 @@
             },
             "private_key": {
                 "label": "Private Key (Required)",
-                "description": "Private Key is a mandatory authentication parameter to communicate with the GCP datasource."
+                "description": "Private Key is a mandatory authentication parameter to communicate with the data source."
             }
         }
     }
