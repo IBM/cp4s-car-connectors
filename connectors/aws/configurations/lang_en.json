@@ -30,11 +30,13 @@
             },
             "aws_access_key_id": {
                 "label": "AWS access key ID",
-                "description": "AWS Access Key ID is required for both AWS key-based and role-based authentication"
+                "description": "AWS Access Key ID is required for both AWS key-based and role-based authentication",
+                "optional": true
             },
             "aws_secret_access_key": {
                 "label": "AWS secret access key",
-                "description": "AWS Secret Access Key ID is required for both AWS key-based and role-based authentication"
+                "description": "AWS Secret Access Key ID is required for both AWS key-based and role-based authentication",
+                "optional": true
             }
         }
     }
