@@ -1,32 +1,25 @@
 {
-    "connection": 
-    {
-        "type": 
-        {
+    "connection": {
+        "type": {
             "type": "connectorType",
             "displayName": "Tanium",
             "group": "tanium"
         },
-        "host": 
-        {
+        "host": {
             "type": "text",
             "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9_:/\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9_:/\\-]*[A-Za-z0-9])$"
         },
-        "port": 
-        {
+        "port": {
             "type": "number",
             "default": 8443,
             "min": 1,
             "max": 65535
         }
     },
-    "configuration": 
-    {
-        "auth": 
-        {
+    "configuration": {
+        "auth": {
             "type": "fields",
-            "token": 
-            {
+            "token": {
                 "type": "password"
             }
         }
