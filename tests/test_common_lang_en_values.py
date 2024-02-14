@@ -21,7 +21,7 @@ class Test_Language_EN_Confirmation():
             
     def _confirm_standard_hostname_text(self, lang_en_json):
         standard_label = "Management IP address or hostname"
-        standard_description = "Specify the IP address or  hostname of the data source"
+        standard_description = "Specify the IP address or hostname of the data source"
             
         if("connection" in lang_en_json and "host" in lang_en_json["connection"]):
             assert lang_en_json["connection"]["host"]["label"] == standard_label
@@ -48,7 +48,7 @@ class Test_Language_EN_Confirmation():
         #Here's an example of how you can do this in Python using the os module:
 
         # Define the directory path
-        directory_path = os.getcwd() + "/stix_shifter_modules"
+        directory_path = os.getcwd() + "/connectors"
         lang_en_file_list = list()
         
         # Iterate through all the child directories
