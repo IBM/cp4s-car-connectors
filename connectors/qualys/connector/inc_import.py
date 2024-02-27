@@ -94,7 +94,7 @@ class IncrementalImport(BaseIncrementalImport):
                 asset_edges['macaddress'].discard(key)
 
             # remove active vulnerability, application from edge list
-            if 'vmdrVulnList' in asset['HostAsset']:
+            if 'vmdrVulnList' in asset['HostAsset'] and 'applications' in asset['HostAsset']:
                 for vuln in asset['HostAsset']['vmdrVulnList']:
                     for app in asset['HostAsset']['applications']:
                         if app['productName'].lower() in vuln['RESULTS'].lower():
