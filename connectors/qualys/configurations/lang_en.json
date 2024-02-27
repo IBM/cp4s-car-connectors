@@ -18,8 +18,8 @@
                 "description": "Set the UTC time to run connector to pull data from data source"
             },
             "host": {
-                "label": "Qualys URL",
-                "description": "Qualys data source URL"
+                "label": "Management IP address or hostname",
+                "description": "Specify the IP address or hostname of the data source"
             }
         }
     },

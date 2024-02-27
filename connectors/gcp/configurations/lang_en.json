@@ -6,8 +6,8 @@
                 "description": "Client email address required for data source authentication"
             },
             "private_key": {
-                "label": "Private Key (Required)",
-                "description": "Private Key is a mandatory authentication parameter to communicate with the GCP datasource."
+                "label": "Private Key",
+                "description": "Private Key is a mandatory authentication parameter to communicate with the data source."
             }
         }
     }
