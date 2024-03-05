@@ -2,12 +2,12 @@
     "connection": {
         "type": {
             "type": "connectorType",
-            "displayName": "RHACS (StackRox)",
+            "displayName": "Red Hat Advanced Cluster Security for Kubernetes",
             "group": "rhacs"
         },
         "host": {
             "type": "text",
-            "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"
+            "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9_:/\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9_:/\\-]*[A-Za-z0-9])$"
         },
         "selfSignedCert": {
             "type": "password",

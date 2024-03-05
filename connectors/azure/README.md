@@ -23,7 +23,7 @@ II. PREREQUISITES:
 -----------------------------------------------------------------
 Python == 3.5.x (greater than 3.5.x may work, less than probably will not; neither is tested)
 
-The following permissions are required for the Microsoft Azure Connected Assets and Risk connector.
+The following permissions are required for the app for Microsoft Azure Connected Assets and Risk connector.
 
 **Azure Service Management**
 * user_impersonation
@@ -36,6 +36,8 @@ The following permissions are required for the Microsoft Azure Connected Assets 
 * SecurityEvents.Read.All
 * SecurityEvents.ReadWrite.All
 * User.Read
+
+Once the app is created with all the required permission, it needs to have Reader role assigned to it. Navigate to the Subscription > Choose the subscription > Add Role assignment > Reader > assign to the application SPN.
 
 The Microsoft Azure Security Center connector is designed to work with the Virtual Machines, Network Interfaces, Applications, SQL databases, and Vulnerabilities resources.
 
