@@ -141,8 +141,8 @@ python -V
 python3 -V
 docker version
 
-pip3 install 'cryptography==3.4.7'
-pip3 install 'pyopenssl==21.0.0'
+pip3 install 'cryptography==42.0.5'
+pip3 install 'pyopenssl==24.1.0'
 
 
 if [ ! -d "$BUILD_HOME" ]; then
