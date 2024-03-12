@@ -6,7 +6,7 @@ from tests.test_utils import full_import_initialization, get_response, RandoriMo
 class TestAssetServer(unittest.TestCase):
     """Unit test for server access functions"""
 
-    @patch('randori_api.api.default_api.DefaultApi.get_hostname')
+    @patch('randori_api_sdk.api.default_api.DefaultApi.get_hostname')
     def test_connection(self, mock_res):
         """Unit test for test_connection"""
 

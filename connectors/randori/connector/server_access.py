@@ -5,21 +5,21 @@ from car_framework.context import context
 from car_framework.util import DatasourceFailure, ErrorCode
 from car_framework.server_access import BaseAssetServer
 
-import randori_api
-from randori_api.api import default_api
+import randori_api_sdk
+from randori_api_sdk.api import default_api
 from base64 import b64encode
 
 
 class AssetServer(BaseAssetServer):
     def __init__(self):
         # Api authentication to call data-source  API
-        self.configuration = randori_api.Configuration(
+        self.configuration = randori_api_sdk.Configuration(
             access_token=context().args.access_token,
             host= 'https://{}'.format(context().args.host)
         )
 
     def test_connection(self):
-        with randori_api.ApiClient(self.configuration) as api_client:
+        with randori_api_sdk.ApiClient(self.configuration) as api_client:
             # Create an instance of the API class
             api_instance = default_api.DefaultApi(api_client)
             query = {
@@ -43,7 +43,7 @@ class AssetServer(BaseAssetServer):
             try:
                 api_response = api_instance.get_hostname(offset=1, limit=1, sort=["last_seen"], q=query, reversed_nulls=True)
                 code = 0
-            except randori_api.ApiException as e:
+            except randori_api_sdk.ApiException as e:
                 context().logger.error('Error testing connection: %s' % e)
                 code = 1
         return code
@@ -63,14 +63,14 @@ class AssetServer(BaseAssetServer):
             see https://github.com/RandoriDev/randori-api-sdk/blob/master/docs/AllDetectionsForTargetGetOutput.md
         """
         # Enter a context with an instance of the API client
-        with randori_api.ApiClient(self.configuration) as api_client:
+        with randori_api_sdk.ApiClient(self.configuration) as api_client:
             # Create an instance of the API class
             api_instance = default_api.DefaultApi(api_client)
             try:
                 api_response = api_instance.get_all_detections_for_target(offset=offset, limit=limit, sort=sort, q=q,
                                                                           reversed_nulls=reversed_nulls)
                 return api_response
-            except randori_api.exceptions.UnauthorizedException as e:
+            except randori_api_sdk.exceptions.UnauthorizedException as e:
                 raise DatasourceFailure(e, ErrorCode.DATASOURCE_FAILURE_AUTH.value)
-            except randori_api.ApiException as e:
+            except randori_api_sdk.ApiException as e:
                 raise e
