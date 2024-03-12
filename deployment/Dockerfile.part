@@ -10,8 +10,8 @@ USER root
 RUN  microdnf install openssl python39-pip
 COPY requirements.txt requirements.txt
 RUN  python3 -m pip install --upgrade pip
-RUN  pip3 install 'cryptography==3.4.7'
-RUN  pip3 install 'pyopenssl==21.0.0'
+RUN  pip3 install 'cryptography==42.0.5'
+RUN  pip3 install 'pyopenssl==24.1.0'
 RUN  pip3 install -r requirements.txt --no-cache-dir 
 
 FROM base
