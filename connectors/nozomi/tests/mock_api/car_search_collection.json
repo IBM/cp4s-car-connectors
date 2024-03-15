@@ -1,0 +1,38 @@
+{
+  "asset_macaddress": {
+    "asset_macaddress": [
+      {
+        "asset_id": "nozomi/0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c",
+        "macaddress_id": "nozomi/00:11:11:11:11:11",
+        "source": "nozomi"
+      }
+    ]
+  },
+  "asset_ipaddress": {
+    "asset_ipaddress": [
+      {
+        "asset_id": "nozomi/0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c",
+        "ipaddress_id": "nozomi/0/1.1.1.2",
+        "source": "nozomi"
+      }
+    ]
+  },
+  "asset_geolocation": {
+    "asset_geolocation": [
+      {
+        "asset_id": "nozomi/0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c",
+        "geolocation_id": "nozomi/39.68688:-75.8989",
+        "source": "nozomi"
+      }
+    ]
+  },
+  "asset_application": {
+    "asset_application": [
+      {
+        "asset_id": "nozomi/0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c",
+        "application_id": "nozomi/a4aaaaac-6aaa-4aaa-bad2-61111111111a",
+        "source": "nozomi"
+      }
+    ]
+  }
+}

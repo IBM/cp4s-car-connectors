@@ -1,0 +1,262 @@
+{
+  "result": [
+    {
+      "id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c",
+      "time": 1706024986000,
+      "last_activity_time": 1706019476000,
+      "name": "plc180.xxxx.corp.com",
+      "ip": [
+        "1.1.1.2",
+        "1.1.1.3",
+        "1.1.1.4"
+      ],
+      "mac_address": [
+        "00:11:11:11:11:11"
+      ],
+      "mac_address_level": {
+        "00:11:11:11:11:11": "confirmed"
+      },
+      "mac_vendor": [
+        "Schneider Electric"
+      ],
+      "os": "",
+      "os:info": {
+        "source": "passive"
+      },
+      "type": "controller",
+      "type:info": {
+        "source": "asset-kb"
+      },
+      "vendor": "Schneider Electric",
+      "vendor:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "product_name": "BMXP342020 Modicon M340 Processor Module",
+      "product_name:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "firmware_version": "v2.9",
+      "firmware_version:info": {
+        "source": "passive",
+        "protocol": "modbus",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "os_or_firmware": "Firmware: v3.9",
+      "technology_category": "OT",
+      "serial_number": "",
+      "serial_number:info": {
+        "source": "none"
+      },
+      "end_of_sale_date": 0,
+      "end_of_sale_date:info": {
+        "source": "none"
+      },
+      "end_of_support_date": 0,
+      "end_of_support_date:info": {
+        "source": "none"
+      },
+      "lifecycle": "",
+      "lifecycle:info": {
+        "source": "none"
+      },
+      "nodes": [
+        "1.1.1.2",
+        "1.1.1.3",
+        "1.1.1.4"
+      ],
+      "roles": [
+        "producer"
+      ],
+      "zones": [
+        "ProdNet-A"
+      ],
+      "protocols": [
+        "modbus"
+      ],
+      "properties": {
+        "1.1.1.2": {
+          "modbus/vendor": "schneider-electric",
+          "modbus/product_name": "bmxp342020",
+          "modicon/hardware_id": "0601-0301",
+          "modbus/firmware_version": "2.9"
+        },
+        "1.1.1.3": {
+          "modbus/vendor": "schneider-electric",
+          "modbus/product_name": "bmxp342020",
+          "modicon/hardware_id": "0601-0301",
+          "modbus/firmware_version": "2.9"
+        }
+      },
+      "custom_fields": {},
+      "capture_device": "em1",
+      "created_at": 1701098192520,
+      "risk": 10.0,
+      "level": 1,
+      "is_ai_enriched": true,
+      "appliance_hosts": [
+        "Demo Sensor"
+      ],
+      "network_domain:name": null,
+      "site:name": null,
+      "record_created_at": 1706024989167,
+      "software_list_ids": [],
+      "_asset_kb_id": "588bxxxx-xxxx-xxxx-xxxx-xxxxxxxx14bd",
+      "device_id": "00:11:11:11:11:11",
+      "vlan_id": []
+    },
+    {
+      "id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98e",
+      "time": 1706024986000,
+      "last_activity_time": 1706019476000,
+      "name": "plc181.xxxx.corp.com",
+      "ip": [
+        "1.1.1.5"
+      ],
+      "mac_address": [
+        "00:11:11:11:11:12"
+      ],
+      "mac_address_level": {
+        "00:11:11:11:11:12": "confirmed"
+      },
+      "mac_vendor": [
+        "Schneider Electric"
+      ],
+      "os": "",
+      "os:info": {
+        "source": "passive"
+      },
+      "type": "controller",
+      "type:info": {
+        "source": "asset-kb"
+      },
+      "vendor": "Schneider Electric",
+      "vendor:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "product_name": "BMXP342020 Modicon M340 Processor Module",
+      "product_name:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "firmware_version": "v2.9",
+      "firmware_version:info": {
+        "source": "passive",
+        "protocol": "modbus",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "os_or_firmware": "Firmware: v2.9",
+      "technology_category": "OT",
+      "serial_number": "",
+      "serial_number:info": {
+        "source": "none"
+      },
+      "end_of_sale_date": 0,
+      "end_of_sale_date:info": {
+        "source": "none"
+      },
+      "end_of_support_date": 0,
+      "end_of_support_date:info": {
+        "source": "none"
+      },
+      "lifecycle": "",
+      "lifecycle:info": {
+        "source": "none"
+      },
+      "nodes": [
+        "1.1.1.5"
+      ],
+      "roles": [
+        "producer"
+      ],
+      "zones": [
+        "ProdNet-A"
+      ],
+      "protocols": [
+        "modbus"
+      ],
+      "properties": {
+        "1.1.1.5": {
+          "modbus/vendor": "schneider-electric",
+          "modbus/product_name": "bmxp342020",
+          "modicon/hardware_id": "0601-0301",
+          "modbus/firmware_version": "2.9"
+        }
+      },
+      "custom_fields": {},
+      "capture_device": "em1",
+      "created_at": 1701098192520,
+      "risk": 10.0,
+      "level": 1,
+      "is_ai_enriched": true,
+      "appliance_hosts": [
+        "Demo Sensor"
+      ],
+      "network_domain:name": null,
+      "site:name": null,
+      "record_created_at": 1706024989167,
+      "software_list_ids": [],
+      "_asset_kb_id": "588bxxxx-xxxx-xxxx-xxxx-xxxxxxxx14be",
+      "device_id": "00:11:11:11:11:12",
+      "vlan_id": []
+    }
+  ],
+  "header": [
+    "id",
+    "time",
+    "last_activity_time",
+    "name",
+    "ip",
+    "mac_address",
+    "mac_address_level",
+    "mac_vendor",
+    "os",
+    "os:info",
+    "type",
+    "type:info",
+    "vendor",
+    "vendor:info",
+    "product_name",
+    "product_name:info",
+    "firmware_version",
+    "firmware_version:info",
+    "os_or_firmware",
+    "technology_category",
+    "serial_number",
+    "serial_number:info",
+    "end_of_sale_date",
+    "end_of_sale_date:info",
+    "end_of_support_date",
+    "end_of_support_date:info",
+    "lifecycle",
+    "lifecycle:info",
+    "nodes",
+    "roles",
+    "zones",
+    "protocols",
+    "properties",
+    "custom_fields",
+    "capture_device",
+    "created_at",
+    "risk",
+    "level",
+    "is_ai_enriched",
+    "appliance_hosts",
+    "network_domain:name",
+    "site:name",
+    "record_created_at",
+    "software_list_ids",
+    "_asset_kb_id",
+    "device_id",
+    "vlan_id"
+  ],
+  "total": null
+}
