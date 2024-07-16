@@ -1,0 +1,14 @@
+{
+  "data": null,
+  "links": {
+    "self": "/api/open/sign_in"
+  },
+  "errors": {
+    "key_name": [
+      "is invalid"
+    ],
+    "key_token": [
+      "is invalid"
+    ]
+  }
+}

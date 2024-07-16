@@ -1,0 +1,44 @@
+{
+  "data": {
+    "id": "38c0xxxx697b",
+    "type": "api_keys",
+    "attributes": {
+      "key_name": "AKxxxx80",
+      "revoked_at": null,
+      "allowed_ips": "",
+      "description": "CF Nozomi Vantage",
+      "last_sign_in_at": "2024-01-31T04:50:19.815Z",
+      "last_sign_in_ip": "1.10.10.10"
+    },
+    "relationships": {
+      "user": {
+        "links": {
+          "related": "/api/v1/admin/users/a5a5xxxx769c"
+        },
+        "data": {
+          "type": "users",
+          "id": "a5a5xxxx769c"
+        }
+      },
+      "linked_organization": {
+        "links": {
+          "related": "/api/v1/admin/organizations/5576xxxxb3b4"
+        },
+        "data": {
+          "type": "organizations",
+          "id": "5576xxxxb3b4"
+        }
+      }
+    },
+    "links": {
+      "self": "/api/v1/api_keys/38c0xxxx697b",
+      "collection": "/api/v1/api_keys"
+    }
+  },
+  "links": {
+    "self": "/api/open/sign_in"
+  },
+  "meta": {
+    "sdr": "w"
+  }
+}

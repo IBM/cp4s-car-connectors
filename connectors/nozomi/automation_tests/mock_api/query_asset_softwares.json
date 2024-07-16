@@ -1,0 +1,32 @@
+{
+  "result": [
+      {
+          "id": "a4aaaaac-6aaa-4aaa-bad2-61111111111a",
+          "time": 1709562412757,
+          "source": "arc",
+          "vendor": "Cisco",
+          "product": "CP8811 1.5.4.0",
+          "size_MB": 0,
+          "version": "10.3.1",
+          "install_date": "",
+          "install_source": "",
+          "install_location": "",
+          "status": "installed",
+          "asset_id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c"
+      }
+  ],
+  "header": [
+      "id",
+      "time",
+      "source",
+      "vendor",
+      "product",
+      "size_MB",
+      "version",
+      "install_date",
+      "install_source",
+      "install_location",
+      "status"
+  ],
+  "total": 30
+}

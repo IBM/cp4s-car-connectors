@@ -1,0 +1,5 @@
+{   "source": "nozomi",
+    "car_service_apikey_url": "https://cp4s.cp4scluster-xxxx-0000.jp-tok.containers.appdomain.cloud/api/car/v2",
+    "api_key": "db57xxxxx84b0",
+    "api_password": "c7abxxxxdb04"
+}

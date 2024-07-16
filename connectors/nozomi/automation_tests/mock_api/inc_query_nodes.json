@@ -1,0 +1,515 @@
+{
+  "result": [
+    {
+      "id": "0005xxxx-xxxx-xxxx-xxxx-xxxxxxxx1222",
+      "first_activity_time": 1701098192522,
+      "last_activity_time": 1704791876000,
+      "label": "plc180.xxxx.corp.com",
+      "ip": "1.1.1.2",
+      "mac_address": "00:11:11:11:11:11",
+      "mac_address:info": {
+        "source": "passive",
+        "protocol": "arp",
+        "confidence": "high",
+        "likelihood": 1,
+        "granularity": "complete",
+        "protocol_source": "ARP",
+        "likelihood_level": "confirmed"
+      },
+      "label:info": {
+        "source": "passive",
+        "protocol": "dns",
+        "confidence": "unknown",
+        "granularity": "unknown"
+      },
+      "protocols": [
+        "modbus"
+      ],
+      "os": null,
+      "os:info": {
+        "source": "none"
+      },
+      "name": "plc180.xxxx.corp.com",
+      "type": "controller",
+      "type:info": {
+        "source": "asset-kb"
+      },
+      "zone": "ProdNet-A",
+      "roles": [
+        "producer"
+      ],
+      "level": 1,
+      "custom_fields": {},
+      "vlan_id:info": {
+        "source": "none"
+      },
+      "subnet": null,
+      "vendor": "Schneider Electric",
+      "vendor:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "product_name": "BMXP342020 Modicon M340 Processor Module",
+      "product_name:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "firmware_version": "v2.9",
+      "firmware_version:info": {
+        "source": "passive",
+        "protocol": "modbus",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "serial_number": null,
+      "serial_number:info": {
+        "source": "none"
+      },
+      "lifecycle": null,
+      "lifecycle:info": {
+        "source": "none"
+      },
+      "bpf_filter": "ip host 1.1.1.2",
+      "created_at": 1701098192521,
+      "mac_vendor": "Schneider Electric",
+      "properties": {
+        "modbus/vendor": "schneider-electric",
+        "modbus/product_name": "bmxp342020",
+        "modicon/hardware_id": "0601-0301",
+        "modbus/firmware_version": "2.9"
+      },
+      "reputation": null,
+      "links_count": 1,
+      "capture_device": "em1",
+      "device_modules": {
+        "vendor": "Schneider Electric",
+        "children": {
+          "modbus": [
+            {
+              "type": "slot",
+              "value": "Slot-00",
+              "children": [
+                {
+                  "type": "component",
+                  "value": "6.30.1.3",
+                  "attributes": {
+                    "vendor": "Schneider Electric",
+                    "version": "2.90",
+                    "product_name": "BMXP342020",
+                    "component_type": "Processor module"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "slot",
+              "value": "Slot-01",
+              "children": [
+                {
+                  "type": "component",
+                  "value": "6.0.2.10",
+                  "attributes": {
+                    "vendor": "Schneider Electric",
+                    "version": "2.0",
+                    "product_name": "BMXDRA 0805",
+                    "component_type": "Discrete output module"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "slot",
+              "value": "Slot-02"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-03"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-04"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-05"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-06"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-07"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-08"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-09"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-10"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-11"
+            }
+          ]
+        },
+        "product_name": "BMXP342020 Modicon M340 Processor Module",
+        "firmware_version": "v2.9"
+      },
+      "_private_status": "arp",
+      "variables_count": 2,
+      "is_public": false,
+      "is_disabled": false,
+      "_is_licensed": true,
+      "is_broadcast": false,
+      "is_confirmed": true,
+      "is_compromised": false,
+      "is_learned": true,
+      "is_fully_learned": true,
+      "is_ai_enriched": true,
+      "received.bytes": 54578,
+      "received.packets": 862,
+      "sent.bytes": 29488,
+      "sent.packets": 434,
+      "sent.last_5m_bytes": 12596,
+      "sent.last_15m_bytes": 29488,
+      "sent.last_30m_bytes": 29488,
+      "sent.last_1h_bytes": 0,
+      "sent.last_1d_bytes": 0,
+      "sent.last_1w_bytes": 0,
+      "received.last_5m_bytes": 23832,
+      "received.last_15m_bytes": 54578,
+      "received.last_30m_bytes": 54578,
+      "received.last_1h_bytes": 0,
+      "received.last_1d_bytes": 0,
+      "received.last_1w_bytes": 0,
+      "end_of_support_date": null,
+      "end_of_support_date:info": {
+        "source": "none"
+      },
+      "end_of_sale_date": null,
+      "end_of_sale_date:info": {
+        "source": "none"
+      },
+      "tcp_retransmission.bytes": 4285,
+      "tcp_retransmission.packets": 57,
+      "tcp_retransmission.percent": 5.097185544691076,
+      "tcp_retransmission.last_5m_bytes": 4285,
+      "tcp_retransmission.last_15m_bytes": 4285,
+      "tcp_retransmission.last_30m_bytes": 4285,
+      "record_created_at": 1704796718336,
+      "site:name": null,
+      "network_domain:name": null,
+      "_asset_kb_id": "588bxxxx-xxxx-xxxx-xxxx-xxxxxxxx14bd",
+      "device_id": "00:11:11:11:11:11",
+      "vlan_id": null,
+      "asset_id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c"
+    },
+    {
+      "id": "0005xxxx-xxxx-xxxx-xxxx-xxxxxxxx1223",
+      "first_activity_time": 1701098192522,
+      "last_activity_time": 1704791876000,
+      "label": "plc181.xxxx.corp.com",
+      "ip": "1.1.1.5",
+      "mac_address": "00:11:11:11:11:12",
+      "mac_address:info": {
+        "source": "passive",
+        "protocol": "arp",
+        "confidence": "high",
+        "likelihood": 1,
+        "granularity": "complete",
+        "protocol_source": "ARP",
+        "likelihood_level": "confirmed"
+      },
+      "label:info": {
+        "source": "passive",
+        "protocol": "dns",
+        "confidence": "unknown",
+        "granularity": "unknown"
+      },
+      "protocols": [
+        "modbus"
+      ],
+      "os": null,
+      "os:info": {
+        "source": "none"
+      },
+      "name": "plc181.xxxx.corp.com",
+      "type": "controller",
+      "type:info": {
+        "source": "asset-kb"
+      },
+      "zone": "ProdNet-A",
+      "roles": [
+        "producer"
+      ],
+      "level": 1,
+      "custom_fields": {},
+      "vlan_id:info": {
+        "source": "none"
+      },
+      "subnet": null,
+      "vendor": "Schneider Electric",
+      "vendor:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "product_name": "BMXP342020 Modicon M340 Processor Module",
+      "product_name:info": {
+        "source": "asset-kb",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "firmware_version": "v2.9",
+      "firmware_version:info": {
+        "source": "passive",
+        "protocol": "modbus",
+        "confidence": "high",
+        "granularity": "complete"
+      },
+      "serial_number": null,
+      "serial_number:info": {
+        "source": "none"
+      },
+      "lifecycle": null,
+      "lifecycle:info": {
+        "source": "none"
+      },
+      "bpf_filter": "ip host 1.1.1.5",
+      "created_at": 1701098192521,
+      "mac_vendor": "Schneider Electric",
+      "properties": {
+        "modbus/vendor": "schneider-electric",
+        "modbus/product_name": "bmxp342020",
+        "modicon/hardware_id": "0601-0301",
+        "modbus/firmware_version": "2.9"
+      },
+      "reputation": null,
+      "links_count": 1,
+      "capture_device": "em1",
+      "device_modules": {
+        "vendor": "Schneider Electric",
+        "children": {
+          "modbus": [
+            {
+              "type": "slot",
+              "value": "Slot-00",
+              "children": [
+                {
+                  "type": "component",
+                  "value": "6.30.1.3",
+                  "attributes": {
+                    "vendor": "Schneider Electric",
+                    "version": "2.90",
+                    "product_name": "BMXP342020",
+                    "component_type": "Processor module"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "slot",
+              "value": "Slot-01",
+              "children": [
+                {
+                  "type": "component",
+                  "value": "6.0.2.10",
+                  "attributes": {
+                    "vendor": "Schneider Electric",
+                    "version": "2.0",
+                    "product_name": "BMXDRA 0805",
+                    "component_type": "Discrete output module"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "slot",
+              "value": "Slot-02"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-03"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-04"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-05"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-06"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-07"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-08"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-09"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-10"
+            },
+            {
+              "type": "slot",
+              "value": "Slot-11"
+            }
+          ]
+        },
+        "product_name": "BMXP342020 Modicon M340 Processor Module",
+        "firmware_version": "v2.9"
+      },
+      "_private_status": "arp",
+      "variables_count": 2,
+      "is_public": false,
+      "is_disabled": false,
+      "_is_licensed": true,
+      "is_broadcast": false,
+      "is_confirmed": true,
+      "is_compromised": false,
+      "is_learned": true,
+      "is_fully_learned": true,
+      "is_ai_enriched": true,
+      "received.bytes": 54578,
+      "received.packets": 862,
+      "sent.bytes": 29488,
+      "sent.packets": 434,
+      "sent.last_5m_bytes": 12596,
+      "sent.last_15m_bytes": 29488,
+      "sent.last_30m_bytes": 29488,
+      "sent.last_1h_bytes": 0,
+      "sent.last_1d_bytes": 0,
+      "sent.last_1w_bytes": 0,
+      "received.last_5m_bytes": 23832,
+      "received.last_15m_bytes": 54578,
+      "received.last_30m_bytes": 54578,
+      "received.last_1h_bytes": 0,
+      "received.last_1d_bytes": 0,
+      "received.last_1w_bytes": 0,
+      "end_of_support_date": null,
+      "end_of_support_date:info": {
+        "source": "none"
+      },
+      "end_of_sale_date": null,
+      "end_of_sale_date:info": {
+        "source": "none"
+      },
+      "tcp_retransmission.bytes": 4285,
+      "tcp_retransmission.packets": 57,
+      "tcp_retransmission.percent": 5.097185544691076,
+      "tcp_retransmission.last_5m_bytes": 4285,
+      "tcp_retransmission.last_15m_bytes": 4285,
+      "tcp_retransmission.last_30m_bytes": 4285,
+      "record_created_at": 1704796718336,
+      "site:name": null,
+      "network_domain:name": null,
+      "_asset_kb_id": "588bxxxx-xxxx-xxxx-xxxx-xxxxxxxx14bd",
+      "device_id": "00:11:11:11:11:11",
+      "vlan_id": null,
+      "asset_id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c"
+    }
+  ],
+  "header": [
+    "id",
+    "first_activity_time",
+    "last_activity_time",
+    "label",
+    "ip",
+    "mac_address",
+    "mac_address:info",
+    "label:info",
+    "protocols",
+    "os",
+    "os:info",
+    "name",
+    "type",
+    "type:info",
+    "zone",
+    "roles",
+    "level",
+    "custom_fields",
+    "vlan_id:info",
+    "subnet",
+    "vendor",
+    "vendor:info",
+    "product_name",
+    "product_name:info",
+    "firmware_version",
+    "firmware_version:info",
+    "serial_number",
+    "serial_number:info",
+    "lifecycle",
+    "lifecycle:info",
+    "bpf_filter",
+    "created_at",
+    "mac_vendor",
+    "properties",
+    "reputation",
+    "links_count",
+    "capture_device",
+    "device_modules",
+    "_private_status",
+    "variables_count",
+    "is_public",
+    "is_disabled",
+    "_is_licensed",
+    "is_broadcast",
+    "is_confirmed",
+    "is_compromised",
+    "is_learned",
+    "is_fully_learned",
+    "is_ai_enriched",
+    "received.bytes",
+    "received.packets",
+    "sent.bytes",
+    "sent.packets",
+    "sent.last_5m_bytes",
+    "sent.last_15m_bytes",
+    "sent.last_30m_bytes",
+    "sent.last_1h_bytes",
+    "sent.last_1d_bytes",
+    "sent.last_1w_bytes",
+    "received.last_5m_bytes",
+    "received.last_15m_bytes",
+    "received.last_30m_bytes",
+    "received.last_1h_bytes",
+    "received.last_1d_bytes",
+    "received.last_1w_bytes",
+    "end_of_support_date",
+    "end_of_support_date:info",
+    "end_of_sale_date",
+    "end_of_sale_date:info",
+    "tcp_retransmission.bytes",
+    "tcp_retransmission.packets",
+    "tcp_retransmission.percent",
+    "tcp_retransmission.last_5m_bytes",
+    "tcp_retransmission.last_15m_bytes",
+    "tcp_retransmission.last_30m_bytes",
+    "record_created_at",
+    "site:name",
+    "network_domain:name",
+    "_asset_kb_id",
+    "device_id",
+    "vlan_id",
+    "asset_id"
+  ],
+  "total": null
+}

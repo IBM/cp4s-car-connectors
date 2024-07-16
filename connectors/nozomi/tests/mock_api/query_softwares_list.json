@@ -1,0 +1,42 @@
+{
+  "result": [
+    {
+      "id": "00cfxxxx-xxxx-xxxx-xxxx-2xxxxxxxe244",
+      "time": 1706019662000,
+      "human_cpe_update": "-",
+      "human_cpe_vendor": "Cisco",
+      "human_cpe_edition": "-",
+      "human_cpe_product": "CP8811",
+      "human_cpe_version": "10.3.1",
+      "cpe": "cpe:/a:cisco:cp8811:10.3.1:-:-",
+      "cpe_part": "a",
+      "cpe_update": "-",
+      "cpe_vendor": "cisco",
+      "likelihood": 0.8,
+      "cpe_edition": "-",
+      "cpe_product": "cp8811",
+      "cpe_version": "10.3.1",
+      "cpe_translator": "sip",
+      "asset_id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98c"
+    }
+  ],
+  "header": [
+    "id",
+    "time",
+    "human_cpe_update",
+    "human_cpe_vendor",
+    "human_cpe_edition",
+    "human_cpe_product",
+    "human_cpe_version",
+    "cpe",
+    "cpe_part",
+    "cpe_update",
+    "cpe_vendor",
+    "likelihood",
+    "cpe_edition",
+    "cpe_product",
+    "cpe_version",
+    "cpe_translator"
+  ],
+  "total": null
+}

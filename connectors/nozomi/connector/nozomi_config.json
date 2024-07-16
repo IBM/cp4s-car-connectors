@@ -1,0 +1,46 @@
+{
+  "source": "Nozomi Networks",
+  "sign_in": {
+    "endpoint": "/api/open/sign_in"
+  },
+  "asset": {
+    "endpoint": "/api/open/query/do?query=assets"
+  },
+  "sensor": {
+    "endpoint": "/api/open/query/do?query=sensors"
+  },
+  "node": {
+    "endpoint": "/api/open/query/do?query=nodes"
+  },
+  "software_list": {
+    "endpoint": "/api/open/query/do?query=software_list",
+    "fields": [
+      "id",
+      "asset_id",
+      "cpe",
+      "human_cpe_vendor",
+      "human_cpe_product",
+      "human_cpe_version"
+    ]
+  },
+  "asset_softwares": {
+    "endpoint": "/api/open/query/do?query=asset_softwares",
+    "fields": [
+      "id",
+      "asset_id",
+      "time",
+      "source",
+      "vendor",
+      "product",
+      "version",
+      "size_MB",
+      "status"
+    ]
+  },
+  "asset_cve": {
+    "endpoint": "/api/open/query/do?query=asset_cve"
+  },
+  "vulnerability": {
+    "endpoint": "/api/open/query/do?query=vulnerability"
+  }
+}

@@ -1,0 +1,48 @@
+{
+    "connection": {
+        "schedule": {
+            "frequency": {
+                "label": "Frequency",
+                "description": "Select how frequently this connection will pull data from the asset",
+                "optionLabels": {
+                    "1h"    : "1 hour",
+                    "2h"    : "2 hours",
+                    "4h"    : "4 hours",
+                    "6h"    : "6 hours",
+                    "12h"   : "12 hours",
+                    "daily" : "Daily"
+                }
+            },
+            "time": {
+                "label": "Time (UTC)",
+                "description": "Set the UTC time to run connector to pull data from data source"
+            }
+        },
+        "host": {
+            "label": "Management IP address or hostname",
+            "description": "Specify the IP address or hostname of the data source"
+        },
+        "port": {
+            "label": "Host port",
+            "description": "Set the port number that is associated with the hostname or IP address"
+        },
+        "options": {
+            "data_retention_period": {
+                "label": "Data retention period",
+                "description": "Specify the data retention period of the data source"
+            }
+        }
+    },
+    "configuration": {
+        "auth": {
+            "key_name": {
+                "label": "Key Name",
+                "description": "Unique identity Key Name of Nozomi API. It can be found in the API keys table under user profile in the Nozomi Vantage console"
+            },
+            "key_token": {
+                "label": "Key Token",
+                "description": "Token code of Nozomi API client. It can be found while creating a API keys for user in Nozomi Vantage console"
+            }
+        }
+    }
+}

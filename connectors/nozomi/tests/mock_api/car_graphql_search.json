@@ -1,0 +1,47 @@
+{
+  "asset": {
+    "data": {
+      "asset": [
+        {
+          "external_id": "0093xxxx-xxxx-xxxx-xxxx-xxxxxxxxb98d"
+        }
+      ]
+    }
+  },
+  "asset_macaddress": {
+    "data": {
+      "asset_macaddress": [
+        {
+          "macaddress_id": "nozomi/00:11:11:11:11:11"
+        }
+      ]
+    }
+  },
+  "asset_ipaddress": {
+    "data": {
+      "asset_ipaddress": [
+        {
+          "ipaddress_id": "nozomi/0/1.1.1.2"
+        }
+      ]
+    }
+  },
+  "asset_application": {
+    "data": {
+      "asset_application": [
+        {
+          "application_id": "nozomi/00cfxxxx-xxxx-xxxx-xxxx-2xxxxxxxe244"
+        }
+      ]
+    }
+  },
+  "asset_vulnerability": {
+    "data": {
+      "asset_vulnerability": [
+        {
+          "vulnerability_id": "nozomi/00cfxxxx-xxxx-xxxx-xxxx-2xxxxxxxe244"
+        }
+      ]
+    }
+  }
+}

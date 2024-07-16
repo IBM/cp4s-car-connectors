@@ -1,7 +1,7 @@
 import json
 import time
 
-import requests
+import requests, urllib3
 import xmltodict
 from requests.auth import HTTPBasicAuth
 from car_framework.context import context
@@ -234,7 +234,8 @@ class AssetServer(object):
         :return: Bearer token
         """
         endpoint = context().args.gateway + self.config['endpoint']['auth']
-        data = 'username=%s&password=%s&token=true' % (context().args.username, context().args.password)
+        payload= {'username': context().args.username, 'password':context().args.password, 'token':'true'}
+        data = urllib3.request.urlencode(payload)
         header = {"Content-Type": "application/x-www-form-urlencoded"}
         response = self.get_collection(endpoint, headers=header, data=data)
         # on successful token generation 201 status code will be returned
