@@ -255,6 +255,7 @@ class DataHandler(BaseDataHandler):
                     res = self.copy_fields(obj, )
                     key = interface['HostAssetInterface'].get('macAddress', "")
                     #Added a check on the mac address to ensure it's a valid format.
+                    #If performance issues show up, we can match on only not "null", but this covers additional cases.
                     if not key or not re.match("[0-9a-f]{2}([-:]?)[0-9a-f]{2}(\\1[0-9a-f]{2}){4}$", key.lower()):
                         continue
                     res['_key'] = key
