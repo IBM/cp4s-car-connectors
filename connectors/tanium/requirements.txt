@@ -1,2 +1,2 @@
-car-connector-framework==4.0.1
+car-connector-framework==4.0.2
 python-dateutil==2.8.2
