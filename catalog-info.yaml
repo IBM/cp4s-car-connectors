@@ -7,7 +7,6 @@ metadata:
   tags:
     - stix
     - python
-    - oca
     - interoperability
   annotations:
     github.com/project-slug: IBM/cp4s-car-connectors
