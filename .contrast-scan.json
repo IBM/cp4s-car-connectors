@@ -1,0 +1,7 @@
+{
+  "excludes": [
+    "**/automation_tests/**",
+    "**/tests/**",
+    "**/test/**"
+  ]
+}
