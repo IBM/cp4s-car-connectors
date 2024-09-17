@@ -1,4 +1,2 @@
 adal==1.2.6
-car-connector-framework==4.0.1
-urllib3==1.26.18
-
+car-connector-framework==4.0.2

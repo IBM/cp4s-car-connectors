@@ -1,0 +1,19 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 'cp4s-car-connectors'
+  description: Core open-source library and connectors used by CAR
+  tags:
+    - stix
+    - python
+    - interoperability
+  annotations:
+    github.com/project-slug: IBM/cp4s-car-connectors
+    jira/component: "Connector Factory"
+    backstage.io/techdocs-ref: dir:.
+spec:
+  type: library
+  lifecycle: production
+  owner: connectorfactory
+---

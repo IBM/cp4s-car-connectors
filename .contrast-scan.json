@@ -1,0 +1,8 @@
+{
+  "excludes": [
+    "**/automation_tests/**",
+    "**/tests/**",
+    "**/test/**",
+    "**/reference_connector/**"
+  ]
+}
