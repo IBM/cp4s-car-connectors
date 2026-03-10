@@ -3,6 +3,7 @@ import time
 
 import requests, urllib3
 import xmltodict
+from urllib.parse import urlencode
 from requests.auth import HTTPBasicAuth
 from car_framework.context import context
 from connector.error_response import ErrorResponder
@@ -235,7 +236,7 @@ class AssetServer(object):
         """
         endpoint = context().args.gateway + self.config['endpoint']['auth']
         payload= {'username': context().args.username, 'password':context().args.password, 'token':'true'}
-        data = urllib3.request.urlencode(payload)
+        data = urlencode(payload)
         header = {"Content-Type": "application/x-www-form-urlencoded"}
         response = self.get_collection(endpoint, headers=header, data=data)
         # on successful token generation 201 status code will be returned
