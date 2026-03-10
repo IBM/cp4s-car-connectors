@@ -31,7 +31,6 @@ jobs:
       - name: Upgrade pip and install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # install all your dependencies, including car-connector-framework>=4.0.3
           pip install pytest
 
       - name: Run unit tests
