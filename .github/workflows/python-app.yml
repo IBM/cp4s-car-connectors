@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  test:
+    name: build (${{ matrix.python-version }})
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,10 +21,11 @@ jobs:
         python-version: ["3.10", "3.11", "3.12"]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v3
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
@@ -37,3 +38,12 @@ jobs:
         run: |
           bash ./unit-test.sh
           echo "End Unit Tests..."
+
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: All builds passed
+        run: echo "All matrix builds passed"
