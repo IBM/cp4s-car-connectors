@@ -3,6 +3,6 @@ google-cloud-asset==3.19.0
 google-cloud-resource-manager==1.9.1
 google-cloud-securitycenter==1.19.1
 google-cloud-logging==3.5.0
-google-auth==2.17.1
+google-auth==2.56.2
 google-api-python-client==2.74.0
 urllib3>=2.6.3,<3
