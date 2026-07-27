@@ -1,4 +1,4 @@
-car-connector-framework==3.0.2
+car-connector-framework==4.0.3
 google-cloud-asset>=4.4.0,<5
 google-cloud-resource-manager>=1.18.0,<2
 google-cloud-securitycenter>=1.46.0,<2
