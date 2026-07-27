@@ -1,8 +1,8 @@
 car-connector-framework==3.0.2
-google-cloud-asset==3.19.0
-google-cloud-resource-manager==1.9.1
-google-cloud-securitycenter==1.19.1
-google-cloud-logging==3.5.0
-google-auth==2.17.1
-google-api-python-client==2.74.0
+google-cloud-asset>=4.4.0,<5
+google-cloud-resource-manager>=1.18.0,<2
+google-cloud-securitycenter>=1.46.0,<2
+google-cloud-logging>=3.16.1,<4
+google-auth>=2.56.2,<3
+google-api-python-client>=2.198.0,<3
 urllib3>=2.6.3,<3
