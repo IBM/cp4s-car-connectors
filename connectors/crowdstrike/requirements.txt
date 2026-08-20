@@ -1,2 +1,2 @@
 car-connector-framework==4.0.3
-crowdstrike-falconpy==1.2.15
+crowdstrike-falconpy==1.6.5
