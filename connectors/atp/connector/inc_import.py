@@ -36,6 +36,7 @@ class IncrementalImport(BaseIncrementalImport):
 
         # asset and host catalog
         collection = context().data_collector.create_asset_host(incremental=True)
+        print(collection)
         if collection:
             self.handle_data([
                 'asset',
