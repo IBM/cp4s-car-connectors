@@ -4,12 +4,12 @@
             "frequency": {
                 "label": "Frequency",
                 "description": "Select how frequently this connection will pull data from the asset",
-                "optionLabels": {
-                    "4h"    : "4 hours",
-                    "6h"    : "6 hours",
-                    "12h"   : "12 hours",
-                    "daily" : "Daily"
-                }
+                "optionLabels": [
+                    "4 hours",
+                    "6 hours",
+                    "12 hours",
+                    "Daily"
+                ]
             },
             "time": {
                 "label": "Time (UTC)",
