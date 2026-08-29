@@ -1,0 +1,802 @@
+[
+    {
+        "pk": 1,
+        "address": "00:50:56:a6:e2:1e",
+        "asset": "http://127.0.0.1:8000/assets/1/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/1/"
+        ]
+    },
+    {
+        "pk": 2,
+        "address": "00:50:56:a6:e2:1f",
+        "asset": "http://127.0.0.1:8000/assets/2/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/2/"
+        ]
+    },
+    {
+        "pk": 3,
+        "address": "00:50:56:a6:e2:20",
+        "asset": "http://127.0.0.1:8000/assets/3/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/3/"
+        ]
+    },
+    {
+        "pk": 4,
+        "address": "00:50:56:a6:e2:21",
+        "asset": "http://127.0.0.1:8000/assets/4/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/4/"
+        ]
+    },
+    {
+        "pk": 5,
+        "address": "00:50:56:a6:e2:22",
+        "asset": "http://127.0.0.1:8000/assets/5/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/5/"
+        ]
+    },
+    {
+        "pk": 6,
+        "address": "00:50:56:a6:e2:23",
+        "asset": "http://127.0.0.1:8000/assets/6/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/6/"
+        ]
+    },
+    {
+        "pk": 7,
+        "address": "00:50:56:a6:e2:24",
+        "asset": "http://127.0.0.1:8000/assets/7/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/7/"
+        ]
+    },
+    {
+        "pk": 8,
+        "address": "00:50:56:a6:e2:25",
+        "asset": "http://127.0.0.1:8000/assets/8/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/8/"
+        ]
+    },
+    {
+        "pk": 9,
+        "address": "00:50:56:a6:e2:26",
+        "asset": "http://127.0.0.1:8000/assets/9/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/9/"
+        ]
+    },
+    {
+        "pk": 10,
+        "address": "00:50:56:a6:e2:27",
+        "asset": "http://127.0.0.1:8000/assets/10/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/10/"
+        ]
+    },
+    {
+        "pk": 11,
+        "address": "00:50:56:a6:e2:28",
+        "asset": "http://127.0.0.1:8000/assets/11/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/11/"
+        ]
+    },
+    {
+        "pk": 12,
+        "address": "00:50:56:a6:e2:29",
+        "asset": "http://127.0.0.1:8000/assets/12/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/12/"
+        ]
+    },
+    {
+        "pk": 13,
+        "address": "00:50:56:a6:e2:2a",
+        "asset": "http://127.0.0.1:8000/assets/13/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/13/"
+        ]
+    },
+    {
+        "pk": 14,
+        "address": "00:50:56:a6:e2:2b",
+        "asset": "http://127.0.0.1:8000/assets/14/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/14/"
+        ]
+    },
+    {
+        "pk": 15,
+        "address": "00:50:56:a6:e2:2c",
+        "asset": "http://127.0.0.1:8000/assets/15/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/15/"
+        ]
+    },
+    {
+        "pk": 16,
+        "address": "00:50:56:a6:e2:2d",
+        "asset": "http://127.0.0.1:8000/assets/16/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/16/"
+        ]
+    },
+    {
+        "pk": 17,
+        "address": "00:50:56:a6:e2:2e",
+        "asset": "http://127.0.0.1:8000/assets/17/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/17/"
+        ]
+    },
+    {
+        "pk": 18,
+        "address": "00:50:56:a6:e2:2f",
+        "asset": "http://127.0.0.1:8000/assets/18/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/18/"
+        ]
+    },
+    {
+        "pk": 19,
+        "address": "00:50:56:a6:e2:30",
+        "asset": "http://127.0.0.1:8000/assets/19/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/19/"
+        ]
+    },
+    {
+        "pk": 20,
+        "address": "00:50:56:a6:e2:31",
+        "asset": "http://127.0.0.1:8000/assets/20/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/20/"
+        ]
+    },
+    {
+        "pk": 21,
+        "address": "00:50:56:a6:e2:32",
+        "asset": "http://127.0.0.1:8000/assets/21/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/21/"
+        ]
+    },
+    {
+        "pk": 22,
+        "address": "00:50:56:a6:e2:33",
+        "asset": "http://127.0.0.1:8000/assets/22/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/22/"
+        ]
+    },
+    {
+        "pk": 23,
+        "address": "00:50:56:a6:e2:34",
+        "asset": "http://127.0.0.1:8000/assets/23/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/23/"
+        ]
+    },
+    {
+        "pk": 24,
+        "address": "00:50:56:a6:e2:35",
+        "asset": "http://127.0.0.1:8000/assets/24/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/24/"
+        ]
+    },
+    {
+        "pk": 25,
+        "address": "00:50:56:a6:e2:36",
+        "asset": "http://127.0.0.1:8000/assets/25/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/25/"
+        ]
+    },
+    {
+        "pk": 26,
+        "address": "00:50:56:a6:e2:37",
+        "asset": "http://127.0.0.1:8000/assets/26/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/26/"
+        ]
+    },
+    {
+        "pk": 27,
+        "address": "00:50:56:a6:e2:38",
+        "asset": "http://127.0.0.1:8000/assets/27/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/27/"
+        ]
+    },
+    {
+        "pk": 28,
+        "address": "00:50:56:a6:e2:39",
+        "asset": "http://127.0.0.1:8000/assets/28/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/28/"
+        ]
+    },
+    {
+        "pk": 29,
+        "address": "00:50:56:a6:e2:3a",
+        "asset": "http://127.0.0.1:8000/assets/29/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/29/"
+        ]
+    },
+    {
+        "pk": 30,
+        "address": "00:50:56:a6:e2:3b",
+        "asset": "http://127.0.0.1:8000/assets/30/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/30/"
+        ]
+    },
+    {
+        "pk": 31,
+        "address": "00:50:56:a6:e2:3c",
+        "asset": "http://127.0.0.1:8000/assets/31/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/31/"
+        ]
+    },
+    {
+        "pk": 32,
+        "address": "00:50:56:a6:e2:3d",
+        "asset": "http://127.0.0.1:8000/assets/32/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/32/"
+        ]
+    },
+    {
+        "pk": 33,
+        "address": "00:50:56:a6:e2:3e",
+        "asset": "http://127.0.0.1:8000/assets/33/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/33/"
+        ]
+    },
+    {
+        "pk": 34,
+        "address": "00:50:56:a6:e2:3f",
+        "asset": "http://127.0.0.1:8000/assets/34/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/34/"
+        ]
+    },
+    {
+        "pk": 35,
+        "address": "00:50:56:a6:e2:40",
+        "asset": "http://127.0.0.1:8000/assets/35/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/35/"
+        ]
+    },
+    {
+        "pk": 36,
+        "address": "00:50:56:a6:e2:41",
+        "asset": "http://127.0.0.1:8000/assets/36/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/36/"
+        ]
+    },
+    {
+        "pk": 37,
+        "address": "00:50:56:a6:e2:42",
+        "asset": "http://127.0.0.1:8000/assets/37/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/37/"
+        ]
+    },
+    {
+        "pk": 38,
+        "address": "00:50:56:a6:e2:43",
+        "asset": "http://127.0.0.1:8000/assets/38/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/38/"
+        ]
+    },
+    {
+        "pk": 39,
+        "address": "00:50:56:a6:e2:44",
+        "asset": "http://127.0.0.1:8000/assets/39/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/39/"
+        ]
+    },
+    {
+        "pk": 40,
+        "address": "00:50:56:a6:e2:45",
+        "asset": "http://127.0.0.1:8000/assets/40/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/40/"
+        ]
+    },
+    {
+        "pk": 41,
+        "address": "00:50:56:a6:e2:46",
+        "asset": "http://127.0.0.1:8000/assets/41/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/41/"
+        ]
+    },
+    {
+        "pk": 42,
+        "address": "00:50:56:a6:e2:47",
+        "asset": "http://127.0.0.1:8000/assets/42/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/42/"
+        ]
+    },
+    {
+        "pk": 43,
+        "address": "00:50:56:a6:e2:48",
+        "asset": "http://127.0.0.1:8000/assets/43/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/43/"
+        ]
+    },
+    {
+        "pk": 44,
+        "address": "00:50:56:a6:e2:49",
+        "asset": "http://127.0.0.1:8000/assets/44/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/44/"
+        ]
+    },
+    {
+        "pk": 45,
+        "address": "00:50:56:a6:e2:4a",
+        "asset": "http://127.0.0.1:8000/assets/45/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/45/"
+        ]
+    },
+    {
+        "pk": 46,
+        "address": "00:50:56:a6:e2:4b",
+        "asset": "http://127.0.0.1:8000/assets/46/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/46/"
+        ]
+    },
+    {
+        "pk": 47,
+        "address": "00:50:56:a6:e2:4c",
+        "asset": "http://127.0.0.1:8000/assets/47/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/47/"
+        ]
+    },
+    {
+        "pk": 48,
+        "address": "00:50:56:a6:e2:4d",
+        "asset": "http://127.0.0.1:8000/assets/48/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/48/"
+        ]
+    },
+    {
+        "pk": 49,
+        "address": "00:50:56:a6:e2:4e",
+        "asset": "http://127.0.0.1:8000/assets/49/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/49/"
+        ]
+    },
+    {
+        "pk": 50,
+        "address": "00:50:56:a6:e2:4f",
+        "asset": "http://127.0.0.1:8000/assets/50/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/50/"
+        ]
+    },
+    {
+        "pk": 51,
+        "address": "00:50:56:a6:e2:50",
+        "asset": "http://127.0.0.1:8000/assets/51/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/51/"
+        ]
+    },
+    {
+        "pk": 52,
+        "address": "00:50:56:a6:e2:51",
+        "asset": "http://127.0.0.1:8000/assets/52/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/52/"
+        ]
+    },
+    {
+        "pk": 53,
+        "address": "00:50:56:a6:e2:52",
+        "asset": "http://127.0.0.1:8000/assets/53/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/53/"
+        ]
+    },
+    {
+        "pk": 54,
+        "address": "00:50:56:a6:e2:53",
+        "asset": "http://127.0.0.1:8000/assets/54/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/54/"
+        ]
+    },
+    {
+        "pk": 55,
+        "address": "00:50:56:a6:e2:54",
+        "asset": "http://127.0.0.1:8000/assets/55/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/55/"
+        ]
+    },
+    {
+        "pk": 56,
+        "address": "00:50:56:a6:e2:55",
+        "asset": "http://127.0.0.1:8000/assets/56/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/56/"
+        ]
+    },
+    {
+        "pk": 57,
+        "address": "00:50:56:a6:e2:56",
+        "asset": "http://127.0.0.1:8000/assets/57/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/57/"
+        ]
+    },
+    {
+        "pk": 58,
+        "address": "00:50:56:a6:e2:57",
+        "asset": "http://127.0.0.1:8000/assets/58/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/58/"
+        ]
+    },
+    {
+        "pk": 59,
+        "address": "00:50:56:a6:e2:58",
+        "asset": "http://127.0.0.1:8000/assets/59/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/59/"
+        ]
+    },
+    {
+        "pk": 60,
+        "address": "00:50:56:a6:e2:59",
+        "asset": "http://127.0.0.1:8000/assets/60/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/60/"
+        ]
+    },
+    {
+        "pk": 61,
+        "address": "00:50:56:a6:e2:5a",
+        "asset": "http://127.0.0.1:8000/assets/61/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/61/"
+        ]
+    },
+    {
+        "pk": 62,
+        "address": "00:50:56:a6:e2:5b",
+        "asset": "http://127.0.0.1:8000/assets/62/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/62/"
+        ]
+    },
+    {
+        "pk": 63,
+        "address": "00:50:56:a6:e2:5c",
+        "asset": "http://127.0.0.1:8000/assets/63/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/63/"
+        ]
+    },
+    {
+        "pk": 64,
+        "address": "00:50:56:a6:e2:5d",
+        "asset": "http://127.0.0.1:8000/assets/64/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/64/"
+        ]
+    },
+    {
+        "pk": 65,
+        "address": "00:50:56:a6:e2:5e",
+        "asset": "http://127.0.0.1:8000/assets/65/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/65/"
+        ]
+    },
+    {
+        "pk": 66,
+        "address": "00:50:56:a6:e2:5f",
+        "asset": "http://127.0.0.1:8000/assets/66/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/66/"
+        ]
+    },
+    {
+        "pk": 67,
+        "address": "00:50:56:a6:e2:60",
+        "asset": "http://127.0.0.1:8000/assets/67/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/67/"
+        ]
+    },
+    {
+        "pk": 68,
+        "address": "00:50:56:a6:e2:61",
+        "asset": "http://127.0.0.1:8000/assets/68/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/68/"
+        ]
+    },
+    {
+        "pk": 69,
+        "address": "00:50:56:a6:e2:62",
+        "asset": "http://127.0.0.1:8000/assets/69/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/69/"
+        ]
+    },
+    {
+        "pk": 70,
+        "address": "00:50:56:a6:e2:63",
+        "asset": "http://127.0.0.1:8000/assets/70/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/70/"
+        ]
+    },
+    {
+        "pk": 71,
+        "address": "00:50:56:a6:e2:64",
+        "asset": "http://127.0.0.1:8000/assets/71/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/71/"
+        ]
+    },
+    {
+        "pk": 72,
+        "address": "00:50:56:a6:e2:65",
+        "asset": "http://127.0.0.1:8000/assets/72/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/72/"
+        ]
+    },
+    {
+        "pk": 73,
+        "address": "00:50:56:a6:e2:66",
+        "asset": "http://127.0.0.1:8000/assets/73/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/73/"
+        ]
+    },
+    {
+        "pk": 74,
+        "address": "00:50:56:a6:e2:67",
+        "asset": "http://127.0.0.1:8000/assets/74/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/74/"
+        ]
+    },
+    {
+        "pk": 75,
+        "address": "00:50:56:a6:e2:68",
+        "asset": "http://127.0.0.1:8000/assets/75/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/75/"
+        ]
+    },
+    {
+        "pk": 76,
+        "address": "00:50:56:a6:e2:69",
+        "asset": "http://127.0.0.1:8000/assets/76/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/76/"
+        ]
+    },
+    {
+        "pk": 77,
+        "address": "00:50:56:a6:e2:6a",
+        "asset": "http://127.0.0.1:8000/assets/77/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/77/"
+        ]
+    },
+    {
+        "pk": 78,
+        "address": "00:50:56:a6:e2:6b",
+        "asset": "http://127.0.0.1:8000/assets/78/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/78/"
+        ]
+    },
+    {
+        "pk": 79,
+        "address": "00:50:56:a6:e2:6c",
+        "asset": "http://127.0.0.1:8000/assets/79/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/79/"
+        ]
+    },
+    {
+        "pk": 80,
+        "address": "00:50:56:a6:e2:6d",
+        "asset": "http://127.0.0.1:8000/assets/80/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/80/"
+        ]
+    },
+    {
+        "pk": 81,
+        "address": "00:50:56:a6:e2:6e",
+        "asset": "http://127.0.0.1:8000/assets/81/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/81/"
+        ]
+    },
+    {
+        "pk": 82,
+        "address": "00:50:56:a6:e2:6f",
+        "asset": "http://127.0.0.1:8000/assets/82/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/82/"
+        ]
+    },
+    {
+        "pk": 83,
+        "address": "00:50:56:a6:e2:70",
+        "asset": "http://127.0.0.1:8000/assets/83/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/83/"
+        ]
+    },
+    {
+        "pk": 84,
+        "address": "00:50:56:a6:e2:71",
+        "asset": "http://127.0.0.1:8000/assets/84/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/84/"
+        ]
+    },
+    {
+        "pk": 85,
+        "address": "00:50:56:a6:e2:72",
+        "asset": "http://127.0.0.1:8000/assets/85/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/85/"
+        ]
+    },
+    {
+        "pk": 86,
+        "address": "00:50:56:a6:e2:73",
+        "asset": "http://127.0.0.1:8000/assets/86/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/86/"
+        ]
+    },
+    {
+        "pk": 87,
+        "address": "00:50:56:a6:e2:74",
+        "asset": "http://127.0.0.1:8000/assets/87/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/87/"
+        ]
+    },
+    {
+        "pk": 88,
+        "address": "00:50:56:a6:e2:75",
+        "asset": "http://127.0.0.1:8000/assets/88/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/88/"
+        ]
+    },
+    {
+        "pk": 89,
+        "address": "00:50:56:a6:e2:76",
+        "asset": "http://127.0.0.1:8000/assets/89/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/89/"
+        ]
+    },
+    {
+        "pk": 90,
+        "address": "00:50:56:a6:e2:77",
+        "asset": "http://127.0.0.1:8000/assets/90/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/90/"
+        ]
+    },
+    {
+        "pk": 91,
+        "address": "00:50:56:a6:e2:78",
+        "asset": "http://127.0.0.1:8000/assets/91/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/91/"
+        ]
+    },
+    {
+        "pk": 92,
+        "address": "00:50:56:a6:e2:79",
+        "asset": "http://127.0.0.1:8000/assets/92/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/92/"
+        ]
+    },
+    {
+        "pk": 93,
+        "address": "00:50:56:a6:e2:7a",
+        "asset": "http://127.0.0.1:8000/assets/93/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/93/"
+        ]
+    },
+    {
+        "pk": 94,
+        "address": "00:50:56:a6:e2:7b",
+        "asset": "http://127.0.0.1:8000/assets/94/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/94/"
+        ]
+    },
+    {
+        "pk": 95,
+        "address": "00:50:56:a6:e2:7c",
+        "asset": "http://127.0.0.1:8000/assets/95/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/95/"
+        ]
+    },
+    {
+        "pk": 96,
+        "address": "00:50:56:a6:e2:7d",
+        "asset": "http://127.0.0.1:8000/assets/96/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/96/"
+        ]
+    },
+    {
+        "pk": 97,
+        "address": "00:50:56:a6:e2:7e",
+        "asset": "http://127.0.0.1:8000/assets/97/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/97/"
+        ]
+    },
+    {
+        "pk": 98,
+        "address": "00:50:56:a6:e2:7f",
+        "asset": "http://127.0.0.1:8000/assets/98/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/98/"
+        ]
+    },
+    {
+        "pk": 99,
+        "address": "00:50:56:a6:e2:80",
+        "asset": "http://127.0.0.1:8000/assets/99/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/99/"
+        ]
+    },
+    {
+        "pk": 100,
+        "address": "00:50:56:a6:e2:81",
+        "asset": "http://127.0.0.1:8000/assets/100/",
+        "ip_addresses": [
+            "http://127.0.0.1:8000/ip_addresses/100/"
+        ]
+    }
+]

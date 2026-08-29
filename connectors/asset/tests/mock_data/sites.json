@@ -1,0 +1,12 @@
+[
+    {
+        "pk": 1,
+        "name": "Ottawa",
+        "address": "100 Main St, Ottawa"
+    },
+    {
+        "pk": 2,
+        "name": "Markham",
+        "address": "200 Main St, Markham"
+    }
+]

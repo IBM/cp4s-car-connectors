@@ -1,0 +1,1102 @@
+[
+    {
+      "pk": 1,
+      "name": "asset0.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/1/",
+        "http://127.0.0.1:8000/vulnerabilities/2/"
+      ]
+    },
+    {
+      "pk": 2,
+      "name": "asset1.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/3/",
+        "http://127.0.0.1:8000/vulnerabilities/4/"
+      ]
+    },
+    {
+      "pk": 3,
+      "name": "asset2.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/5/",
+        "http://127.0.0.1:8000/vulnerabilities/6/"
+      ]
+    },
+    {
+      "pk": 4,
+      "name": "asset3.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/7/",
+        "http://127.0.0.1:8000/vulnerabilities/8/"
+      ]
+    },
+    {
+      "pk": 5,
+      "name": "asset4.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/9/",
+        "http://127.0.0.1:8000/vulnerabilities/10/"
+      ]
+    },
+    {
+      "pk": 6,
+      "name": "asset5.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/11/",
+        "http://127.0.0.1:8000/vulnerabilities/12/"
+      ]
+    },
+    {
+      "pk": 7,
+      "name": "asset6.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/13/",
+        "http://127.0.0.1:8000/vulnerabilities/14/"
+      ]
+    },
+    {
+      "pk": 8,
+      "name": "asset7.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/15/",
+        "http://127.0.0.1:8000/vulnerabilities/16/"
+      ]
+    },
+    {
+      "pk": 9,
+      "name": "asset8.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/17/",
+        "http://127.0.0.1:8000/vulnerabilities/18/"
+      ]
+    },
+    {
+      "pk": 10,
+      "name": "asset9.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/19/",
+        "http://127.0.0.1:8000/vulnerabilities/20/"
+      ]
+    },
+    {
+      "pk": 11,
+      "name": "asset10.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/21/",
+        "http://127.0.0.1:8000/vulnerabilities/22/"
+      ]
+    },
+    {
+      "pk": 12,
+      "name": "asset11.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/23/",
+        "http://127.0.0.1:8000/vulnerabilities/24/"
+      ]
+    },
+    {
+      "pk": 13,
+      "name": "asset12.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/25/",
+        "http://127.0.0.1:8000/vulnerabilities/26/"
+      ]
+    },
+    {
+      "pk": 14,
+      "name": "asset13.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/27/",
+        "http://127.0.0.1:8000/vulnerabilities/28/"
+      ]
+    },
+    {
+      "pk": 15,
+      "name": "asset14.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/29/",
+        "http://127.0.0.1:8000/vulnerabilities/30/"
+      ]
+    },
+    {
+      "pk": 16,
+      "name": "asset15.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/31/",
+        "http://127.0.0.1:8000/vulnerabilities/32/"
+      ]
+    },
+    {
+      "pk": 17,
+      "name": "asset16.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/33/",
+        "http://127.0.0.1:8000/vulnerabilities/34/"
+      ]
+    },
+    {
+      "pk": 18,
+      "name": "asset17.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/35/",
+        "http://127.0.0.1:8000/vulnerabilities/36/"
+      ]
+    },
+    {
+      "pk": 19,
+      "name": "asset18.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/37/",
+        "http://127.0.0.1:8000/vulnerabilities/38/"
+      ]
+    },
+    {
+      "pk": 20,
+      "name": "asset19.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/39/",
+        "http://127.0.0.1:8000/vulnerabilities/40/"
+      ]
+    },
+    {
+      "pk": 21,
+      "name": "asset20.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/41/",
+        "http://127.0.0.1:8000/vulnerabilities/42/"
+      ]
+    },
+    {
+      "pk": 22,
+      "name": "asset21.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/43/",
+        "http://127.0.0.1:8000/vulnerabilities/44/"
+      ]
+    },
+    {
+      "pk": 23,
+      "name": "asset22.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/45/",
+        "http://127.0.0.1:8000/vulnerabilities/46/"
+      ]
+    },
+    {
+      "pk": 24,
+      "name": "asset23.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/47/",
+        "http://127.0.0.1:8000/vulnerabilities/48/"
+      ]
+    },
+    {
+      "pk": 25,
+      "name": "asset24.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/49/",
+        "http://127.0.0.1:8000/vulnerabilities/50/"
+      ]
+    },
+    {
+      "pk": 26,
+      "name": "asset25.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/51/",
+        "http://127.0.0.1:8000/vulnerabilities/52/"
+      ]
+    },
+    {
+      "pk": 27,
+      "name": "asset26.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/53/",
+        "http://127.0.0.1:8000/vulnerabilities/54/"
+      ]
+    },
+    {
+      "pk": 28,
+      "name": "asset27.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/55/",
+        "http://127.0.0.1:8000/vulnerabilities/56/"
+      ]
+    },
+    {
+      "pk": 29,
+      "name": "asset28.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/57/",
+        "http://127.0.0.1:8000/vulnerabilities/58/"
+      ]
+    },
+    {
+      "pk": 30,
+      "name": "asset29.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/59/",
+        "http://127.0.0.1:8000/vulnerabilities/60/"
+      ]
+    },
+    {
+      "pk": 31,
+      "name": "asset30.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/61/",
+        "http://127.0.0.1:8000/vulnerabilities/62/"
+      ]
+    },
+    {
+      "pk": 32,
+      "name": "asset31.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/63/",
+        "http://127.0.0.1:8000/vulnerabilities/64/"
+      ]
+    },
+    {
+      "pk": 33,
+      "name": "asset32.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/65/",
+        "http://127.0.0.1:8000/vulnerabilities/66/"
+      ]
+    },
+    {
+      "pk": 34,
+      "name": "asset33.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/67/",
+        "http://127.0.0.1:8000/vulnerabilities/68/"
+      ]
+    },
+    {
+      "pk": 35,
+      "name": "asset34.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/69/",
+        "http://127.0.0.1:8000/vulnerabilities/70/"
+      ]
+    },
+    {
+      "pk": 36,
+      "name": "asset35.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/71/",
+        "http://127.0.0.1:8000/vulnerabilities/72/"
+      ]
+    },
+    {
+      "pk": 37,
+      "name": "asset36.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/73/",
+        "http://127.0.0.1:8000/vulnerabilities/74/"
+      ]
+    },
+    {
+      "pk": 38,
+      "name": "asset37.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/75/",
+        "http://127.0.0.1:8000/vulnerabilities/76/"
+      ]
+    },
+    {
+      "pk": 39,
+      "name": "asset38.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/77/",
+        "http://127.0.0.1:8000/vulnerabilities/78/"
+      ]
+    },
+    {
+      "pk": 40,
+      "name": "asset39.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/79/",
+        "http://127.0.0.1:8000/vulnerabilities/80/"
+      ]
+    },
+    {
+      "pk": 41,
+      "name": "asset40.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/81/",
+        "http://127.0.0.1:8000/vulnerabilities/82/"
+      ]
+    },
+    {
+      "pk": 42,
+      "name": "asset41.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/83/",
+        "http://127.0.0.1:8000/vulnerabilities/84/"
+      ]
+    },
+    {
+      "pk": 43,
+      "name": "asset42.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/85/",
+        "http://127.0.0.1:8000/vulnerabilities/86/"
+      ]
+    },
+    {
+      "pk": 44,
+      "name": "asset43.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/87/",
+        "http://127.0.0.1:8000/vulnerabilities/88/"
+      ]
+    },
+    {
+      "pk": 45,
+      "name": "asset44.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/89/",
+        "http://127.0.0.1:8000/vulnerabilities/90/"
+      ]
+    },
+    {
+      "pk": 46,
+      "name": "asset45.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/91/",
+        "http://127.0.0.1:8000/vulnerabilities/92/"
+      ]
+    },
+    {
+      "pk": 47,
+      "name": "asset46.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/93/",
+        "http://127.0.0.1:8000/vulnerabilities/94/"
+      ]
+    },
+    {
+      "pk": 48,
+      "name": "asset47.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/95/",
+        "http://127.0.0.1:8000/vulnerabilities/96/"
+      ]
+    },
+    {
+      "pk": 49,
+      "name": "asset48.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/97/",
+        "http://127.0.0.1:8000/vulnerabilities/98/"
+      ]
+    },
+    {
+      "pk": 50,
+      "name": "asset49.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/99/",
+        "http://127.0.0.1:8000/vulnerabilities/100/"
+      ]
+    },
+    {
+      "pk": 51,
+      "name": "asset50.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/101/",
+        "http://127.0.0.1:8000/vulnerabilities/102/"
+      ]
+    },
+    {
+      "pk": 52,
+      "name": "asset51.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/103/",
+        "http://127.0.0.1:8000/vulnerabilities/104/"
+      ]
+    },
+    {
+      "pk": 53,
+      "name": "asset52.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/105/",
+        "http://127.0.0.1:8000/vulnerabilities/106/"
+      ]
+    },
+    {
+      "pk": 54,
+      "name": "asset53.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/107/",
+        "http://127.0.0.1:8000/vulnerabilities/108/"
+      ]
+    },
+    {
+      "pk": 55,
+      "name": "asset54.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/109/",
+        "http://127.0.0.1:8000/vulnerabilities/110/"
+      ]
+    },
+    {
+      "pk": 56,
+      "name": "asset55.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/111/",
+        "http://127.0.0.1:8000/vulnerabilities/112/"
+      ]
+    },
+    {
+      "pk": 57,
+      "name": "asset56.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/113/",
+        "http://127.0.0.1:8000/vulnerabilities/114/"
+      ]
+    },
+    {
+      "pk": 58,
+      "name": "asset57.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/115/",
+        "http://127.0.0.1:8000/vulnerabilities/116/"
+      ]
+    },
+    {
+      "pk": 59,
+      "name": "asset58.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/117/",
+        "http://127.0.0.1:8000/vulnerabilities/118/"
+      ]
+    },
+    {
+      "pk": 60,
+      "name": "asset59.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/119/",
+        "http://127.0.0.1:8000/vulnerabilities/120/"
+      ]
+    },
+    {
+      "pk": 61,
+      "name": "asset60.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/121/",
+        "http://127.0.0.1:8000/vulnerabilities/122/"
+      ]
+    },
+    {
+      "pk": 62,
+      "name": "asset61.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/123/",
+        "http://127.0.0.1:8000/vulnerabilities/124/"
+      ]
+    },
+    {
+      "pk": 63,
+      "name": "asset62.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/125/",
+        "http://127.0.0.1:8000/vulnerabilities/126/"
+      ]
+    },
+    {
+      "pk": 64,
+      "name": "asset63.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/127/",
+        "http://127.0.0.1:8000/vulnerabilities/128/"
+      ]
+    },
+    {
+      "pk": 65,
+      "name": "asset64.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/129/",
+        "http://127.0.0.1:8000/vulnerabilities/130/"
+      ]
+    },
+    {
+      "pk": 66,
+      "name": "asset65.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/131/",
+        "http://127.0.0.1:8000/vulnerabilities/132/"
+      ]
+    },
+    {
+      "pk": 67,
+      "name": "asset66.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/133/",
+        "http://127.0.0.1:8000/vulnerabilities/134/"
+      ]
+    },
+    {
+      "pk": 68,
+      "name": "asset67.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/135/",
+        "http://127.0.0.1:8000/vulnerabilities/136/"
+      ]
+    },
+    {
+      "pk": 69,
+      "name": "asset68.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/137/",
+        "http://127.0.0.1:8000/vulnerabilities/138/"
+      ]
+    },
+    {
+      "pk": 70,
+      "name": "asset69.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/139/",
+        "http://127.0.0.1:8000/vulnerabilities/140/"
+      ]
+    },
+    {
+      "pk": 71,
+      "name": "asset70.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/141/",
+        "http://127.0.0.1:8000/vulnerabilities/142/"
+      ]
+    },
+    {
+      "pk": 72,
+      "name": "asset71.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/143/",
+        "http://127.0.0.1:8000/vulnerabilities/144/"
+      ]
+    },
+    {
+      "pk": 73,
+      "name": "asset72.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/145/",
+        "http://127.0.0.1:8000/vulnerabilities/146/"
+      ]
+    },
+    {
+      "pk": 74,
+      "name": "asset73.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/147/",
+        "http://127.0.0.1:8000/vulnerabilities/148/"
+      ]
+    },
+    {
+      "pk": 75,
+      "name": "asset74.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/149/",
+        "http://127.0.0.1:8000/vulnerabilities/150/"
+      ]
+    },
+    {
+      "pk": 76,
+      "name": "asset75.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/151/",
+        "http://127.0.0.1:8000/vulnerabilities/152/"
+      ]
+    },
+    {
+      "pk": 77,
+      "name": "asset76.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/153/",
+        "http://127.0.0.1:8000/vulnerabilities/154/"
+      ]
+    },
+    {
+      "pk": 78,
+      "name": "asset77.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/155/",
+        "http://127.0.0.1:8000/vulnerabilities/156/"
+      ]
+    },
+    {
+      "pk": 79,
+      "name": "asset78.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/157/",
+        "http://127.0.0.1:8000/vulnerabilities/158/"
+      ]
+    },
+    {
+      "pk": 80,
+      "name": "asset79.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/159/",
+        "http://127.0.0.1:8000/vulnerabilities/160/"
+      ]
+    },
+    {
+      "pk": 81,
+      "name": "asset80.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/161/",
+        "http://127.0.0.1:8000/vulnerabilities/162/"
+      ]
+    },
+    {
+      "pk": 82,
+      "name": "asset81.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/163/",
+        "http://127.0.0.1:8000/vulnerabilities/164/"
+      ]
+    },
+    {
+      "pk": 83,
+      "name": "asset82.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/165/",
+        "http://127.0.0.1:8000/vulnerabilities/166/"
+      ]
+    },
+    {
+      "pk": 84,
+      "name": "asset83.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/167/",
+        "http://127.0.0.1:8000/vulnerabilities/168/"
+      ]
+    },
+    {
+      "pk": 85,
+      "name": "asset84.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/169/",
+        "http://127.0.0.1:8000/vulnerabilities/170/"
+      ]
+    },
+    {
+      "pk": 86,
+      "name": "asset85.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/171/",
+        "http://127.0.0.1:8000/vulnerabilities/172/"
+      ]
+    },
+    {
+      "pk": 87,
+      "name": "asset86.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/173/",
+        "http://127.0.0.1:8000/vulnerabilities/174/"
+      ]
+    },
+    {
+      "pk": 88,
+      "name": "asset87.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/175/",
+        "http://127.0.0.1:8000/vulnerabilities/176/"
+      ]
+    },
+    {
+      "pk": 89,
+      "name": "asset88.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/177/",
+        "http://127.0.0.1:8000/vulnerabilities/178/"
+      ]
+    },
+    {
+      "pk": 90,
+      "name": "asset89.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/179/",
+        "http://127.0.0.1:8000/vulnerabilities/180/"
+      ]
+    },
+    {
+      "pk": 91,
+      "name": "asset90.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/181/",
+        "http://127.0.0.1:8000/vulnerabilities/182/"
+      ]
+    },
+    {
+      "pk": 92,
+      "name": "asset91.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/183/",
+        "http://127.0.0.1:8000/vulnerabilities/184/"
+      ]
+    },
+    {
+      "pk": 93,
+      "name": "asset92.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/185/",
+        "http://127.0.0.1:8000/vulnerabilities/186/"
+      ]
+    },
+    {
+      "pk": 94,
+      "name": "asset93.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/187/",
+        "http://127.0.0.1:8000/vulnerabilities/188/"
+      ]
+    },
+    {
+      "pk": 95,
+      "name": "asset94.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/189/",
+        "http://127.0.0.1:8000/vulnerabilities/190/"
+      ]
+    },
+    {
+      "pk": 96,
+      "name": "asset95.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/191/",
+        "http://127.0.0.1:8000/vulnerabilities/192/"
+      ]
+    },
+    {
+      "pk": 97,
+      "name": "asset96.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/193/",
+        "http://127.0.0.1:8000/vulnerabilities/194/"
+      ]
+    },
+    {
+      "pk": 98,
+      "name": "asset97.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/195/",
+        "http://127.0.0.1:8000/vulnerabilities/196/"
+      ]
+    },
+    {
+      "pk": 99,
+      "name": "asset98.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/1/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/197/",
+        "http://127.0.0.1:8000/vulnerabilities/198/"
+      ]
+    },
+    {
+      "pk": 100,
+      "name": "asset99.domain.com",
+      "type": "Other",
+      "initial_value": 2000,
+      "site": "http://127.0.0.1:8000/sites/2/",
+      "vulnerabilities": [
+        "http://127.0.0.1:8000/vulnerabilities/199/",
+        "http://127.0.0.1:8000/vulnerabilities/200/"
+      ]
+    }
+]

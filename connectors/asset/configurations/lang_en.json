@@ -1,0 +1,11 @@
+{
+    "connection": {
+        "host": {
+            "label": "JSON file URL",
+            "description": "Data source URL"
+        }
+    },
+    "configuration": {
+
+    }
+}

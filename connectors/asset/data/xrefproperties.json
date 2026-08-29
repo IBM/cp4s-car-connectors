@@ -1,0 +1,20 @@
+[
+    {
+        "pk": 1,
+        "extref_typename": "xref prop 0",
+        "extref_value": "1000",
+        "q_extref_typeid": 20
+    },
+    {
+        "pk": 2,
+        "extref_typename": "xref prop 1",
+        "extref_value": "1001",
+        "q_extref_typeid": 21
+    },
+    {
+        "pk": 3,
+        "extref_typename": "xref prop 2",
+        "extref_value": "1002",
+        "q_extref_typeid": 22
+    }
+]

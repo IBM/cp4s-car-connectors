@@ -1,0 +1,15 @@
+{
+    "connection": {
+        "type": {
+            "type": "connectorType",
+            "displayName": "Asset Bundle Importer",
+            "group": "Asset Bundle"
+        },
+        "host": {
+            "type": "text"
+        }
+    },
+    "configuration": {
+
+    }
+}
