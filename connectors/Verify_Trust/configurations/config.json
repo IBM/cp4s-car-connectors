@@ -1,0 +1,31 @@
+{
+    "connection": {
+        "schedule": {
+            "default": "* */1 * * *",
+            "type": "cron",
+            "previous": ["frequency", "time"],
+            "options": ["0 */4 * * *", "0 */6 * * *", "0 */12 * * *", "mm HH * * *"]
+        },
+        "type": {
+            "type": "connectorType",
+            "displayName": "Verify Trust"
+        }
+    },
+    "configuration": {
+        "auth": {
+            "type": "fields",
+            "subscription_id": {
+                "type": "password"
+            },
+            "tenant_id": {
+                "type": "password"
+            },
+            "client_id": {
+                "type": "password"
+            },
+            "client_secret": {
+                "type": "password"
+            }
+        }
+    }
+}

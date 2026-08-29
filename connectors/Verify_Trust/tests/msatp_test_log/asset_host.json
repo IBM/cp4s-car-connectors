@@ -1,0 +1,83 @@
+{
+	"asset_hostname": [{
+		"_from_external_id": "7594a7860caaf0bdb5a3b68c341773bf004e3e14",
+		"_to": "hostname/bigfixsrv.centralus.cloudapp.azure.com",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "fc0842373e54e76f5c55830e47526f6f1c187be6",
+		"_to": "hostname/car-dev-win",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "db0519092c1c48ef5dc2f8ef75c09484599e7ed1",
+		"_to": "hostname/lp-5cd84714sc.hclt.corp.hcl.in",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "babec47c12ad732b595e803c3320cc32aa26af33",
+		"_to": "hostname/lp-5cd84714zn.hclt.corp.hcl.in",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "bfdad32d3e388b29a38a8eec37aa6b6e7aeacb37",
+		"_to": "hostname/win10-desktop",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "8330ed311f1b21b861d63448984eb2632cc9c07c",
+		"_to": "hostname/desktop-536bt46",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "805bcf8694ea7740b9b4f75c64c810e1e9c435c2",
+		"_to": "hostname/latest-test-vm",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "db40e68dd7358aa450081343587941ce96ca4777",
+		"_to": "hostname/testmachine1",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}, {
+		"_from_external_id": "4e707cc3946505b6220450937f41e953acbdb5ab",
+		"_to": "hostname/test-win-del",
+		"report": "1572527476829",
+		"source": "Microsoft-Windows-Defender-ATP",
+		"active": true,
+		"timestamp": 1572527476829
+	}],
+	"report": {
+		"_key": "1572527476829",
+		"timestamp": 1572527476829,
+		"type": "MS ATP",
+		"description": "Microsoft Windows Defender ATP imports"
+	},
+	"source": {
+		"_key": "Microsoft-Windows-Defender-ATP",
+		"description": "reports coming from source Microsoft-Windows-Defender-ATP",
+		"product_link": "https://securitycenter.windows.com/"
+	},
+	"source_report": [{
+		"_from": "source/Microsoft-Windows-Defender-ATP",
+		"_to": "report/1572527476829",
+		"timestamp": 1572527476829,
+		"active": true
+	}]
+}

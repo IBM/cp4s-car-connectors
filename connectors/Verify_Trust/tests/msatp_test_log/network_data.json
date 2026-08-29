@@ -1,0 +1,27 @@
+{
+	"network_update": [{
+		"id": "db0519092c1c48ef5dc2f8ef75c09484599e7ed1",
+		"computerDnsName": "lp-5cd84714sc.hclt.corp.hcl.in",
+		"firstSeen": "2019-10-28T14:00:40.108937Z",
+		"lastSeen": "2019-11-13T06:08:58.2820479Z",
+		"osPlatform": "Windows10",
+		"osVersion": null,
+		"osProcessor": "x64",
+		"version": "1803",
+		"lastIpAddress": ["192.168.56.1", "fe80::4559:d20f:f49c:a95d", "52.173.252.169"],
+		"lastExternalIpAddress": "106.208.43.255",
+		"agentVersion": "10.4860.17134.1038",
+		"osBuild": 17134,
+		"healthStatus": "Active",
+		"rbacGroupId": 0,
+		"rbacGroupName": null,
+		"riskScore": "None",
+		"exposureLevel": "Medium",
+		"aadDeviceId": null,
+		"machineTags": [],
+		"MacAddress": "000D3A41C7D4"
+	}],
+	"ipaddress_list": ["10.0.0.16", "fe80::4559:d20f:f49c:a95d", "52.173.252.169"],
+	"macaddress_list": ["000D3A41C7D4"]
+}
+

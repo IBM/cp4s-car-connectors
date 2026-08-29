@@ -25,7 +25,11 @@ class DataHandler(BaseDataHandler):
         if obj:
             asset['external_id'] = obj['id']
             asset['name'] = obj['computerDnsName']
-
+            asset['os'] = obj['osPlatform']
+            asset['os_version'] = obj['version']
+            asset['os_architecture'] = obj['osArchitecture']
+            if obj['aadDeviceId']:
+                asset['ad_device_id'] = obj['aadDeviceId']
             self.add_collection('asset', asset, 'external_id')
 
     def handle_ipaddress(self, obj):

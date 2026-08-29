@@ -1,0 +1,31 @@
+{
+	"@odata.context": "https://api.securitycenter.windows.com/api/$metadata#Users",
+	"value": [{
+		"id": "bigfixsrv\\devadmin",
+		"accountName": "devadmin",
+		"accountDomain": "bigfixsrv",
+		"accountSid": null,
+		"firstSeen": "2019-10-30T06:32:45Z",
+		"lastSeen": "2019-11-01T11:56:21Z",
+		"mostPrevalentMachineId": null,
+		"leastPrevalentMachineId": null,
+		"logonTypes": "Network, RemoteInteractive",
+		"logOnMachinesCount": 3,
+		"isDomainAdmin": true,
+		"isOnlyNetworkUser": null
+	},
+	{
+		"id": "bigfixsrv\\devadmin",
+		"accountName": "admin",
+		"accountDomain": "bigfixsrv",
+		"accountSid": null,
+		"firstSeen": "2019-10-30T06:32:45Z",
+		"lastSeen": "2019-11-01T11:56:21Z",
+		"mostPrevalentMachineId": null,
+		"leastPrevalentMachineId": null,
+		"logonTypes": "Network, RemoteInteractive",
+		"logOnMachinesCount": 3,
+		"isDomainAdmin": true,
+		"isOnlyNetworkUser": null
+	}]
+}

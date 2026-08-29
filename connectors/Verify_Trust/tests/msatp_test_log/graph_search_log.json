@@ -1,0 +1,171 @@
+{
+  "result": {
+    "_key": "null:118306311",
+    "_id": "asset/null:118306311",
+    "_rev": "_ZY8xIXW--G",
+    "car_shard": "null",
+    "description": "VM Image details: UbuntuServer-18.04-LTS",
+    "external_id":
+      "MS-Azure-TestRun:/subscriptions/083de1fb-cd2d-4b7c-895a-2b5af1d091e8/resourcegroups/eastus/providers/microsoft.compute/virtualmachines/eastus-ubuntu-srv",
+    "name": "eastUS-ubuntu-srv",
+    "source": "Microsoft-Windows-Defender-ATP",
+    "score_sum": 0,
+    "vulns_number": 0,
+    "risk": 0
+  },
+  "related": [
+    {
+      "node": {
+        "_key": "null:118306350",
+        "_id": "vulnerability/null:118306350",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null",
+        "external_id": "vuln1",
+        "name": "vuln1",
+        "source": "Microsoft-Windows-Defender-ATP"
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_vulnerability/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "vulnerability/null:118306350",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    },
+     {
+      "node": {
+        "_key": "192.168.56.1",
+        "_id": "ipaddress/192.168.56.1",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null"
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_ipaddress/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "ipaddress/192.168.56.1",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    },
+         {
+      "node": {
+        "_key": "fe80::4559:d20f:f49c:a95dfg",
+        "_id": "ipaddress/fe80::4559:d20f:f49c:a95dfg",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null"
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_ipaddress/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "ipaddress/fe80::4559:d20f:f49c:a95dfg",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    },
+         {
+      "node": {
+        "_key": "ipaddress/null:118306350",
+        "_id": "ipaddress/null:118306350",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null",
+        "external_id": [
+          "MS-Azure-TestRun:undefined"
+        ],
+        "key": "fe80::4559:d20f:f49c:a95dfg",
+        "source": [
+          "MS-Azure-TestRun"
+        ]
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_ipaddress/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "ipaddress/null:118306350",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "MS-Azure-TestRun",
+        "timestamp": 1570610297579
+      }
+    },
+    {
+      "node": {
+        "_key": "00:00:00:05:1a:7e",
+        "_id": "macaddress/00:00:00:05:1a:7e",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null"
+
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_macaddress/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "macaddress/00:00:00:05:1a:7e",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    },
+    {
+      "node": {
+        "_key": "user/null:118306350",
+        "_id": "user/null:118306350",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null",
+        "external_id": "devadmin",
+        "source": "Microsoft-Windows-Defender-ATP"
+
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_user/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "user/null:118306350",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    },
+    {
+      "node": {
+        "_key": "user/null:118306350",
+        "_id": "user/null:118306350",
+        "_rev": "_ZY8w97O--E",
+        "car_shard": "null",
+        "external_id": [
+          "MS-Azure-TestRun:undefined"
+        ],
+        "key": "devadmin",
+        "source":"Microsoft-Windows-Defender-ATP"
+
+      },
+      "link": {
+        "_key": "null:113499000:null",
+        "_id": "asset_user/null:113499000:null",
+        "_from": "asset/null:118306311",
+        "_to": "user/null:118306350",
+        "_rev": "_ZY8xH9e--H",
+        "active": true,
+        "report": "1570610297579",
+        "source": "Microsoft-Windows-Defender-ATP",
+        "timestamp": 1570610297579
+      }
+    }
+  ]
+}
